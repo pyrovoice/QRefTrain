@@ -1,0 +1,126 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: Verdana;
+    font-size: medium;
+}
+
+/* Set padding to keep content from hitting the edges 
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}  */
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */ 
+input,
+select,
+textarea {
+    max-width: 280px;
+} 
+
+/*==========================Shared========================*/
+
+.field-validation-error {
+    color: red;
+}
+
+
+
+/*============================Top layer===============================*/
+.topRightLink {
+    float: right ;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px
+}
+
+.topRightImage {
+    float: right;
+}
+
+/*================================Quiz=================================*/
+
+.QuizzQuestion {
+    margin: auto;
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.QuizzQuestionTitle {
+    font-size: large;
+    text-decoration:underline;
+    text-align:left;
+    padding-bottom:20px;
+}
+
+.QuizzQuestiontext {
+    font-size: medium;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.QuizzQuestionVideo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.QuizzQuestionVideoContainer {
+    position: relative;
+    width: 669px;
+    height: 376px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.RadioButtonAnswer {
+    font-size: medium;
+}
+.RadioButtonAnswers {
+    text-align: center;
+    padding-top: 30px;
+}
+
+/*================================hiddenInformations=================================*/
+.hiddenInformations{
+    display:none;
+}
+/*======================================================Profile==========================================*/
+.small-table {
+    max-width: 50%;
+}
+
+.small-title {
+    font-size: medium;
+    font-weight:bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*======================================================Result Detail===============================================*/
+.goodAnswer {
+    background-color: lightgreen;
+    margin-bottom: 5px;
+} 
+
+.badAnswer {
+    background-color: #FF6464;
+    margin-bottom: 5px;
+}
+ 
+.table-striped th {
+    text-align: center
+}
+
+.table-striped td{
+    text-align:center
+}
+
+

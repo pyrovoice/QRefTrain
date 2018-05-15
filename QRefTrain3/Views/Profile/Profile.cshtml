@@ -1,0 +1,36 @@
+﻿@model List<QRefTrain3.Models.Result>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+
+    <div class="small-title">Your last ten results</div>
+
+    <table class="table-striped small-table">
+        <thead>
+            <tr>
+                <th class="col-md-1">Date</th>
+                <th class="col-md-1">Score</th>
+                <th class="col-md-1">Passed</th>
+                <th class="col-md-1">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(QRefTrain3.Models.Result r in Model)
+            {
+                <tr>
+                    <td>@r.DateTime</td>
+                    <td>@r.GoodAnswersIds.Count / @r.QuestionsAskedIds.Count</td>
+                    <td><img src="~/Elements/@(@r.GoodAnswersIds.Count/r.QuestionsAskedIds.Count >= 0.8 ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
+                    <td>@Html.ActionLink("Details", "DisplayResultDetails", new { id = r.Id })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

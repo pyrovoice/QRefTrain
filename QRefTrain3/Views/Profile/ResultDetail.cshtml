@@ -1,0 +1,48 @@
+﻿@model List<QRefTrain3.ViewModel.QuestionViewModel>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ResultDetail</title>
+    @Styles.Render("~/Content/Site.css")
+</head>
+<body>
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th class="col-md-1">ID</th>
+                <th class="col-md-1">Name</th>
+                <th class="col-md-3">Text</th>
+                <th class="col-md-1">Video Link</th>
+                <th class="col-md-1">Answer(s)</th>
+                <th class="col-md-8">Explanation</th>
+                <th class="col-md-1">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(QRefTrain3.ViewModel.QuestionViewModel qViewModel in Model)
+            {
+                <tr>
+                    <td>@qViewModel.Question.Id</td>
+                    <td>@qViewModel.Question.Name</td>
+                    <td>@qViewModel.Question.QuestionText</td>
+                    <td><a href="@qViewModel.Question.VideoURL">Link</a></td>
+                    <td>@foreach(QRefTrain3.Models.Answer a in @qViewModel.Question.Answers)
+                    {
+                        if(a.IsTrue)
+                        {
+                            @a.Answertext@:, 
+                        }
+                    }</td>
+                    <td>@qViewModel.Question.AnswerExplanation</td>
+                    <td><img src="~/Elements/@(@qViewModel.AnsweredRight ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>@Html.ActionLink("Return to Profile", "DisplayProfile")</div>
+</body>
+</html>

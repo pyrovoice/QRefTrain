@@ -1,0 +1,16 @@
+﻿@model QRefTrain3.ViewModel.RegisterViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateAccount</title>
+    @Styles.Render("~/Content/Site.css")
+</head>
+<body>
+    <div>
+        Account created.
+        @Html.ActionLink("Back to home page.", "HomePage", "Home", new { area = "" }, null)
+    </div>
+</body>
+</html>

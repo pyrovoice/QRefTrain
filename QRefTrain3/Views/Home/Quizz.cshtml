@@ -1,0 +1,49 @@
+﻿@model List<QRefTrain3.Models.Question>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Quizz</title>
+    @Styles.Render("~/Content/Site.css")
+</head>
+<body>
+    <div>
+        <!-- For each Question, display a new div with the Title, the question code, the question text, the video if there is one, then the possible answers depending on the type of answers-->
+        @using (Html.BeginForm("QuizzResult", "Home"))
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="QuizzQuestion">
+                    <div class="QuizzQuestionTitle">@Model[i].Id : @Model[i].Name</div> @Html.HiddenFor(m => Model[i].Id)
+                    <div class="QuizzQuestiontext">@Model[i].QuestionText</div>
+                    @if (@Model[i].IsVideo)
+                    {
+                        <div class="QuizzQuestionVideoContainer">
+                            <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
+                                    src="@Model[i].VideoURL"
+                                    frameborder="0"></iframe>
+                        </div>
+                    }
+                    <div class="RadioButtonAnswers">
+                        @if (@Model[i].AnswerType == QRefTrain3.Models.AnswerType.SingleAnswer)
+                        {
+                            for (int j = 0; j < Model[i].Answers.Count; j++)
+                            {
+                                @Model[i].Answers[j].Answertext @Html.RadioButtonFor(m => m[i].SelectedAnswers, Model[i].Answers[j].Id)
+                                @Html.HiddenFor(m => Model[i].Answers[j].Id)
+                                @Html.HiddenFor(m => Model[i].Answers[j].IsTrue)
+                            }
+                        }
+                    </div>
+                </div>
+            }
+            <input type="submit" value="Validate Answers" />
+        }
+    </div>
+</body>
+</html>
