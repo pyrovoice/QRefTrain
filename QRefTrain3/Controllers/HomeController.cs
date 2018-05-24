@@ -20,12 +20,10 @@ namespace QRefTrain3.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpPost]
-        public ActionResult MovetoQuiz()
+        public ActionResult MovetoQuiz(string QuizzField, string QuizzDifficulty)
         {
-            string field = Request.Form["QuizzField"];
-            string difficulty = Request.Form["QuizzDifficulty"];
             List<Question> displayedQuestions = new List<Question>();
-            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(field, difficulty);
+            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(QuizzField, QuizzDifficulty);
             // In case we don't have enough questions
             if (allQuestions.Count < 10)
             {

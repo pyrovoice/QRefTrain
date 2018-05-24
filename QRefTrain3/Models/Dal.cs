@@ -74,16 +74,8 @@ namespace QRefTrain3.Models
 
         public bool UserExistsInDB(User user)
         {
-            bool userExists = false;
-            foreach (User u in Context.Users)
-            {
-                if (u.Name.Equals(user.Name) || u.Email.Equals(user.Email))
-                {
-                    userExists = true;
-                    break;
-                }
-            }
-            return userExists;
+            User foundUser = Context.Users.First<User>(u => u.Name == user.Name || u.Email == user.Email);
+            return user  != null ? true : false;
         }
 
         public Result GetResultById(int resultId)
@@ -191,10 +183,8 @@ namespace QRefTrain3.Models
                 return null;
             }
             var affectedRows = Context.Database.SqlQuery<User>("IdentifyUser @name, @password", new SqlParameter("@name", userName), new SqlParameter("@password", userPassword));
-            Console.Write("Autenticate count : " + affectedRows.Count());
-
-            string userPasswordEncoded = BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(userPassword + salt)));
-            return Context.Users.FirstOrDefault(u => u.Name == userName && u.Password == userPasswordEncoded);
+            var user = affectedRows.First(); ;
+            return user;
         }
 
     }

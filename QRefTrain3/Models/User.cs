@@ -14,7 +14,7 @@ namespace QRefTrain3.Models
         [StringLength(30, MinimumLength = 4, ErrorMessage = "Must be 4 character long")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Required")]
-        [StringLength(20, MinimumLength = 6, ErrorMessage = "Must be 6 character long")]
+        [StringLength(32, MinimumLength = 6, ErrorMessage = "Must be 6 character long")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]

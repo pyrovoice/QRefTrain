@@ -26,7 +26,6 @@ namespace QRefTrain3.Models
             dal.CreateQuestion(ModelFactory.getDefaultQuestionOtherBasic());
             dal.CreateQuestion(ModelFactory.getDefaultQuestionOtherAdvanced());
             dal.CreateUser(ModelFactory.getDefaultUser());
-            dal.CreateUser(ModelFactory.getDefaultUser());
 
         }
     }
