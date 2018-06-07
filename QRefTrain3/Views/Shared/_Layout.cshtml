@@ -9,28 +9,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="container">
-            <div>
-                @Html.ActionLink("Quidditch Ref Training", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Questions", "QuestionListing", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <a class="topRightImage" href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"><img src="~/Elements/logo_reddit.png" height="50" width="100" /></a>
-                @if(!HttpContext.Current.User.Identity.IsAuthenticated)
-                {
-                     @Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "topRightLink" })
-                    }
-                    else
-                    {
-                    @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "topRightLink" })
-                    @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "topRightLink" })
-                }
-
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
-        </div>
+    <div class="container topitem">
+        @Html.ActionLink("Quidditch Ref Training", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("Questions", "QuestionListing", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <a class="topRightImage" href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"><img src="~/Elements/logo_reddit.png" width="124" height="47"  /></a>
+        @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
+        }
+        else
+        {
+            @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
+            @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
+        }
     </div>
 
     <div class="container">

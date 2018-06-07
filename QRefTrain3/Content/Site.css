@@ -1,8 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 30px;
     font-family: Verdana;
-    font-size: medium;
 }
 
 /* Set padding to keep content from hitting the edges 
@@ -36,13 +34,14 @@ textarea {
 /*============================Top layer===============================*/
 .topRightLink {
     float: right ;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px
 }
 
 .topRightImage {
     float: right;
+}
+
+.topitem {
+    margin-bottom: 15px
 }
 
 /*================================Quiz=================================*/

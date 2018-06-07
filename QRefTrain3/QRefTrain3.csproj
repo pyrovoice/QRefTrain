@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201805240903184_PasswordLenghtUp32.Designer.cs">
       <DependentUpon>201805240903184_PasswordLenghtUp32.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806071432598_ResultType.cs" />
+    <Compile Include="Migrations\201806071432598_ResultType.Designer.cs">
+      <DependentUpon>201806071432598_ResultType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Result.cs" />
@@ -225,7 +229,7 @@
     <Content Include="Elements\logo_reddit.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805240903184_PasswordLenghtUp32.resx">
       <DependentUpon>201805240903184_PasswordLenghtUp32.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806071432598_ResultType.resx">
+      <DependentUpon>201806071432598_ResultType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
