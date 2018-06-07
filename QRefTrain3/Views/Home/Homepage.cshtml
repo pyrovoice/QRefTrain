@@ -16,21 +16,25 @@
     <div class="padding-top">
         @using (Html.BeginForm("MovetoQuiz", "Home"))
         {
-            @Html.DropDownList("QuizzField", new List<SelectListItem> { new SelectListItem { Text = "Any", Value = "Any" }
-, new SelectListItem { Text = QRefTrain3.Models.QuestionField.Beater.ToString(), Value = QRefTrain3.Models.QuestionField.Beater.ToString() }
-, new SelectListItem { Text = QRefTrain3.Models.QuestionField.Chaser.ToString(), Value = QRefTrain3.Models.QuestionField.Chaser.ToString() }
-, new SelectListItem { Text = QRefTrain3.Models.QuestionField.Contact.ToString(), Value = QRefTrain3.Models.QuestionField.Contact.ToString()}
-, new SelectListItem { Text = QRefTrain3.Models.QuestionField.Seeker.ToString(), Value = QRefTrain3.Models.QuestionField.Seeker.ToString() }
-, new SelectListItem { Text = QRefTrain3.Models.QuestionField.Other.ToString(), Value = QRefTrain3.Models.QuestionField.Other.ToString() } }
-            , new { @id = "QuizzField" })
-            @Html.DropDownList("QuizzDifficulty", new List<SelectListItem> {
-   new SelectListItem { Text = QRefTrain3.Models.QuestionDifficulty.Basic.ToString(), Value = QRefTrain3.Models.QuestionDifficulty.Basic.ToString() }
-   , new SelectListItem { Text = QRefTrain3.Models.QuestionDifficulty.Advanced.ToString(), Value = QRefTrain3.Models.QuestionDifficulty.Advanced.ToString() }}
-            , new { @id = "QuizzDifficulty" })
+            List<SelectListItem> fields = new List<SelectListItem>();
+            foreach (QRefTrain3.Models.QuestionField item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionField)))
+            {
+
+                fields.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
+            }
+            fields.Add(new SelectListItem() { Text = "Any", Value = "Any" });
+
+            List<SelectListItem> difficulties = new List<SelectListItem>();
+            foreach (QRefTrain3.Models.QuestionDifficulty item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionDifficulty)))
+            {
+                difficulties.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
+            }
+            difficulties.Add(new SelectListItem() { Text = "Any", Value = "Any" });
+
+            @Html.DropDownList("QuizzField", fields, new { @id = "QuizzField" });
+            @Html.DropDownList("QuizzDifficulty", difficulties, new { @id = "QuizzDifficulty" });
             <input type="submit" value="Start the quizz" />
         }
     </div>
-
-
 </body>
 </html>

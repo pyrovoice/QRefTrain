@@ -60,48 +60,27 @@ namespace QRefTrain3.Models
         }
         public void SetQuestionField(String newQuestionField)
         {
-            QuestionField? field = null;
-            switch (newQuestionField)
+            QuestionField qField = (QuestionField)Enum.Parse(typeof(QuestionField), newQuestionField);
+            if(Enum.IsDefined(typeof(QuestionField), qField))
             {
-                case "Chaser":
-                    field = QuestionField.Chaser;
-                    break;
-                case "Beater":
-                    field = QuestionField.Beater;
-                    break;
-                case "Seeker":
-                    field = QuestionField.Seeker;
-                    break;
-                case "Contact":
-                    field = QuestionField.Contact;
-                    break;
-                case "Process":
-                    field = QuestionField.Process;
-                    break;
-                case "Other":
-                    field = QuestionField.Other;
-                    break;
-            }
-            if (field != null)
-            {
-                this.Field = field.Value;
+                this.Field = qField;
             }
         }
 
         public static Boolean IsGoodAnswer(Question q)
         {
-            Boolean isGoodAnswer = false;
 
             foreach (Answer a in q.Answers)
             {
                 bool answerWasSelected = q.SelectedAnswers.Where(storedAnswer => storedAnswer == a.Id) != null;
-                if (answerWasSelected && a.IsTrue)
+                // If wrong answer is selected or good answer is not, then return false
+                if ((answerWasSelected && !a.IsTrue) || (!answerWasSelected && a.IsTrue))
                 {
-                    isGoodAnswer = true;
+                    return false;
                 }
             }
 
-            return isGoodAnswer;
+            return true;
         }
     }
 }
