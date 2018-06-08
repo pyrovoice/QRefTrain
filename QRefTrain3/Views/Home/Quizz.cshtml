@@ -9,6 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Quizz</title>
+    @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Site.css")
 </head>
 <body>
@@ -29,17 +30,32 @@
                                     frameborder="0"></iframe>
                         </div>
                     }
-                    <div class="RadioButtonAnswers">
-                        @if (@Model[i].AnswerType == QRefTrain3.Models.AnswerType.SingleAnswer)
-                        {
-                            for (int j = 0; j < Model[i].Answers.Count; j++)
+                    @if (@Model[i].AnswerType == QRefTrain3.Models.AnswerType.SingleAnswer)
+                    {
+                        <div class="RadioButtonAnswers">
+                            @for (int j = 0; j < Model[i].Answers.Count; j++)
                             {
-                                @Model[i].Answers[j].Answertext @Html.RadioButtonFor(m => m[i].SelectedAnswers, Model[i].Answers[j].Id)
+                                @Model[i].Answers[j].Answertext @Html.RadioButtonFor(m => m[i].Answers[j].IsSelected, true)
                                 @Html.HiddenFor(m => Model[i].Answers[j].Id)
                                 @Html.HiddenFor(m => Model[i].Answers[j].IsTrue)
                             }
-                        }
-                    </div>
+
+                        </div>
+                    }
+                    else if (@Model[i].AnswerType == QRefTrain3.Models.AnswerType.MultipleAnswer)
+                    {
+                        <div class="btn-group-toggle" data-toggle="buttons">
+
+                            @for (int j = 0; j < Model[i].Answers.Count; j++)
+                            {
+                                <label class="btn btn-secondary active">
+                                    @Model[i].Answers[j].Answertext @Html.CheckBoxFor(m => m[i].Answers[j].IsSelected)
+                                </label>
+                                @Html.HiddenFor(m => Model[i].Answers[j].Id)
+                                @Html.HiddenFor(m => Model[i].Answers[j].IsTrue)
+                            }
+                        </div>
+                    }
                 </div>
             }
             <input type="submit" value="Validate Answers" />
