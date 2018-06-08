@@ -41,14 +41,15 @@ namespace QRefTrain3.Controllers
                     }
                 }
             }
-            return View("Quizz", displayedQuestions);
+            QuizzViewModel quizzModel =  new QuizzViewModel() { DisplayedQuestions = displayedQuestions, ResultType = ResultType.Training };
+            return View("Quizz", quizzModel);
         }
 
         [HttpPost]
-        public ActionResult QuizzResult(List<Question> answers)
+        public ActionResult QuizzResult(QuizzViewModel quizzModel)
         {
-            Result result = new Result();
-            foreach (Question q in answers)
+            Result result = new Result() { ResultType = quizzModel.ResultType };
+            foreach (Question q in quizzModel.DisplayedQuestions)
             {
                 result.QuestionsAskedIds.Add(q.Id);
                 if (Question.IsGoodAnswer(q))
