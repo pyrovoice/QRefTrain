@@ -8,24 +8,20 @@ namespace QRefTrain3.Models
 {
     public class InitApplicationClass
     {
+        /**
+         * Create test data, one question of each type and difficulty, one question Other Basic multiple answers possible, and one user1 pw : password
+         */
         public void InitApplication()
         {
             IDal dal = Dal.Instance;
             dal.reset();
-            dal.CreateQuestion(ModelFactory.getDefaultQuestion());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestion());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestion());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionChaserBasic());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionChaserAdvanced());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionBeaterBasic());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionBeaterAdvanced());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionSeekerBasic());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionSeekerAdvanced());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionContactBasic());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionContactAdvanced());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionOtherBasic());
-            dal.CreateQuestion(ModelFactory.getDefaultQuestionOtherAdvanced());
-            dal.CreateUser(ModelFactory.getDefaultUser());
+            foreach(QuestionField field in Enum.GetValues(typeof(QuestionField))){
+                foreach (QuestionDifficulty difficulty in Enum.GetValues(typeof(QuestionDifficulty))){
+                    dal.CreateQuestion(ModelFactory.GetQuestion(field, difficulty, AnswerType.SingleAnswer));
+                }
+            }
+            dal.CreateQuestion(ModelFactory.GetQuestion(QuestionField.Other, QuestionDifficulty.Basic, AnswerType.MultipleAnswer));
+            dal.CreateUser(ModelFactory.GetDefaultUser());
 
         }
     }

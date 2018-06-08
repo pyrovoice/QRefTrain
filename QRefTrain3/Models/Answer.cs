@@ -10,5 +10,6 @@ namespace QRefTrain3.Models
         public int Id { get; set; }
         public String Answertext { get; set; }
         public Boolean IsTrue { get; set; }
+        public Boolean IsSelected { get; set; }
     }
 }

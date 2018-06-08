@@ -197,6 +197,10 @@
     <Compile Include="Migrations\201806071432598_ResultType.Designer.cs">
       <DependentUpon>201806071432598_ResultType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806080821448_AnswerLogic.cs" />
+    <Compile Include="Migrations\201806080821448_AnswerLogic.Designer.cs">
+      <DependentUpon>201806080821448_AnswerLogic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Result.cs" />
@@ -358,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806071432598_ResultType.resx">
       <DependentUpon>201806071432598_ResultType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806080821448_AnswerLogic.resx">
+      <DependentUpon>201806080821448_AnswerLogic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

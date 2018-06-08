@@ -37,7 +37,6 @@ namespace QRefTrain3.Models
         public AnswerType AnswerType { get; set; }
         [Required]
         public List<Answer> Answers { get; set; }
-        public List<int> SelectedAnswers { get; set; }
         [Required]
         public String AnswerExplanation { get; set; }
 
@@ -69,17 +68,14 @@ namespace QRefTrain3.Models
 
         public static Boolean IsGoodAnswer(Question q)
         {
-
             foreach (Answer a in q.Answers)
             {
-                bool answerWasSelected = q.SelectedAnswers.Where(storedAnswer => storedAnswer == a.Id) != null;
                 // If wrong answer is selected or good answer is not, then return false
-                if ((answerWasSelected && !a.IsTrue) || (!answerWasSelected && a.IsTrue))
+                if ((a.IsSelected && !a.IsTrue) || (!a.IsSelected && a.IsTrue))
                 {
                     return false;
                 }
             }
-
             return true;
         }
     }
