@@ -11,7 +11,6 @@ namespace QRefTrain3.Models
 {
     public class Dal : IDal
     {
-        private string salt = "RandomSalt00";
         private static Dal dal;
         private static QuestionsContext Context { get; set; }
 
@@ -26,10 +25,10 @@ namespace QRefTrain3.Models
             Console.Write("CREATE USER " + user.Name);
         }
 
-        public List<Result> Get10ResultByUser(User user)
+        public List<Result> GetNLastResultByUser(User user, int number)
         {
             List<Result> results = GetResultByUser(user);
-            return results.OrderByDescending(o => o.DateTime).ToList().Take(10).ToList();
+            return results.OrderByDescending(o => o.DateTime).ToList().Take(number).ToList();
 
         }
 
@@ -170,7 +169,6 @@ namespace QRefTrain3.Models
 
         public void AlterQuestion(Question question)
         {
-            bool test = Context.Configuration.AutoDetectChangesEnabled;
             Question questionToReplace = Context.Questions.Find(question.Id);
             questionToReplace.Name = question.Name;
             questionToReplace.Field = question.Field;

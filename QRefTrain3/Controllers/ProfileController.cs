@@ -18,7 +18,7 @@ namespace QRefTrain3.Controllers
                 RedirectToAction("Homepage", "Home");
             }
             User user = Dal.Instance.GetUserByName(User.Identity.Name);
-            List<Result> results = Dal.Instance.Get10ResultByUser(user);
+            List<Result> results = Dal.Instance.GetNLastResultByUser(user, 10);
             return View("Profile", results);
         }
         public ActionResult DisplayResultDetails(int id)
