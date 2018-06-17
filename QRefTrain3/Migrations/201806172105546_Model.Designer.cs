@@ -5,22 +5,22 @@ namespace QRefTrain3.Migrations
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
-
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class _13_addingDateToResults : IMigrationMetadata
+    
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class Model : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_13_addingDateToResults));
-
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Model));
+        
         string IMigrationMetadata.Id
         {
-            get { return "201708181342056_1.3_addingDateToResults"; }
+            get { return "201806172105546_Model"; }
         }
-
+        
         string IMigrationMetadata.Source
         {
             get { return null; }
         }
-
+        
         string IMigrationMetadata.Target
         {
             get { return Resources.GetString("Target"); }

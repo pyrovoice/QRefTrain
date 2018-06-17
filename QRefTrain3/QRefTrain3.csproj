@@ -149,61 +149,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
-    <Compile Include="Migrations\201708161229031_Migration1.1.cs" />
-    <Compile Include="Migrations\201708161229031_Migration1.1.Designer.cs">
-      <DependentUpon>201708161229031_Migration1.1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708171505063_Migration_1.2.cs" />
-    <Compile Include="Migrations\201708171505063_Migration_1.2.Designer.cs">
-      <DependentUpon>201708171505063_Migration_1.2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708180932117_1.3_addingKeyValuePairToResult.cs" />
-    <Compile Include="Migrations\201708180932117_1.3_addingKeyValuePairToResult.Designer.cs">
-      <DependentUpon>201708180932117_1.3_addingKeyValuePairToResult.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708181342056_1.3_addingDateToResults.cs" />
-    <Compile Include="Migrations\201708181342056_1.3_addingDateToResults.Designer.cs">
-      <DependentUpon>201708181342056_1.3_addingDateToResults.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708181440119_1.4_AddExplanationToQuestions.cs" />
-    <Compile Include="Migrations\201708181440119_1.4_AddExplanationToQuestions.Designer.cs">
-      <DependentUpon>201708181440119_1.4_AddExplanationToQuestions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708181523326_1.5_CorrectDateTimeInResult.cs" />
-    <Compile Include="Migrations\201708181523326_1.5_CorrectDateTimeInResult.Designer.cs">
-      <DependentUpon>201708181523326_1.5_CorrectDateTimeInResult.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708231128561_1.6_wtf.cs" />
-    <Compile Include="Migrations\201708231128561_1.6_wtf.Designer.cs">
-      <DependentUpon>201708231128561_1.6_wtf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708231327153_1.7_AddConfirmationMail.cs" />
-    <Compile Include="Migrations\201708231327153_1.7_AddConfirmationMail.Designer.cs">
-      <DependentUpon>201708231327153_1.7_AddConfirmationMail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802181523382_1.8_ChangeQuestionAnswers.cs" />
-    <Compile Include="Migrations\201802181523382_1.8_ChangeQuestionAnswers.Designer.cs">
-      <DependentUpon>201802181523382_1.8_ChangeQuestionAnswers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802181534354_1.9_1.8Correction.cs" />
-    <Compile Include="Migrations\201802181534354_1.9_1.8Correction.Designer.cs">
-      <DependentUpon>201802181534354_1.9_1.8Correction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805240903184_PasswordLenghtUp32.cs" />
-    <Compile Include="Migrations\201805240903184_PasswordLenghtUp32.Designer.cs">
-      <DependentUpon>201805240903184_PasswordLenghtUp32.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806071432598_ResultType.cs" />
-    <Compile Include="Migrations\201806071432598_ResultType.Designer.cs">
-      <DependentUpon>201806071432598_ResultType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806080821448_AnswerLogic.cs" />
-    <Compile Include="Migrations\201806080821448_AnswerLogic.Designer.cs">
-      <DependentUpon>201806080821448_AnswerLogic.cs</DependentUpon>
+    <Compile Include="Migrations\201806172105546_Model.cs" />
+    <Compile Include="Migrations\201806172105546_Model.Designer.cs">
+      <DependentUpon>201806172105546_Model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Result.cs" />
+    <Compile Include="ViewModel\AnswerQuizzViewModel.cs" />
+    <Compile Include="ViewModel\QuestionQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
     <Compile Include="ViewModel\QuizzViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
@@ -328,51 +282,15 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708161229031_Migration1.1.resx">
-      <DependentUpon>201708161229031_Migration1.1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708171505063_Migration_1.2.resx">
-      <DependentUpon>201708171505063_Migration_1.2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708180932117_1.3_addingKeyValuePairToResult.resx">
-      <DependentUpon>201708180932117_1.3_addingKeyValuePairToResult.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708181342056_1.3_addingDateToResults.resx">
-      <DependentUpon>201708181342056_1.3_addingDateToResults.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708181440119_1.4_AddExplanationToQuestions.resx">
-      <DependentUpon>201708181440119_1.4_AddExplanationToQuestions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708181523326_1.5_CorrectDateTimeInResult.resx">
-      <DependentUpon>201708181523326_1.5_CorrectDateTimeInResult.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708231128561_1.6_wtf.resx">
-      <DependentUpon>201708231128561_1.6_wtf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708231327153_1.7_AddConfirmationMail.resx">
-      <DependentUpon>201708231327153_1.7_AddConfirmationMail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802181523382_1.8_ChangeQuestionAnswers.resx">
-      <DependentUpon>201802181523382_1.8_ChangeQuestionAnswers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802181534354_1.9_1.8Correction.resx">
-      <DependentUpon>201802181534354_1.9_1.8Correction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805240903184_PasswordLenghtUp32.resx">
-      <DependentUpon>201805240903184_PasswordLenghtUp32.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806071432598_ResultType.resx">
-      <DependentUpon>201806071432598_ResultType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806080821448_AnswerLogic.resx">
-      <DependentUpon>201806080821448_AnswerLogic.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806172105546_Model.resx">
+      <DependentUpon>201806172105546_Model.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

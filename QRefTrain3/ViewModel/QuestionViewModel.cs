@@ -10,7 +10,5 @@ namespace QRefTrain3.ViewModel
     {
         public Question Question { get; set; }
         public Boolean AnsweredRight { get; set; }
-
-
     }
 }

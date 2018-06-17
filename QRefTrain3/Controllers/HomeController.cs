@@ -41,7 +41,7 @@ namespace QRefTrain3.Controllers
                     }
                 }
             }
-            QuizzViewModel quizzModel =  new QuizzViewModel() { DisplayedQuestions = displayedQuestions, ResultType = ResultType.Training };
+            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Training);
             return View("Quizz", quizzModel);
         }
 
@@ -49,7 +49,8 @@ namespace QRefTrain3.Controllers
         public ActionResult QuizzResult(QuizzViewModel quizzModel)
         {
             Result result = new Result() { ResultType = quizzModel.ResultType };
-            foreach (Question q in quizzModel.DisplayedQuestions)
+            List<Question> answeredQuestions = QuestionViewModelToQuestion(quizzModel.DisplayedQuestions);
+            foreach (Question q in answeredQuestions)
             {
                 result.QuestionsAskedIds.Add(q.Id);
                 if (Question.IsGoodAnswer(q))
@@ -64,6 +65,40 @@ namespace QRefTrain3.Controllers
             }
 
             return View("QuizResult", result);
+        }
+
+        /*
+         *
+         *
+         */
+        private List<Question> QuestionViewModelToQuestion(List<QuestionQuizzViewModel> displayedQuestions)
+        {
+            List<Question> retrievedQuestions = new List<Question>();
+            List<Question> allQuestions = Dal.Instance.getAllQuestions();
+            // For each questionViewModel, we return a Question with updated Answers informations
+            foreach (QuestionQuizzViewModel questionViewModel in displayedQuestions)
+            {
+                Question question = allQuestions.First<Question>(m => m.Id == questionViewModel.Id);
+                // For each Answer, get all value answered in the viewModel and update Answers accordingly
+                if(question.AnswerType == AnswerType.SingleAnswer)
+                {
+                    foreach(int answersIds in questionViewModel.AnswersRadio[question.Id])
+                    {
+                        question.Answers.First<Answer>(answer => answer.Id == answersIds).IsSelected = true;
+                    }
+                } else if(question.AnswerType == AnswerType.MultipleAnswer)
+                {
+                    foreach(Answer answer in question.Answers)
+                    {
+                        if (questionViewModel.AnswerCheckbox.ContainsKey(answer.Id) && questionViewModel.AnswerCheckbox[answer.Id])
+                        {
+                            answer.IsTrue = true;
+                        }
+                    }
+                }
+                retrievedQuestions.Add(question);
+            }
+            return retrievedQuestions;
         }
 
         public ActionResult QuestionListing()

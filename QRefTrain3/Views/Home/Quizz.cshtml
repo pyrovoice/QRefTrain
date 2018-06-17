@@ -36,9 +36,7 @@
                         <div class="RadioButtonAnswers">
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
-                                @Model.DisplayedQuestions[i].Answers[j].Answertext @Html.RadioButtonFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected, true)
-                                @Html.HiddenFor(m => Model.DisplayedQuestions[i].Answers[j].Id)
-                                @Html.HiddenFor(m => Model.DisplayedQuestions[i].Answers[j].IsTrue)
+                                @Model.DisplayedQuestions[i].Answers[j].AnswerText @Html.RadioButtonFor(m => m.DisplayedQuestions[i].AnswersRadio[m.DisplayedQuestions[i].Id], Model.DisplayedQuestions[i].Answers[j].Id)
                             }
 
                         </div>
@@ -50,10 +48,8 @@
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
                                 <label class="btn btn-secondary active">
-                                    @Model.DisplayedQuestions[i].Answers[j].Answertext @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                    @Model.DisplayedQuestions[i].Answers[j].AnswerText @Html.CheckBoxFor(m => m.DisplayedQuestions[i].AnswerCheckbox[m.DisplayedQuestions[i].Answers[j].Id])
                                 </label>
-                                @Html.HiddenFor(m => Model.DisplayedQuestions[i].Answers[j].Id)
-                                @Html.HiddenFor(m => Model.DisplayedQuestions[i].Answers[j].IsTrue)
                             }
                         </div>
                     }
