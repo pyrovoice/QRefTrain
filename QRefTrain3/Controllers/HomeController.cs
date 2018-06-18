@@ -82,7 +82,7 @@ namespace QRefTrain3.Controllers
                 // For each Answer, get all value answered in the viewModel and update Answers accordingly
                 if(question.AnswerType == AnswerType.SingleAnswer)
                 {
-                    foreach(int answersIds in questionViewModel.AnswersRadio[question.Id])
+                    foreach(int answersIds in questionViewModel.AnswersRadio)
                     {
                         question.Answers.First<Answer>(answer => answer.Id == answersIds).IsSelected = true;
                     }

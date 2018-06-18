@@ -13,41 +13,18 @@ namespace QRefTrain3.ViewModel
 
         public QuizzViewModel(List<Question> displayedQuestions, ResultType type)
         {
-            List<QuestionQuizzViewModel> questionsViewModel = new List<QuestionQuizzViewModel>();
-            foreach(Question question in displayedQuestions)
+            DisplayedQuestions = new List<QuestionQuizzViewModel>();
+            foreach (Question question in displayedQuestions)
             {
-                questionsViewModel.Add(QuestionToViewModel(question));
+                DisplayedQuestions.Add(new QuestionQuizzViewModel(question));
 
             }
             this.ResultType = type;
         }
 
-        private static QuestionQuizzViewModel QuestionToViewModel(Question question)
+        public QuizzViewModel()
         {
-            
-            List<AnswerQuizzViewModel> answersViewModel = new List<AnswerQuizzViewModel>();
-            foreach(Answer a in question.Answers)
-            {
-                answersViewModel.Add(new AnswerQuizzViewModel
-                {
-                    Id = a.Id,
-                    AnswerText = a.Answertext
 
-                });
-            }
-            QuestionQuizzViewModel questionViewModel = new QuestionQuizzViewModel
-            {
-                Answers = answersViewModel,
-                IsVideo = question.IsVideo,
-                VideoURL = question.VideoURL,
-                AnswerType = question.AnswerType,
-                Id = question.Id,
-                Name = question.Name,
-                QuestionText = question.QuestionText,
-                AnswerCheckbox = new Dictionary<int, bool>(),
-                AnswersRadio = new Dictionary<int, List<int>>()
-            };
-            return questionViewModel;
         }
     }
 }

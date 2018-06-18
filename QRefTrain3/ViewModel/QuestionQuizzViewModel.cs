@@ -22,6 +22,68 @@ namespace QRefTrain3.ViewModel
         public Dictionary<int, Boolean> AnswerCheckbox { get; set; }
         // Use this to store radioButton answers : All radioButtons register to the same list, thus being in the same group
         // Key is Question's ID, value is selected Answers' Id
-        public Dictionary<int, List<int>> AnswersRadio { get; set; }
+        public List<int> AnswersRadio { get; set; }
+
+        public QuestionQuizzViewModel(int id, string name, bool isVideo, string videoURL, string questionText, AnswerType answerType, List<AnswerQuizzViewModel> answers)
+        {
+            Id = id;
+            Name = name;
+            IsVideo = isVideo;
+            VideoURL = videoURL;
+            QuestionText = questionText;
+            AnswerType = answerType;
+            Answers = answers;
+            // Initialize the list used in the viewModel, depending on the answer type. The other won't be used
+            if (answerType == AnswerType.SingleAnswer)
+            {
+                AnswersRadio = new List<int>();
+            }
+            else if (answerType == AnswerType.MultipleAnswer)
+            {
+                AnswerCheckbox = new Dictionary<int, bool>();
+                foreach (AnswerQuizzViewModel a in answers)
+                {
+                    AnswerCheckbox.Add(a.Id, false);
+                }
+            }
+        }
+
+        public QuestionQuizzViewModel(Question question)
+        {
+            List<AnswerQuizzViewModel> answersViewModel = new List<AnswerQuizzViewModel>();
+            foreach (Answer a in question.Answers)
+            {
+                answersViewModel.Add(new AnswerQuizzViewModel
+                {
+                    Id = a.Id,
+                    AnswerText = a.Answertext
+
+                });
+            }
+            Id = question.Id;
+            Name = question.Name;
+            IsVideo = question.IsVideo;
+            VideoURL = question.VideoURL;
+            QuestionText = question.QuestionText;
+            AnswerType = question.AnswerType;
+            Answers = answersViewModel;
+            // Initialize the list used in the viewModel, depending on the answer type. The other won't be used
+            if(question.AnswerType == AnswerType.SingleAnswer)
+            {
+                AnswersRadio = new List<int>();
+            } else if (question.AnswerType == AnswerType.MultipleAnswer)
+            {
+                AnswerCheckbox = new Dictionary<int, bool>();
+                foreach(AnswerQuizzViewModel a in answersViewModel)
+                {
+                    AnswerCheckbox.Add(a.Id, false);
+                }
+            }
+        }
+
+        public QuestionQuizzViewModel()
+        {
+
+        }
     }
 }
