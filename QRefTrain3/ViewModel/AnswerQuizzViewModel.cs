@@ -9,5 +9,6 @@ namespace QRefTrain3.ViewModel
     {
         public int Id { get; set; }
         public string AnswerText { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

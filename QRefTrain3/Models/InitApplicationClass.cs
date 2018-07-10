@@ -17,10 +17,9 @@ namespace QRefTrain3.Models
             dal.reset();
             foreach(QuestionField field in Enum.GetValues(typeof(QuestionField))){
                 foreach (QuestionDifficulty difficulty in Enum.GetValues(typeof(QuestionDifficulty))){
-                    dal.CreateQuestion(ModelFactory.GetQuestion(field, difficulty, AnswerType.SingleAnswer));
+                    dal.CreateQuestion(ModelFactory.GetQuestion(field, difficulty, AnswerType.MultipleAnswer));
                 }
             }
-            dal.CreateQuestion(ModelFactory.GetQuestion(QuestionField.Other, QuestionDifficulty.Basic, AnswerType.MultipleAnswer));
             dal.CreateUser(ModelFactory.GetDefaultUser());
 
         }

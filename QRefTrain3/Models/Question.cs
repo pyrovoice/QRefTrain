@@ -17,7 +17,8 @@ namespace QRefTrain3.Models
     };
     public enum AnswerType
     {
-        SingleAnswer, MultipleAnswer
+        //SingleAnswer,
+        MultipleAnswer
     }
 
     public class Question

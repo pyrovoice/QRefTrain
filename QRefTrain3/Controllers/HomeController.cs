@@ -79,21 +79,11 @@ namespace QRefTrain3.Controllers
             foreach (QuestionQuizzViewModel questionViewModel in displayedQuestions)
             {
                 Question question = allQuestions.First<Question>(m => m.Id == questionViewModel.Id);
-                // For each Answer, get all value answered in the viewModel and update Answers accordingly
-                if(question.AnswerType == AnswerType.SingleAnswer)
-                {
-                    foreach(int answersIds in questionViewModel.AnswersRadio)
-                    {
-                        question.Answers.First<Answer>(answer => answer.Id == answersIds).IsSelected = true;
-                    }
-                } else if(question.AnswerType == AnswerType.MultipleAnswer)
+                if(question.AnswerType == AnswerType.MultipleAnswer)
                 {
                     foreach(Answer answer in question.Answers)
                     {
-                        if (questionViewModel.AnswerCheckbox.ContainsKey(answer.Id) && questionViewModel.AnswerCheckbox[answer.Id])
-                        {
-                            answer.IsTrue = true;
-                        }
+                        answer.IsSelected = questionViewModel.Answers.First<AnswerQuizzViewModel>(m => m.Id == answer.Id).IsSelected;
                     }
                 }
                 retrievedQuestions.Add(question);

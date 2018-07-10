@@ -20,6 +20,7 @@
             @Html.HiddenFor(m => Model.ResultType)
             for (int i = 0; i < Model.DisplayedQuestions.Count; i++)
             {
+                @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
                 <div class="QuizzQuestion">
                     <div class="QuizzQuestionTitle">@Model.DisplayedQuestions[i].Id : @Model.DisplayedQuestions[i].Name</div>
                     <div class="QuizzQuestiontext">@Model.DisplayedQuestions[i].QuestionText</div>
@@ -31,25 +32,29 @@
                                     frameborder="0"></iframe>
                         </div>
                     }
-                    @if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.SingleAnswer)
+                    @*@if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.SingleAnswer)
                     {
                         <div class="RadioButtonAnswers">
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
-                                @Model.DisplayedQuestions[i].Answers[j].AnswerText 
+                                @Model.DisplayedQuestions[i].Answers[j].AnswerText
                                 @Html.RadioButtonFor(m => m.DisplayedQuestions[i].AnswersRadio, Model.DisplayedQuestions[i].Answers[j].Id)
                             }
 
                         </div>
                     }
-                    else if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.MultipleAnswer)
+                    else*@
+                    @if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.MultipleAnswer)
                     {
+
                         <div class="RadioButtonAnswers">
 
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
                                 @Model.DisplayedQuestions[i].Answers[j].AnswerText
-                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].AnswerCheckbox[Model.DisplayedQuestions[i].Answers[j].Id])
+                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].AnswerText)
+                                @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                             }
                         </div>
                     }
