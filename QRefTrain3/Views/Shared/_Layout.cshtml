@@ -12,7 +12,7 @@
     <div class="container topitem">
         @Html.ActionLink("Quidditch Ref Training", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
         @Html.ActionLink("Questions", "QuestionListing", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        <a class="topRightImage" href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"><img src="~/Elements/logo_reddit.png" width="124" height="47"  /></a>
+        <a class="topRightImage" href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"><img src="~/Elements/logo_reddit.png" width="124" height="47" /></a>
         @if (!HttpContext.Current.User.Identity.IsAuthenticated)
         {
             @Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
@@ -22,18 +22,21 @@
             @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
             @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
         }
+        <hr />
     </div>
 
     <div class="container">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>Last Update : Unknown</p>
-        </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div class="container footer">
+        <hr />
+        <small><strong>This website is in beta.</strong> For any question or remark, please contact qreftrain@gmail.com or visit <a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank">our subreddit</a></small>
+    </div>
+
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
 </body>
 </html>

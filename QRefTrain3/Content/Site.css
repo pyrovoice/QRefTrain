@@ -25,15 +25,22 @@ textarea {
 
 /*==========================Shared========================*/
 
+html, body {
+    height: 100%;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+}
+
 .field-validation-error {
     color: red;
 }
 
-
-
 /*============================Top layer===============================*/
 .topRightLink {
-    float: right ;
+    float: right;
 }
 
 .topRightImage {

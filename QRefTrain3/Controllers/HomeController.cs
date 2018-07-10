@@ -24,7 +24,7 @@ namespace QRefTrain3.Controllers
         {
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(QuizzField, QuizzDifficulty);
-            // In case we don't have enough questions
+            // Get 10 randoms questions from the selected parameters, or all if there is not 10.
             if (allQuestions.Count < 10)
             {
                 displayedQuestions = allQuestions;
@@ -67,10 +67,6 @@ namespace QRefTrain3.Controllers
             return View("QuizResult", result);
         }
 
-        /*
-         *
-         *
-         */
         private List<Question> QuestionViewModelToQuestion(List<QuestionQuizzViewModel> displayedQuestions)
         {
             List<Question> retrievedQuestions = new List<Question>();
