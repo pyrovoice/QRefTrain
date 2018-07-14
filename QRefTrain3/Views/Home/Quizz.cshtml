@@ -46,15 +46,16 @@
                     else*@
                     @if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.MultipleAnswer)
                     {
-
                         <div class="RadioButtonAnswers">
 
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
+                            <div class="RadioButtonAnswer">
                                 @Model.DisplayedQuestions[i].Answers[j].AnswerText
                                 @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
                                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].AnswerText)
                                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
+                            </div>
                             }
                         </div>
                     }

@@ -22,21 +22,19 @@
             @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
             @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
         }
-        <hr />
+
     </div>
 
+    <div class="separator">
+        <hr />
+    </div>
     <div class="container">
         @RenderBody()
     </div>
 
-    <div class="container footer">
+    <footer>
         <hr />
-        <small><strong>This website is in beta.</strong> For any question or remark, please contact qreftrain@gmail.com or visit <a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank">our subreddit</a></small>
-    </div>
-
-
-            @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-            @RenderSection("scripts", required: false)
+        <div class="footerText"><strong>This website is in beta.</strong> For any question or remark, please contact qreftrain@gmail.com or visit <a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank">our subreddit</a></div>
+    </footer>
 </body>
 </html>

@@ -25,17 +25,27 @@ textarea {
 
 /*==========================Shared========================*/
 
-html, body {
+html {
     height: 100%;
 }
 
-.footer {
-    position: relative;
-    bottom: 0;
+body {
+    min-height: 80%;
 }
 
 .field-validation-error {
     color: red;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    min-width: 100%;
+}
+
+.footerText{
+    font-size:small;
+    margin-left: 15px;
 }
 
 /*============================Top layer===============================*/
@@ -89,9 +99,13 @@ html, body {
 
 .RadioButtonAnswer {
     font-size: medium;
+    display: inline-block;
+    width: 80%;
+    height: 20px;
+    word-wrap: break-word;
 }
 .RadioButtonAnswers {
-    text-align: center;
+    text-align: left;
     padding-top: 30px;
 }
 
