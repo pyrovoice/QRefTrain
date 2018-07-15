@@ -1,4 +1,4 @@
-﻿@model QRefTrain3.Models.Result
+﻿@model QRefTrain3.ViewModel.ResultViewModel
 
 <!DOCTYPE html>
 
@@ -8,21 +8,7 @@
     <title>QuizResult</title>
 </head>
 <body>
-
-    <div>
-        Result : @Model.GoodAnswersIds.Count / @Model.QuestionsAskedIds.Count
-        @if(User.Identity.IsAuthenticated)
-        {
-            @:<br />Your result were registered
-        }
-    </div>
-
-    <div>
-        @foreach(int id in Model.QuestionsAskedIds)
-        {
-            <div>Question @id was @(Model.GoodAnswersIds.Contains(id) ? "True" : "False")</div>
-        }
-    </div>
+    @Html.Partial("_ResultDetail", Model)
     @using(Html.BeginForm("Homepage", "Home"))
     {
         <input type="submit" value="Return to Home" />

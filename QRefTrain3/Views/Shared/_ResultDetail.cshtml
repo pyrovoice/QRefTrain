@@ -1,0 +1,26 @@
+﻿@model QRefTrain3.ViewModel.ResultViewModel
+
+<div>
+    <div>Test taken the @Model.DateTime, scored @Model.GetNumberGoodAnswer()/@(Model.QuestionsAsked.Count). This test is @(Model.ResultType == QRefTrain3.Models.ResultType.Exam ? "official" : "not official").</div>
+    @foreach (QRefTrain3.Models.Question question in Model.QuestionsAsked)
+    {
+        <div>
+            <div class="flex-container">
+                <div>@question.Id</div>
+                <div>@question.Name</div>
+                @if (question.IsVideo)
+                {
+                    <div><a href="@question.VideoURL">Video</a></div>
+                }
+            </div>
+            <div>@question.QuestionText</div>
+            <div class="flex-container">
+                @for (int counter = 0; counter < question.Answers.Count; counter++)
+                {
+                    <div class="answer @(QRefTrain3.Models.Answer.IsAnswerCorrect(@question.Answers[counter], Model.SelectedAnswers) ? "goodAnswer" : "badAnswer")"><img id="osef" src="~/Elements/@(question.Answers[counter].IsSelected ? "checkBoxSelected" : "checkBoxUnselected").png" height="30" width="30" />@question.Answers[counter].Answertext</div>
+                }
+            </div>
+            <div>@question.AnswerExplanation</div>
+        </div>
+    }
+</div>

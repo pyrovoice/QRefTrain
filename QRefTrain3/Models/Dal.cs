@@ -25,6 +25,19 @@ namespace QRefTrain3.Models
             Console.Write("CREATE USER " + user.Name);
         }
 
+        public List<Question> GetQuestionByIds(List<int> questionsAskedIds)
+        {
+            List<Question> returnList = new List<Question>();
+            foreach (Question q in Context.Questions)
+            {
+                if (questionsAskedIds.Contains(q.Id))
+                {
+                    returnList.Add(q);
+                }
+            }
+            return returnList;
+        }
+
         public List<Result> GetNLastResultByUser(User user, int number)
         {
             List<Result> results = GetResultByUser(user);
@@ -74,7 +87,7 @@ namespace QRefTrain3.Models
         public bool UserExistsInDB(User user)
         {
             User foundUser = Context.Users.First<User>(u => u.Name == user.Name || u.Email == user.Email);
-            return user  != null ? true : false;
+            return user != null ? true : false;
         }
 
         public Result GetResultById(int resultId)
@@ -145,7 +158,6 @@ namespace QRefTrain3.Models
 
         public void CreateResult(Result result)
         {
-            result.DateTime = DateTime.Now;
             Context.Results.Add(result);
             Context.SaveChanges();
         }
@@ -180,9 +192,8 @@ namespace QRefTrain3.Models
             {
                 return null;
             }
-            var affectedRows = Context.Database.SqlQuery<User>("IdentifyUser @name, @password", new SqlParameter("@name", userName), new SqlParameter("@password", userPassword));
-            var user = affectedRows.First(); ;
-            return user;
+            DbRawSqlQuery<User> affectedRows = Context.Database.SqlQuery<User>("IdentifyUser @name, @password", new SqlParameter("@name", userName), new SqlParameter("@password", userPassword));
+            return affectedRows.FirstOrDefault();
         }
 
     }

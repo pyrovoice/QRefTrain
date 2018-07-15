@@ -161,6 +161,7 @@
     <Compile Include="ViewModel\QuestionViewModel.cs" />
     <Compile Include="ViewModel\QuizzViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
+    <Compile Include="ViewModel\ResultViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -182,6 +183,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Elements\badAnswer.jpg" />
+    <Content Include="Elements\checkBoxSelected.png" />
+    <Content Include="Elements\checkBoxUnselected.png" />
     <Content Include="Elements\collapse_arrow.png" />
     <Content Include="Elements\expand_arrow.png" />
     <Content Include="Elements\goodAnswer.jpg" />

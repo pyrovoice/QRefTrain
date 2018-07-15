@@ -11,7 +11,7 @@ namespace QRefTrain3.Models
         public int Id { get; set; }
         public User User { get; set; }
         public List<int> QuestionsAskedIds { get; set; } = new List<int>();
-        public List<int> GoodAnswersIds { get; set; } = new List<int>();
+        public List<int> SelectedAnswers { get; set; } = new List<int>();
         public ResultType ResultType { get; set; }
         [Column(TypeName = "DateTime2")]
         public DateTime DateTime { get; set; }

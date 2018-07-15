@@ -19,17 +19,16 @@ namespace QRefTrain3.Controllers
             }
             User user = Dal.Instance.GetUserByName(User.Identity.Name);
             List<Result> results = Dal.Instance.GetNLastResultByUser(user, 10);
-            return View("Profile", results);
+            List<ResultViewModel> viewModels = new List<ResultViewModel>();
+            foreach(Result result in results)
+            {
+                viewModels.Add(new ResultViewModel(result));
+            }
+            return View("Profile", viewModels);
         }
         public ActionResult DisplayResultDetails(int id)
         {
-            List<QuestionViewModel> questions = new List<QuestionViewModel>();
-            Result result = Dal.Instance.GetResultById(id);
-            foreach (int questionId in result.QuestionsAskedIds)
-            {
-                questions.Add(new QuestionViewModel { Question = Dal.Instance.GetQuestionById(questionId), AnsweredRight = (result.GoodAnswersIds.Contains(questionId) ? true : false) });
-            }
-            return View("ResultDetail", questions);
+            return View("ResultDetail", new ResultViewModel(Dal.Instance.GetResultById(id)));
         }
 
     }

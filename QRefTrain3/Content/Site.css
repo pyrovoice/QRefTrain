@@ -16,12 +16,12 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */ 
+/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
-} 
+}
 
 /*==========================Shared========================*/
 
@@ -43,8 +43,8 @@ footer {
     min-width: 100%;
 }
 
-.footerText{
-    font-size:small;
+.footerText {
+    font-size: small;
     margin-left: 15px;
 }
 
@@ -71,9 +71,9 @@ footer {
 
 .QuizzQuestionTitle {
     font-size: large;
-    text-decoration:underline;
-    text-align:left;
-    padding-bottom:20px;
+    text-decoration: underline;
+    text-align: left;
+    padding-bottom: 20px;
 }
 
 .QuizzQuestiontext {
@@ -104,14 +104,15 @@ footer {
     height: 20px;
     word-wrap: break-word;
 }
+
 .RadioButtonAnswers {
     text-align: left;
     padding-top: 30px;
 }
 
 /*================================hiddenInformations=================================*/
-.hiddenInformations{
-    display:none;
+.hiddenInformations {
+    display: none;
 }
 /*======================================================Profile==========================================*/
 .small-table {
@@ -120,27 +121,45 @@ footer {
 
 .small-title {
     font-size: medium;
-    font-weight:bold;
+    font-weight: bold;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 /*======================================================Result Detail===============================================*/
 .goodAnswer {
-    background-color: lightgreen;
-    margin-bottom: 5px;
-} 
+    background-color: palegreen;
+    border-color: green;
+}
 
 .badAnswer {
-    background-color: #FF6464;
-    margin-bottom: 5px;
+    background-color: #EAB6B6;
+    border-color: red;
 }
- 
+
+.answer {
+    border-style: groove;
+    padding: 3px;
+    width: 500px;
+}
+
 .table-striped th {
     text-align: center
 }
 
-.table-striped td{
-    text-align:center
+.table-striped td {
+    text-align: center
 }
 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.flex-container > div {
+    margin: 10px;
+    padding: 5px;
+}
+
+.answer > img {
+    margin-right: 5px;
+}

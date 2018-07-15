@@ -68,12 +68,11 @@ namespace QRefTrain3.Models
             }
         }
 
-        public static Boolean IsGoodAnswer(Question q)
+        public static Boolean IsQuestionCorrect(Question question, List<int> answerIds)
         {
-            foreach (Answer a in q.Answers)
+            foreach(Answer a in question.Answers)
             {
-                // If wrong answer is selected or good answer is not, then return false
-                if ((a.IsSelected && !a.IsTrue) || (!a.IsSelected && a.IsTrue))
+                if((answerIds.Contains(a.Id) && !a.IsTrue) || (!answerIds.Contains(a.Id) && a.IsTrue))
                 {
                     return false;
                 }

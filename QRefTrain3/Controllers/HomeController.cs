@@ -48,14 +48,17 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult QuizzResult(QuizzViewModel quizzModel)
         {
-            Result result = new Result() { ResultType = quizzModel.ResultType };
+            Result result = new Result() { ResultType = quizzModel.ResultType, DateTime = DateTime.Now};
             List<Question> answeredQuestions = QuestionViewModelToQuestion(quizzModel.DisplayedQuestions);
             foreach (Question q in answeredQuestions)
             {
                 result.QuestionsAskedIds.Add(q.Id);
-                if (Question.IsGoodAnswer(q))
+                foreach(Answer a in q.Answers)
                 {
-                    result.GoodAnswersIds.Add(q.Id);
+                    if (a.IsSelected)
+                    {
+                        result.SelectedAnswers.Add(a.Id);
+                    }
                 }
             }
             if (User.Identity.IsAuthenticated)
@@ -64,7 +67,7 @@ namespace QRefTrain3.Controllers
                 Dal.Instance.CreateResult(result);
             }
 
-            return View("QuizResult", result);
+            return View("QuizResult", new ResultViewModel(result));
         }
 
         private List<Question> QuestionViewModelToQuestion(List<QuestionQuizzViewModel> displayedQuestions)
