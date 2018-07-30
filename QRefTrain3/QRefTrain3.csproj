@@ -188,6 +188,7 @@
     <Content Include="Elements\collapse_arrow.png" />
     <Content Include="Elements\expand_arrow.png" />
     <Content Include="Elements\goodAnswer.jpg" />
+    <Content Include="Elements\logo_movie.png" />
     <Content Include="Elements\logo_reddit.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

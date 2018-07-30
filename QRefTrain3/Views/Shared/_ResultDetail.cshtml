@@ -1,7 +1,8 @@
 ﻿@model QRefTrain3.ViewModel.ResultViewModel
 
 <div>
-    <div>Test taken the @Model.DateTime, scored @Model.GetNumberGoodAnswer()/@(Model.QuestionsAsked.Count). This test is @(Model.ResultType == QRefTrain3.Models.ResultType.Exam ? "official" : "not official").</div>
+    <div>Test taken the @Model.DateTime.ToString("dd/MM/yy"), scored @Model.GetNumberGoodAnswer()/@(Model.QuestionsAsked.Count).</div>
+    <hr />
     @foreach (QRefTrain3.Models.Question question in Model.QuestionsAsked)
     {
         <div>
@@ -10,7 +11,13 @@
                 <div>@question.Name</div>
                 @if (question.IsVideo)
                 {
-                    <div><a href="@question.VideoURL">Video</a></div>
+                    <div><img id="@question.Id" src="~/Elements/logo_movie.png" height="30" width="30" /></div>
+                    <div class="hiddenInformations QuizzQuestionVideoContainer" id=@("hidden" + question.Id)>
+                        <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
+                                src="@question.VideoURL"
+                                frameborder="0"></iframe>
+                        }
+                    </div>
                 }
             </div>
             <div>@question.QuestionText</div>
@@ -27,10 +34,25 @@
                         backGround = "redBack";
                     }
 
-                    <div class="answer @backGround"><img id="osef" src="~/Elements/@(question.Answers[counter].IsSelected ? "checkBoxSelected" : "checkBoxUnselected").png" height="30" width="30" />@question.Answers[counter].Answertext</div>
+                    <div class="answer @backGround"><img id="selection" src="~/Elements/@(question.Answers[counter].IsSelected ? "checkBoxSelected" : "checkBoxUnselected").png" height="25" width="25" />@question.Answers[counter].Answertext</div>
                 }
             </div>
             <div>@question.AnswerExplanation</div>
         </div>
+        <hr />
     }
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("img").click(function () {
+            if ($(this).attr('src') === "/Elements/logo_movie.png") {
+                if (document.getElementById("hidden" + this.id).classList.contains("hiddenInformations")) {
+                    document.getElementById("hidden" + this.id).classList.remove("hiddenInformations");
+                } else {
+                    document.getElementById("hidden" + this.id).classList.add("hiddenInformations");
+                }
+            }
+        });
+    });
+</script>
