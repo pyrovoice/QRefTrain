@@ -21,6 +21,10 @@ namespace QRefTrain3.Models
                     dal.CreateQuestion(ModelFactory.GetQuestion(field, difficulty, AnswerType.MultipleAnswer));
                 }
             }
+            for(int i = 0; i <8; i++)
+            {
+                dal.CreateQuestion(ModelFactory.GetQuestion(QuestionField.Other, QuestionDifficulty.Advanced, AnswerType.MultipleAnswer));
+            }
             dal.CreateUser(ModelFactory.GetDefaultUser());
 
         }

@@ -19,8 +19,8 @@
         }
         else
         {
-            @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
             @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
+            @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
         }
 
     </div>

@@ -24,9 +24,9 @@
             @foreach(QRefTrain3.ViewModel.ResultViewModel result in Model)
             {
                 <tr>
-                    <td>@result.DateTime</td>
+                    <td>@result.DateTime.ToString("dd/MM/yy")</td>
                     <td>@result.GetNumberGoodAnswer() / @result.QuestionsAsked.Count</td>
-                    <td><img src="~/Elements/@(@result.GetNumberGoodAnswer()/result.QuestionsAsked.Count >= 0.8 ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
+                    <td><img src="~/Elements/@(((float)result.GetNumberGoodAnswer())/((float)result.QuestionsAsked.Count) >= 0.8 ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
                     <td>@Html.ActionLink("Details", "DisplayResultDetails", new { id = result.Id })</td>
             </tr>
             }

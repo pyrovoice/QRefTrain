@@ -165,6 +165,11 @@ footer {
     padding: 5px;
 }
 
+.flex-container > h5 {
+    margin: 10px;
+    padding: 5px;
+}
+
 .answer > img {
     margin-right: 5px;
 }

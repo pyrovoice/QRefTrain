@@ -29,7 +29,6 @@
             {
                 difficulties.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
             }
-            difficulties.Add(new SelectListItem() { Text = "Any", Value = "Any" });
 
             @Html.DropDownList("QuizzField", fields, new { @id = "QuizzField" });
             @Html.DropDownList("QuizzDifficulty", difficulties, new { @id = "QuizzDifficulty" });

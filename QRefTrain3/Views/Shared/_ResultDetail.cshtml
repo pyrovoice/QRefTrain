@@ -1,14 +1,13 @@
 ﻿@model QRefTrain3.ViewModel.ResultViewModel
 
 <div>
-    <div>Test taken the @Model.DateTime.ToString("dd/MM/yy"), scored @Model.GetNumberGoodAnswer()/@(Model.QuestionsAsked.Count).</div>
-    <hr />
+    <h5>Test taken the @Model.DateTime.ToString("dd/MM/yy"), scored @Model.GetNumberGoodAnswer()/@(Model.QuestionsAsked.Count).</h5>
     @foreach (QRefTrain3.Models.Question question in Model.QuestionsAsked)
     {
         <div>
             <div class="flex-container">
-                <div>@question.Id</div>
-                <div>@question.Name</div>
+                <h5>@question.Id</h5>
+                <h5>@question.Name</h5>
                 @if (question.IsVideo)
                 {
                     <div><img id="@question.Id" src="~/Elements/logo_movie.png" height="30" width="30" /></div>
