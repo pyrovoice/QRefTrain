@@ -17,7 +17,17 @@
             <div class="flex-container">
                 @for (int counter = 0; counter < question.Answers.Count; counter++)
                 {
-                    <div class="answer @(QRefTrain3.Models.Answer.IsAnswerCorrect(@question.Answers[counter], Model.SelectedAnswers) ? "goodAnswer" : "badAnswer")"><img id="osef" src="~/Elements/@(question.Answers[counter].IsSelected ? "checkBoxSelected" : "checkBoxUnselected").png" height="30" width="30" />@question.Answers[counter].Answertext</div>
+                    string backGround = "";
+                    if (QRefTrain3.Models.Answer.IsAnswerCorrect(@question.Answers[counter], Model.SelectedAnswers))
+                    {
+                        backGround = @question.Answers[counter].IsTrue ? "greenBack" : "greyBack";
+                    }
+                    else
+                    {
+                        backGround = "redBack";
+                    }
+
+                    <div class="answer @backGround"><img id="osef" src="~/Elements/@(question.Answers[counter].IsSelected ? "checkBoxSelected" : "checkBoxUnselected").png" height="30" width="30" />@question.Answers[counter].Answertext</div>
                 }
             </div>
             <div>@question.AnswerExplanation</div>

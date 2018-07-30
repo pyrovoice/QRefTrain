@@ -126,19 +126,24 @@ footer {
     margin-bottom: 20px;
 }
 /*======================================================Result Detail===============================================*/
-.goodAnswer {
+.greenBack {
     background-color: palegreen;
     border-color: green;
 }
 
-.badAnswer {
+.redBack {
     background-color: #EAB6B6;
     border-color: red;
 }
 
+.greyBack {
+    background-color: #e5e2e2;
+    border-color: lightgray;
+}
+
 .answer {
     border-style: groove;
-    padding: 3px;
+    border-radius: 15px;
     width: 500px;
 }
 
