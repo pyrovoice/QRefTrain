@@ -19,7 +19,11 @@ namespace QRefTrain3.Models
     {
         //SingleAnswer,
         MultipleAnswer
-    }
+    };
+    public enum NationalGoverningBody
+    {
+        All, Europe, Usa, Canada
+    };
 
     public class Question
     {
@@ -40,10 +44,12 @@ namespace QRefTrain3.Models
         [Required]
         public List<Answer> Answers { get; set; }
         [Required]
-        public String AnswerExplanation { get; set; }
+        public string AnswerExplanation { get; set; }
+        [Required]
+        public string NationalGoverningBodies { get; set; }
 
         public Question(string name, QuestionField field, QuestionDifficulty difficulty, bool isVideo, string videoUrl, string questionText, AnswerType answerType,
-            List<Answer> answers, string answerExplanation)
+            List<Answer> answers, string answerExplanation, params NationalGoverningBody[] bodies)
         {
             this.Name = name;
             this.Field = field;
@@ -54,6 +60,14 @@ namespace QRefTrain3.Models
             this.AnswerType = answerType;
             this.Answers = answers;
             this.AnswerExplanation = answerExplanation;
+            if (bodies.Contains<NationalGoverningBody>(Models.NationalGoverningBody.All) || bodies.Count() == 0 || bodies == null)
+            {
+                this.NationalGoverningBodies = "ALL";
+            }
+            else
+            {
+                this.NationalGoverningBodies = string.Join(";", bodies);
+            }
         }
         public Question()
         {

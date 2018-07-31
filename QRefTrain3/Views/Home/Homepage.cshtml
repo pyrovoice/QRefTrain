@@ -5,33 +5,38 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Homepage</title>
-    <style>
-        .padding-top {
-            padding-top: 20px;
-        }
-    </style>
 </head>
 <body>
-    <div>Choose your parameters</div>
+    <h5 class="bottomMargin">Choose your parameters</h5>
     <div class="padding-top">
         @using (Html.BeginForm("MovetoQuiz", "Home"))
         {
-            List<SelectListItem> fields = new List<SelectListItem>();
-            foreach (QRefTrain3.Models.QuestionField item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionField)))
+            <div class="btn-group-toggle" data-toggle="buttons">
+                @foreach (QRefTrain3.Models.QuestionField item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionField)))
+                {
+                <label class="btn btn-secondary shortLabel">
+                    <input type="checkbox" name="Subjects" value="@item.ToString()" />@item.ToString()
+                </label>
+                }
+            </div>
+
+            <div class="btn-group-toggle" data-toggle="buttons">
+                @foreach (QRefTrain3.Models.QuestionDifficulty item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionDifficulty)))
+                {
+                    <label class="btn btn-secondary shortLabel">
+                        <input type="checkbox" name="Difficulties" value="@item.ToString()" />@item.ToString()
+                    </label>
+                }
+            </div>
+
+            List<SelectListItem> ngbs = new List<SelectListItem>();
+            foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
             {
-
-                fields.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
+                ngbs.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
             }
-            fields.Add(new SelectListItem() { Text = "Any", Value = "Any" });
-
-            List<SelectListItem> difficulties = new List<SelectListItem>();
-            foreach (QRefTrain3.Models.QuestionDifficulty item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionDifficulty)))
-            {
-                difficulties.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
-            }
-
-            @Html.DropDownList("QuizzField", fields, new { @id = "QuizzField" });
-            @Html.DropDownList("QuizzDifficulty", difficulties, new { @id = "QuizzDifficulty" });
+            <div class="flex-container bottomMargin shortLabel">
+                @Html.DropDownList("NGBs", ngbs, new { @id = "NGBs" })
+            </div>
             <input type="submit" value="Start the quizz" />
         }
     </div>

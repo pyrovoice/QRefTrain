@@ -25,7 +25,7 @@ namespace QRefTrain3.Models
                 answers.Add(new Answer() { Answertext = "Player should grab the hoop instead of touching it.", IsTrue = false });
                 answers.Add(new Answer() { Answertext = "Nothing is missing.", IsTrue = false });
             }
-            String questionName = "Knockout procedure";
+            String questionName = field + " " + difficulty + " " + "All";
             questionCount++;
             return new Question(questionName, field, difficulty, true, "https://www.youtube.com/embed/BKSoi96X6fA?start=67&end=70", "What is missing from this procedure ?", type, answers, "The player should have the broom removed when touching the hoop.");
         }

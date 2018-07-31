@@ -18,7 +18,6 @@ namespace QRefTrain3.Models
             foreach(QuestionField field in Enum.GetValues(typeof(QuestionField))){
                 foreach (QuestionDifficulty difficulty in Enum.GetValues(typeof(QuestionDifficulty))){
                     dal.CreateQuestion(ModelFactory.GetQuestion(field, difficulty, AnswerType.MultipleAnswer));
-                    dal.CreateQuestion(ModelFactory.GetQuestion(field, difficulty, AnswerType.MultipleAnswer));
                 }
             }
             for(int i = 0; i <8; i++)

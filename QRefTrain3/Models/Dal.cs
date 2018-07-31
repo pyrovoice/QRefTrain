@@ -45,30 +45,9 @@ namespace QRefTrain3.Models
 
         }
 
-        public List<Question> GetQuestionsByParameter(string field, string difficulty)
+        public List<Question> GetQuestionsByParameter(List<string> fields, List<string> difficulties, NationalGoverningBody body)
         {
-            List<Question> questionsToReturn = new List<Question>();
-            if (field.Equals("Any"))
-            {
-                foreach (Question q in Context.Questions)
-                {
-                    if (q.Difficulty.ToString().Equals(difficulty))
-                    {
-                        questionsToReturn.Add(q);
-                    }
-                }
-            }
-            else
-            {
-                foreach (Question q in Context.Questions)
-                {
-                    if (q.Field.ToString().Equals(field) && q.Difficulty.ToString().Equals(difficulty))
-                    {
-                        questionsToReturn.Add(q);
-                    }
-                }
-            }
-            return questionsToReturn;
+            return Context.Questions.Where<Question>(q => fields.Contains(q.Field.ToString()) && (fields.Contains("Any") || fields.Contains(q.Field.ToString())) && q.NationalGoverningBodies.Contains(body.ToString())).ToList<Question>();
         }
 
         public bool UsernameAlreadyInDB(string name)

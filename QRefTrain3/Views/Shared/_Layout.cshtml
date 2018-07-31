@@ -7,9 +7,10 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container topitem">
+    <div class="container bottomMargin">
         @Html.ActionLink("Quidditch Ref Training", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
         @Html.ActionLink("Questions", "QuestionListing", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <a class="topRightImage" href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"><img src="~/Elements/logo_reddit.png" width="124" height="47" /></a>

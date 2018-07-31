@@ -20,10 +20,10 @@ namespace QRefTrain3.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpPost]
-        public ActionResult MovetoQuiz(string QuizzField, string QuizzDifficulty)
+        public ActionResult MovetoQuiz(List<string> Subjects, List<string> Difficulties, string NGBs)
         {
             List<Question> displayedQuestions = new List<Question>();
-            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(QuizzField, QuizzDifficulty);
+            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, Difficulties, NationalGoverningBody.All);
             // Get 10 randoms questions from the selected parameters, or all if there is not 10.
             if (allQuestions.Count < 10)
             {
