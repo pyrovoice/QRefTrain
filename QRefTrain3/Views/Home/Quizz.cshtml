@@ -11,6 +11,8 @@
     <title>Quizz</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Site.css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div>
@@ -23,7 +25,7 @@
                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
                 <div class="QuizzQuestion">
                     <div class="QuizzQuestionTitle">@Model.DisplayedQuestions[i].Id : @Model.DisplayedQuestions[i].Name</div>
-                    <div class="QuizzQuestiontext">@Model.DisplayedQuestions[i].QuestionText</div>
+                    <h5 class="QuizzQuestiontext">@Model.DisplayedQuestions[i].QuestionText</h5>
                     @if (@Model.DisplayedQuestions[i].IsVideo)
                     {
                         <div class="QuizzQuestionVideoContainer">
@@ -33,35 +35,39 @@
                         </div>
                     }
                     @*@if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.SingleAnswer)
-                    {
-                        <div class="RadioButtonAnswers">
-                            @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
-                            {
-                                @Model.DisplayedQuestions[i].Answers[j].AnswerText
-                                @Html.RadioButtonFor(m => m.DisplayedQuestions[i].AnswersRadio, Model.DisplayedQuestions[i].Answers[j].Id)
-                            }
+                        {
+                            <div class="RadioButtonAnswers">
+                                @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
+                                {
+                                    @Model.DisplayedQuestions[i].Answers[j].AnswerText
+                                    @Html.RadioButtonFor(m => m.DisplayedQuestions[i].AnswersRadio, Model.DisplayedQuestions[i].Answers[j].Id)
+                                }
 
-                        </div>
-                    }
-                    else*@
+                            </div>
+                        }
+                        else*@
                     @if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.MultipleAnswer)
                     {
-                        <div class="RadioButtonAnswers">
+                        <div class="btn-group-toggle" data-toggle="buttons">
 
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
-                            <div class="RadioButtonAnswer">
-                                @Model.DisplayedQuestions[i].Answers[j].AnswerText
-                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                <label class="btn btn-light longLabel">
+                                    @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                    @Model.DisplayedQuestions[i].Answers[j].AnswerText
+                                </label>
                                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].AnswerText)
                                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
-                            </div>
                             }
                         </div>
                     }
                 </div>
+                if(i != Model.DisplayedQuestions.Count -1)
+                {
+                    <hr />
+                }
             }
-            <input type="submit" value="Validate Answers" />
+            <input type="submit" value="Validate Answers" class="btn-lg btn-primary QuizzValidationButton" />
         }
     </div>
 </body>

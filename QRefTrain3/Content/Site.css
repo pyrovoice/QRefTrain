@@ -65,7 +65,7 @@ footer {
 
 .QuizzQuestion {
     margin: auto;
-    max-width: 800px;
+    max-width: 80%;
     margin-bottom: 40px;
 }
 
@@ -77,7 +77,6 @@ footer {
 }
 
 .QuizzQuestiontext {
-    font-size: medium;
     text-align: center;
     padding-bottom: 15px;
 }
@@ -94,7 +93,8 @@ footer {
     height: 376px;
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    margin-bottom: 15px;
 }
 
 .RadioButtonAnswer {
@@ -174,6 +174,7 @@ footer {
     margin-right: 5px;
 }
 
+/*========Secondary (black) button=========*/
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active {
     color: #fff;
     background-color: #545b62;
@@ -189,6 +190,22 @@ footer {
     box-shadow: none;
 }
 
+/*========Light (white) button=========*/
+.btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active {
+    color: #fff;
+    background-color: #545b62;
+    border-color: #4e555b;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.61);
+}
+
+.btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus {
+}
+
+.btn-light:focus, .btn-light.focus {
+    box-shadow: none;
+}
+/*==================================*/
+
 .btn-group-toggle{
     margin-bottom: 10px;
 }
@@ -200,4 +217,15 @@ footer {
 
 .shortLabel {
     width: 140px;
+}
+
+.longLabel {
+    width: 49%;
+}
+
+.QuizzValidationButton {
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 700px;
 }
