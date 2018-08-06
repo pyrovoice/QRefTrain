@@ -19,15 +19,15 @@ namespace QRefTrain3.Models
 
         public static Question GetQuestion(QuestionField field, QuestionDifficulty difficulty, AnswerType type)
         {
-            List<Answer> answers = new List<Answer>() { new Answer() { Answertext = "Player should touch the round part of the hoop.", IsTrue = false }, new Answer() { Answertext = "Player should remove their broom before touching the hoop.", IsTrue = true,  }};
+            List<Answer> answers = new List<Answer>() { new Answer() { Answertext = "Question_Sample_Answer1", IsTrue = false }, new Answer() { Answertext = "Question_Sample_Answer2", IsTrue = true,  }};
             if(type == AnswerType.MultipleAnswer)
             {
-                answers.Add(new Answer() { Answertext = "Player should grab the hoop instead of touching it.", IsTrue = false });
-                answers.Add(new Answer() { Answertext = "Nothing is missing.", IsTrue = false });
+                answers.Add(new Answer() { Answertext = "Question_Sample_Answer3", IsTrue = false });
+                answers.Add(new Answer() { Answertext = "Question_Sample_Answer4", IsTrue = false });
             }
             String questionName = field + " " + difficulty + " " + "All";
             questionCount++;
-            return new Question(questionName, field, difficulty, true, "https://www.youtube.com/embed/BKSoi96X6fA?start=67&end=70", "What is missing from this procedure ?", type, answers, "The player should have the broom removed when touching the hoop.");
+            return new Question(questionName, field, difficulty, true, "https://www.youtube.com/embed/BKSoi96X6fA?start=67&end=70", "Question_Sample_Text", type, answers, "Question_Sample_Explanation");
         }
     }
 }

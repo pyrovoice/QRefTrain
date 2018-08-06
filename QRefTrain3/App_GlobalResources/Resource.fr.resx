@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Homepage" xml:space="preserve">
+    <value>Page Principale</value>
+  </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
     <value>Choisissez vos paramètres</value>
   </data>
@@ -159,8 +162,38 @@
   <data name="Question_Process" xml:space="preserve">
     <value>Procédure</value>
   </data>
+  <data name="Question_Sample_Answer1" xml:space="preserve">
+    <value>Le joueur doit toucher la partie ronde de l'anneau.</value>
+  </data>
+  <data name="Question_Sample_Answer2" xml:space="preserve">
+    <value>Le joueur doit retirer son balai avant de toucher l'anneau.</value>
+  </data>
+  <data name="Question_Sample_Answer3" xml:space="preserve">
+    <value>Le joueur doit attraper l'anneau plutot que le toucher.</value>
+  </data>
+  <data name="Question_Sample_Answer4" xml:space="preserve">
+    <value>Rien ne manque.</value>
+  </data>
+  <data name="Question_Sample_Explanation" xml:space="preserve">
+    <value>Le joueur doit avoir le balai retiré quand il touche l'anneau.</value>
+  </data>
+  <data name="Question_Sample_Text" xml:space="preserve">
+    <value>Que manque dans cette procédure ?</value>
+  </data>
+  <data name="Question_Sample_Title" xml:space="preserve">
+    <value />
+  </data>
   <data name="Question_Seeker" xml:space="preserve">
     <value>Attrapeur</value>
+  </data>
+  <data name="Quiz_ValidateAnswer" xml:space="preserve">
+    <value>Valider les réponses</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Valider</value>
+  </data>
+  <data name="TopDiv_ChooseLanguage" xml:space="preserve">
+    <value>Choisissez un language</value>
   </data>
   <data name="TopDiv_Login" xml:space="preserve">
     <value>Connexion</value>

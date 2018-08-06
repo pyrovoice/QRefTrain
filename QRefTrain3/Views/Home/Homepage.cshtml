@@ -4,19 +4,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Homepage</title>
+    <title>@Resources.Resource.Homepage</title>
 </head>
 <body>
-    <h5 class="bottomMargin">@Resources.Resources.Homepage_ParameterPrompt</h5>
+    <h5 class="bottomMargin">@Resources.Resource.Homepage_ParameterPrompt</h5>
     <div class="padding-top">
         @using (Html.BeginForm("MovetoQuiz", "Home"))
         {
             <div class="btn-group-toggle" data-toggle="buttons">
                 @foreach (QRefTrain3.Models.QuestionField item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionField)))
                 {
-                <label class="btn btn-secondary shortLabel">
-                    <input type="checkbox" name="Subjects" value="@item.ToString()" />@item.ToString()
-                </label>
+                    <label class="btn btn-secondary shortLabel">
+                        <input type="checkbox" name="Subjects" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Question_" + item.ToString())
+                    </label>
                 }
             </div>
 
@@ -24,7 +24,7 @@
                 @foreach (QRefTrain3.Models.QuestionDifficulty item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionDifficulty)))
                 {
                     <label class="btn btn-secondary shortLabel">
-                        <input type="checkbox" name="Difficulties" value="@item.ToString()" />@item.ToString()
+                        <input type="checkbox" name="Difficulties" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Question_" + item.ToString())
                     </label>
                 }
             </div>
@@ -32,12 +32,12 @@
             List<SelectListItem> ngbs = new List<SelectListItem>();
             foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
             {
-                ngbs.Add(new SelectListItem() { Text = item.ToString(), Value = item.ToString() });
+                ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
             }
             <div class="flex-container bottomMargin shortLabel">
                 @Html.DropDownList("NGBs", ngbs, new { @id = "NGBs" })
             </div>
-            <input type="submit" value="Start the quizz" />
+            <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" />
         }
     </div>
 </body>

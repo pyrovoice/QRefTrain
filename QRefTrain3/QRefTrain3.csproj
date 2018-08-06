@@ -146,9 +146,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Helper\CultureHelper.cs" />
     <Compile Include="Migrations\201806172105546_Model.cs" />
     <Compile Include="Migrations\201806172105546_Model.Designer.cs">
       <DependentUpon>201806172105546_Model.cs</DependentUpon>
@@ -160,15 +162,17 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Result.cs" />
-    <Compile Include="Resources\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Resources\Resources.fr.Designer.cs">
-      <DependentUpon>Resources.fr.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\Resource.fr.Designer.cs">
+      <DependentUpon>Resource.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ViewModel\AnswerQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionQuizzViewModel.cs" />
@@ -296,6 +300,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Test\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -313,17 +318,19 @@
     <EmbeddedResource Include="Migrations\201807310844029_NGBs.resx">
       <DependentUpon>201807310844029_NGBs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Resources.fr.resx">
+    <EmbeddedResource Include="App_GlobalResources\Resource.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.fr.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resource</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Resources.resx">
+    <EmbeddedResource Include="App_GlobalResources\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resource</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

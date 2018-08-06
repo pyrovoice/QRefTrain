@@ -1,4 +1,5 @@
-﻿using QRefTrain3.Models;
+﻿using QRefTrain3.Helper;
+using QRefTrain3.Models;
 using QRefTrain3.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace QRefTrain3.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Homepage()
         {
@@ -68,6 +69,27 @@ namespace QRefTrain3.Controllers
             }
 
             return View("QuizResult", new ResultViewModel(result));
+        }
+
+        [HttpPost]
+        public ActionResult UpdateLanguage(String languages)
+        {
+            // Validate input
+            languages = CultureHelper.GetImplementedCulture(languages);
+            // Save culture in a cookie
+            HttpCookie cookie = Request.Cookies["_culture"];
+            if (cookie != null)
+                cookie.Value = languages;   // update cookie value
+            else
+            {
+                cookie = new HttpCookie("_culture")
+                {
+                    Value = languages,
+                    Expires = DateTime.Now.AddYears(1)
+                };
+            }
+            Response.Cookies.Add(cookie);
+            return RedirectToAction("Homepage");
         }
 
         private List<Question> QuestionViewModelToQuestion(List<QuestionQuizzViewModel> displayedQuestions)

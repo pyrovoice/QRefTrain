@@ -10,7 +10,7 @@ using System.Web.Security;
 
 namespace QRefTrain3.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         public ActionResult Index()
         {

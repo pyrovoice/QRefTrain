@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Resources {
+namespace Resource {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("QRefTrain3.App_GlobalResources.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,15 @@ namespace Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HomePage.
+        /// </summary>
+        public static string Homepage {
+            get {
+                return ResourceManager.GetString("Homepage", resourceCulture);
             }
         }
         
@@ -84,24 +93,6 @@ namespace Resources {
         public static string Homepage_StartQuizz {
             get {
                 return ResourceManager.GetString("Homepage_StartQuizz", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create an account.
-        /// </summary>
-        public static string Login_CreateAccount {
-            get {
-                return ResourceManager.GetString("Login_CreateAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please enter your informations..
-        /// </summary>
-        public static string Login_EnterInformationPrompt {
-            get {
-                return ResourceManager.GetString("Login_EnterInformationPrompt", resourceCulture);
             }
         }
         
@@ -205,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Player should touch the round part of the hoop..
         /// </summary>
         public static string Question_Sample_Answer1 {
             get {
@@ -214,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Player should remove their broom before touching the hoop..
         /// </summary>
         public static string Question_Sample_Answer2 {
             get {
@@ -223,7 +214,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Player should grab the hoop instead of touching it..
         /// </summary>
         public static string Question_Sample_Answer3 {
             get {
@@ -232,7 +223,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Nothing is missing..
         /// </summary>
         public static string Question_Sample_Answer4 {
             get {
@@ -241,7 +232,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The player should have the broom removed when touching the hoop..
         /// </summary>
         public static string Question_Sample_Explanation {
             get {
@@ -250,7 +241,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to What is missing from this procedure ?.
         /// </summary>
         public static string Question_Sample_Text {
             get {
@@ -277,11 +268,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Validate Answers.
         /// </summary>
         public static string Quiz_ValidateAnswer {
             get {
                 return ResourceManager.GetString("Quiz_ValidateAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valider.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a language.
+        /// </summary>
+        public static string TopDiv_ChooseLanguage {
+            get {
+                return ResourceManager.GetString("TopDiv_ChooseLanguage", resourceCulture);
             }
         }
         

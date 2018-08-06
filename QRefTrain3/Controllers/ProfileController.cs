@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace QRefTrain3.Controllers
 {
-    public class ProfileController : Controller
+    public class ProfileController : BaseController
     {
         // GET: Profile
         public ActionResult DisplayProfile()

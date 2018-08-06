@@ -23,6 +23,19 @@
             @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
             @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
         }
+        @using (Html.BeginForm("UpdateLanguage", "Home"))
+        {
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (string s in QRefTrain3.Helper.CultureHelper._cultures)
+            {
+                var selectItem = new SelectListItem();
+                selectItem.Text = s;
+                selectItem.Value = s;
+                selectItem.Selected = QRefTrain3.Helper.CultureHelper.GetCurrentCulture() == s ? true : false;
+                selectList.Add(selectItem);
+            }
+            @Html.DropDownList("languages", selectList, new { onchange = "form.submit()" })
+        }
 
     </div>
 

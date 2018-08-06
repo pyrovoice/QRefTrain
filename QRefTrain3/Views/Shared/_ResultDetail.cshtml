@@ -26,6 +26,7 @@
                     string backGround = "";
                     if (QRefTrain3.Models.Answer.IsAnswerCorrect(@question.Answers[counter], Model.SelectedAnswers))
                     {
+                        // We only highlight answers that are relevant
                         backGround = @question.Answers[counter].IsTrue ? "greenBack" : "greyBack";
                     }
                     else

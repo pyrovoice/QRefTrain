@@ -117,17 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Homepage" xml:space="preserve">
+    <value>HomePage</value>
+  </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
-    <value>Choisissez vos paramètres</value>
+    <value>Choose your parameters</value>
   </data>
   <data name="Homepage_ReminderBeta" xml:space="preserve">
-    <value>&lt;strong&gt;Ce site est en beta.&lt;/strong&gt; Pour toute question ou remarque, contactez qreftrain@gmail.com ou visitez &lt;a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"&gt;notre subreddit&lt;/a&gt;</value>
+    <value>&lt;strong&gt;This website is in beta.&lt;/strong&gt; For any question or remark, please contact qreftrain@gmail.com or visit &lt;a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"&gt;our subreddit&lt;/a&gt;</value>
   </data>
   <data name="Homepage_StartQuizz" xml:space="preserve">
-    <value>Commencer le quiz</value>
+    <value>Start the quiz</value>
   </data>
   <data name="NGBs_All" xml:space="preserve">
-    <value>Toutes</value>
+    <value>All</value>
   </data>
   <data name="NGBs_Canada" xml:space="preserve">
     <value>Canada</value>
@@ -139,34 +142,64 @@
     <value>Usa</value>
   </data>
   <data name="Question_Advanced" xml:space="preserve">
-    <value>Avancé</value>
+    <value>Advanced</value>
   </data>
   <data name="Question_Basic" xml:space="preserve">
-    <value>Basique</value>
+    <value>Basic</value>
   </data>
   <data name="Question_Beater" xml:space="preserve">
-    <value>Batteur</value>
+    <value>Beater</value>
   </data>
   <data name="Question_Chaser" xml:space="preserve">
-    <value>Poursuiveur</value>
+    <value>Chaser</value>
   </data>
   <data name="Question_Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
   <data name="Question_Other" xml:space="preserve">
-    <value>Autre</value>
+    <value>Other</value>
   </data>
   <data name="Question_Process" xml:space="preserve">
-    <value>Procédure</value>
+    <value>Process</value>
+  </data>
+  <data name="Question_Sample_Answer1" xml:space="preserve">
+    <value>Player should touch the round part of the hoop.</value>
+  </data>
+  <data name="Question_Sample_Answer2" xml:space="preserve">
+    <value>Player should remove their broom before touching the hoop.</value>
+  </data>
+  <data name="Question_Sample_Answer3" xml:space="preserve">
+    <value>Player should grab the hoop instead of touching it.</value>
+  </data>
+  <data name="Question_Sample_Answer4" xml:space="preserve">
+    <value>Nothing is missing.</value>
+  </data>
+  <data name="Question_Sample_Explanation" xml:space="preserve">
+    <value>The player should have the broom removed when touching the hoop.</value>
+  </data>
+  <data name="Question_Sample_Text" xml:space="preserve">
+    <value>What is missing from this procedure ?</value>
+  </data>
+  <data name="Question_Sample_Title" xml:space="preserve">
+    <value />
   </data>
   <data name="Question_Seeker" xml:space="preserve">
-    <value>Attrapeur</value>
+    <value>Seeker</value>
+  </data>
+  <data name="Quiz_ValidateAnswer" xml:space="preserve">
+    <value>Validate Answers</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Valider</value>
+  </data>
+  <data name="TopDiv_ChooseLanguage" xml:space="preserve">
+    <value>Choose a language</value>
   </data>
   <data name="TopDiv_Login" xml:space="preserve">
-    <value>Connexion</value>
+    <value>Login</value>
   </data>
   <data name="TopDiv_Logout" xml:space="preserve">
-    <value>Déconnexion</value>
+    <value>Logout</value>
   </data>
   <data name="TopDiv_Questions" xml:space="preserve">
     <value>Questions</value>
