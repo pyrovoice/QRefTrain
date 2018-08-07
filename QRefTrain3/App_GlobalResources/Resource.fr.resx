@@ -120,6 +120,9 @@
   <data name="Homepage" xml:space="preserve">
     <value>Page Principale</value>
   </data>
+  <data name="Homepage_NGBSpecificPrompt" xml:space="preserve">
+    <value>Uniquement cette NGB</value>
+  </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
     <value>Choisissez vos paramètres</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="Homepage_StartQuizz" xml:space="preserve">
     <value>Commencer le quiz</value>
+  </data>
+  <data name="Homepage_TestPrompt" xml:space="preserve">
+    <value>Take an official test.</value>
   </data>
   <data name="NGBs_All" xml:space="preserve">
     <value>Toutes</value>

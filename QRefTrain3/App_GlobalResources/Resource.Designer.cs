@@ -70,6 +70,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NGB specific questions only.
+        /// </summary>
+        public static string Homepage_NGBSpecificPrompt {
+            get {
+                return ResourceManager.GetString("Homepage_NGBSpecificPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose your parameters.
         /// </summary>
         public static string Homepage_ParameterPrompt {
@@ -93,6 +102,15 @@ namespace Resource {
         public static string Homepage_StartQuizz {
             get {
                 return ResourceManager.GetString("Homepage_StartQuizz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take an official test..
+        /// </summary>
+        public static string Homepage_TestPrompt {
+            get {
+                return ResourceManager.GetString("Homepage_TestPrompt", resourceCulture);
             }
         }
         
