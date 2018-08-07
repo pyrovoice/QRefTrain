@@ -124,7 +124,7 @@
     <value>NGB specific questions only</value>
   </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
-    <value>Choose your parameters</value>
+    <value>Start a training test</value>
   </data>
   <data name="Homepage_ReminderBeta" xml:space="preserve">
     <value>&lt;strong&gt;This website is in beta.&lt;/strong&gt; For any question or remark, please contact qreftrain@gmail.com or visit &lt;a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"&gt;our subreddit&lt;/a&gt;</value>
@@ -187,7 +187,7 @@
     <value>What is missing from this procedure ?</value>
   </data>
   <data name="Question_Sample_Title" xml:space="preserve">
-    <value />
+    <value>Question title</value>
   </data>
   <data name="Question_Seeker" xml:space="preserve">
     <value>Seeker</value>

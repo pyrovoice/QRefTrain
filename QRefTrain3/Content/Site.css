@@ -65,7 +65,7 @@ footer {
 
 .QuizzQuestion {
     margin: auto;
-    max-width: 80%;
+    max-width: 90%;
     margin-bottom: 40px;
 }
 
@@ -160,15 +160,15 @@ footer {
     flex-wrap: wrap;
 }
 
-.flex-container > div {
-    margin: 10px;
-    padding: 5px;
-}
+    .flex-container > div {
+        margin: 10px;
+        padding: 5px;
+    }
 
-.flex-container > h5 {
-    margin: 10px;
-    padding: 5px;
-}
+    .flex-container > h5 {
+        margin: 10px;
+        padding: 5px;
+    }
 
 .answer > img {
     margin-right: 5px;
@@ -182,9 +182,8 @@ footer {
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.61);
 }
 
-.btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus
-{
-}
+    .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus {
+    }
 
 .btn-secondary:focus, .btn-secondary.focus {
     box-shadow: none;
@@ -198,22 +197,22 @@ footer {
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.61);
 }
 
-.btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus {
-}
+    .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus {
+    }
 
 .btn-light:focus, .btn-light.focus {
     box-shadow: none;
 }
 /*==================================*/
 
-.btn-group-toggle{
+.btn-group-toggle {
     margin-bottom: 10px;
 }
 
-.btn-group-toggle > .btn, .btn-group-toggle > .btn-group > .btn {
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
+    .btn-group-toggle > .btn, .btn-group-toggle > .btn-group > .btn {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
 
 .shortLabel {
     width: 140px;
@@ -221,6 +220,13 @@ footer {
 
 .longLabel {
     width: 49%;
+}
+
+@media (max-width: 1200px) {
+
+    .longLabel {
+        width: 100%;
+    }
 }
 
 .QuizzValidationButton {

@@ -124,7 +124,7 @@
     <value>Uniquement cette NGB</value>
   </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
-    <value>Choisissez vos paramètres</value>
+    <value>Commencez un test d'entrainement.</value>
   </data>
   <data name="Homepage_ReminderBeta" xml:space="preserve">
     <value>&lt;strong&gt;Ce site est en beta.&lt;/strong&gt; Pour toute question ou remarque, contactez qreftrain@gmail.com ou visitez &lt;a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"&gt;notre subreddit&lt;/a&gt;</value>
@@ -187,7 +187,7 @@
     <value>Que manque dans cette procédure ?</value>
   </data>
   <data name="Question_Sample_Title" xml:space="preserve">
-    <value />
+    <value>Titre de la question</value>
   </data>
   <data name="Question_Seeker" xml:space="preserve">
     <value>Attrapeur</value>

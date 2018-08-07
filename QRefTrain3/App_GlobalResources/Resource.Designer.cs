@@ -79,7 +79,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose your parameters.
+        ///   Looks up a localized string similar to Start a training test.
         /// </summary>
         public static string Homepage_ParameterPrompt {
             get {
@@ -268,7 +268,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Question title.
         /// </summary>
         public static string Question_Sample_Title {
             get {
