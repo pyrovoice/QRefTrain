@@ -235,8 +235,11 @@ footer {
 }
 
 .QuizzValidationButton {
-    float: right;
+    float:right;
     margin-right: 30px;
     margin-top: 20px;
-    margin-bottom: 300px;
+}
+
+.bigBottomPadding{
+    padding-bottom: 100px;
 }
