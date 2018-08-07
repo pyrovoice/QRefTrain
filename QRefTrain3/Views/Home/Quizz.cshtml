@@ -24,8 +24,8 @@
             {
                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
                 <div class="QuizzQuestion">
-                    <div class="QuizzQuestionTitle">@Model.DisplayedQuestions[i].Id : @Model.DisplayedQuestions[i].Name</div>
-                    <h5 class="QuizzQuestiontext">@Model.DisplayedQuestions[i].QuestionText</h5>
+                    <div class="QuizzQuestionTitle">@Model.DisplayedQuestions[i].Id : @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Name)</div>
+                    <h5 class="QuizzQuestiontext">@Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</h5>
                     @if (@Model.DisplayedQuestions[i].IsVideo)
                     {
                         <div class="QuizzQuestionVideoContainer">
@@ -34,29 +34,16 @@
                                     frameborder="0"></iframe>
                         </div>
                     }
-                    @*@if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.SingleAnswer)
-                        {
-                            <div class="RadioButtonAnswers">
-                                @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
-                                {
-                                    @Model.DisplayedQuestions[i].Answers[j].AnswerText
-                                    @Html.RadioButtonFor(m => m.DisplayedQuestions[i].AnswersRadio, Model.DisplayedQuestions[i].Answers[j].Id)
-                                }
-
-                            </div>
-                        }
-                        else*@
                     @if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.MultipleAnswer)
                     {
                         <div class="btn-group-toggle" data-toggle="buttons">
 
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
-                                <label class="btn btn-light longLabel">
-                                    @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                    @Model.DisplayedQuestions[i].Answers[j].AnswerText
-                                </label>
-                                @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].AnswerText)
+                            <label class="btn btn-light longLabel">
+                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
+                            </label>
                                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                             }
                         </div>
@@ -67,8 +54,9 @@
                     <hr />
                 }
             }
-            <input type="submit" value="Validate Answers" class="btn-lg btn-primary QuizzValidationButton" />
+            <input type="submit" value="@Resources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
         }
     </div>
+    <div class="bigBottomPadding"></div>
 </body>
 </html>

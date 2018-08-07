@@ -45,9 +45,26 @@ namespace QRefTrain3.Models
 
         }
 
-        public List<Question> GetQuestionsByParameter(List<string> fields, List<string> difficulties, NationalGoverningBody body)
+        /// <summary>
+        /// Returns a list of all questions responding to the given parameters (AND tests)
+        /// </summary>
+        /// <param name="fields">Fields of the selected questions. Any number.</param>
+        /// <param name="difficulties">Difficulties of the selected questions. Any number.</param>
+        /// <param name="NGB">Chosen NGB. Alway one.</param>
+        /// <param name="NGB_Only">Whether we retrieve questions that apply to all NGB or to this particular NGB (some questions might be specific to multiple NGBs, and will be returned)</param>
+        /// <returns></returns>
+        public List<Question> GetQuestionsByParameter(List<string> fields, List<string> difficulties, string NGB, bool NGB_Only)
         {
-            return Context.Questions.Where<Question>(q => fields.Contains(q.Field.ToString()) && (fields.Contains("Any") || fields.Contains(q.Field.ToString())) && q.NationalGoverningBodies.Contains(body.ToString())).ToList<Question>();
+            return Context.Questions.Where<Question>(q =>
+            fields.Contains(q.Field.ToString())
+            && difficulties.Contains(q.Difficulty.ToString())
+            && (q.NationalGoverningBodies.Contains(NGB) || (NGB_Only == false && q.NationalGoverningBodies == NationalGoverningBody.All.ToString())))
+            .ToList<Question>();
+        }
+
+        public List<Question> GetQuestionsByNGB(string NGB)
+        {
+            return Context.Questions.Where<Question>(q => q.NationalGoverningBodies.Equals("All") || q.NationalGoverningBodies.Contains(NGB)).ToList<Question>();
         }
 
         public bool UsernameAlreadyInDB(string name)

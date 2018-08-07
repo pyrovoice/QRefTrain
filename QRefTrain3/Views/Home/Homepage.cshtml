@@ -9,7 +9,7 @@
 <body>
     <h5 class="bottomMargin">@Resources.Resource.Homepage_ParameterPrompt</h5>
     <div class="padding-top">
-        @using (Html.BeginForm("MovetoQuiz", "Home"))
+        @using (Html.BeginForm("MovetoTrainingQuiz", "Home"))
         {
             <div class="btn-group-toggle" data-toggle="buttons">
                 @foreach (QRefTrain3.Models.QuestionField item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionField)))
@@ -32,12 +32,48 @@
             List<SelectListItem> ngbs = new List<SelectListItem>();
             foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
             {
-                ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                if (item != QRefTrain3.Models.NationalGoverningBody.All)
+                {
+                    ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                }
             }
-            <div class="flex-container bottomMargin shortLabel">
-                @Html.DropDownList("NGBs", ngbs, new { @id = "NGBs" })
+            if (Request.Cookies["RequestedNGB"] != null && Request.Cookies["RequestedNGB"].Value != "")
+            {
+                ngbs.FirstOrDefault(q => q.Value == Request.Cookies["RequestedNGB"].Value).Selected = true;
+            }
+            <div class="btn-group-toggle bottomMargin" data-toggle="buttons">
+                <div class="shortLabel bottomMargin">
+                    @Html.DropDownList("NGB", ngbs, new { @id = "NGBs" })
+                </div>
+                <label class="btn btn-secondary">
+                    <input type="checkbox" name="NGB_Only" value="NGB_Only" />@Resources.Resource.Homepage_NGBSpecificPrompt
+                </label>
             </div>
-            <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" />
+            <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
+            <span class="field-validation-error">@ViewBag.ErrorQuizz</span>
+        }
+    </div>
+    <hr />
+    <div>
+        <h5 class="bottomMargin">@Resources.Resource.Homepage_TestPrompt</h5>
+        @using (Html.BeginForm("MovetoTestQuiz", "Home"))
+        {
+            List<SelectListItem> ngbs = new List<SelectListItem>();
+            foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
+            {
+                if (item != QRefTrain3.Models.NationalGoverningBody.All)
+                {
+                    ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                }
+            }
+            if (Request.Cookies["RequestedNGB"] != null && Request.Cookies["RequestedNGB"].Value != "")
+            {
+                ngbs.FirstOrDefault(q => q.Value == Request.Cookies["RequestedNGB"].Value).Selected = true;
+            }
+            <div class="shortLabel bottomMargin">
+                @Html.DropDownList("NGB", ngbs, new { @id = "NGBs" })
+            </div>
+            <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary"/>
         }
     </div>
 </body>

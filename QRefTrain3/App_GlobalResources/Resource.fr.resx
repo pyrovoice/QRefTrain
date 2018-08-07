@@ -120,8 +120,11 @@
   <data name="Homepage" xml:space="preserve">
     <value>Page Principale</value>
   </data>
+  <data name="Homepage_NGBSpecificPrompt" xml:space="preserve">
+    <value>Uniquement cette NGB</value>
+  </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
-    <value>Choisissez vos paramètres</value>
+    <value>Commencez un test d'entrainement.</value>
   </data>
   <data name="Homepage_ReminderBeta01" xml:space="preserve">
     <value>Ce site est en beta.</value>
@@ -134,6 +137,9 @@
   </data>
   <data name="Homepage_StartQuizz" xml:space="preserve">
     <value>Commencer le quiz</value>
+  </data>
+  <data name="Homepage_TestPrompt" xml:space="preserve">
+    <value>Take an official test.</value>
   </data>
   <data name="NGBs_All" xml:space="preserve">
     <value>Toutes</value>
@@ -187,7 +193,7 @@
     <value>Que manque dans cette procédure ?</value>
   </data>
   <data name="Question_Sample_Title" xml:space="preserve">
-    <value />
+    <value>Titre de la question</value>
   </data>
   <data name="Question_Seeker" xml:space="preserve">
     <value>Attrapeur</value>

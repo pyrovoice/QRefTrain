@@ -21,10 +21,15 @@ namespace QRefTrain3.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpPost]
-        public ActionResult MovetoQuiz(List<string> Subjects, List<string> Difficulties, string NGBs)
+        public ActionResult MovetoTrainingQuiz(List<string> Subjects, List<string> Difficulties, string NGB, string NGB_Only)
         {
+            if(Subjects == null || Difficulties ==null || NGB == null)
+            {
+                ViewBag.ErrorQuizz = "Please select at least one field and difficulty";
+                return View("Homepage");
+            }
             List<Question> displayedQuestions = new List<Question>();
-            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, Difficulties, NationalGoverningBody.All);
+            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, Difficulties, NGB, NGB_Only != null);
             // Get 10 randoms questions from the selected parameters, or all if there is not 10.
             if (allQuestions.Count < 10)
             {
@@ -43,6 +48,33 @@ namespace QRefTrain3.Controllers
                 }
             }
             QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Training);
+            CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddHours(1));
+            return View("Quizz", quizzModel);
+        }
+
+        [HttpPost]
+        public ActionResult MovetoTestQuiz(string NGB)
+        {
+            List<Question> displayedQuestions = new List<Question>();
+            List<Question> allQuestions = Dal.Instance.GetQuestionsByNGB(NGB);
+            if (allQuestions.Count < 10)
+            {
+                displayedQuestions = allQuestions;
+            }
+            else
+            {
+                Random rnd = new Random();
+                while (displayedQuestions.Count < 10)
+                {
+                    Question question = allQuestions[rnd.Next(allQuestions.Count - 1)];
+                    if (!displayedQuestions.Contains(question))
+                    {
+                        displayedQuestions.Add(allQuestions[rnd.Next(allQuestions.Count - 1)]);
+                    }
+                }
+            }
+            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Exam);
+            Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddHours(1));
             return View("Quizz", quizzModel);
         }
 
