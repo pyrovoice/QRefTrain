@@ -79,11 +79,29 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;This website is in beta.&lt;/strong&gt; For any question or remark, please contact qreftrain@gmail.com or visit &lt;a href=&quot;https://www.reddit.com/r/QuidditchRefTraining/&quot; target=&quot;_blank&quot;&gt;our subreddit&lt;/a&gt;.
+        ///   Looks up a localized string similar to This website is in beta..
         /// </summary>
-        public static string Homepage_ReminderBeta {
+        public static string Homepage_ReminderBeta01 {
             get {
-                return ResourceManager.GetString("Homepage_ReminderBeta", resourceCulture);
+                return ResourceManager.GetString("Homepage_ReminderBeta01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For any question or remark, please contact qreftrain@gmail.com or visit .
+        /// </summary>
+        public static string Homepage_ReminderBeta02 {
+            get {
+                return ResourceManager.GetString("Homepage_ReminderBeta02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to our subreddit.
+        /// </summary>
+        public static string Homepage_ReminderBeta03 {
+            get {
+                return ResourceManager.GetString("Homepage_ReminderBeta03", resourceCulture);
             }
         }
         

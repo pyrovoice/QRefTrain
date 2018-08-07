@@ -123,8 +123,14 @@
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
     <value>Choose your parameters</value>
   </data>
-  <data name="Homepage_ReminderBeta" xml:space="preserve">
-    <value>&lt;strong&gt;This website is in beta.&lt;/strong&gt; For any question or remark, please contact qreftrain@gmail.com or visit &lt;a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"&gt;our subreddit&lt;/a&gt;</value>
+  <data name="Homepage_ReminderBeta01" xml:space="preserve">
+    <value>This website is in beta.</value>
+  </data>
+  <data name="Homepage_ReminderBeta02" xml:space="preserve">
+    <value>For any question or remark, please contact qreftrain@gmail.com or visit </value>
+  </data>
+  <data name="Homepage_ReminderBeta03" xml:space="preserve">
+    <value>our subreddit</value>
   </data>
   <data name="Homepage_StartQuizz" xml:space="preserve">
     <value>Start the quiz</value>
