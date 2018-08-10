@@ -126,8 +126,14 @@
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
     <value>Test d'entrainement</value>
   </data>
-  <data name="Homepage_ReminderBeta" xml:space="preserve">
-    <value>&lt;strong&gt;Ce site est en beta.&lt;/strong&gt; Pour toute question ou remarque, contactez qreftrain@gmail.com ou visitez &lt;a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"&gt;notre subreddit&lt;/a&gt;</value>
+  <data name="Homepage_ReminderBeta01" xml:space="preserve">
+    <value>Ce site est en beta.</value>
+  </data>
+  <data name="Homepage_ReminderBeta02" xml:space="preserve">
+    <value>Pour toute question ou remarque, contactez qreftrain@gmail.com ou visitez</value>
+  </data>
+  <data name="Homepage_ReminderBeta03" xml:space="preserve">
+    <value>notre subreddit</value>
   </data>
   <data name="Homepage_ResumeQuiz" xml:space="preserve">
     <value>Revenir au test</value>
