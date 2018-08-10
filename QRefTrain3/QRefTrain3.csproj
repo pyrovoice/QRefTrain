@@ -160,8 +160,30 @@
     <Compile Include="Migrations\201807310844029_NGBs.Designer.cs">
       <DependentUpon>201807310844029_NGBs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808090804379_Exam.cs" />
+    <Compile Include="Migrations\201808090804379_Exam.Designer.cs">
+      <DependentUpon>201808090804379_Exam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808090812427_Exam2.cs" />
+    <Compile Include="Migrations\201808090812427_Exam2.Designer.cs">
+      <DependentUpon>201808090812427_Exam2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808090823557_Exam3.cs" />
+    <Compile Include="Migrations\201808090823557_Exam3.Designer.cs">
+      <DependentUpon>201808090823557_Exam3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808090830445_Exam4.cs" />
+    <Compile Include="Migrations\201808090830445_Exam4.Designer.cs">
+      <DependentUpon>201808090830445_Exam4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808101359246_Exam6.cs" />
+    <Compile Include="Migrations\201808101359246_Exam6.Designer.cs">
+      <DependentUpon>201808101359246_Exam6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\Logs.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="App_GlobalResources\Resource.Designer.cs">
       <DependentUpon>Resource.resx</DependentUpon>
@@ -176,6 +198,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ViewModel\AnswerQuizzViewModel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\QuestionQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
     <Compile Include="ViewModel\QuizzViewModel.cs" />
@@ -332,6 +355,21 @@
       <CustomToolNamespace>Resource</CustomToolNamespace>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808090804379_Exam.resx">
+      <DependentUpon>201808090804379_Exam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808090812427_Exam2.resx">
+      <DependentUpon>201808090812427_Exam2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808090823557_Exam3.resx">
+      <DependentUpon>201808090823557_Exam3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808090830445_Exam4.resx">
+      <DependentUpon>201808090830445_Exam4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101359246_Exam6.resx">
+      <DependentUpon>201808101359246_Exam6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

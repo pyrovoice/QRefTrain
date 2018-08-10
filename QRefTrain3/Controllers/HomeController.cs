@@ -13,7 +13,9 @@ namespace QRefTrain3.Controllers
     {
         public ActionResult Homepage()
         {
-            return View();
+            ViewBag.ErrorQuizTraining = TempData["ErrorQuizTraining"];
+            ViewBag.ErrorQuizOfficial = TempData["ErrorQuizOfficial"];
+            return View(HttpContext.User.Identity.IsAuthenticated && Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name) != null);
         }
 
         /// <summary>
@@ -23,10 +25,10 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult MovetoTrainingQuiz(List<string> Subjects, List<string> Difficulties, string NGB, string NGB_Only)
         {
-            if(Subjects == null || Difficulties ==null || NGB == null)
+            if (Subjects == null || Difficulties == null || NGB == null)
             {
-                ViewBag.ErrorQuizz = "Please select at least one field and difficulty";
-                return View("Homepage");
+                TempData["ErrorQuizTraining"] = "Please select at least one field and difficulty";
+                return RedirectToAction("Homepage");
             }
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, Difficulties, NGB, NGB_Only != null);
@@ -55,6 +57,11 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult MovetoTestQuiz(string NGB)
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                TempData["ErrorQuizOfficial"] = "You must be logged in in order to take an exam.";
+                return RedirectToAction("Homepage");
+            }
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByNGB(NGB);
             if (allQuestions.Count < 10)
@@ -73,20 +80,73 @@ namespace QRefTrain3.Controllers
                     }
                 }
             }
-            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Exam);
             Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddHours(1));
+            Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, displayedQuestions);
+            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Exam, newExam.Result.Id);
             return View("Quizz", quizzModel);
+
+        }
+
+        [HttpPost]
+        public ActionResult ResumeTestQuiz(string NGB)
+        {
+            Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
+            return View("Quizz", new QuizzViewModel(Dal.Instance.GetQuestionByIds(exam.Result.QuestionsAskedIds), ResultType.Exam, exam.Result.Id));
         }
 
         [HttpPost]
         public ActionResult QuizzResult(QuizzViewModel quizzModel)
         {
-            Result result = new Result() { ResultType = quizzModel.ResultType, DateTime = DateTime.Now};
+            Result result;
             List<Question> answeredQuestions = QuestionViewModelToQuestion(quizzModel.DisplayedQuestions);
+            // If the result already exists in db, we get it back and check that the questions are the same
+            if (quizzModel.ResultId != null)
+            {
+                result = Dal.Instance.GetResultById(quizzModel.ResultId.Value);
+                bool isErrorDifferenceQuestion = false;
+                foreach (Question q in answeredQuestions)
+                {
+                    if (!result.QuestionsAskedIds.Contains(q.Id))
+                    {
+                        isErrorDifferenceQuestion = true;
+                        break;
+                    }
+                }
+                if (isErrorDifferenceQuestion)
+                {
+                    string logText = "Error when comparing live test questions to remembered test questions.\nDB Questions IDs : ";
+                    foreach (int id in result.QuestionsAskedIds)
+                    {
+                        logText += id + " ";
+                    }
+                    logText += "\nLive questions IDs : ";
+                    foreach (Question q in answeredQuestions)
+                    {
+                        logText += q.Id + " ";
+                    }
+                    Dal.Instance.CreateLog(new Log()
+                    {
+                        LogTime = DateTime.Now,
+                        UserId = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name).Id,
+                        LogText = logText
+                    });
+                    TempData["ErrorQuizOfficial"] = "There was an error when resolving this test. Please send us a mail if this happens again.";
+                    return RedirectToAction("Homepage");
+                }
+            }
+            // Otherwise, we create a new result and populate it with the questions
+            else
+            {
+                result = new Result() { ResultType = quizzModel.ResultType, DateTime = DateTime.Now };
+                foreach(Question q in answeredQuestions)
+                {
+                    result.QuestionsAskedIds.Add(q.Id);
+                }
+            }
+            // Then Create the result with the answers selected by the user
             foreach (Question q in answeredQuestions)
             {
-                result.QuestionsAskedIds.Add(q.Id);
-                foreach(Answer a in q.Answers)
+                foreach (Answer a in q.Answers)
                 {
                     if (a.IsSelected)
                     {
@@ -132,9 +192,9 @@ namespace QRefTrain3.Controllers
             foreach (QuestionQuizzViewModel questionViewModel in displayedQuestions)
             {
                 Question question = allQuestions.First<Question>(m => m.Id == questionViewModel.Id);
-                if(question.AnswerType == AnswerType.MultipleAnswer)
+                if (question.AnswerType == AnswerType.MultipleAnswer)
                 {
-                    foreach(Answer answer in question.Answers)
+                    foreach (Answer answer in question.Answers)
                     {
                         answer.IsSelected = questionViewModel.Answers.First<AnswerQuizzViewModel>(m => m.Id == answer.Id).IsSelected;
                     }

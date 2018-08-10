@@ -62,6 +62,12 @@ namespace QRefTrain3.Models
             .ToList<Question>();
         }
 
+        public Exam GetOngoingExamByUsername(string userName)
+        {
+            Exam exam = Context.Database.SqlQuery<Exam>("GetOngoingExam @username", new SqlParameter("@username", userName)).FirstOrDefault();
+            return exam;
+        }
+
         public List<Question> GetQuestionsByNGB(string NGB)
         {
             return Context.Questions.Where<Question>(q => q.NationalGoverningBodies.Equals("All") || q.NationalGoverningBodies.Contains(NGB)).ToList<Question>();
@@ -80,10 +86,22 @@ namespace QRefTrain3.Models
             return count != 0;
         }
 
-        public bool UserExistsInDB(User user)
+        public Exam CreateExam(string name, List<Question> questions)
         {
-            User foundUser = Context.Users.First<User>(u => u.Name == user.Name || u.Email == user.Email);
-            return user != null ? true : false;
+            User user = GetUserByName(name);
+            List<int> questionIds = questions.Select(q => q.Id).ToList();
+
+
+            Result result = new Result()
+            {
+                User = user,
+                QuestionsAskedIds = questionIds,
+                ResultType = ResultType.Exam
+            };
+            Context.Results.Add(result);
+            Context.SaveChanges();
+            Context.Database.ExecuteSqlCommand("CreateExam @userId, @resultId", new SqlParameter("userId", user.Id), new SqlParameter("resultId", result.Id));
+            return this.GetOngoingExamByUsername(name);
         }
 
         public Result GetResultById(int resultId)
@@ -145,6 +163,7 @@ namespace QRefTrain3.Models
 
         public void reset()
         {
+            Context.Database.ExecuteSqlCommand("delete from Exams");
             Context.Database.ExecuteSqlCommand("delete from Answers");
             Context.Database.ExecuteSqlCommand("delete from Results");
             Context.Database.ExecuteSqlCommand("delete from Questions");
@@ -155,6 +174,12 @@ namespace QRefTrain3.Models
         public void CreateResult(Result result)
         {
             Context.Results.Add(result);
+            Context.SaveChanges();
+        }
+
+        public void CreateLog(Log log)
+        {
+            Context.Logs.Add(log);
             Context.SaveChanges();
         }
 

@@ -15,6 +15,7 @@ namespace QRefTrain3.Models
         public ResultType ResultType { get; set; }
         [Column(TypeName = "DateTime2")]
         public DateTime DateTime { get; set; }
+        
     }
 
     public enum ResultType

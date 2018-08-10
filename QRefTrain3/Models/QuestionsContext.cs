@@ -12,6 +12,8 @@ namespace QRefTrain3.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Result> Results { get; set; }
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
     }
 }

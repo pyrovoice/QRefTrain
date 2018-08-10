@@ -1,4 +1,4 @@
-﻿
+﻿@model bool?
 <!DOCTYPE html>
 
 <html>
@@ -50,30 +50,41 @@
                 </label>
             </div>
             <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
-            <span class="field-validation-error">@ViewBag.ErrorQuizz</span>
+            <span class="field-validation-error">@ViewBag.ErrorQuiztraining</span>
         }
     </div>
     <hr />
     <div>
-        <h5 class="bottomMargin">@Resources.Resource.Homepage_TestPrompt</h5>
-        @using (Html.BeginForm("MovetoTestQuiz", "Home"))
+        @if (Model.Value)
         {
-            List<SelectListItem> ngbs = new List<SelectListItem>();
-            foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
+            using (Html.BeginForm("ResumeTestQuiz", "Home"))
             {
-                if (item != QRefTrain3.Models.NationalGoverningBody.All)
+                <input type="submit" value="@Resources.Resource.Homepage_ResumeQuiz" class="btn btn-primary" />
+            }
+        }
+        else
+        {
+            <h5 class="bottomMargin">@Resources.Resource.Homepage_TestPrompt</h5>
+            using (Html.BeginForm("MovetoTestQuiz", "Home"))
+            {
+                List<SelectListItem> ngbs = new List<SelectListItem>();
+                foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
                 {
-                    ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                    if (item != QRefTrain3.Models.NationalGoverningBody.All)
+                    {
+                        ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                    }
                 }
+                if (Request.Cookies["RequestedNGB"] != null && Request.Cookies["RequestedNGB"].Value != "")
+                {
+                    ngbs.FirstOrDefault(q => q.Value == Request.Cookies["RequestedNGB"].Value).Selected = true;
+                }
+                <div class="shortLabel bottomMargin">
+                    @Html.DropDownList("NGB", ngbs, new { @id = "NGBs" })
+                </div>
+                <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
+                <span class="field-validation-error">@ViewBag.ErrorQuizOfficial</span>
             }
-            if (Request.Cookies["RequestedNGB"] != null && Request.Cookies["RequestedNGB"].Value != "")
-            {
-                ngbs.FirstOrDefault(q => q.Value == Request.Cookies["RequestedNGB"].Value).Selected = true;
-            }
-            <div class="shortLabel bottomMargin">
-                @Html.DropDownList("NGB", ngbs, new { @id = "NGBs" })
-            </div>
-            <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary"/>
         }
     </div>
 </body>

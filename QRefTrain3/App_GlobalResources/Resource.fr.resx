@@ -124,16 +124,43 @@
     <value>Uniquement cette NGB</value>
   </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
-    <value>Commencez un test d'entrainement.</value>
+    <value>Test d'entrainement</value>
   </data>
   <data name="Homepage_ReminderBeta" xml:space="preserve">
     <value>&lt;strong&gt;Ce site est en beta.&lt;/strong&gt; Pour toute question ou remarque, contactez qreftrain@gmail.com ou visitez &lt;a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"&gt;notre subreddit&lt;/a&gt;</value>
   </data>
+  <data name="Homepage_ResumeQuiz" xml:space="preserve">
+    <value>Revenir au test</value>
+  </data>
   <data name="Homepage_StartQuizz" xml:space="preserve">
-    <value>Commencer le quiz</value>
+    <value>Commencer le test</value>
   </data>
   <data name="Homepage_TestPrompt" xml:space="preserve">
-    <value>Take an official test.</value>
+    <value>Test officiel</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="Login_AlreadyConnected" xml:space="preserve">
+    <value>Vous etes déjà connecté en tant que :</value>
+  </data>
+  <data name="Login_CreateAccount" xml:space="preserve">
+    <value>Créer un compte</value>
+  </data>
+  <data name="Login_DisconnectPrompt" xml:space="preserve">
+    <value>Souhaitez-vous vous déconnecter ?</value>
+  </data>
+  <data name="Login_Email" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="Login_EnterInformationPrompt" xml:space="preserve">
+    <value>Merci d'entrer vos informations.</value>
+  </data>
+  <data name="Login_Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Mot de passe</value>
   </data>
   <data name="NGBs_All" xml:space="preserve">
     <value>Toutes</value>

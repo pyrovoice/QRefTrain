@@ -79,7 +79,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start a training test.
+        ///   Looks up a localized string similar to Training test.
         /// </summary>
         public static string Homepage_ParameterPrompt {
             get {
@@ -97,7 +97,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start the quiz.
+        ///   Looks up a localized string similar to Resume test.
+        /// </summary>
+        public static string Homepage_ResumeQuiz {
+            get {
+                return ResourceManager.GetString("Homepage_ResumeQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start the test.
         /// </summary>
         public static string Homepage_StartQuizz {
             get {
@@ -106,11 +115,83 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Take an official test..
+        ///   Looks up a localized string similar to Official test.
         /// </summary>
         public static string Homepage_TestPrompt {
             get {
                 return ResourceManager.GetString("Homepage_TestPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are already connected as :.
+        /// </summary>
+        public static string Login_AlreadyConnected {
+            get {
+                return ResourceManager.GetString("Login_AlreadyConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create an account.
+        /// </summary>
+        public static string Login_CreateAccount {
+            get {
+                return ResourceManager.GetString("Login_CreateAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to disconnect ?.
+        /// </summary>
+        public static string Login_DisconnectPrompt {
+            get {
+                return ResourceManager.GetString("Login_DisconnectPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Login_Email {
+            get {
+                return ResourceManager.GetString("Login_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your informations..
+        /// </summary>
+        public static string Login_EnterInformationPrompt {
+            get {
+                return ResourceManager.GetString("Login_EnterInformationPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Login_Name {
+            get {
+                return ResourceManager.GetString("Login_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Login_Password {
+            get {
+                return ResourceManager.GetString("Login_Password", resourceCulture);
             }
         }
         
