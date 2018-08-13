@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -64,8 +65,28 @@ namespace QRefTrain3.Models
 
         public Exam GetOngoingExamByUsername(string userName)
         {
-            Exam exam = Context.Database.SqlQuery<Exam>("GetOngoingExam @username", new SqlParameter("@username", userName)).FirstOrDefault();
-            return exam;
+            DateTime dbTime = GetDBTime();
+            return Context.Exams.FirstOrDefault<Exam>(exam => exam.User.Name.Equals(userName) && SqlFunctions.DateDiff("minute", dbTime, exam.StartDate) <= 10);
+        }
+
+        /// <summary>
+        /// Creates a result object for the user for each of his unfinished exam, with a result of 0.
+        /// </summary>
+        /// <param name="userName"></param>
+        public void CloseExamByUsername(string userName)
+        {
+            User  user= GetUserByName(userName);
+            foreach (Exam ongoingExam in Context.Exams.Where(q => q.User.Name.Equals(userName)).ToList())
+            {
+                Result result = new Result()
+                {
+                    DateTime = GetDBTime(),
+                    QuestionsAskedIds = ongoingExam.QuestionsIds,
+                    ResultType = ResultType.Exam,
+                    SelectedAnswers = new List<int>(),
+                    User = user
+                };
+            }
         }
 
         public List<Question> GetQuestionsByNGB(string NGB)
@@ -86,22 +107,20 @@ namespace QRefTrain3.Models
             return count != 0;
         }
 
-        public Exam CreateExam(string name, List<Question> questions)
+        public Exam CreateExam(string name, List<Question> questions, DateTime timeNow)
         {
             User user = GetUserByName(name);
             List<int> questionIds = questions.Select(q => q.Id).ToList();
 
-
-            Result result = new Result()
+            Exam exam = new Exam()
             {
-                User = user,
-                QuestionsAskedIds = questionIds,
-                ResultType = ResultType.Exam
+                QuestionsIds = questionIds,
+                StartDate = timeNow,
+                User = user
             };
-            Context.Results.Add(result);
+            Context.Exams.Add(exam);
             Context.SaveChanges();
-            Context.Database.ExecuteSqlCommand("CreateExam @userId, @resultId", new SqlParameter("userId", user.Id), new SqlParameter("resultId", result.Id));
-            return this.GetOngoingExamByUsername(name);
+            return exam;
         }
 
         public Result GetResultById(int resultId)
@@ -120,6 +139,11 @@ namespace QRefTrain3.Models
                 }
             }
             return results;
+        }
+
+        public Exam GetOngoingExamById(int examId)
+        {
+            return Context.Exams.FirstOrDefault(exam => exam.Id == examId);
         }
 
         public User GetUserByName(string name)
@@ -171,8 +195,18 @@ namespace QRefTrain3.Models
 
         }
 
+        /// <summary>
+        /// Return the datetime by using datatable's time and applying user's timezone. This is used to prevent cheats where the user changes his computer's time to alter a result
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetDBTime()
+        {
+            return new DateTime(Context.Database.SqlQuery<DateTime>("select GETDATE()").First().Ticks);
+        }
+
         public void CreateResult(Result result)
         {
+            result.DateTime = GetDBTime();
             Context.Results.Add(result);
             Context.SaveChanges();
         }
@@ -198,6 +232,11 @@ namespace QRefTrain3.Models
                 }
                 return dal;
             }
+        }
+
+        public void DeleteExamByUserId(int userId)
+        {
+            Context.Exams.RemoveRange(Context.Exams.Where<Exam>(exam => exam.User.Id == userId));
         }
 
         public void AlterQuestion(Question question)

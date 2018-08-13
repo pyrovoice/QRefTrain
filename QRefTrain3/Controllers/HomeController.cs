@@ -49,7 +49,7 @@ namespace QRefTrain3.Controllers
                     }
                 }
             }
-            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Training);
+            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Training, null);
             CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddHours(1));
             return View("Quizz", quizzModel);
         }
@@ -62,6 +62,7 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuizOfficial"] = "You must be logged in in order to take an exam.";
                 return RedirectToAction("Homepage");
             }
+            Dal.Instance.CloseExamByUsername(HttpContext.User.Identity.Name);
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByNGB(NGB);
             if (allQuestions.Count < 10)
@@ -81,17 +82,18 @@ namespace QRefTrain3.Controllers
                 }
             }
             Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddHours(1));
-            Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, displayedQuestions);
-            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Exam, newExam.Result.Id);
+            DateTime timenow = Dal.Instance.GetDBTime();
+            Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, displayedQuestions, timenow);
+            QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Exam, timenow);
             return View("Quizz", quizzModel);
 
         }
 
         [HttpPost]
-        public ActionResult ResumeTestQuiz(string NGB)
+        public ActionResult ResumeTestQuiz()
         {
             Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
-            return View("Quizz", new QuizzViewModel(Dal.Instance.GetQuestionByIds(exam.Result.QuestionsAskedIds), ResultType.Exam, exam.Result.Id));
+            return View("Quizz", new QuizzViewModel(Dal.Instance.GetQuestionByIds(exam.QuestionsIds), ResultType.Exam, exam.StartDate));
         }
 
         [HttpPost]
@@ -99,50 +101,12 @@ namespace QRefTrain3.Controllers
         {
             Result result;
             List<Question> answeredQuestions = QuestionViewModelToQuestion(quizzModel.DisplayedQuestions);
-            // If the result already exists in db, we get it back and check that the questions are the same
-            if (quizzModel.ResultId != null)
+            result = new Result() { ResultType = quizzModel.ResultType, DateTime = DateTime.Now };
+            foreach (Question q in answeredQuestions)
             {
-                result = Dal.Instance.GetResultById(quizzModel.ResultId.Value);
-                bool isErrorDifferenceQuestion = false;
-                foreach (Question q in answeredQuestions)
-                {
-                    if (!result.QuestionsAskedIds.Contains(q.Id))
-                    {
-                        isErrorDifferenceQuestion = true;
-                        break;
-                    }
-                }
-                if (isErrorDifferenceQuestion)
-                {
-                    string logText = "Error when comparing live test questions to remembered test questions.\nDB Questions IDs : ";
-                    foreach (int id in result.QuestionsAskedIds)
-                    {
-                        logText += id + " ";
-                    }
-                    logText += "\nLive questions IDs : ";
-                    foreach (Question q in answeredQuestions)
-                    {
-                        logText += q.Id + " ";
-                    }
-                    Dal.Instance.CreateLog(new Log()
-                    {
-                        LogTime = DateTime.Now,
-                        UserId = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name).Id,
-                        LogText = logText
-                    });
-                    TempData["ErrorQuizOfficial"] = "There was an error when resolving this test. Please send us a mail if this happens again.";
-                    return RedirectToAction("Homepage");
-                }
+                result.QuestionsAskedIds.Add(q.Id);
             }
-            // Otherwise, we create a new result and populate it with the questions
-            else
-            {
-                result = new Result() { ResultType = quizzModel.ResultType, DateTime = DateTime.Now };
-                foreach(Question q in answeredQuestions)
-                {
-                    result.QuestionsAskedIds.Add(q.Id);
-                }
-            }
+
             // Then Create the result with the answers selected by the user
             foreach (Question q in answeredQuestions)
             {
@@ -154,8 +118,14 @@ namespace QRefTrain3.Controllers
                     }
                 }
             }
-            if (User.Identity.IsAuthenticated)
+
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
+                User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
+                if (quizzModel.ResultType == ResultType.Exam)
+                {
+                    Dal.Instance.DeleteExamByUserId(currentUser.Id);
+                }
                 result.User = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
                 Dal.Instance.CreateResult(result);
             }

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div id="timer" class="timer"></div>
     <div>
         <!-- For each Question, display a new div with the Title, the question code, the question text, the video if there is one, then the possible answers depending on the type of answers-->
         @using (Html.BeginForm("QuizzResult", "Home"))
@@ -40,23 +41,46 @@
 
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
-                            <label class="btn btn-light longLabel">
-                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
-                            </label>
+                                <label class="btn btn-light longLabel">
+                                    @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                    @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
+                                </label>
                                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                             }
                         </div>
                     }
                 </div>
-                if(i != Model.DisplayedQuestions.Count -1)
+                if (i != Model.DisplayedQuestions.Count - 1)
                 {
                     <hr />
                 }
             }
-            <input type="submit" value="@Resources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
+            <input id="submit" type="submit" value="@Resources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
         }
     </div>
     <div class="bigBottomPadding"></div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        if (@Model.StartTime.Value.Ticks != null) {
+            window.setInterval(function () {
+                var timeString = "";
+                // 10000 ticks per millisecond, and Date uses milliseconds. Ticks remember time from 2000, so we need to add the 30 missing years
+                int msStartTime = @Model.StartTime.Value.Millisecond + @Model.StartTime.Value.Second * 1000 + @Model.StartTime.Value.Second
+                var timeLeft = parseInt(new Date().getTime() - (@Model.StartTime.Value.Ticks / 10000 + 978307200000)) ;
+                if (timeLeft > 0) {
+                    var date = new Date(timeLeft);
+                    timeString = date.getMinutes() + ":" + date.getSeconds();
+                } else {
+                    if (timeLeft < -5000) {
+                        //document.getElementById('submit').click();
+                    }
+                    timeString = "00:00";
+                }
+                document.getElementById("timer").innerHTML = timeString;
+            }, 1000);
+        }
+    });
+</script>
