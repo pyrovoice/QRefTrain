@@ -18,7 +18,8 @@ namespace QRefTrain3.ViewModel
         public ResultViewModel(Result result)
         {
             this.Id = result.Id;
-            this.QuestionsAsked = Dal.Instance.GetQuestionByIds(result.QuestionsAskedIds);
+            // Order by to keep the same order displayed in the quiz and result
+            this.QuestionsAsked = Dal.Instance.GetQuestionByIds(result.QuestionsAskedIds).OrderBy(d => result.QuestionsAskedIds.IndexOf(d.Id)).ToList();
             this.SelectedAnswers = result.SelectedAnswers;
             this.ResultType = result.ResultType;
             this.DateTime = result.DateTime;

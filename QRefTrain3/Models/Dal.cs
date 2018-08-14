@@ -28,6 +28,7 @@ namespace QRefTrain3.Models
 
         public List<Question> GetQuestionByIds(List<int> questionsAskedIds)
         {
+            /*
             List<Question> returnList = new List<Question>();
             foreach (Question q in Context.Questions)
             {
@@ -36,7 +37,9 @@ namespace QRefTrain3.Models
                     returnList.Add(q);
                 }
             }
-            return returnList;
+            return returnList;*/ 
+            List<Question> list = Context.Questions.Where(q => questionsAskedIds.Contains(q.Id)).ToList();
+            return list;
         }
 
         public List<Result> GetNLastResultByUser(User user, int number)

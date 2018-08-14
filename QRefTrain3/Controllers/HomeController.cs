@@ -42,10 +42,11 @@ namespace QRefTrain3.Controllers
                 Random rnd = new Random();
                 while (displayedQuestions.Count < 10)
                 {
-                    Question question = allQuestions[rnd.Next(allQuestions.Count - 1)];
+                    int random = rnd.Next(allQuestions.Count - 1);
+                    Question question = allQuestions[random];
                     if (!displayedQuestions.Contains(question))
                     {
-                        displayedQuestions.Add(allQuestions[rnd.Next(allQuestions.Count - 1)]);
+                        displayedQuestions.Add(question);
                     }
                 }
             }
@@ -86,10 +87,11 @@ namespace QRefTrain3.Controllers
                 Random rnd = new Random();
                 while (displayedQuestions.Count < 10)
                 {
-                    Question question = allQuestions[rnd.Next(allQuestions.Count - 1)];
+                    int random = rnd.Next(allQuestions.Count - 1);
+                    Question question = allQuestions[random];
                     if (!displayedQuestions.Contains(question))
                     {
-                        displayedQuestions.Add(allQuestions[rnd.Next(allQuestions.Count - 1)]);
+                        displayedQuestions.Add(question);
                     }
                 }
             }
