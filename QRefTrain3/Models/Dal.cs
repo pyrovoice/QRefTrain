@@ -141,7 +141,7 @@ namespace QRefTrain3.Models
             return results;
         }
 
-        public Exam GetOngoingExamById(int examId)
+        public Exam GetExamById(int examId)
         {
             return Context.Exams.FirstOrDefault(exam => exam.Id == examId);
         }

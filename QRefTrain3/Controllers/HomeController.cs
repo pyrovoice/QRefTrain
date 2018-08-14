@@ -50,19 +50,31 @@ namespace QRefTrain3.Controllers
                 }
             }
             QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Training, null);
-            CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddHours(1));
+            CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddYears(1));
             return View("Quizz", quizzModel);
         }
 
         [HttpPost]
         public ActionResult MovetoTestQuiz(string NGB)
         {
+            // Update the user's choice so he does not have to chose again next time
+            Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddYears(1));
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
                 TempData["ErrorQuizOfficial"] = "You must be logged in in order to take an exam.";
                 return RedirectToAction("Homepage");
             }
-            Dal.Instance.CloseExamByUsername(HttpContext.User.Identity.Name);
+            // In case the user refresh the page, do not recreate a form
+            Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
+            if (exam != null)
+            {
+                return View("Quizz", new QuizzViewModel(Dal.Instance.GetQuestionByIds(exam.QuestionsIds), ResultType.Exam, exam.StartDate));
+            }
+            else
+            {
+                Dal.Instance.CloseExamByUsername(HttpContext.User.Identity.Name);
+            }
+            // Get all questions, and create a list of 10 questions at random.
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByNGB(NGB);
             if (allQuestions.Count < 10)
@@ -81,7 +93,7 @@ namespace QRefTrain3.Controllers
                     }
                 }
             }
-            Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddHours(1));
+            // Create an exam object that will remember the user is doing na exam, which prevent cheating and allow the user to resume a test in case of error
             DateTime timenow = Dal.Instance.GetDBTime();
             Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, displayedQuestions, timenow);
             QuizzViewModel quizzModel = new QuizzViewModel(displayedQuestions, ResultType.Exam, timenow);

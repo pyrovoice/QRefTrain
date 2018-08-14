@@ -65,21 +65,38 @@
 <script>
     $(document).ready(function () {
         if (@Model.StartTime.Value.Ticks != null) {
-            window.setInterval(function () {
+            //10 minutes
+            var totalTime = 10000;
+            var msStartTime = @(new DateTimeOffset(Model.StartTime.Value).ToUnixTimeMilliseconds());
+            var showtimer = true;
+            function updateTimer() {
                 var timeString = "";
-                // 10000 ticks per millisecond, and Date uses milliseconds. Ticks remember time from 2000, so we need to add the 30 missing years
-                int msStartTime = @Model.StartTime.Value.Millisecond + @Model.StartTime.Value.Second * 1000 + @Model.StartTime.Value.Second
-                var timeLeft = parseInt(new Date().getTime() - (@Model.StartTime.Value.Ticks / 10000 + 978307200000)) ;
+                var timeLeft = totalTime - (new Date().getTime() - msStartTime);
                 if (timeLeft > 0) {
                     var date = new Date(timeLeft);
-                    timeString = date.getMinutes() + ":" + date.getSeconds();
+                    var minuteString = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                    var secondString = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                    document.getElementById("timer").innerHTML = minuteString + ":" + secondString;
                 } else {
                     if (timeLeft < -5000) {
-                        //document.getElementById('submit').click();
+                        document.getElementById('submit').click();
                     }
-                    timeString = "00:00";
+                    document.getElementById("timer").innerHTML = "00:00";
                 }
-                document.getElementById("timer").innerHTML = timeString;
+            };
+            $("#timer").click(function () {
+                showtimer = !showtimer;
+                if (!showtimer) {
+                    document.getElementById("timer").innerHTML = "";
+                } else {
+                    updateTimer();
+                }
+            });
+            window.setInterval(function () {
+                if (!showtimer) {
+                    return;
+                }
+                updateTimer();
             }, 1000);
         }
     });
