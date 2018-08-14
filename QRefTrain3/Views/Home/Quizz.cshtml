@@ -15,7 +15,10 @@
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div id="timer" class="timer"></div>
+    @if (Model.StartTime.HasValue)
+    {
+        <div id="timer" class="timer"></div>
+    }
     <div>
         <!-- For each Question, display a new div with the Title, the question code, the question text, the video if there is one, then the possible answers depending on the type of answers-->
         @using (Html.BeginForm("QuizzResult", "Home"))
@@ -62,42 +65,44 @@
 </body>
 </html>
 
-<script>
+@if (Model.StartTime.HasValue)
+{
+
+    <script>
     $(document).ready(function () {
-        if (@Model.StartTime.Value.Ticks != null) {
-            //10 minutes
-            var totalTime = 10000;
-            var msStartTime = @(new DateTimeOffset(Model.StartTime.Value).ToUnixTimeMilliseconds());
-            var showtimer = true;
-            function updateTimer() {
-                var timeString = "";
-                var timeLeft = totalTime - (new Date().getTime() - msStartTime);
-                if (timeLeft > 0) {
-                    var date = new Date(timeLeft);
-                    var minuteString = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-                    var secondString = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
-                    document.getElementById("timer").innerHTML = minuteString + ":" + secondString;
-                } else {
-                    if (timeLeft < -5000) {
-                        document.getElementById('submit').click();
-                    }
-                    document.getElementById("timer").innerHTML = "00:00";
+        //10 minutes
+        var totalTime = 10000;
+        var msStartTime = @(new DateTimeOffset(Model.StartTime.Value).ToUnixTimeMilliseconds());
+        var showtimer = true;
+        function updateTimer() {
+            var timeString = "";
+            var timeLeft = totalTime - (new Date().getTime() - msStartTime);
+            if (timeLeft > 0) {
+                var date = new Date(timeLeft);
+                var minuteString = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                var secondString = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                document.getElementById("timer").innerHTML = minuteString + ":" + secondString;
+            } else {
+                if (timeLeft < -5000) {
+                    document.getElementById('submit').click();
                 }
-            };
-            $("#timer").click(function () {
-                showtimer = !showtimer;
-                if (!showtimer) {
-                    document.getElementById("timer").innerHTML = "";
-                } else {
-                    updateTimer();
-                }
-            });
-            window.setInterval(function () {
-                if (!showtimer) {
-                    return;
-                }
+                document.getElementById("timer").innerHTML = "00:00";
+            }
+        };
+        $("#timer").click(function () {
+            showtimer = !showtimer;
+            if (!showtimer) {
+                document.getElementById("timer").innerHTML = "";
+            } else {
                 updateTimer();
-            }, 1000);
-        }
+            }
+        });
+        window.setInterval(function () {
+            if (!showtimer) {
+                return;
+            }
+            updateTimer();
+        }, 1000);
     });
-</script>
+    </script>
+}

@@ -15,6 +15,8 @@ namespace QRefTrain3.ViewModel
         public ResultType ResultType { get; set; }
         public DateTime DateTime { get; set; }
 
+        
+
         public ResultViewModel(Result result)
         {
             this.Id = result.Id;
@@ -36,6 +38,11 @@ namespace QRefTrain3.ViewModel
                 }
             }
             return goodAnswers;
+        }
+
+        public bool IsResultSuccesfull()
+        {
+            return ((float)this.GetNumberGoodAnswer()) / ((float)this.QuestionsAsked.Count()) >= 0.8;
         }
     }
 }
