@@ -1,0 +1,14 @@
+﻿@model string
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @Html.Partial("_ErrorDiv", Model)
+    @using (Html.BeginForm("Homepage", "Home"))
+    {
+        <input type="submit" value="Return to Home" class="btn-lg btn-primary QuizzValidationButton" />
+    }
+    <div class="bigBottomPadding"></div>
+</body>
+</html>

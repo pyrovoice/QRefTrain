@@ -22,22 +22,11 @@ namespace QRefTrain3.Models
 
         public void CreateUser(User user)
         {
-            var affectedRows = Context.Database.ExecuteSqlCommand("CreateUser @name, @password, @email", new SqlParameter("@name", user.Name), new SqlParameter("@password", user.Password), new SqlParameter("@email", user.Email));
-            Console.Write("CREATE USER " + user.Name);
+            Context.Database.ExecuteSqlCommand("CreateUser @name, @password, @email", new SqlParameter("@name", user.Name), new SqlParameter("@password", user.Password), new SqlParameter("@email", user.Email));
         }
 
         public List<Question> GetQuestionByIds(List<int> questionsAskedIds)
         {
-            /*
-            List<Question> returnList = new List<Question>();
-            foreach (Question q in Context.Questions)
-            {
-                if (questionsAskedIds.Contains(q.Id))
-                {
-                    returnList.Add(q);
-                }
-            }
-            return returnList;*/ 
             List<Question> list = Context.Questions.Where(q => questionsAskedIds.Contains(q.Id)).ToList();
             return list;
         }
@@ -47,6 +36,11 @@ namespace QRefTrain3.Models
             List<Result> results = GetResultByUser(user);
             return results.OrderByDescending(o => o.DateTime).ToList().Take(number).ToList();
 
+        }
+
+        public User GetUserByMail(string userMail)
+        {
+            return Context.Users.FirstOrDefault(u => u.Email.Equals(userMail));
         }
 
         /// <summary>
@@ -66,10 +60,32 @@ namespace QRefTrain3.Models
             .ToList<Question>();
         }
 
+        public Request GetRequestByCode(string code)
+        {
+            return Context.Requests.FirstOrDefault(q => q.SecretCode.Equals(code));
+        }
+
         public Exam GetOngoingExamByUsername(string userName)
         {
+            return this.GetOngoingExamByUsername(userName, 10);
+        }
+
+        public Exam GetOngoingExamByUsername(string userName, int nbrMinute)
+        {
             DateTime dbTime = GetDBTime();
-            return Context.Exams.FirstOrDefault<Exam>(exam => exam.User.Name.Equals(userName) && SqlFunctions.DateDiff("minute", dbTime, exam.StartDate) <= 10);
+            return Context.Exams.FirstOrDefault<Exam>(exam => exam.User.Name.Equals(userName) && SqlFunctions.DateDiff("minute", dbTime, exam.StartDate) <= nbrMinute);
+        }
+
+        internal void UpdateUserChangePassword(User user, string newPassword)
+        {
+            Context.Database.ExecuteSqlCommand("UpdateUser @id, @name, @password, @email", new SqlParameter("@id", user.Id), new SqlParameter("@name", user.Name), new SqlParameter("@password", newPassword), new SqlParameter("@email", user.Email));
+        }
+
+        public Request CreateRequest(Request request)
+        {
+            Context.Requests.Add(request);
+            Context.SaveChanges();
+            return request;
         }
 
         /// <summary>
@@ -97,17 +113,35 @@ namespace QRefTrain3.Models
             return Context.Questions.Where<Question>(q => q.NationalGoverningBodies.Equals("All") || q.NationalGoverningBodies.Contains(NGB)).ToList<Question>();
         }
 
-        public bool UsernameAlreadyInDB(string name)
+        public bool IsUsernameAlreadyInDB(string name)
         {
             var a = Context.Users.Where(stringToCheck => stringToCheck.Name.Equals(name));
             return a.Count() > 0;
         }
 
-        public bool MailAlreadyInDB(string email)
+        public bool IsMailAlreadyInDB(string email)
         {
             var result = Context.Database.SqlQuery<int>("CountMail @mail", new SqlParameter("mail", email));
             int count = result.First();
             return count != 0;
+        }
+
+        public Request GetRequestByCodeAndId(string code, int id)
+        {
+            return Context.Requests.FirstOrDefault(r => r.Id == id && r.SecretCode.Equals(code));
+        }
+
+        public void UpdateUserConfirmMail(User user)
+        {
+            User userToUpdate = Context.Users.FirstOrDefault(u => u.Id == user.Id);
+            userToUpdate.IsEmailConfirmed = true;
+            Context.SaveChanges();
+        }
+
+        public void DeleteRequest(Request request)
+        {
+            Context.Requests.Remove(request);
+            Context.SaveChanges();
         }
 
         public Exam CreateExam(string name, List<Question> questions, DateTime timeNow)
@@ -240,6 +274,7 @@ namespace QRefTrain3.Models
         public void DeleteExamByUserId(int userId)
         {
             Context.Exams.RemoveRange(Context.Exams.Where<Exam>(exam => exam.User.Id == userId));
+            Context.SaveChanges();
         }
 
         public void AlterQuestion(Question question)

@@ -24,5 +24,6 @@ namespace QRefTrain3.Models
         public string Email { get; set; }
         [Required]
         public bool IsEmailConfirmed { get; set; }
+        public DateTime RegisterationDate { get; set; }
     }
 }

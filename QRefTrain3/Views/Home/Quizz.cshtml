@@ -44,7 +44,7 @@
 
                             @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                             {
-                                <label class="btn btn-light longLabel">
+                                <label class="btn btn-light halfpageItem halfpageItemCollapse">
                                     @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
                                     @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
                                 </label>
@@ -71,7 +71,7 @@
     <script>
     $(document).ready(function () {
         //10 minutes
-        var totalTime = 10000;
+        var totalTime = 600000;
         var msStartTime = @(new DateTimeOffset(Model.StartTime.Value).ToUnixTimeMilliseconds());
         var showtimer = true;
         function updateTimer() {

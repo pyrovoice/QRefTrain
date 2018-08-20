@@ -106,7 +106,7 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult ResumeTestQuiz()
         {
-            Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
+            Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name, 10);
             return View("Quizz", new QuizzViewModel(Dal.Instance.GetQuestionByIds(exam.QuestionsIds), ResultType.Exam, exam.StartDate));
         }
 
@@ -138,9 +138,21 @@ namespace QRefTrain3.Controllers
                 User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
                 if (quizzModel.ResultType == ResultType.Exam)
                 {
+                    if((Dal.Instance.GetDBTime() - quizzModel.StartTime.Value).Minutes > 12)
+                    {
+                        Dal.Instance.CreateLog(new Log()
+                        {
+                            UserId = currentUser.Id,
+                            LogText = "Quizz result error : Time between start and end of test is too high.",
+                            LogTime = Dal.Instance.GetDBTime()
+                        });
+                        Dal.Instance.CloseExamByUsername(currentUser.Name);
+                        return View("ErrorPage", Resource.Resource.Error_QuizError);
+                    }
+
                     Dal.Instance.DeleteExamByUserId(currentUser.Id);
                 }
-                result.User = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
+                result.User = currentUser;
                 Dal.Instance.CreateResult(result);
             }
 
@@ -170,12 +182,16 @@ namespace QRefTrain3.Controllers
 
         private List<Question> QuestionViewModelToQuestion(List<QuestionQuizzViewModel> displayedQuestions)
         {
-            List<Question> retrievedQuestions = new List<Question>();
-            List<Question> allQuestions = Dal.Instance.getAllQuestions();
+            List<int> questionIds = new List<int>();
+            foreach(QuestionQuizzViewModel q in displayedQuestions)
+            {
+                questionIds.Add(q.Id);
+            }
+            List<Question> retrievedQuestions = Dal.Instance.GetQuestionByIds(questionIds);
             // For each questionViewModel, we return a Question with updated Answers informations
             foreach (QuestionQuizzViewModel questionViewModel in displayedQuestions)
             {
-                Question question = allQuestions.First<Question>(m => m.Id == questionViewModel.Id);
+                Question question = retrievedQuestions.First<Question>(m => m.Id == questionViewModel.Id);
                 if (question.AnswerType == AnswerType.MultipleAnswer)
                 {
                     foreach (Answer answer in question.Answers)

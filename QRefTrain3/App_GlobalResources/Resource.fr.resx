@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CreateAccount_CreationConfirmation" xml:space="preserve">
+    <value>Compte créé, vous pouvez maintenant utiliser le site normalement. Veuillez valider votre compte sous trois jours en cliquant sur le lien que nous vous avons transmis par mail. Et bienvenue ! :)</value>
+  </data>
+  <data name="CreateAccount_ErrorMailAlreadyUser" xml:space="preserve">
+    <value>Un compte utilisant cette adresse mail existe déjà.</value>
+  </data>
+  <data name="CreateAccount_ErrorMailInnaccessible" xml:space="preserve">
+    <value>Erreur lors de l'envoi du mail. Contactez le support si cette erreur se reproduit.</value>
+  </data>
+  <data name="CreateAccount_ErrorUsernameAlreadyUser" xml:space="preserve">
+    <value>Le nom d'utilisateur n'est pas disponible.</value>
+  </data>
+  <data name="CreateAccount_Mailbody" xml:space="preserve">
+    <value>Merci de votre inscription, veuillez cliquer le lien suivant pour confirmer votre adresse mail : &lt;a href=\"{0}\" title=\"User Email Confirm\"&gt;{1}&lt;/a&gt;.</value>
+  </data>
+  <data name="CreateAccount_NewAccountPrompt" xml:space="preserve">
+    <value>Créer un nouveau compte.</value>
+  </data>
+  <data name="CreateAccount_ValidationConfirmation" xml:space="preserve">
+    <value>Compte validé. Bonne navigation !</value>
+  </data>
   <data name="Homepage" xml:space="preserve">
     <value>Page Principale</value>
   </data>
@@ -161,6 +182,9 @@
   </data>
   <data name="Login_EnterInformationPrompt" xml:space="preserve">
     <value>Merci d'entrer vos informations.</value>
+  </data>
+  <data name="Login_ErrorInformations" xml:space="preserve">
+    <value>Nom ou mot de passe incorrect.</value>
   </data>
   <data name="Login_Name" xml:space="preserve">
     <value>Nom</value>
@@ -227,6 +251,9 @@
   </data>
   <data name="Quiz_ValidateAnswer" xml:space="preserve">
     <value>Valider les réponses</value>
+  </data>
+  <data name="Resetpassword_Prompt" xml:space="preserve">
+    <value>Veuillez entrer votre email.</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Valider</value>

@@ -9,59 +9,66 @@
 </head>
 <body>
 
-    <div class="tab">
-        <button class="tablinks active" onclick="displayResults(event, 'trainingResultTable')">@Resource.Resource.Homepage_ParameterPrompt</button>
-        <button class="tablinks" onclick="displayResults(event, 'officielResultTable')">@Resource.Resource.Homepage_TestPrompt</button>
-    </div>
+    <div class="flex-container">
+        <div class="halfpageItem">
+            <div class="tab">
+                <button class="tablinks active" onclick="displayResults(event, 'trainingResultTable')">@Resource.Resource.Homepage_ParameterPrompt</button>
+                <button class="tablinks" onclick="displayResults(event, 'officielResultTable')">@Resource.Resource.Homepage_TestPrompt</button>
+            </div>
 
-    <table id="trainingResultTable" class="table-striped">
-        <thead>
-            <tr>
-                <th class="col-md-1">Date</th>
-                <th class="col-md-1">Score</th>
-                <th class="col-md-1">Passed</th>
-                <th class="col-md-1">Details</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model)
-            {
-                if (result.ResultType == QRefTrain3.Models.ResultType.Training)
-                {
+            <table id="trainingResultTable" class="table-striped">
+                <thead>
                     <tr>
-                        <td>@result.DateTime.ToString("dd/MM/yy")</td>
-                        <td>@result.GetNumberGoodAnswer() / @result.QuestionsAsked.Count</td>
-                        <td><img src="~/Elements/@(result.IsResultSuccesfull() ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
-                        <td>@Html.ActionLink("Details", "DisplayResultDetails", new { id = result.Id })</td>
+                        <th class="col-md-1">Date</th>
+                        <th class="col-md-1">Score</th>
+                        <th class="col-md-1">Passed</th>
+                        <th class="col-md-1">Details</th>
                     </tr>
-                }
-            }
-        </tbody>
-    </table>
-    <table id="officielResultTable" class="table-striped hiddenInformations">
-        <thead>
-            <tr>
-                <th class="col-md-1">Date</th>
-                <th class="col-md-1">Score</th>
-                <th class="col-md-1">Passed</th>
-                <th class="col-md-1">Details</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model)
-            {
-                if (result.ResultType == QRefTrain3.Models.ResultType.Exam)
-                {
+                </thead>
+                <tbody>
+                    @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model)
+                    {
+                        if (result.ResultType == QRefTrain3.Models.ResultType.Training)
+                        {
+                            <tr>
+                                <td>@result.DateTime.ToString("dd/MM/yy")</td>
+                                <td>@result.GetNumberGoodAnswer() / @result.QuestionsAsked.Count</td>
+                                <td><img src="~/Elements/@(result.IsResultSuccesfull() ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
+                                <td>@Html.ActionLink("Details", "DisplayResultDetails", new { id = result.Id })</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <table id="officielResultTable" class="table-striped hiddenInformations">
+                <thead>
                     <tr>
-                        <td>@result.DateTime.ToString("dd/MM/yy")</td>
-                        <td>@result.GetNumberGoodAnswer() / @result.QuestionsAsked.Count</td>
-                        <td><img src="~/Elements/@(result.IsResultSuccesfull() ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
-                        <td>@Html.ActionLink("Details", "DisplayResultDetails", new { id = result.Id })</td>
+                        <th class="col-md-1">Date</th>
+                        <th class="col-md-1">Score</th>
+                        <th class="col-md-1">Passed</th>
+                        <th class="col-md-1">Details</th>
                     </tr>
-                }
-            }
-        </tbody>
-    </table>
+                </thead>
+                <tbody>
+                    @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model)
+                    {
+                        if (result.ResultType == QRefTrain3.Models.ResultType.Exam)
+                        {
+                            <tr>
+                                <td>@result.DateTime.ToString("dd/MM/yy")</td>
+                                <td>@result.GetNumberGoodAnswer() / @result.QuestionsAsked.Count</td>
+                                <td><img src="~/Elements/@(result.IsResultSuccesfull() ? "goodAnswer" : "badAnswer").jpg" height="30" width="30" /></td>
+                                <td>@Html.ActionLink("Details", "DisplayResultDetails", new { id = result.Id })</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div >
+            averages
+        </div>
+    </div>
 </body>
 </html>
 

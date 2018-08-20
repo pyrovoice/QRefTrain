@@ -19,6 +19,7 @@
         @if (!HttpContext.Current.User.Identity.IsAuthenticated)
         {
             @Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
+            @Html.ActionLink("Register", "CreateAccount", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
         }
         else
         {

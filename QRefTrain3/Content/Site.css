@@ -223,13 +223,13 @@ footer {
     width: 140px;
 }
 
-.longLabel {
+.halfpageItem {
     width: 49%;
 }
 
 @media (max-width: 1200px) {
 
-    .longLabel {
+    .halfpageItemCollapse {
         width: 100%;
     }
 }
@@ -276,7 +276,7 @@ footer {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 10px 10px;
     transition: 0.3s;
     font-size: larger;
 }

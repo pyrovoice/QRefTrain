@@ -12,6 +12,7 @@ namespace QRefTrain3.Controllers
 {
     public class LoginController : BaseController
     {
+
         public ActionResult Index()
         {
             UserViewModel viewModel = new UserViewModel { IsAutenthified = HttpContext.User.Identity.IsAuthenticated };
@@ -32,9 +33,57 @@ namespace QRefTrain3.Controllers
                     return Redirect(returnUrl);
                 return Redirect("/");
             }
-            ModelState.AddModelError("User.Name", "Name or Password incorrect");
+            ModelState.AddModelError("User.Name", Resource.Resource.Login_ErrorInformations);
 
             return View("Login", viewModel);
+        }
+
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SendResetCode(string userMail)
+        {
+            // Get the mail in db
+            User user = Dal.Instance.GetUserByMail(userMail);
+            // If found, create a message with a special code, store this in the db, then send the mail
+            if (user != null)
+            {
+                Random generator = new Random();
+                Request r = Dal.Instance.CreateRequest(new Request()
+                {
+                    CreationDate = new DateTime(),
+                    RequestType = RequestType.ResetPassword,
+                    SecretCode = generator.Next(0, 999999).ToString("D6"),
+                    User = user
+                });
+                SendMail(user, string.Format(Resource.Resource.ResetPassword_Mailbody, r.SecretCode));
+            }
+
+            // Regardless of the result, move to the validation code page
+            return View("ResetCode");
+        }
+
+        [HttpPost]
+        public ActionResult ResetCode(string newPassword, string confirmPassword, string resetCode)
+        {
+            if (!newPassword.Equals(confirmPassword))
+            {
+                @ViewBag.Error = "Please specify the same password in both entries.";
+                return View("ResetCode");
+            }
+            Request request = Dal.Instance.GetRequestByCode(resetCode);
+            if(request == null)
+            {
+                @ViewBag.Error = "Please verify that the code you entered is valid.";
+                return View("ResetCode");
+            }
+            Dal.Instance.UpdateUserChangePassword(request.User, newPassword);
+            return View("ResetPasswordSuccess");
+
         }
 
         public ActionResult CreateAccount()
@@ -43,32 +92,46 @@ namespace QRefTrain3.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateAccount(RegisterViewModel registerViewModel)
         {
             if (ModelState.IsValid)
             {
                 bool isAllValid = true;
-                if (Dal.Instance.UsernameAlreadyInDB(registerViewModel.Name))
+                if (Dal.Instance.IsUsernameAlreadyInDB(registerViewModel.Name))
                 {
-                    ViewBag.UsernameAlreadyInDB = "Username is already used";
+                    ViewBag.UsernameAlreadyInDB = Resource.Resource.CreateAccount_ErrorUsernameAlreadyUser;
                     isAllValid = false;
                 }
-                if (Dal.Instance.MailAlreadyInDB(registerViewModel.Email))
+                if (Dal.Instance.IsMailAlreadyInDB(registerViewModel.Email))
                 {
-                    ViewBag.MailError = "Mail is already used";
+                    ViewBag.MailError = Resource.Resource.CreateAccount_ErrorMailAlreadyUser;
                     isAllValid = false;
                 }
 
-                User newUser = new User() { Name = registerViewModel.Name, Email = registerViewModel.Email, Password = registerViewModel.Password };
-
-                if (!SendMail(newUser)){
-                    ViewBag.MailError = "Cannot send a mail. Please verify the adress, or send a request (it could be us)";
-                    isAllValid = false;
-                }
                 if (isAllValid)
                 {
+                    User newUser = new User() { Name = registerViewModel.Name, Email = registerViewModel.Email, Password = registerViewModel.Password };
                     Dal.Instance.CreateUser(newUser);
                     newUser = Dal.Instance.GetUserByName(newUser.Name);
+                    Request request = Dal.Instance.CreateRequest(new Request()
+                    {
+                        CreationDate = Dal.Instance.GetDBTime(),
+                        RequestType = RequestType.EmailConfirmation,
+                        SecretCode = Guid.NewGuid().ToString("N"),
+                        User = newUser
+                    });
+                    // Send a mail with a nice message that link to Login controller, ConfirmEmail with data secretCode and request ID
+                    // String format put the result of Url Action (the URL to confirmation method) in the message
+                    bool sendMail = SendMail(newUser, string.Format(Resource.Resource.CreateAccount_Mailbody,
+                        Url.Action("ConfirmEmail", "Login", new { Code = request.SecretCode, RequestId = request.Id }, "Link")));
+
+                    if (!sendMail)
+                    {
+                        Dal.Instance.DeleteUser(newUser);
+                        ViewBag.MailError = Resource.Resource.CreateAccount_ErrorMailInnaccessible;
+                        return View("CreateAccount", registerViewModel);
+                    }
 
                     return View("CreateAccountConfirmation");
                 }
@@ -76,7 +139,23 @@ namespace QRefTrain3.Controllers
             return View("CreateAccount", registerViewModel);
         }
 
-        
+        [HttpPost]
+        public ActionResult ConfirmEmail(string code, int requestId)
+        {
+            //Get request corresponding to data
+            Request request = Dal.Instance.GetRequestByCodeAndId(code, requestId);
+
+            // If found, update the account and delete the request
+            if (request != null)
+            {
+                var instance = Dal.Instance;
+                instance.UpdateUserConfirmMail(request.User);
+                instance.DeleteRequest(request);
+            }
+
+            // Regardless of the result, move to result page
+            return View("ValidateAccountConfirmation");
+        }
 
         public ActionResult Disconnect()
         {
@@ -84,29 +163,36 @@ namespace QRefTrain3.Controllers
             return Redirect("/");
         }
 
-        private bool SendMail(User user)
+        private bool SendMail(User user, string body)
         {
-            SmtpClient SmtpServer = new SmtpClient("smtp.live.com");
-            var mail = new MailMessage();
-            mail.From = new MailAddress("maxime.grazzini@hotmail.com");
-            mail.To.Add(user.Email);
-            mail.Subject = "Your Sub";
-            mail.IsBodyHtml = true;
-            mail.Body = string.Format("Dear {0}<BR/>Thank you for your registration, please click on the below link to complete your registration: <a href=\"{1}\" title=\"User Email Confirm\">{1}</a>", user.Name, Url.Action("ConfirmEmail", "Login", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme));
-            SmtpServer.Port = 587;
-            SmtpServer.UseDefaultCredentials = false;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("maxime.grazzini@hotmail.com", "QzsaErty");
-            SmtpServer.EnableSsl = true;
-            try
+            using (SmtpClient SmtpServer = new SmtpClient("smtp.live.com"))
             {
-                SmtpServer.Send(mail);
+                var mail = new MailMessage();
+                mail.From = new MailAddress("maxime.grazzini@hotmail.com");
+                mail.To.Add(user.Email);
+                mail.Subject = "Your Sub";
+                mail.IsBodyHtml = true;
+                mail.Body = body;
+                SmtpServer.Port = 587;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("maxime.grazzini@hotmail.com", "QzsaErty");
+                SmtpServer.EnableSsl = true;
+                try
+                {
+                    SmtpServer.Send(mail);
+                }
+                catch (Exception e)
+                {
+                    Dal.Instance.CreateLog(new Log()
+                    {
+                        LogText = "Error when sending mail to : " + user.Email + ", with body : " + body,
+                        LogTime = new DateTime(),
+                        UserId = user.Id
+                    });
+                    return false;
+                }
+                return true;
             }
-            catch (Exception e)
-            {
-                return false;
-            }
-            return true;
-
         }
     }
 }

@@ -61,6 +61,78 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account created, you can now use the website. Please confirm your account under three days by clicking on the link we sent you by mail. And welcome ! :).
+        /// </summary>
+        public static string CreateAccount_CreationConfirmation {
+            get {
+                return ResourceManager.GetString("CreateAccount_CreationConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An account using this mail already exists..
+        /// </summary>
+        public static string CreateAccount_ErrorMailAlreadyUser {
+            get {
+                return ResourceManager.GetString("CreateAccount_ErrorMailAlreadyUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error when sending the mail. Please contact the support if this error happens again..
+        /// </summary>
+        public static string CreateAccount_ErrorMailInnaccessible {
+            get {
+                return ResourceManager.GetString("CreateAccount_ErrorMailInnaccessible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username is not available..
+        /// </summary>
+        public static string CreateAccount_ErrorUsernameAlreadyUser {
+            get {
+                return ResourceManager.GetString("CreateAccount_ErrorUsernameAlreadyUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you for your registration, please click on the below link to confirm your mail: &lt;a href=\&quot;{0}\&quot; title=\&quot;User Email Confirm\&quot;&gt;{1}&lt;/a&gt;..
+        /// </summary>
+        public static string CreateAccount_Mailbody {
+            get {
+                return ResourceManager.GetString("CreateAccount_Mailbody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new account..
+        /// </summary>
+        public static string CreateAccount_NewAccountPrompt {
+            get {
+                return ResourceManager.GetString("CreateAccount_NewAccountPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account validated. Happy refing !.
+        /// </summary>
+        public static string CreateAccount_ValidationConfirmation {
+            get {
+                return ResourceManager.GetString("CreateAccount_ValidationConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error when validating the test. Please contact the support for more information..
+        /// </summary>
+        public static string Error_QuizError {
+            get {
+                return ResourceManager.GetString("Error_QuizError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HomePage.
         /// </summary>
         public static string Homepage {
@@ -192,6 +264,15 @@ namespace Resource {
         public static string Login_EnterInformationPrompt {
             get {
                 return ResourceManager.GetString("Login_EnterInformationPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name or Password incorrect.
+        /// </summary>
+        public static string Login_ErrorInformations {
+            get {
+                return ResourceManager.GetString("Login_ErrorInformations", resourceCulture);
             }
         }
         
@@ -390,6 +471,24 @@ namespace Resource {
         public static string Quiz_ValidateAnswer {
             get {
                 return ResourceManager.GetString("Quiz_ValidateAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A password reset was requested on this account. Please use the code : {0} to change the password. If you did not request a reset, please ignore this mail..
+        /// </summary>
+        public static string ResetPassword_Mailbody {
+            get {
+                return ResourceManager.GetString("ResetPassword_Mailbody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your mail..
+        /// </summary>
+        public static string Resetpassword_Prompt {
+            get {
+                return ResourceManager.GetString("Resetpassword_Prompt", resourceCulture);
             }
         }
         

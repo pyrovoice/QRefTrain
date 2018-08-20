@@ -12,7 +12,7 @@
     @using(Html.BeginForm("CreateAccount", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <h4>Create a new account.</h4>
+        <h4>@Resource.Resource.CreateAccount_NewAccountPrompt</h4>
         <hr />
         <div class="form-group">
             @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })

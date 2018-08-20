@@ -184,6 +184,14 @@
     <Compile Include="Migrations\201808121256448_Exam7.Designer.cs">
       <DependentUpon>201808121256448_Exam7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808201149124_Requests.cs" />
+    <Compile Include="Migrations\201808201149124_Requests.Designer.cs">
+      <DependentUpon>201808201149124_Requests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808201319572_Requests2.cs" />
+    <Compile Include="Migrations\201808201319572_Requests2.Designer.cs">
+      <DependentUpon>201808201319572_Requests2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -201,6 +209,7 @@
       <DesignTime>True</DesignTime>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Models\Requests.cs" />
     <Compile Include="ViewModel\AnswerQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
@@ -323,11 +332,17 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_ResultDetail.cshtml" />
+    <Content Include="Views\Login\ResetPassword.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Shared\_ErrorDiv.cshtml" />
+    <Content Include="Views\Login\ValidateAccountConfirmation.cshtml" />
+    <Content Include="Views\Login\ResetCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Test\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -376,6 +391,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808121256448_Exam7.resx">
       <DependentUpon>201808121256448_Exam7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808201149124_Requests.resx">
+      <DependentUpon>201808201149124_Requests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808201319572_Requests2.resx">
+      <DependentUpon>201808201319572_Requests2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
