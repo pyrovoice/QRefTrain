@@ -10,16 +10,16 @@ namespace QRefTrain3.Models
     public class User
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 4, ErrorMessage = "Must be 4 character long")]
+        [Required(ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Required")]
+        [StringLength(30, MinimumLength = 4, ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Login_Errorname")]
         [Display(Name = "Login_Name", ResourceType = typeof(Resource.Resource))]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Required")]
-        [StringLength(32, MinimumLength = 6, ErrorMessage = "Must be 6 character long")]
+        [Required(ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Required")]
+        [StringLength(32, MinimumLength = 6, ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Login_Errorpassword")]
         [Display(Name = "Login_Password", ResourceType = typeof(Resource.Resource))]
         public string Password { get; set; }
-        [Required(ErrorMessage = "Required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Required")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "Login_Errormail")]
         [Display(Name = "Login_Email", ResourceType = typeof(Resource.Resource))]
         public string Email { get; set; }
         [Required]

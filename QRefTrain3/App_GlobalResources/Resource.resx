@@ -174,6 +174,9 @@
   <data name="Login_AlreadyConnected" xml:space="preserve">
     <value>You are already connected as :</value>
   </data>
+  <data name="Login_ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
   <data name="Login_CreateAccount" xml:space="preserve">
     <value>Create an account</value>
   </data>
@@ -186,14 +189,38 @@
   <data name="Login_EnterInformationPrompt" xml:space="preserve">
     <value>Please enter your informations.</value>
   </data>
+  <data name="Login_Errorcode" xml:space="preserve">
+    <value>Code must be 6 character</value>
+  </data>
+  <data name="Login_Errorconfirmationpassword" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
   <data name="Login_ErrorInformations" xml:space="preserve">
     <value>Name or Password incorrect</value>
+  </data>
+  <data name="Login_Errormail" xml:space="preserve">
+    <value>Invalid Email Address</value>
+  </data>
+  <data name="Login_Errorname" xml:space="preserve">
+    <value>Must be 4 character long</value>
+  </data>
+  <data name="Login_Errorpassword" xml:space="preserve">
+    <value>Must be 6 character long</value>
   </data>
   <data name="Login_Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Login_NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
   <data name="Login_Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="Login_ResetCode" xml:space="preserve">
+    <value>Reset code</value>
+  </data>
+  <data name="Login_Resetpassword" xml:space="preserve">
+    <value>Need a new password ?</value>
   </data>
   <data name="NGBs_All" xml:space="preserve">
     <value>All</value>
@@ -254,6 +281,9 @@
   </data>
   <data name="Quiz_ValidateAnswer" xml:space="preserve">
     <value>Validate Answers</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
   </data>
   <data name="ResetPassword_Mailbody" xml:space="preserve">
     <value>A password reset was requested on this account. Please use the code : {0} to change the password. If you did not request a reset, please ignore this mail.</value>

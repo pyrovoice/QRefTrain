@@ -171,6 +171,9 @@
   <data name="Login_AlreadyConnected" xml:space="preserve">
     <value>Vous etes déjà connecté en tant que :</value>
   </data>
+  <data name="Login_ConfirmPassword" xml:space="preserve">
+    <value>Confirmez le mot de passe</value>
+  </data>
   <data name="Login_CreateAccount" xml:space="preserve">
     <value>Créer un compte</value>
   </data>
@@ -183,14 +186,35 @@
   <data name="Login_EnterInformationPrompt" xml:space="preserve">
     <value>Merci d'entrer vos informations.</value>
   </data>
+  <data name="Login_Errorcode" xml:space="preserve">
+    <value>Le code doit faire 6 charactères</value>
+  </data>
   <data name="Login_ErrorInformations" xml:space="preserve">
     <value>Nom ou mot de passe incorrect.</value>
+  </data>
+  <data name="Login_Errormail" xml:space="preserve">
+    <value>L'email n'est pas valide</value>
+  </data>
+  <data name="Login_Errorname" xml:space="preserve">
+    <value>Doit faire 4 charactères</value>
+  </data>
+  <data name="Login_Errorpassword" xml:space="preserve">
+    <value>Doit faire 6 charactères</value>
   </data>
   <data name="Login_Name" xml:space="preserve">
     <value>Nom</value>
   </data>
+  <data name="Login_NewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
   <data name="Login_Password" xml:space="preserve">
     <value>Mot de passe</value>
+  </data>
+  <data name="Login_ResetCode" xml:space="preserve">
+    <value>Code de Réinitialisation</value>
+  </data>
+  <data name="Login_Resetpassword" xml:space="preserve">
+    <value>Besoin d'un nouveau mot de passe ?</value>
   </data>
   <data name="NGBs_All" xml:space="preserve">
     <value>Toutes</value>

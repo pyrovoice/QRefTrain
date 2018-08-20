@@ -232,6 +232,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm password.
+        /// </summary>
+        public static string Login_ConfirmPassword {
+            get {
+                return ResourceManager.GetString("Login_ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create an account.
         /// </summary>
         public static string Login_CreateAccount {
@@ -268,11 +277,56 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code must be 6 character.
+        /// </summary>
+        public static string Login_Errorcode {
+            get {
+                return ResourceManager.GetString("Login_Errorcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match.
+        /// </summary>
+        public static string Login_Errorconfirmationpassword {
+            get {
+                return ResourceManager.GetString("Login_Errorconfirmationpassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name or Password incorrect.
         /// </summary>
         public static string Login_ErrorInformations {
             get {
                 return ResourceManager.GetString("Login_ErrorInformations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Email Address.
+        /// </summary>
+        public static string Login_Errormail {
+            get {
+                return ResourceManager.GetString("Login_Errormail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be 4 character long.
+        /// </summary>
+        public static string Login_Errorname {
+            get {
+                return ResourceManager.GetString("Login_Errorname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be 6 character long.
+        /// </summary>
+        public static string Login_Errorpassword {
+            get {
+                return ResourceManager.GetString("Login_Errorpassword", resourceCulture);
             }
         }
         
@@ -286,11 +340,38 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New password.
+        /// </summary>
+        public static string Login_NewPassword {
+            get {
+                return ResourceManager.GetString("Login_NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Login_Password {
             get {
                 return ResourceManager.GetString("Login_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset code.
+        /// </summary>
+        public static string Login_ResetCode {
+            get {
+                return ResourceManager.GetString("Login_ResetCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Need a new password ?.
+        /// </summary>
+        public static string Login_Resetpassword {
+            get {
+                return ResourceManager.GetString("Login_Resetpassword", resourceCulture);
             }
         }
         
@@ -471,6 +552,15 @@ namespace Resource {
         public static string Quiz_ValidateAnswer {
             get {
                 return ResourceManager.GetString("Quiz_ValidateAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required.
+        /// </summary>
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
             }
         }
         
