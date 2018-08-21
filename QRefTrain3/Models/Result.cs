@@ -10,12 +10,24 @@ namespace QRefTrain3.Models
     {
         public int Id { get; set; }
         public User User { get; set; }
-        public List<int> QuestionsAskedIds { get; set; } = new List<int>();
-        public List<int> SelectedAnswers { get; set; } = new List<int>();
+        public List<Question> QuestionsAsked { get; set; } = new List<Question>();
+        public List<Answer> SelectedAnswers { get; set; } = new List<Answer>();
         public ResultType ResultType { get; set; }
         [Column(TypeName = "DateTime2")]
         public DateTime DateTime { get; set; }
-        
+
+        public int GetNumberGoodAnswers()
+        {
+            int goodAnswers = 0;
+            foreach(Question q in QuestionsAsked)
+            {
+                if (q.IsQuestionCorrect(SelectedAnswers))
+                {
+                    goodAnswers++;
+                }
+            }
+            return goodAnswers;
+        }
     }
 
     public enum ResultType

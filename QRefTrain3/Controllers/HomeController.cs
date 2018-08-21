@@ -69,7 +69,7 @@ namespace QRefTrain3.Controllers
             Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
             if (exam != null)
             {
-                return View("Quizz", new QuizzViewModel(Dal.Instance.GetQuestionByIds(exam.QuestionsIds), ResultType.Exam, exam.StartDate));
+                return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate));
             }
             else
             {
@@ -107,7 +107,7 @@ namespace QRefTrain3.Controllers
         public ActionResult ResumeTestQuiz()
         {
             Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name, 10);
-            return View("Quizz", new QuizzViewModel(Dal.Instance.GetQuestionByIds(exam.QuestionsIds), ResultType.Exam, exam.StartDate));
+            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate));
         }
 
         [HttpPost]
@@ -118,7 +118,7 @@ namespace QRefTrain3.Controllers
             result = new Result() { ResultType = quizzModel.ResultType, DateTime = DateTime.Now };
             foreach (Question q in answeredQuestions)
             {
-                result.QuestionsAskedIds.Add(q.Id);
+                result.QuestionsAsked.Add(q);
             }
 
             // Then Create the result with the answers selected by the user
@@ -128,7 +128,7 @@ namespace QRefTrain3.Controllers
                 {
                     if (a.IsSelected)
                     {
-                        result.SelectedAnswers.Add(a.Id);
+                        result.SelectedAnswers.Add(a);
                     }
                 }
             }

@@ -12,6 +12,6 @@ namespace QRefTrain3.Models
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public User User { get; set; }
-        public List<int> QuestionsIds { get; set; }
+        public List<Question> Questions { get; set; }
     }
 }

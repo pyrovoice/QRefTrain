@@ -100,9 +100,9 @@ namespace QRefTrain3.Models
                 Result result = new Result()
                 {
                     DateTime = GetDBTime(),
-                    QuestionsAskedIds = ongoingExam.QuestionsIds,
+                    QuestionsAsked = ongoingExam.Questions,
                     ResultType = ResultType.Exam,
-                    SelectedAnswers = new List<int>(),
+                    SelectedAnswers = new List<Answer>(),
                     User = user
                 };
             }
@@ -147,11 +147,10 @@ namespace QRefTrain3.Models
         public Exam CreateExam(string name, List<Question> questions, DateTime timeNow)
         {
             User user = GetUserByName(name);
-            List<int> questionIds = questions.Select(q => q.Id).ToList();
 
             Exam exam = new Exam()
             {
-                QuestionsIds = questionIds,
+                Questions = questions,
                 StartDate = timeNow,
                 User = user
             };

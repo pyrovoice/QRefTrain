@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Helper\CookieHelper.cs" />
     <Compile Include="Helper\CultureHelper.cs" />
+    <Compile Include="Helper\UserInfoHelper.cs" />
     <Compile Include="Migrations\201806172105546_Model.cs" />
     <Compile Include="Migrations\201806172105546_Model.Designer.cs">
       <DependentUpon>201806172105546_Model.cs</DependentUpon>

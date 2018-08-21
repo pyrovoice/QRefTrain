@@ -23,7 +23,7 @@
                 @for (int counter = 0; counter < question.Answers.Count; counter++)
                 {
                     string backGround = "";
-                    if (QRefTrain3.Models.Answer.IsAnswerCorrect(@question.Answers[counter], Model.SelectedAnswers))
+                    if (Model.SelectedAnswers.Contains(@question.Answers[counter]))
                     {
                         // We only highlight answers that are relevant
                         backGround = @question.Answers[counter].IsTrue ? "greenBack" : "greyBack";

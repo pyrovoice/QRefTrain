@@ -93,5 +93,17 @@ namespace QRefTrain3.Models
             }
             return true;
         }
+
+        public Boolean IsQuestionCorrect(List<Answer> answer)
+        {
+            foreach (Answer a in this.Answers)
+            {
+                if ((answer.Contains(a) && !a.IsTrue) || (!answer.Contains(a) && a.IsTrue))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
