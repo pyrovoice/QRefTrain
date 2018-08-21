@@ -294,4 +294,7 @@
   <data name="TopDiv_Questions" xml:space="preserve">
     <value>Questions</value>
   </data>
+  <data name="CreateAccount_Confirmpassword" xml:space="preserve">
+    <value>Confirmez le mot de passe</value>
+  </data>
 </root>

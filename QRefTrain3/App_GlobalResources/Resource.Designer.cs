@@ -61,6 +61,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm password.
+        /// </summary>
+        public static string CreateAccount_Confirmpassword {
+            get {
+                return ResourceManager.GetString("CreateAccount_Confirmpassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account created, you can now use the website. Please confirm your account under three days by clicking on the link we sent you by mail. And welcome ! :).
         /// </summary>
         public static string CreateAccount_CreationConfirmation {
