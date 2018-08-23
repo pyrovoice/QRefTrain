@@ -12,19 +12,10 @@
         @using (Html.BeginForm("MovetoTrainingQuiz", "Home"))
         {
             <div class="btn-group-toggle" data-toggle="buttons">
-                @foreach (QRefTrain3.Models.QuestionField item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionField)))
+                @foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
                 {
                     <label class="btn btn-secondary shortLabel">
-                        <input type="checkbox" name="Subjects" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Question_" + item.ToString())
-                    </label>
-                }
-            </div>
-
-            <div class="btn-group-toggle" data-toggle="buttons">
-                @foreach (QRefTrain3.Models.QuestionDifficulty item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionDifficulty)))
-                {
-                    <label class="btn btn-secondary shortLabel">
-                        <input type="checkbox" name="Difficulties" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Question_" + item.ToString())
+                        <input type="checkbox" name="Subject" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString())
                     </label>
                 }
             </div>

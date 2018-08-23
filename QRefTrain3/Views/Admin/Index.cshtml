@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    @using (Html.BeginForm("AddQuestion", "Admin"))
+    {
+        <div class="flex-container">
+            <div class="form-group">
+                @Html.Label("Question title")
+                @Html.TextBox("QuestionTitle")
+            </div>
+            <div class="form-group">
+                @Html.Label("Question Text")
+                @Html.TextBox("QuestionText")
+            </div>
+            <div class="form-group">
+                @Html.Label("Answer 1")
+                @Html.TextBox("Answer1")
+            </div>
+            <div class="form-group">
+                @Html.Label("Answer 2")
+                @Html.TextBox("Answer2")
+            </div>
+            <div class="form-group">
+                @Html.Label("Answer 3")
+                @Html.TextBox("Answer3")
+            </div>
+            <div class="form-group">
+                @Html.Label("Answer 4")
+                @Html.TextBox("Answer4")
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div class="form-group">
+                @Html.Label("Video")
+                @Html.TextBox("Video")
+            </div>
+            <div class="form-group">
+                @Html.Label("Explanation")
+                @Html.TextBox("Explanation")
+            </div>
+            <div class="form-group">
+                @Html.Label("Question subject")
+                @{
+                    // Create dropdown list of subject and NGB
+                    List<SelectListItem> subjects = new List<SelectListItem>();
+                    foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
+                    {
+                        subjects.Add(new SelectListItem() { Text = Resource.Resource.ResourceManager.GetString("Questionsubject_" + item.ToString()), Value = item.ToString() });
+                    }
+                    Html.DropDownList("QuestionField",
+                        subjects,
+                        new { @id = "QuestionField" });
+                }
+            </div>
+
+            <div class="form-group">
+                @Html.Label("NGB")
+                @{
+                    List<SelectListItem> NGBs = new List<SelectListItem>();
+                    foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
+                    {
+                        NGBs.Add(new SelectListItem() { Text = Resource.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                    }
+                    Html.DropDownList("NGB", NGBs, new { @id = "NGB" });
+                }
+            </div>
+        </div>
+    }
+</body>
+</html>

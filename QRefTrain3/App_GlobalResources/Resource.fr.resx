@@ -228,27 +228,6 @@
   <data name="NGBs_Usa" xml:space="preserve">
     <value>Usa</value>
   </data>
-  <data name="Question_Advanced" xml:space="preserve">
-    <value>Avancé</value>
-  </data>
-  <data name="Question_Basic" xml:space="preserve">
-    <value>Basique</value>
-  </data>
-  <data name="Question_Beater" xml:space="preserve">
-    <value>Batteur</value>
-  </data>
-  <data name="Question_Chaser" xml:space="preserve">
-    <value>Poursuiveur</value>
-  </data>
-  <data name="Question_Contact" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="Question_Other" xml:space="preserve">
-    <value>Autre</value>
-  </data>
-  <data name="Question_Process" xml:space="preserve">
-    <value>Procédure</value>
-  </data>
   <data name="Question_Sample_Answer1" xml:space="preserve">
     <value>Le joueur doit toucher la partie ronde de l'anneau.</value>
   </data>
@@ -296,5 +275,56 @@
   </data>
   <data name="CreateAccount_Confirmpassword" xml:space="preserve">
     <value>Confirmez le mot de passe</value>
+  </data>
+  <data name="Subject_Advantage" xml:space="preserve">
+    <value>Avantage</value>
+  </data>
+  <data name="Subject_Contacts" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Subject_Definition" xml:space="preserve">
+    <value>Définitions</value>
+  </data>
+  <data name="Subject_DelayedPenalty" xml:space="preserve">
+    <value>Pénalités différées</value>
+  </data>
+  <data name="Subject_DelayOfGame" xml:space="preserve">
+    <value>Retarder le jeu</value>
+  </data>
+  <data name="Subject_FieldsAndEquipment" xml:space="preserve">
+    <value>Équipements</value>
+  </data>
+  <data name="Subject_ImmunityAndGuarding" xml:space="preserve">
+    <value>Immunité&amp;Guarding</value>
+  </data>
+  <data name="Subject_Keeper" xml:space="preserve">
+    <value>Guardien</value>
+  </data>
+  <data name="Subject_KO" xml:space="preserve">
+    <value>Knockout</value>
+  </data>
+  <data name="Subject_NHNF" xml:space="preserve">
+    <value>Annulation de faute</value>
+  </data>
+  <data name="Subject_Other" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="Subject_OutOfBoundaries" xml:space="preserve">
+    <value>Limites de jeu</value>
+  </data>
+  <data name="Subject_Process" xml:space="preserve">
+    <value>Procédés</value>
+  </data>
+  <data name="Subject_Reset" xml:space="preserve">
+    <value>Relance</value>
+  </data>
+  <data name="Subject_Scoring" xml:space="preserve">
+    <value>Marquer</value>
+  </data>
+  <data name="Subject_SnitchPlay" xml:space="preserve">
+    <value>Jeu du vif</value>
+  </data>
+  <data name="Subject_Substitution" xml:space="preserve">
+    <value>Substitution</value>
   </data>
 </root>

@@ -38,20 +38,17 @@
                                     frameborder="0"></iframe>
                         </div>
                     }
-                    @if (@Model.DisplayedQuestions[i].AnswerType == QRefTrain3.Models.AnswerType.MultipleAnswer)
-                    {
-                        <div class="btn-group-toggle" data-toggle="buttons">
+                    <div class="btn-group-toggle" data-toggle="buttons">
 
-                            @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
-                            {
-                                <label class="btn btn-light halfpageItem halfpageItemCollapse">
-                                    @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                    @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
-                                </label>
-                                @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
-                            }
-                        </div>
-                    }
+                        @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
+                        {
+                            <label class="btn btn-light halfpageItem halfpageItemCollapse">
+                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
+                            </label>
+                            @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
+                        }
+                    </div>
                 </div>
                 if (i != Model.DisplayedQuestions.Count - 1)
                 {

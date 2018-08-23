@@ -7,6 +7,8 @@ using System.Web;
 
 namespace QRefTrain3.Models
 {
+    public enum UserRole { Default, Admnin, Moderator}
+
     public class User
     {
         public int Id { get; set; }
@@ -25,5 +27,6 @@ namespace QRefTrain3.Models
         [Required]
         public bool IsEmailConfirmed { get; set; }
         public DateTime RegisterationDate { get; set; }
+        public UserRole UserRole { get; set; }
     }
 }

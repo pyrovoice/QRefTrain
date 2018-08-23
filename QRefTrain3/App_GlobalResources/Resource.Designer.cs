@@ -430,60 +430,6 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Basic.
-        /// </summary>
-        public static string Question_Basic {
-            get {
-                return ResourceManager.GetString("Question_Basic", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Beater.
-        /// </summary>
-        public static string Question_Beater {
-            get {
-                return ResourceManager.GetString("Question_Beater", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Chaser.
-        /// </summary>
-        public static string Question_Chaser {
-            get {
-                return ResourceManager.GetString("Question_Chaser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Contact.
-        /// </summary>
-        public static string Question_Contact {
-            get {
-                return ResourceManager.GetString("Question_Contact", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Other.
-        /// </summary>
-        public static string Question_Other {
-            get {
-                return ResourceManager.GetString("Question_Other", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Process.
-        /// </summary>
-        public static string Question_Process {
-            get {
-                return ResourceManager.GetString("Question_Process", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Player should touch the round part of the hoop..
         /// </summary>
         public static string Question_Sample_Answer1 {
@@ -588,6 +534,159 @@ namespace Resource {
         public static string Resetpassword_Prompt {
             get {
                 return ResourceManager.GetString("Resetpassword_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advantage.
+        /// </summary>
+        public static string Subject_Advantage {
+            get {
+                return ResourceManager.GetString("Subject_Advantage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacts.
+        /// </summary>
+        public static string Subject_Contacts {
+            get {
+                return ResourceManager.GetString("Subject_Contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Definitions.
+        /// </summary>
+        public static string Subject_Definition {
+            get {
+                return ResourceManager.GetString("Subject_Definition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delayed penalty.
+        /// </summary>
+        public static string Subject_DelayedPenalty {
+            get {
+                return ResourceManager.GetString("Subject_DelayedPenalty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delay of game.
+        /// </summary>
+        public static string Subject_DelayOfGame {
+            get {
+                return ResourceManager.GetString("Subject_DelayOfGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field &amp; Equipments.
+        /// </summary>
+        public static string Subject_FieldsAndEquipment {
+            get {
+                return ResourceManager.GetString("Subject_FieldsAndEquipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Immunity&amp;Guarding.
+        /// </summary>
+        public static string Subject_ImmunityAndGuarding {
+            get {
+                return ResourceManager.GetString("Subject_ImmunityAndGuarding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keeper.
+        /// </summary>
+        public static string Subject_Keeper {
+            get {
+                return ResourceManager.GetString("Subject_Keeper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Knockout.
+        /// </summary>
+        public static string Subject_KO {
+            get {
+                return ResourceManager.GetString("Subject_KO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No harm no foul.
+        /// </summary>
+        public static string Subject_NHNF {
+            get {
+                return ResourceManager.GetString("Subject_NHNF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string Subject_Other {
+            get {
+                return ResourceManager.GetString("Subject_Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boundaries and play.
+        /// </summary>
+        public static string Subject_OutOfBoundaries {
+            get {
+                return ResourceManager.GetString("Subject_OutOfBoundaries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process.
+        /// </summary>
+        public static string Subject_Process {
+            get {
+                return ResourceManager.GetString("Subject_Process", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Subject_Reset {
+            get {
+                return ResourceManager.GetString("Subject_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scoring.
+        /// </summary>
+        public static string Subject_Scoring {
+            get {
+                return ResourceManager.GetString("Subject_Scoring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Snitch play.
+        /// </summary>
+        public static string Subject_SnitchPlay {
+            get {
+                return ResourceManager.GetString("Subject_SnitchPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Substitution.
+        /// </summary>
+        public static string Subject_Substitution {
+            get {
+                return ResourceManager.GetString("Subject_Substitution", resourceCulture);
             }
         }
         

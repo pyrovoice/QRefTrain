@@ -51,11 +51,10 @@ namespace QRefTrain3.Models
         /// <param name="NGB">Chosen NGB. Alway one.</param>
         /// <param name="NGB_Only">Whether we retrieve questions that apply to all NGB or to this particular NGB (some questions might be specific to multiple NGBs, and will be returned)</param>
         /// <returns></returns>
-        public List<Question> GetQuestionsByParameter(List<string> fields, List<string> difficulties, string NGB, bool NGB_Only)
+        public List<Question> GetQuestionsByParameter(List<string> subjects, string NGB, bool NGB_Only)
         {
             return Context.Questions.Where<Question>(q =>
-            fields.Contains(q.Field.ToString())
-            && difficulties.Contains(q.Difficulty.ToString())
+            subjects.Contains(q.Subject.ToString())
             && (q.NationalGoverningBodies.Contains(NGB) || (NGB_Only == false && q.NationalGoverningBodies == NationalGoverningBody.All.ToString())))
             .ToList<Question>();
         }
@@ -273,14 +272,6 @@ namespace QRefTrain3.Models
         public void DeleteExamByUserId(int userId)
         {
             Context.Exams.RemoveRange(Context.Exams.Where<Exam>(exam => exam.User.Id == userId));
-            Context.SaveChanges();
-        }
-
-        public void AlterQuestion(Question question)
-        {
-            Question questionToReplace = Context.Questions.Find(question.Id);
-            questionToReplace.Name = question.Name;
-            questionToReplace.Field = question.Field;
             Context.SaveChanges();
         }
         public User Authenticate(string userName, string userPassword)

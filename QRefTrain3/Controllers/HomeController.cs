@@ -23,15 +23,15 @@ namespace QRefTrain3.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpPost]
-        public ActionResult MovetoTrainingQuiz(List<string> Subjects, List<string> Difficulties, string NGB, string NGB_Only)
+        public ActionResult MovetoTrainingQuiz(List<string> Subjects, string NGB, string NGB_Only)
         {
-            if (Subjects == null || Difficulties == null || NGB == null)
+            if (Subjects == null || NGB == null)
             {
-                TempData["ErrorQuizTraining"] = "Please select at least one field and difficulty";
+                TempData["ErrorQuizTraining"] = "Please select at least one subject";
                 return RedirectToAction("Homepage");
             }
             List<Question> displayedQuestions = new List<Question>();
-            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, Difficulties, NGB, NGB_Only != null);
+            List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, NGB, NGB_Only != null);
             // Get 10 randoms questions from the selected parameters, or all if there is not 10.
             if (allQuestions.Count < 10)
             {
@@ -138,7 +138,7 @@ namespace QRefTrain3.Controllers
                 User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
                 if (quizzModel.ResultType == ResultType.Exam)
                 {
-                    if((Dal.Instance.GetDBTime() - quizzModel.StartTime.Value).Minutes > 12)
+                    if ((Dal.Instance.GetDBTime() - quizzModel.StartTime.Value).Minutes > 12)
                     {
                         Dal.Instance.CreateLog(new Log()
                         {
@@ -183,7 +183,7 @@ namespace QRefTrain3.Controllers
         private List<Question> QuestionViewModelToQuestion(List<QuestionQuizzViewModel> displayedQuestions)
         {
             List<int> questionIds = new List<int>();
-            foreach(QuestionQuizzViewModel q in displayedQuestions)
+            foreach (QuestionQuizzViewModel q in displayedQuestions)
             {
                 questionIds.Add(q.Id);
             }
@@ -192,12 +192,9 @@ namespace QRefTrain3.Controllers
             foreach (QuestionQuizzViewModel questionViewModel in displayedQuestions)
             {
                 Question question = retrievedQuestions.First<Question>(m => m.Id == questionViewModel.Id);
-                if (question.AnswerType == AnswerType.MultipleAnswer)
+                foreach (Answer answer in question.Answers)
                 {
-                    foreach (Answer answer in question.Answers)
-                    {
-                        answer.IsSelected = questionViewModel.Answers.First<AnswerQuizzViewModel>(m => m.Id == answer.Id).IsSelected;
-                    }
+                    answer.IsSelected = questionViewModel.Answers.First<AnswerQuizzViewModel>(m => m.Id == answer.Id).IsSelected;
                 }
                 retrievedQuestions.Add(question);
             }

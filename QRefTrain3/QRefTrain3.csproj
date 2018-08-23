@@ -153,6 +153,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -203,6 +204,18 @@
     <Compile Include="Migrations\201808211209066_wat.cs" />
     <Compile Include="Migrations\201808211209066_wat.Designer.cs">
       <DependentUpon>201808211209066_wat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231013368_Userroles.cs" />
+    <Compile Include="Migrations\201808231013368_Userroles.Designer.cs">
+      <DependentUpon>201808231013368_Userroles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231108550_questionRework.cs" />
+    <Compile Include="Migrations\201808231108550_questionRework.Designer.cs">
+      <DependentUpon>201808231108550_questionRework.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808231114538_ManyToManyQuestionToExam.cs" />
+    <Compile Include="Migrations\201808231114538_ManyToManyQuestionToExam.Designer.cs">
+      <DependentUpon>201808231114538_ManyToManyQuestionToExam.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -350,6 +363,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -410,6 +424,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808211209066_wat.resx">
       <DependentUpon>201808211209066_wat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231013368_Userroles.resx">
+      <DependentUpon>201808231013368_Userroles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231108550_questionRework.resx">
+      <DependentUpon>201808231108550_questionRework.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231114538_ManyToManyQuestionToExam.resx">
+      <DependentUpon>201808231114538_ManyToManyQuestionToExam.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

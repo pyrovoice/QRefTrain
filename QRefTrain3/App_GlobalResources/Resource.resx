@@ -237,24 +237,6 @@
   <data name="Question_Advanced" xml:space="preserve">
     <value>Advanced</value>
   </data>
-  <data name="Question_Basic" xml:space="preserve">
-    <value>Basic</value>
-  </data>
-  <data name="Question_Beater" xml:space="preserve">
-    <value>Beater</value>
-  </data>
-  <data name="Question_Chaser" xml:space="preserve">
-    <value>Chaser</value>
-  </data>
-  <data name="Question_Contact" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="Question_Other" xml:space="preserve">
-    <value>Other</value>
-  </data>
-  <data name="Question_Process" xml:space="preserve">
-    <value>Process</value>
-  </data>
   <data name="Question_Sample_Answer1" xml:space="preserve">
     <value>Player should touch the round part of the hoop.</value>
   </data>
@@ -308,5 +290,56 @@
   </data>
   <data name="CreateAccount_Confirmpassword" xml:space="preserve">
     <value>Confirm password</value>
+  </data>
+  <data name="Subject_Advantage" xml:space="preserve">
+    <value>Advantage</value>
+  </data>
+  <data name="Subject_Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="Subject_Definition" xml:space="preserve">
+    <value>Definitions</value>
+  </data>
+  <data name="Subject_DelayedPenalty" xml:space="preserve">
+    <value>Delayed penalty</value>
+  </data>
+  <data name="Subject_DelayOfGame" xml:space="preserve">
+    <value>Delay of game</value>
+  </data>
+  <data name="Subject_FieldsAndEquipment" xml:space="preserve">
+    <value>Field &amp; Equipments</value>
+  </data>
+  <data name="Subject_ImmunityAndGuarding" xml:space="preserve">
+    <value>Immunity&amp;Guarding</value>
+  </data>
+  <data name="Subject_Keeper" xml:space="preserve">
+    <value>Keeper</value>
+  </data>
+  <data name="Subject_KO" xml:space="preserve">
+    <value>Knockout</value>
+  </data>
+  <data name="Subject_NHNF" xml:space="preserve">
+    <value>No harm no foul</value>
+  </data>
+  <data name="Subject_Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Subject_OutOfBoundaries" xml:space="preserve">
+    <value>Boundaries and play</value>
+  </data>
+  <data name="Subject_Process" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="Subject_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Subject_Scoring" xml:space="preserve">
+    <value>Scoring</value>
+  </data>
+  <data name="Subject_SnitchPlay" xml:space="preserve">
+    <value>Snitch play</value>
+  </data>
+  <data name="Subject_Substitution" xml:space="preserve">
+    <value>Substitution</value>
   </data>
 </root>
