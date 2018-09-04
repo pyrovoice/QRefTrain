@@ -20,6 +20,12 @@ namespace QRefTrain3
             );
 
             routes.MapRoute(
+                name: "ConfirmMail",
+                url: "Login/ConfirmEmail",
+                defaults: new { controller = "Login", action = "ConfirmEmail" }
+            );
+
+            routes.MapRoute(
                 name: "Login",
                 url: "Login/{action}",
                 defaults: new { controller = "Login", action = "Index" }

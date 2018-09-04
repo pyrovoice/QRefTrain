@@ -265,6 +265,7 @@ namespace QRefTrain3.Models
                 {
                     dal = new Dal();
                 }
+                System.Diagnostics.Trace.TraceInformation("Connection string used : " + Context.Database.Connection.ConnectionString);
                 return dal;
             }
         }

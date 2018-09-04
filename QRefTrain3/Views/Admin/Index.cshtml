@@ -50,7 +50,7 @@
                     List<SelectListItem> subjects = new List<SelectListItem>();
                     foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
                     {
-                        subjects.Add(new SelectListItem() { Text = Resource.Resource.ResourceManager.GetString("Questionsubject_" + item.ToString()), Value = item.ToString() });
+                        subjects.Add(new SelectListItem() { Text = Resources.Resource.ResourceManager.GetString("Questionsubject_" + item.ToString()), Value = item.ToString() });
                     }
                     Html.DropDownList("QuestionField",
                         subjects,
@@ -64,7 +64,7 @@
                     List<SelectListItem> NGBs = new List<SelectListItem>();
                     foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
                     {
-                        NGBs.Add(new SelectListItem() { Text = Resource.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                        NGBs.Add(new SelectListItem() { Text = Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
                     }
                     Html.DropDownList("NGB", NGBs, new { @id = "NGB" });
                 }

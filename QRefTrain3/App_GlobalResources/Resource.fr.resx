@@ -130,7 +130,7 @@
     <value>Le nom d'utilisateur n'est pas disponible.</value>
   </data>
   <data name="CreateAccount_Mailbody" xml:space="preserve">
-    <value>Merci de votre inscription, veuillez cliquer le lien suivant pour confirmer votre adresse mail : &lt;a href=\"{0}\" title=\"User Email Confirm\"&gt;{1}&lt;/a&gt;.</value>
+    <value>Merci de votre inscription, veuillez cliquer le lien suivant pour confirmer votre adresse mail : </value>
   </data>
   <data name="CreateAccount_NewAccountPrompt" xml:space="preserve">
     <value>Créer un nouveau compte.</value>
@@ -326,5 +326,8 @@
   </data>
   <data name="Subject_Substitution" xml:space="preserve">
     <value>Substitution</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Lien</value>
   </data>
 </root>

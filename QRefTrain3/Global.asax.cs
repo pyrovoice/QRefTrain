@@ -22,7 +22,6 @@ namespace QRefTrain3
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //To remove in production, is used to update db when there are changes in the code
             Database.SetInitializer<QuestionsContext>(new DropCreateDatabaseIfModelChanges<QuestionsContext>());
-            new InitApplicationClass().InitApplication();
         }
     }
 }

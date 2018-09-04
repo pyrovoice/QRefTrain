@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Resource {
+namespace QRefResources {
     using System;
     
     
@@ -106,7 +106,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for your registration, please click on the below link to confirm your mail: &lt;a href=\&quot;{0}\&quot; title=\&quot;User Email Confirm\&quot;&gt;{1}&lt;/a&gt;..
+        ///   Looks up a localized string similar to Thank you for your registration, please click on the below link to confirm your mail: .
         /// </summary>
         public static string CreateAccount_Mailbody {
             get {
@@ -219,6 +219,15 @@ namespace Resource {
         public static string Homepage_TestPrompt {
             get {
                 return ResourceManager.GetString("Homepage_TestPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link.
+        /// </summary>
+        public static string Link {
+            get {
+                return ResourceManager.GetString("Link", resourceCulture);
             }
         }
         

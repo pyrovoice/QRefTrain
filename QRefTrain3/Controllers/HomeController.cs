@@ -147,7 +147,7 @@ namespace QRefTrain3.Controllers
                             LogTime = Dal.Instance.GetDBTime()
                         });
                         Dal.Instance.CloseExamByUsername(currentUser.Name);
-                        return View("ErrorPage", Resource.Resource.Error_QuizError);
+                        return View("ErrorPage", QRefResources.Resource.Error_QuizError);
                     }
 
                     Dal.Instance.DeleteExamByUserId(currentUser.Id);
@@ -199,12 +199,6 @@ namespace QRefTrain3.Controllers
                 retrievedQuestions.Add(question);
             }
             return retrievedQuestions;
-        }
-
-        public ActionResult QuestionListing()
-        {
-            List<Question> allQuestions = allQuestions = Dal.Instance.getAllQuestions();
-            return View("QuestionListing", allQuestions);
         }
     }
 }

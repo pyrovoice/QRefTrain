@@ -33,7 +33,7 @@ namespace QRefTrain3.Controllers
                     return Redirect(returnUrl);
                 return Redirect("/");
             }
-            ModelState.AddModelError("User.Name", Resource.Resource.Login_ErrorInformations);
+            ModelState.AddModelError("User.Name", QRefResources.Resource.Login_ErrorInformations);
 
             return View("Login", viewModel);
         }
@@ -60,7 +60,7 @@ namespace QRefTrain3.Controllers
                     SecretCode = generator.Next(0, 999999).ToString("D6"),
                     User = user
                 });
-                SendMail(user, string.Format(Resource.Resource.ResetPassword_Mailbody, r.SecretCode));
+                SendMail(user, string.Format(QRefResources.Resource.ResetPassword_Mailbody, r.SecretCode));
             }
 
             // Regardless of the result, move to the validation code page
@@ -76,7 +76,7 @@ namespace QRefTrain3.Controllers
                 return View("ResetCode");
             }
             Request request = Dal.Instance.GetRequestByCode(resetCode);
-            if(request == null)
+            if (request == null)
             {
                 @ViewBag.Error = "Please verify that the code you entered is valid.";
                 return View("ResetCode");
@@ -100,12 +100,12 @@ namespace QRefTrain3.Controllers
                 bool isAllValid = true;
                 if (Dal.Instance.IsUsernameAlreadyInDB(registerViewModel.Name))
                 {
-                    ViewBag.UsernameAlreadyInDB = Resource.Resource.CreateAccount_ErrorUsernameAlreadyUser;
+                    ViewBag.UsernameAlreadyInDB = QRefResources.Resource.CreateAccount_ErrorUsernameAlreadyUser;
                     isAllValid = false;
                 }
                 if (Dal.Instance.IsMailAlreadyInDB(registerViewModel.Email))
                 {
-                    ViewBag.MailError = Resource.Resource.CreateAccount_ErrorMailAlreadyUser;
+                    ViewBag.MailError = QRefResources.Resource.CreateAccount_ErrorMailAlreadyUser;
                     isAllValid = false;
                 }
 
@@ -122,28 +122,28 @@ namespace QRefTrain3.Controllers
                         User = newUser
                     });
                     // Send a mail with a nice message that link to Login controller, ConfirmEmail with data secretCode and request ID
-                    // String format put the result of Url Action (the URL to confirmation method) in the message
-                    bool sendMail = SendMail(newUser, string.Format(Resource.Resource.CreateAccount_Mailbody,
-                        Url.Action("ConfirmEmail", "Login", new { Code = request.SecretCode, RequestId = request.Id }, "Link")));
-
-                    if (!sendMail)
+                    // String format put the result of Url Action (the URL to confirmation method) in the messageQRefResources.Resource.CreateAccount_Mailbody
+                    string s = QRefResources.Resource.CreateAccount_Mailbody + "<a href=\'{0}\'>{1}</a>.";
+                    string linkString = Request.Url.Authority + Url.Action("ConfirmEmail", "Login", new { Code = request.SecretCode, RequestId = request.Id });
+                    string finalString = string.Format(s, linkString, QRefResources.Resource.Link);
+                    finalString = "<html><body>" + finalString + "</body></html>";
+                    //finalString = "<html><body><a href=\'https://stackoverflow.com/questions/52018917/sending-an-hyperlink-by-mail-removes-the-hyperlink?noredirect=1#comment90988045_52018917\'>test</a></body></html>";
+                    if (!SendMail(newUser, finalString))
                     {
                         Dal.Instance.DeleteUser(newUser);
-                        ViewBag.MailError = Resource.Resource.CreateAccount_ErrorMailInnaccessible;
+                        ViewBag.MailError = QRefResources.Resource.CreateAccount_ErrorMailInnaccessible;
                         return View("CreateAccount", registerViewModel);
                     }
-
                     return View("CreateAccountConfirmation");
                 }
             }
             return View("CreateAccount", registerViewModel);
         }
 
-        [HttpPost]
-        public ActionResult ConfirmEmail(string code, int requestId)
+        public ActionResult ConfirmEmail(string Code, int RequestId)
         {
             //Get request corresponding to data
-            Request request = Dal.Instance.GetRequestByCodeAndId(code, requestId);
+            Request request = Dal.Instance.GetRequestByCodeAndId(Code, RequestId);
 
             // If found, update the account and delete the request
             if (request != null)
@@ -165,17 +165,17 @@ namespace QRefTrain3.Controllers
 
         private bool SendMail(User user, string body)
         {
-            using (SmtpClient SmtpServer = new SmtpClient("smtp.live.com"))
+            using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com"))
             {
                 var mail = new MailMessage();
-                mail.From = new MailAddress("maxime.grazzini@hotmail.com");
+                mail.From = new MailAddress("qreftrain@gmail.com");
                 mail.To.Add(user.Email);
-                mail.Subject = "Your Sub";
-                mail.IsBodyHtml = true;
+                mail.Subject = "QuidditchRefTraining Subscription";
                 mail.Body = body;
+                mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("maxime.grazzini@hotmail.com", "QzsaErty");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("qreftrain@gmail.com", "J3Vnm82aZ00");
                 SmtpServer.EnableSsl = true;
                 try
                 {

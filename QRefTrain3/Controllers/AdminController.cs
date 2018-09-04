@@ -17,7 +17,7 @@ namespace QRefTrain3.Controllers
                 RedirectToAction("Homepage", "Home");
             }
             User user = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
-            if(user.UserRole != UserRole.Admnin)
+            if(user.UserRole != UserRole.Admin)
             {
                 RedirectToAction("Homepage", "Home");
             } 

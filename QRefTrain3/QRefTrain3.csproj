@@ -103,6 +103,21 @@
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net46\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net46\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -137,8 +152,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http">
-    </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="System.Web.Optimization">
@@ -150,6 +163,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -217,17 +235,31 @@
     <Compile Include="Migrations\201808231114538_ManyToManyQuestionToExam.Designer.cs">
       <DependentUpon>201808231114538_ManyToManyQuestionToExam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808251430175_Datetime_bug.cs" />
+    <Compile Include="Migrations\201808251430175_Datetime_bug.Designer.cs">
+      <DependentUpon>201808251430175_Datetime_bug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041632341_dateTimeFix2.cs" />
+    <Compile Include="Migrations\201809041632341_dateTimeFix2.Designer.cs">
+      <DependentUpon>201809041632341_dateTimeFix2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041643566_dateTimeFix3.cs" />
+    <Compile Include="Migrations\201809041643566_dateTimeFix3.Designer.cs">
+      <DependentUpon>201809041643566_dateTimeFix3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041654557_dateTimeFixFinal.cs" />
+    <Compile Include="Migrations\201809041654557_dateTimeFixFinal.Designer.cs">
+      <DependentUpon>201809041654557_dateTimeFixFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041704505_StoredProcedure.cs" />
+    <Compile Include="Migrations\201809041704505_StoredProcedure.Designer.cs">
+      <DependentUpon>201809041704505_StoredProcedure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Logs.cs" />
     <Compile Include="Models\Result.cs" />
-    <Compile Include="App_GlobalResources\Resource.Designer.cs">
-      <DependentUpon>Resource.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="App_GlobalResources\Resource.fr.Designer.cs">
       <DependentUpon>Resource.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -298,6 +330,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\QuidditchRefTraining - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -323,7 +356,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -343,7 +378,6 @@
     <Content Include="Views\Home\QuizResult.cshtml" />
     <Content Include="Views\Profile\Profile.cshtml" />
     <Content Include="Views\Profile\ResultDetail.cshtml" />
-    <Content Include="Views\Home\QuestionListing.cshtml" />
     <Content Include="Views\Login\CreateAccountConfirmation.cshtml" />
     <Content Include="Views\Login\ConfirmMail.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -387,16 +421,16 @@
     <EmbeddedResource Include="App_GlobalResources\Resource.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Resource</CustomToolNamespace>
+      <CustomToolNamespace>QRefResources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Resource</CustomToolNamespace>
+      <CustomToolNamespace>QRefResources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808090804379_Exam.resx">
       <DependentUpon>201808090804379_Exam.cs</DependentUpon>
@@ -406,33 +440,58 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808090823557_Exam3.resx">
       <DependentUpon>201808090823557_Exam3.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808090830445_Exam4.resx">
       <DependentUpon>201808090830445_Exam4.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808101359246_Exam6.resx">
       <DependentUpon>201808101359246_Exam6.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808121256448_Exam7.resx">
       <DependentUpon>201808121256448_Exam7.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808201149124_Requests.resx">
       <DependentUpon>201808201149124_Requests.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808201319572_Requests2.resx">
       <DependentUpon>201808201319572_Requests2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808211209066_wat.resx">
       <DependentUpon>201808211209066_wat.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808231013368_Userroles.resx">
       <DependentUpon>201808231013368_Userroles.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808231108550_questionRework.resx">
       <DependentUpon>201808231108550_questionRework.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808231114538_ManyToManyQuestionToExam.resx">
       <DependentUpon>201808231114538_ManyToManyQuestionToExam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808251430175_Datetime_bug.resx">
+      <DependentUpon>201808251430175_Datetime_bug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041632341_dateTimeFix2.resx">
+      <DependentUpon>201809041632341_dateTimeFix2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041643566_dateTimeFix3.resx">
+      <DependentUpon>201809041643566_dateTimeFix3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041654557_dateTimeFixFinal.resx">
+      <DependentUpon>201809041654557_dateTimeFixFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041704505_StoredProcedure.resx">
+      <DependentUpon>201809041704505_StoredProcedure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

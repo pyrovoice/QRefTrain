@@ -130,7 +130,7 @@
     <value>Username is not available.</value>
   </data>
   <data name="CreateAccount_Mailbody" xml:space="preserve">
-    <value>Thank you for your registration, please click on the below link to confirm your mail: &lt;a href=\"{0}\" title=\"User Email Confirm\"&gt;{1}&lt;/a&gt;.</value>
+    <value>Thank you for your registration, please click on the below link to confirm your mail: </value>
   </data>
   <data name="CreateAccount_NewAccountPrompt" xml:space="preserve">
     <value>Create a new account.</value>
@@ -341,5 +341,8 @@
   </data>
   <data name="Subject_Substitution" xml:space="preserve">
     <value>Substitution</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
   </data>
 </root>

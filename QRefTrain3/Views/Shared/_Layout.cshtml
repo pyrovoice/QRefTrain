@@ -13,7 +13,6 @@
     <div class="container bottomMargin">
         <!-- Topdiv -->
         @Html.ActionLink("Quidditch Ref Training", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        @Html.ActionLink("Questions", "QuestionListing", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <a class="topRightImage" href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"><img src="~/Elements/logo_reddit.png" width="124" height="47" /></a>
         <!-- Login/Profile links -->
         @if (!HttpContext.Current.User.Identity.IsAuthenticated)
