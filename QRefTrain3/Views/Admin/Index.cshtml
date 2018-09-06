@@ -7,32 +7,46 @@
 <body>
     @using (Html.BeginForm("AddQuestion", "Admin"))
     {
-        <div class="flex-container">
-            <div class="form-group">
-                @Html.Label("Question title")
-                @Html.TextBox("QuestionTitle")
-            </div>
-            <div class="form-group">
-                @Html.Label("Question Text")
-                @Html.TextBox("QuestionText")
-            </div>
-            <div class="form-group">
-                @Html.Label("Answer 1")
-                @Html.TextBox("Answer1")
-            </div>
-            <div class="form-group">
-                @Html.Label("Answer 2")
-                @Html.TextBox("Answer2")
-            </div>
-            <div class="form-group">
-                @Html.Label("Answer 3")
-                @Html.TextBox("Answer3")
-            </div>
-            <div class="form-group">
-                @Html.Label("Answer 4")
-                @Html.TextBox("Answer4")
-            </div>
+    <div class="flex-container">
+        <div class="form-group">
+            @Html.Label("Question title")
+            @Html.TextBox("QuestionTitle")
         </div>
+        <div class="form-group">
+            @Html.Label("Question Text")
+            @Html.TextBox("QuestionText")
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 1")
+            @Html.TextBox("Answer1")
+            @Html.CheckBox("isAnswerTrue1", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 2")
+            @Html.TextBox("Answer2")
+            @Html.CheckBox("isAnswerTrue2", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 3")
+            @Html.TextBox("Answer3")
+            @Html.CheckBox("isAnswerTrue3", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 4")
+            @Html.TextBox("Answer4")
+            @Html.CheckBox("isAnswerTrue4", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 5")
+            @Html.TextBox("Answer5")
+            @Html.CheckBox("isAnswerTrue5", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 6")
+            @Html.TextBox("Answer6")
+            @Html.CheckBox("isAnswerTrue6", false)
+        </div>
+    </div>
 
         <div class="flex-container">
             <div class="form-group">
@@ -50,26 +64,26 @@
                     List<SelectListItem> subjects = new List<SelectListItem>();
                     foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
                     {
-                        subjects.Add(new SelectListItem() { Text = Resources.Resource.ResourceManager.GetString("Questionsubject_" + item.ToString()), Value = item.ToString() });
+                        SelectListItem i = new SelectListItem() { Text = Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString()), Value = item.ToString() };
+                        subjects.Add(i);
                     }
-                    Html.DropDownList("QuestionField",
-                        subjects,
-                        new { @id = "QuestionField" });
                 }
+                @Html.DropDownList("QuestionSubject", subjects, new { @id = "QuestionSubject" })
             </div>
 
             <div class="form-group">
                 @Html.Label("NGB")
-                @{
-                    List<SelectListItem> NGBs = new List<SelectListItem>();
-                    foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
+                <div class="btn-group-toggle" data-toggle="buttons">
+                    @foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
                     {
-                        NGBs.Add(new SelectListItem() { Text = Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                        <label class="btn btn-secondary shortLabel">
+                            <input type="checkbox" name="NGBs" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString())
+                        </label>
                     }
-                    Html.DropDownList("NGB", NGBs, new { @id = "NGB" });
-                }
+                </div>
             </div>
         </div>
+        <input id="submit" type="submit" value="@Resources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
     }
 </body>
 </html>

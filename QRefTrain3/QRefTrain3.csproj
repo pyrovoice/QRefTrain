@@ -255,6 +255,18 @@
     <Compile Include="Migrations\201809041704505_StoredProcedure.Designer.cs">
       <DependentUpon>201809041704505_StoredProcedure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809061745300_ResultAnswersManyToManyFix.cs" />
+    <Compile Include="Migrations\201809061745300_ResultAnswersManyToManyFix.Designer.cs">
+      <DependentUpon>201809061745300_ResultAnswersManyToManyFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809061750460_QuestionAnswersManyToManyFix.cs" />
+    <Compile Include="Migrations\201809061750460_QuestionAnswersManyToManyFix.Designer.cs">
+      <DependentUpon>201809061750460_QuestionAnswersManyToManyFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809061815066_questionResultManyToManyFix.cs" />
+    <Compile Include="Migrations\201809061815066_questionResultManyToManyFix.Designer.cs">
+      <DependentUpon>201809061815066_questionResultManyToManyFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -492,6 +504,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041704505_StoredProcedure.resx">
       <DependentUpon>201809041704505_StoredProcedure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809061745300_ResultAnswersManyToManyFix.resx">
+      <DependentUpon>201809061745300_ResultAnswersManyToManyFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809061750460_QuestionAnswersManyToManyFix.resx">
+      <DependentUpon>201809061750460_QuestionAnswersManyToManyFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809061815066_questionResultManyToManyFix.resx">
+      <DependentUpon>201809061815066_questionResultManyToManyFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -29,24 +29,43 @@ namespace QRefTrain3.Models
         [Required]
         public string QuestionText { get; set; }
         [Required]
-        public List<Answer> Answers { get; set; }
+        public virtual List<Answer> Answers { get; set; }
         [Required]
         public string AnswerExplanation { get; set; }
         [Required]
         public string NationalGoverningBodies { get; set; }
-        public List<Exam> Exams { get; set; }
+        public virtual List<Exam> Exams { get; set; }
+        public virtual List<Result> Results { get; set; }
 
-        public Question(string name, QuestionSubject subject, bool isVideo, string videoUrl, string questionText, 
+        public Question(string name, QuestionSubject subject, string videoUrl, string questionText, 
             List<Answer> answers, string answerExplanation, params NationalGoverningBody[] bodies)
         {
             this.Name = name;
             this.Subject = subject;
-            this.IsVideo = isVideo;
-            if (IsVideo == true) { this.VideoURL = videoUrl; } else { this.VideoURL = null; }
+            if (videoUrl != null && !videoUrl.Equals("")) { this.IsVideo = true; this.VideoURL = videoUrl; } else { this.IsVideo = false; this.VideoURL = null; }
             this.QuestionText = questionText;
             this.Answers = answers;
             this.AnswerExplanation = answerExplanation;
             if (bodies.Contains<NationalGoverningBody>(Models.NationalGoverningBody.All) || bodies.Count() == 0 || bodies == null)
+            {
+                this.NationalGoverningBodies = "ALL";
+            }
+            else
+            {
+                this.NationalGoverningBodies = string.Join(";", bodies);
+            }
+        }
+
+        public Question(string name, QuestionSubject subject, string videoUrl, string questionText,
+            List<Answer> answers, string answerExplanation, params string[] bodies)
+        {
+            this.Name = name;
+            this.Subject = subject;
+            if (videoUrl != null && !videoUrl.Equals("")) { this.IsVideo = true; this.VideoURL = videoUrl; } else { this.IsVideo = false; this.VideoURL = null; }
+            this.QuestionText = questionText;
+            this.Answers = answers;
+            this.AnswerExplanation = answerExplanation;
+            if (bodies == null || bodies.Contains(Models.NationalGoverningBody.All.ToString()) || bodies.Count() == 0)
             {
                 this.NationalGoverningBodies = "ALL";
             }

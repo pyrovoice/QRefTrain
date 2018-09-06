@@ -33,7 +33,12 @@ namespace QRefTrain3.Controllers
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, NGB, NGB_Only != null);
             // Get 10 randoms questions from the selected parameters, or all if there is not 10.
-            if (allQuestions.Count < 10)
+            if(allQuestions.Count <= 0)
+            {
+                TempData["ErrorQuizTraining"] = "There is no question for the selected subject(s)";
+                return RedirectToAction("Homepage");
+            }
+            else if (allQuestions.Count < 10)
             {
                 displayedQuestions = allQuestions;
             }
@@ -78,7 +83,12 @@ namespace QRefTrain3.Controllers
             // Get all questions, and create a list of 10 questions at random.
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByNGB(NGB);
-            if (allQuestions.Count < 10)
+            if (allQuestions.Count <= 0)
+            {
+                TempData["ErrorQuizTraining"] = "There is no question for the selected subject(s)";
+                return RedirectToAction("Homepage");
+            }
+            else if(allQuestions.Count < 10)
             {
                 displayedQuestions = allQuestions;
             }
@@ -196,7 +206,6 @@ namespace QRefTrain3.Controllers
                 {
                     answer.IsSelected = questionViewModel.Answers.First<AnswerQuizzViewModel>(m => m.Id == answer.Id).IsSelected;
                 }
-                retrievedQuestions.Add(question);
             }
             return retrievedQuestions;
         }

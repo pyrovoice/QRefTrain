@@ -127,7 +127,7 @@ namespace QRefTrain3.Controllers
                     string linkString = Request.Url.Authority + Url.Action("ConfirmEmail", "Login", new { Code = request.SecretCode, RequestId = request.Id });
                     string finalString = string.Format(s, linkString, QRefResources.Resource.Link);
                     finalString = "<html><body>" + finalString + "</body></html>";
-                    //finalString = "<html><body><a href=\'https://stackoverflow.com/questions/52018917/sending-an-hyperlink-by-mail-removes-the-hyperlink?noredirect=1#comment90988045_52018917\'>test</a></body></html>";
+                    //finalString = "<html><body><a href=\'http://quidditchreftraining.azurewebsites.net'>test</a></body></html>";
                     if (!SendMail(newUser, finalString))
                     {
                         Dal.Instance.DeleteUser(newUser);
@@ -175,17 +175,23 @@ namespace QRefTrain3.Controllers
                 mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("qreftrain@gmail.com", "J3Vnm82aZ00");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("qreftrain@gmail.com", "uypcjrqukouxmzws");
                 SmtpServer.EnableSsl = true;
                 try
                 {
+                    Dal.Instance.CreateLog(new Log()
+                    {
+                        LogText = "Registeration mail sent with body " + body + "using adress " + mail.From,
+                        LogTime = DateTime.Now,
+                        UserId = user.Id
+                    });
                     SmtpServer.Send(mail);
                 }
                 catch (Exception e)
                 {
                     Dal.Instance.CreateLog(new Log()
                     {
-                        LogText = "Error when sending mail to : " + user.Email + ", with body : " + body,
+                        LogText = "Error when sending mail to : " + user.Email + ", with body : " + body + "\nException : " + e.Message,
                         LogTime = new DateTime(),
                         UserId = user.Id
                     });

@@ -130,7 +130,7 @@
     <value>Username is not available.</value>
   </data>
   <data name="CreateAccount_Mailbody" xml:space="preserve">
-    <value>Thank you for your registration, please click on the below link to confirm your mail: </value>
+    <value>Thank you for your registration, please visit the link below to confirm your mail: </value>
   </data>
   <data name="CreateAccount_NewAccountPrompt" xml:space="preserve">
     <value>Create a new account.</value>

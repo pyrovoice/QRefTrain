@@ -8,10 +8,13 @@ namespace QRefTrain3.Models
     public class Answer
     {
         public int Id { get; set; }
-        public String Answertext { get; set; }
-        public Boolean IsTrue { get; set; }
-        public Boolean IsSelected { get; set; }
+        public string Answertext { get; set; }
+        public bool IsTrue { get; set; }
+        public bool IsSelected { get; set; }
+        public virtual List<Result> Results { get; set; } = new List<Result>();
+        public virtual List<Question> Questions { get; set; } = new List<Question>();
 
+        public Answer() { }
 
         public static Boolean IsAnswerCorrect(Answer answer, List<int> answerIds)
         {
@@ -20,6 +23,13 @@ namespace QRefTrain3.Models
                 return false;
             }
             return true;
+        }
+
+        public Answer(string answerText, bool isTrue)
+        {
+            this.Answertext = answerText;
+            this.IsTrue = isTrue;
+            this.IsSelected = false;
         }
     }
 }

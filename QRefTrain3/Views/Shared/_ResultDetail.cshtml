@@ -23,11 +23,19 @@
                 @for (int counter = 0; counter < question.Answers.Count; counter++)
                 {
                     string backGround = "";
-                    if (Model.SelectedAnswers.Contains(@question.Answers[counter]))
+                    // We only highlight answers that are relevant
+                    // Answer is true and selected
+                    if (Model.SelectedAnswers.Contains(@question.Answers[counter]) && question.Answers[counter].IsTrue)
                     {
-                        // We only highlight answers that are relevant
-                        backGround = @question.Answers[counter].IsTrue ? "greenBack" : "greyBack";
+
+                        backGround = "greenBack";
                     }
+                    // Answer is false and not selected
+                    else if (!Model.SelectedAnswers.Contains(@question.Answers[counter]) && !question.Answers[counter].IsTrue)
+                    {
+                        backGround = "greyBack";
+                    }
+                    // Answer is true and not selected or the opposite
                     else
                     {
                         backGround = "redBack";

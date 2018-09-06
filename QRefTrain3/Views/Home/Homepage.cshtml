@@ -15,7 +15,7 @@
                 @foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
                 {
                     <label class="btn btn-secondary shortLabel">
-                        <input type="checkbox" name="Subject" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString())
+                        <input type="checkbox" name="Subjects" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString())
                     </label>
                 }
             </div>

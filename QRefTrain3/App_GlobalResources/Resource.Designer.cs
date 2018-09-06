@@ -106,7 +106,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for your registration, please click on the below link to confirm your mail: .
+        ///   Looks up a localized string similar to Thank you for your registration, please visit the link below to confirm your mail: .
         /// </summary>
         public static string CreateAccount_Mailbody {
             get {
