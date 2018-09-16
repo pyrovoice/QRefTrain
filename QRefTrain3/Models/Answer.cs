@@ -10,7 +10,6 @@ namespace QRefTrain3.Models
         public int Id { get; set; }
         public string Answertext { get; set; }
         public bool IsTrue { get; set; }
-        public bool IsSelected { get; set; }
         public virtual List<Result> Results { get; set; } = new List<Result>();
         public virtual List<Question> Questions { get; set; } = new List<Question>();
 
@@ -29,7 +28,6 @@ namespace QRefTrain3.Models
         {
             this.Answertext = answerText;
             this.IsTrue = isTrue;
-            this.IsSelected = false;
         }
     }
 }

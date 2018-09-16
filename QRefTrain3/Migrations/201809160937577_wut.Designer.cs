@@ -7,13 +7,13 @@ namespace QRefTrain3.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class StoredProcedure : IMigrationMetadata
+    public sealed partial class wut : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(StoredProcedure));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(wut));
         
         string IMigrationMetadata.Id
         {
-            get { return "201809041704505_StoredProcedure"; }
+            get { return "201809160937577_wut"; }
         }
         
         string IMigrationMetadata.Source

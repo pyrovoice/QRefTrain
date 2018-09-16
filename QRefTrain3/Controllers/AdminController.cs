@@ -16,26 +16,58 @@ namespace QRefTrain3.Controllers
             {
                 return RedirectToAction("Homepage", "Home");
             }
+            /*
             User user = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
-            if(user.UserRole != UserRole.Admin)
+            if (user.UserRole != UserRole.Admin)
             {
+                Dal.Instance.CreateLog(new Log()
+                {
+                    LogText = "User tried to access admin page without right. User : " + user.Name + ", Right : " + user.UserRole,
+                    LogTime = DateTime.Now,
+                    UserId = user.Id
+
+                });
                 return RedirectToAction("Homepage", "Home");
-            } 
+            }*/
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddQuestion(string QuestionTitle, string QuestionText, string Answer1, string Answer2, string Answer3, string Answer4, string Answer5, string Answer6, bool isAnswerTrue1, bool isAnswerTrue2, bool isAnswerTrue3, bool isAnswerTrue4, bool isAnswerTrue5, bool isAnswerTrue6, string Video, string Explanation, string QuestionSubject, List<string> NGBs)
+        public ActionResult AddQuestion(string BaseName, bool isNoPenalty, bool isTurnOver, bool isBlueCard, bool isYellowCard, bool isRedCard, bool isBackToHoops,
+            bool isNoPenaltyTrue, bool isTurnOverTrue, bool isBlueCardTrue, bool isYellowCardTrue, bool isRedCardTrue, bool isBackToHoopsTrue,
+            bool isAnswer1, bool isAnswer2, bool isAnswer3, bool isAnswer4, bool isAnswer5, bool isAnswer6,
+            bool isAnswerTrue1, bool isAnswerTrue2, bool isAnswerTrue3, bool isAnswerTrue4, bool isAnswerTrue5, bool isAnswerTrue6,
+            string Video, string QuestionSubject, List<string> NGBs)
         {
+            BaseName = "Question" + BaseName;
             List<Answer> answers = new List<Answer>();
-            if(Answer1 != null && !Answer1.Equals("")) { answers.Add(new Answer(Answer1, isAnswerTrue1)); }
-            if (Answer2 != null && !Answer2.Equals("")) { answers.Add(new Answer(Answer2, isAnswerTrue2)); }
-            if (Answer3 != null && !Answer3.Equals("")) { answers.Add(new Answer(Answer3, isAnswerTrue3)); }
-            if (Answer4 != null && !Answer4.Equals("")) { answers.Add(new Answer(Answer4, isAnswerTrue4)); }
-            if (Answer5 != null && !Answer5.Equals("")) { answers.Add(new Answer(Answer5, isAnswerTrue5)); }
-            if (Answer6 != null && !Answer6.Equals("")) { answers.Add(new Answer(Answer6, isAnswerTrue6)); }
+            if (isAnswer1) { answers.Add(new Answer(BaseName + "Answer1", isAnswerTrue1)); }
+            if (isAnswer2) { answers.Add(new Answer(BaseName + "Answer2", isAnswerTrue2)); }
+            if (isAnswer3) { answers.Add(new Answer(BaseName + "Answer3", isAnswerTrue3)); }
+            if (isAnswer4) { answers.Add(new Answer(BaseName + "Answer4", isAnswerTrue4)); }
+            if (isAnswer5) { answers.Add(new Answer(BaseName + "Answer5", isAnswerTrue5)); }
+            if (isAnswer6) { answers.Add(new Answer(BaseName + "Answer6", isAnswerTrue6)); }
+            if (isNoPenalty) {
+                answers.Add(new Answer("NoPenalty", isNoPenaltyTrue));
+            }
+            if (isTurnOver) {
+                answers.Add(new Answer("Turnover", isTurnOverTrue));
+            }
+            if (isBlueCard) {
+                answers.Add(new Answer("BlueCard", isBlueCardTrue));
+            }
+            if (isYellowCard) {
+                answers.Add(new Answer("YellowCard", isYellowCardTrue));
+            }
+            if (isRedCard) {
+                answers.Add(new Answer("RedCard", isRedCardTrue));
+            }
+            if (isBackToHoops)
+            {
+                answers.Add(new Answer("backToHoops", isBackToHoopsTrue));
+            }
 
-            Question questionToAdd = new Question(QuestionTitle, (Models.QuestionSubject)Enum.Parse(typeof(Models.QuestionSubject), QuestionSubject), Video, QuestionText, answers, Explanation, NGBs.ToArray());
+            Question questionToAdd = new Question(BaseName + "Title", (Models.QuestionSubject)Enum.Parse(typeof(Models.QuestionSubject), QuestionSubject), Video, BaseName + "Text", answers, BaseName + "Explanation", NGBs.ToArray());
             Dal.Instance.CreateQuestion(questionToAdd);
             return RedirectToAction("Index");
         }

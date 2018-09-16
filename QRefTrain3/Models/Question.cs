@@ -9,7 +9,7 @@ namespace QRefTrain3.Models
 {
     public enum QuestionSubject
     {
-        Contacts, Keeper, FieldsAndEquipment, OutOfBoundaries, Process, DelayOfGame, Definition, Advantage, DelayedPenalty, Scoring, SnitchPlay, ImmunityAndGuarding, Reset, Substitution, NHNF, KO, Other
+        Contacts, Keeper, FieldsAndEquipment, OutOfBoundaries, Process, DelayOfGame, Definition, Advantage, DelayedPenalty, Scoring, SnitchPlay, ImmunityAndGuarding, Reset, Substitution, NHNF, KO, Other, BallInteraction
     };
     public enum NationalGoverningBody
     {

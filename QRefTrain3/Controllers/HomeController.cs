@@ -33,7 +33,7 @@ namespace QRefTrain3.Controllers
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = Dal.Instance.GetQuestionsByParameter(Subjects, NGB, NGB_Only != null);
             // Get 10 randoms questions from the selected parameters, or all if there is not 10.
-            if(allQuestions.Count <= 0)
+            if (allQuestions.Count <= 0)
             {
                 TempData["ErrorQuizTraining"] = "There is no question for the selected subject(s)";
                 return RedirectToAction("Homepage");
@@ -88,7 +88,7 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuizTraining"] = "There is no question for the selected subject(s)";
                 return RedirectToAction("Homepage");
             }
-            else if(allQuestions.Count < 10)
+            else if (allQuestions.Count < 10)
             {
                 displayedQuestions = allQuestions;
             }
@@ -124,22 +124,13 @@ namespace QRefTrain3.Controllers
         public ActionResult QuizzResult(QuizzViewModel quizzModel)
         {
             Result result;
-            List<Question> answeredQuestions = QuestionViewModelToQuestion(quizzModel.DisplayedQuestions);
-            result = new Result() { ResultType = quizzModel.ResultType, DateTime = DateTime.Now };
-            foreach (Question q in answeredQuestions)
+            result = new Result() { ResultType = quizzModel.ResultType, DateTime = Dal.Instance.GetDBTime() };
+            foreach (QuestionQuizzViewModel q in quizzModel.DisplayedQuestions)
             {
-                result.QuestionsAsked.Add(q);
-            }
-
-            // Then Create the result with the answers selected by the user
-            foreach (Question q in answeredQuestions)
-            {
-                foreach (Answer a in q.Answers)
+                result.QuestionsAsked.Add(Dal.Instance.GetQuestionById(q.Id));
+                foreach(AnswerQuizzViewModel a in q.Answers)
                 {
-                    if (a.IsSelected)
-                    {
-                        result.SelectedAnswers.Add(a);
-                    }
+                    if (a.IsSelected) { result.SelectedAnswers.Add(Dal.Instance.GetAnswerById(a.Id)); }
                 }
             }
 
@@ -148,6 +139,18 @@ namespace QRefTrain3.Controllers
                 User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
                 if (quizzModel.ResultType == ResultType.Exam)
                 {
+                    quizzModel.StartTime = Dal.Instance.GetOngoingExamByUsername(currentUser.Name).StartDate;
+                    if (!quizzModel.StartTime.HasValue)
+                    {
+                        Dal.Instance.CreateLog(new Log()
+                        {
+                            UserId = currentUser.Id,
+                            LogText = "Quizz result error : No start time for quizzModel.",
+                            LogTime = Dal.Instance.GetDBTime()
+                        });
+                        Dal.Instance.CloseExamByUsername(currentUser.Name);
+                        return View("ErrorPage", QRefResources.Resource.Error_QuizError);
+                    }
                     if ((Dal.Instance.GetDBTime() - quizzModel.StartTime.Value).Minutes > 12)
                     {
                         Dal.Instance.CreateLog(new Log()
@@ -169,6 +172,8 @@ namespace QRefTrain3.Controllers
             return View("QuizResult", new ResultViewModel(result));
         }
 
+        
+
         [HttpPost]
         public ActionResult UpdateLanguage(String languages)
         {
@@ -188,26 +193,6 @@ namespace QRefTrain3.Controllers
             }
             Response.Cookies.Add(cookie);
             return RedirectToAction("Homepage");
-        }
-
-        private List<Question> QuestionViewModelToQuestion(List<QuestionQuizzViewModel> displayedQuestions)
-        {
-            List<int> questionIds = new List<int>();
-            foreach (QuestionQuizzViewModel q in displayedQuestions)
-            {
-                questionIds.Add(q.Id);
-            }
-            List<Question> retrievedQuestions = Dal.Instance.GetQuestionByIds(questionIds);
-            // For each questionViewModel, we return a Question with updated Answers informations
-            foreach (QuestionQuizzViewModel questionViewModel in displayedQuestions)
-            {
-                Question question = retrievedQuestions.First<Question>(m => m.Id == questionViewModel.Id);
-                foreach (Answer answer in question.Answers)
-                {
-                    answer.IsSelected = questionViewModel.Answers.First<AnswerQuizzViewModel>(m => m.Id == answer.Id).IsSelected;
-                }
-            }
-            return retrievedQuestions;
         }
     }
 }

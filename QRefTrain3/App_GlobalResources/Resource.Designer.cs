@@ -556,6 +556,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ball interaction.
+        /// </summary>
+        public static string Subject_BallInteraction {
+            get {
+                return ResourceManager.GetString("Subject_BallInteraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contacts.
         /// </summary>
         public static string Subject_Contacts {

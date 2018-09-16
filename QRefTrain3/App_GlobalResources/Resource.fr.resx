@@ -330,4 +330,7 @@
   <data name="Link" xml:space="preserve">
     <value>Lien</value>
   </data>
+  <data name="Subject_BallInteraction" xml:space="preserve">
+    <value>Interation avec une balle</value>
+  </data>
 </root>

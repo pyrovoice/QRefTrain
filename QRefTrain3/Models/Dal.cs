@@ -59,6 +59,16 @@ namespace QRefTrain3.Models
             .ToList<Question>();
         }
 
+        public List<Answer> getAllAnswers()
+        {
+            return Context.Answers.ToList();
+        }
+
+        public Answer GetAnswer(string answerTitle, bool isAnswerTrue)
+        {
+            return Context.Answers.FirstOrDefault(a => a.Answertext.Equals(answerTitle) && a.IsTrue == isAnswerTrue);
+        }
+
         public Request GetRequestByCode(string code)
         {
             return Context.Requests.FirstOrDefault(q => q.SecretCode.Equals(code));
@@ -93,7 +103,7 @@ namespace QRefTrain3.Models
         /// <param name="userName"></param>
         public void CloseExamByUsername(string userName)
         {
-            User  user= GetUserByName(userName);
+            User user = GetUserByName(userName);
             foreach (Exam ongoingExam in Context.Exams.Where(q => q.User.Name.Equals(userName)).ToList())
             {
                 Result result = new Result()
@@ -143,6 +153,11 @@ namespace QRefTrain3.Models
             Context.SaveChanges();
         }
 
+        public Answer GetAnswerById(int id)
+        {
+            return Context.Answers.FirstOrDefault(q => q.Id == id);
+        }
+
         public Exam CreateExam(string name, List<Question> questions, DateTime timeNow)
         {
             User user = GetUserByName(name);
@@ -183,14 +198,17 @@ namespace QRefTrain3.Models
 
         public User GetUserByName(string name)
         {
-            return Context.Users.FirstOrDefault(u => u.Name.Equals(name));
+            return Context.Database.SqlQuery<User>("Select * from Users where name = @name", new SqlParameter("name", name)).FirstOrDefault();
         }
 
         public Question CreateQuestion(Question question)
         {
-            Context.Questions.Add(question);
-            Context.SaveChanges();
-            return question;
+            using (var db = new QuestionsContext())
+            {
+                Context.Questions.Add(question);
+                Context.SaveChanges();
+                return question;
+            }
         }
 
         public void Dispose()
@@ -236,7 +254,7 @@ namespace QRefTrain3.Models
         /// <returns></returns>
         public DateTime GetDBTime()
         {
-            return new DateTime(Context.Database.SqlQuery<DateTime>("select GETDATE()").First().Ticks);
+            return new DateTime(Context.Database.SqlQuery<DateTime>("select GETDATE()").First().Ticks).ToLocalTime();
         }
 
         public void CreateResult(Result result)
@@ -265,7 +283,6 @@ namespace QRefTrain3.Models
                 {
                     dal = new Dal();
                 }
-                System.Diagnostics.Trace.TraceInformation("Connection string used : " + Context.Database.Connection.ConnectionString);
                 return dal;
             }
         }

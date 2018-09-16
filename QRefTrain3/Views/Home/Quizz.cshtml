@@ -18,6 +18,7 @@
     @if (Model.StartTime.HasValue)
     {
         <div id="timer" class="timer"></div>
+        @Html.HiddenFor(m => m.StartTime.Value)
     }
     <div>
         <!-- For each Question, display a new div with the Title, the question code, the question text, the video if there is one, then the possible answers depending on the type of answers-->
@@ -28,8 +29,8 @@
             {
                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
                 <div class="QuizzQuestion">
-                    <div class="QuizzQuestionTitle">@Model.DisplayedQuestions[i].Id : @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Name)</div>
-                    <h5 class="QuizzQuestiontext">@Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</h5>
+                    <div class="QuizzQuestionTitle">@Model.DisplayedQuestions[i].Id : @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Name)</div>
+                    <h5 class="QuizzQuestiontext">@Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</h5>
                     @if (@Model.DisplayedQuestions[i].IsVideo)
                     {
                         <div class="QuizzQuestionVideoContainer">
@@ -44,7 +45,7 @@
                         {
                             <label class="btn btn-light halfpageItem halfpageItemCollapse">
                                 @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                @Resources.Resource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
+                                @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
                             </label>
                             @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                         }

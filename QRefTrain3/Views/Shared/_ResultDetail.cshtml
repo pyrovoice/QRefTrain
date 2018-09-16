@@ -7,7 +7,7 @@
         <div>
             <div class="flex-container">
                 <h5>@question.Id</h5>
-                <h5>@Resources.Resource.ResourceManager.GetString(question.Name)</h5>
+                <h5>@Resources.QuestionResource.ResourceManager.GetString(question.Name)</h5>
                 @if (question.IsVideo)
                 {
                     <div><img id="@question.Id" src="~/Elements/logo_movie.png" height="30" width="30" /></div>
@@ -18,7 +18,7 @@
                     </div>
                 }
             </div>
-            <div>@Resources.Resource.ResourceManager.GetString(question.QuestionText)</div>
+            <div>@Resources.QuestionResource.ResourceManager.GetString(question.QuestionText)</div>
             <div class="flex-container">
                 @for (int counter = 0; counter < question.Answers.Count; counter++)
                 {
@@ -41,10 +41,10 @@
                         backGround = "redBack";
                     }
 
-                    <div class="answer @backGround"><img id="selection" src="~/Elements/@(question.Answers[counter].IsSelected ? "checkBoxSelected" : "checkBoxUnselected").png" height="25" width="25" />@Resources.Resource.ResourceManager.GetString(question.Answers[counter].Answertext)</div>
+                    <div class="answer @backGround"><img id="selection" src="~/Elements/@(Model.SelectedAnswers.Contains(question.Answers[counter]) ? "checkBoxSelected" : "checkBoxUnselected").png" height="25" width="25" />@Resources.QuestionResource.ResourceManager.GetString(question.Answers[counter].Answertext)</div>
                 }
             </div>
-            <div>@Resources.Resource.ResourceManager.GetString(question.AnswerExplanation)</div>
+            <div>@Resources.QuestionResource.ResourceManager.GetString(question.AnswerExplanation)</div>
         </div>
         if (Model.QuestionsAsked.Last() != question)
         {

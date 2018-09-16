@@ -9,42 +9,68 @@
     {
     <div class="flex-container">
         <div class="form-group">
-            @Html.Label("Question title")
-            @Html.TextBox("QuestionTitle")
-        </div>
-        <div class="form-group">
-            @Html.Label("Question Text")
-            @Html.TextBox("QuestionText")
+            @Html.Label("BaseName")
+            @Html.TextBox("BaseName")
         </div>
         <div class="form-group">
             @Html.Label("Answer 1")
-            @Html.TextBox("Answer1")
+            @Html.CheckBox("isAnswer1")
             @Html.CheckBox("isAnswerTrue1", false)
         </div>
         <div class="form-group">
             @Html.Label("Answer 2")
-            @Html.TextBox("Answer2")
+            @Html.CheckBox("isAnswer2")
             @Html.CheckBox("isAnswerTrue2", false)
         </div>
         <div class="form-group">
             @Html.Label("Answer 3")
-            @Html.TextBox("Answer3")
+            @Html.CheckBox("isAnswer3")
             @Html.CheckBox("isAnswerTrue3", false)
         </div>
         <div class="form-group">
             @Html.Label("Answer 4")
-            @Html.TextBox("Answer4")
+            @Html.CheckBox("isAnswer4")
             @Html.CheckBox("isAnswerTrue4", false)
         </div>
         <div class="form-group">
             @Html.Label("Answer 5")
-            @Html.TextBox("Answer5")
+            @Html.CheckBox("isAnswer5")
             @Html.CheckBox("isAnswerTrue5", false)
         </div>
         <div class="form-group">
             @Html.Label("Answer 6")
-            @Html.TextBox("Answer6")
+            @Html.CheckBox("isAnswer6")
             @Html.CheckBox("isAnswerTrue6", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("No penalty")
+            @Html.CheckBox("isNoPenalty")
+            @Html.CheckBox("isNoPenaltyTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Back to hoops")
+            @Html.CheckBox("isBackToHoops")
+            @Html.CheckBox("isBackToHoopsTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Turnover")
+            @Html.CheckBox("isTurnOver")
+            @Html.CheckBox("isTurnOverTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Blue card")
+            @Html.CheckBox("isBlueCard")
+            @Html.CheckBox("isBlueCardTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Yellow card")
+            @Html.CheckBox("isYellowCard")
+            @Html.CheckBox("isYellowCardTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Red Card")
+            @Html.CheckBox("isRedCard")
+            @Html.CheckBox("isRedCardTrue", false)
         </div>
     </div>
 
@@ -52,10 +78,6 @@
             <div class="form-group">
                 @Html.Label("Video")
                 @Html.TextBox("Video")
-            </div>
-            <div class="form-group">
-                @Html.Label("Explanation")
-                @Html.TextBox("Explanation")
             </div>
             <div class="form-group">
                 @Html.Label("Question subject")

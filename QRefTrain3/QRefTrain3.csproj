@@ -163,6 +163,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\QuestionResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionResource.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\QuestionResource.fr.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionResource.fr.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="App_GlobalResources\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,93 +191,13 @@
     <Compile Include="Helper\CookieHelper.cs" />
     <Compile Include="Helper\CultureHelper.cs" />
     <Compile Include="Helper\UserInfoHelper.cs" />
-    <Compile Include="Migrations\201806172105546_Model.cs" />
-    <Compile Include="Migrations\201806172105546_Model.Designer.cs">
-      <DependentUpon>201806172105546_Model.cs</DependentUpon>
+    <Compile Include="Migrations\201809131336227_Initial.cs" />
+    <Compile Include="Migrations\201809131336227_Initial.Designer.cs">
+      <DependentUpon>201809131336227_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807310844029_NGBs.cs" />
-    <Compile Include="Migrations\201807310844029_NGBs.Designer.cs">
-      <DependentUpon>201807310844029_NGBs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808090804379_Exam.cs" />
-    <Compile Include="Migrations\201808090804379_Exam.Designer.cs">
-      <DependentUpon>201808090804379_Exam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808090812427_Exam2.cs" />
-    <Compile Include="Migrations\201808090812427_Exam2.Designer.cs">
-      <DependentUpon>201808090812427_Exam2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808090823557_Exam3.cs" />
-    <Compile Include="Migrations\201808090823557_Exam3.Designer.cs">
-      <DependentUpon>201808090823557_Exam3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808090830445_Exam4.cs" />
-    <Compile Include="Migrations\201808090830445_Exam4.Designer.cs">
-      <DependentUpon>201808090830445_Exam4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808101359246_Exam6.cs" />
-    <Compile Include="Migrations\201808101359246_Exam6.Designer.cs">
-      <DependentUpon>201808101359246_Exam6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808121256448_Exam7.cs" />
-    <Compile Include="Migrations\201808121256448_Exam7.Designer.cs">
-      <DependentUpon>201808121256448_Exam7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808201149124_Requests.cs" />
-    <Compile Include="Migrations\201808201149124_Requests.Designer.cs">
-      <DependentUpon>201808201149124_Requests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808201319572_Requests2.cs" />
-    <Compile Include="Migrations\201808201319572_Requests2.Designer.cs">
-      <DependentUpon>201808201319572_Requests2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808211209066_wat.cs" />
-    <Compile Include="Migrations\201808211209066_wat.Designer.cs">
-      <DependentUpon>201808211209066_wat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808231013368_Userroles.cs" />
-    <Compile Include="Migrations\201808231013368_Userroles.Designer.cs">
-      <DependentUpon>201808231013368_Userroles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808231108550_questionRework.cs" />
-    <Compile Include="Migrations\201808231108550_questionRework.Designer.cs">
-      <DependentUpon>201808231108550_questionRework.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808231114538_ManyToManyQuestionToExam.cs" />
-    <Compile Include="Migrations\201808231114538_ManyToManyQuestionToExam.Designer.cs">
-      <DependentUpon>201808231114538_ManyToManyQuestionToExam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808251430175_Datetime_bug.cs" />
-    <Compile Include="Migrations\201808251430175_Datetime_bug.Designer.cs">
-      <DependentUpon>201808251430175_Datetime_bug.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809041632341_dateTimeFix2.cs" />
-    <Compile Include="Migrations\201809041632341_dateTimeFix2.Designer.cs">
-      <DependentUpon>201809041632341_dateTimeFix2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809041643566_dateTimeFix3.cs" />
-    <Compile Include="Migrations\201809041643566_dateTimeFix3.Designer.cs">
-      <DependentUpon>201809041643566_dateTimeFix3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809041654557_dateTimeFixFinal.cs" />
-    <Compile Include="Migrations\201809041654557_dateTimeFixFinal.Designer.cs">
-      <DependentUpon>201809041654557_dateTimeFixFinal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809041704505_StoredProcedure.cs" />
-    <Compile Include="Migrations\201809041704505_StoredProcedure.Designer.cs">
-      <DependentUpon>201809041704505_StoredProcedure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809061745300_ResultAnswersManyToManyFix.cs" />
-    <Compile Include="Migrations\201809061745300_ResultAnswersManyToManyFix.Designer.cs">
-      <DependentUpon>201809061745300_ResultAnswersManyToManyFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809061750460_QuestionAnswersManyToManyFix.cs" />
-    <Compile Include="Migrations\201809061750460_QuestionAnswersManyToManyFix.Designer.cs">
-      <DependentUpon>201809061750460_QuestionAnswersManyToManyFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809061815066_questionResultManyToManyFix.cs" />
-    <Compile Include="Migrations\201809061815066_questionResultManyToManyFix.Designer.cs">
-      <DependentUpon>201809061815066_questionResultManyToManyFix.cs</DependentUpon>
+    <Compile Include="Migrations\201809160937577_wut.cs" />
+    <Compile Include="Migrations\201809160937577_wut.Designer.cs">
+      <DependentUpon>201809160937577_wut.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -424,11 +356,17 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806172105546_Model.resx">
-      <DependentUpon>201806172105546_Model.cs</DependentUpon>
+    <EmbeddedResource Include="App_GlobalResources\QuestionResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>QuestionResource.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CustomToolNamespace>QRefResources</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807310844029_NGBs.resx">
-      <DependentUpon>201807310844029_NGBs.cs</DependentUpon>
+    <EmbeddedResource Include="App_GlobalResources\QuestionResource.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>QuestionResource.fr.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CustomToolNamespace>QRefResources</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Resource.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -444,75 +382,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808090804379_Exam.resx">
-      <DependentUpon>201808090804379_Exam.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809131336227_Initial.resx">
+      <DependentUpon>201809131336227_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808090812427_Exam2.resx">
-      <DependentUpon>201808090812427_Exam2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808090823557_Exam3.resx">
-      <DependentUpon>201808090823557_Exam3.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808090830445_Exam4.resx">
-      <DependentUpon>201808090830445_Exam4.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808101359246_Exam6.resx">
-      <DependentUpon>201808101359246_Exam6.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808121256448_Exam7.resx">
-      <DependentUpon>201808121256448_Exam7.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808201149124_Requests.resx">
-      <DependentUpon>201808201149124_Requests.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808201319572_Requests2.resx">
-      <DependentUpon>201808201319572_Requests2.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808211209066_wat.resx">
-      <DependentUpon>201808211209066_wat.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808231013368_Userroles.resx">
-      <DependentUpon>201808231013368_Userroles.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808231108550_questionRework.resx">
-      <DependentUpon>201808231108550_questionRework.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808231114538_ManyToManyQuestionToExam.resx">
-      <DependentUpon>201808231114538_ManyToManyQuestionToExam.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808251430175_Datetime_bug.resx">
-      <DependentUpon>201808251430175_Datetime_bug.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809041632341_dateTimeFix2.resx">
-      <DependentUpon>201809041632341_dateTimeFix2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809041643566_dateTimeFix3.resx">
-      <DependentUpon>201809041643566_dateTimeFix3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809041654557_dateTimeFixFinal.resx">
-      <DependentUpon>201809041654557_dateTimeFixFinal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809041704505_StoredProcedure.resx">
-      <DependentUpon>201809041704505_StoredProcedure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809061745300_ResultAnswersManyToManyFix.resx">
-      <DependentUpon>201809061745300_ResultAnswersManyToManyFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809061750460_QuestionAnswersManyToManyFix.resx">
-      <DependentUpon>201809061750460_QuestionAnswersManyToManyFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809061815066_questionResultManyToManyFix.resx">
-      <DependentUpon>201809061815066_questionResultManyToManyFix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809160937577_wut.resx">
+      <DependentUpon>201809160937577_wut.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
