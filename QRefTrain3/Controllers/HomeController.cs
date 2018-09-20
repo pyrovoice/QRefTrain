@@ -30,23 +30,12 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuizTraining"] = "Please select at least one subject";
                 return RedirectToAction("Homepage");
             }
-            // Get 10 randoms questions from the selected parameters, or all if there is not 10.
-            List<Question> questions = GetQuestions(NGB, Subjects, NGB_Only != null);
-            if (questions == null || questions.Count == 0)
-            {
-                TempData["ErrorQuizTraining"] = "There is no question for the selected subject(s)";
-                return RedirectToAction("Homepage");
-            }
-            QuizzViewModel quizzModel = new QuizzViewModel(questions, ResultType.Training, null);
-            CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddYears(1));
-            return View("Quizz", quizzModel);
+            return MoveToQuiz(NGB, Subjects, NGB_Only != null, ResultType.Training);
         }
 
         [HttpPost]
         public ActionResult MovetoTestQuiz(string NGB)
         {
-            // Update the user's choice so he does not have to chose again next time
-            Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddYears(1));
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
                 TempData["ErrorQuizOfficial"] = "You must be logged in in order to take an exam.";
@@ -62,16 +51,27 @@ namespace QRefTrain3.Controllers
             {
                 Dal.Instance.CloseExamByUsername(HttpContext.User.Identity.Name);
             }
-            List<Question> questions = GetQuestions(NGB);
+            return MoveToQuiz(NGB, null, true, ResultType.Exam);
+        }
+
+        private ActionResult MoveToQuiz(string ngb, List<string> Subjects, bool NGB_Only, ResultType rType)
+        {
+            // Update the user's choice so he does not have to chose again next time
+            Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, ngb, DateTime.Now.AddMonths(1));
+            // Get 10 randoms questions from the selected parameters, or all if there is not 10.
+            List<Question> questions = GetQuestions(ngb, Subjects, NGB_Only);
             if (questions == null || questions.Count == 0)
             {
                 TempData["ErrorQuizTraining"] = "There is no question for the selected subject(s)";
                 return RedirectToAction("Homepage");
             }
-            // Create an exam object that will remember the user is doing na exam, which prevent cheating and allow the user to resume a test in case of error
-            DateTime timenow = Dal.Instance.GetDBTime();
-            Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, timenow);
-            QuizzViewModel quizzModel = new QuizzViewModel(questions, ResultType.Exam, timenow);
+            DateTime? dt = null;
+            if (rType == ResultType.Exam)
+            {
+                dt = Dal.Instance.GetDBTime();
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, dt.Value);
+            }
+            QuizzViewModel quizzModel = new QuizzViewModel(questions, rType, dt);
             return View("Quizz", quizzModel);
         }
 
@@ -93,28 +93,20 @@ namespace QRefTrain3.Controllers
             {
                 allQuestions = Dal.Instance.GetQuestionsByNGB(ngb);
             }
-            
+
             if (allQuestions.Count <= 0)
             {
                 return null;
             }
-            else if (allQuestions.Count < 10)
-            {
-                displayedQuestions = allQuestions;
-            }
             else
             {
+                // We do some shuffle to randomly select and display the questions
                 Random rnd = new Random();
-                while (displayedQuestions.Count < 10)
-                {
-                    int random = rnd.Next(allQuestions.Count - 1);
-                    Question question = allQuestions[random];
-                    if (!displayedQuestions.Contains(question))
-                    {
-                        question.Answers.Sort((val1, val2) => val1.CompareTo(val2));
-                        displayedQuestions.Add(question);
-                    }
-                }
+                displayedQuestions = allQuestions.Count > 10 ? allQuestions.OrderBy(item => rnd.Next()).ToList().GetRange(0, 10) : allQuestions.OrderBy(item => rnd.Next()).ToList();
+            }
+            foreach (Question q in displayedQuestions)
+            {
+                q.Answers.Sort((val1, val2) => val1.CompareTo(val2));
             }
             return displayedQuestions;
         }
@@ -177,8 +169,6 @@ namespace QRefTrain3.Controllers
 
             return View("QuizResult", new ResultViewModel(result));
         }
-
-
 
         [HttpPost]
         public ActionResult UpdateLanguage(String languages)
