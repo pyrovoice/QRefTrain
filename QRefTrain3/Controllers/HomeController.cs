@@ -132,35 +132,35 @@ namespace QRefTrain3.Controllers
                 }
             }
 
+            // If the user is connected, save the result to his profile
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
+                // If the user took an exam, check nothing wrong happened and close the exam
                 if (quizzModel.ResultType == ResultType.Exam)
                 {
                     quizzModel.StartTime = Dal.Instance.GetOngoingExamByUsername(currentUser.Name).StartDate;
+                    // Verification : Time security
+                    string LogText = null;
                     if (!quizzModel.StartTime.HasValue)
                     {
-                        Dal.Instance.CreateLog(new Log()
-                        {
-                            UserId = currentUser.Id,
-                            LogText = "Quizz result error : No start time for quizzModel.",
-                            LogTime = Dal.Instance.GetDBTime()
-                        });
-                        Dal.Instance.CloseExamByUsername(currentUser.Name);
-                        return View("ErrorPage", QRefResources.Resource.Error_QuizError);
+                        LogText = "Quizz result error : No start time for quizzModel.";
                     }
-                    if ((Dal.Instance.GetDBTime() - quizzModel.StartTime.Value).Minutes > 12)
+                    else if ((Dal.Instance.GetDBTime() - quizzModel.StartTime.Value).Minutes > 12)
+                    {
+                        LogText = "Quizz result error : Time between start and end of test is too high.";
+                    }
+                    if(LogText != null)
                     {
                         Dal.Instance.CreateLog(new Log()
                         {
                             UserId = currentUser.Id,
-                            LogText = "Quizz result error : Time between start and end of test is too high.",
+                            LogText = LogText,
                             LogTime = Dal.Instance.GetDBTime()
                         });
                         Dal.Instance.CloseExamByUsername(currentUser.Name);
                         return View("ErrorPage", QRefResources.Resource.Error_QuizError);
                     }
-
                     Dal.Instance.DeleteExamByUserId(currentUser.Id);
                 }
                 result.User = currentUser;
