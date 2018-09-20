@@ -179,6 +179,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -359,14 +360,14 @@
     <EmbeddedResource Include="App_GlobalResources\QuestionResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>QuestionResource.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CustomToolNamespace>QRefResources</CustomToolNamespace>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\QuestionResource.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>QuestionResource.fr.designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CustomToolNamespace>QRefResources</CustomToolNamespace>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Resource.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -379,8 +380,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <CustomToolNamespace>QRefResources</CustomToolNamespace>
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809131336227_Initial.resx">
       <DependentUpon>201809131336227_Initial.cs</DependentUpon>

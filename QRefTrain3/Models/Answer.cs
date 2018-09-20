@@ -5,13 +5,15 @@ using System.Web;
 
 namespace QRefTrain3.Models
 {
-    public class Answer
+    public class Answer : IComparable
     {
         public int Id { get; set; }
         public string Answertext { get; set; }
         public bool IsTrue { get; set; }
         public virtual List<Result> Results { get; set; } = new List<Result>();
         public virtual List<Question> Questions { get; set; } = new List<Question>();
+
+        private static readonly string[] commonAnswers = { "NoPenalty", "backToHoops", "Turnover", "BlueCard", "YellowCard", "RedCard" };
 
         public Answer() { }
 
@@ -22,6 +24,31 @@ namespace QRefTrain3.Models
                 return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// Sort answer by text, using the folliwing rule :
+        /// <para />An answer having a text that's a common text answer takes priority over a text that's not in the common answers.
+        /// <para />If two answers have a common text, the order in the array is used (from "NoPenalty" to "RedCard")
+        /// <para />If no answer has a common text, use the classic string comparison
+        /// </summary>
+        /// <param name="obj">The other Answer. No two answers should have the same text.</param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            Answer otherAnswer = ((Answer)obj);
+            if (commonAnswers.Contains(this.Answertext) && commonAnswers.Contains(otherAnswer.Answertext))
+            {
+                return Array.IndexOf(commonAnswers, this.Answertext) < Array.IndexOf(commonAnswers, otherAnswer.Answertext) ? -1 : 1;
+            }
+            else if (commonAnswers.Contains(this.Answertext) || commonAnswers.Contains(otherAnswer.Answertext))
+            {
+                return commonAnswers.Contains(this.Answertext) ? -1 : 1;
+            }
+            else
+            {
+                return this.Answertext.CompareTo(otherAnswer.Answertext);
+            }
         }
 
         public Answer(string answerText, bool isTrue)

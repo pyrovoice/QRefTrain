@@ -117,4 +117,592 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="backToHoops" xml:space="preserve">
+    <value>Retour aux anneaux</value>
+  </data>
+  <data name="BlueCard" xml:space="preserve">
+    <value>Carton bleu</value>
+  </data>
+  <data name="NoPenalty" xml:space="preserve">
+    <value>Pas de pénalité</value>
+  </data>
+  <data name="QuestionActingDuringBroomsDownExplanation" xml:space="preserve">
+    <value>Les joueurs tenant déjà une balle peuvent la garder.</value>
+  </data>
+  <data name="QuestionActingDuringBroomsDownText" xml:space="preserve">
+    <value>Quel est la pénalité pour bouger ou saisir une balle durant un arrêt de jeu ?</value>
+  </data>
+  <data name="QuestionBlockingScoringQuaffleText" xml:space="preserve">
+    <value>Quel est la pénalité pour intentionnellement et illégalement bloquer un but ?</value>
+  </data>
+  <data name="QuestionChangeAfterBroomsDownText" xml:space="preserve">
+    <value>Quel est la pénalité pour changer de poste ou de position après le "Brooms down" de début de match ?</value>
+  </data>
+  <data name="QuestionChargeTackleHelplessReceiverExplanation" xml:space="preserve">
+    <value>Un receveur sans appui est défini comme un receveur dans le processus de recevoir une balle dans les airs.</value>
+  </data>
+  <data name="QuestionChargeTackleHelplessReceiverText" xml:space="preserve">
+    <value>Quel est la pénalité pour une charge ou un tacle sur un receveur sans appui ?</value>
+  </data>
+  <data name="QuestionContactWhenKOText" xml:space="preserve">
+    <value>Quel est la pénalité pour un contact illégal bien qu'hors-jeu ?</value>
+  </data>
+  <data name="QuestionCorrectingIllegalSetPlayerAnswer1" xml:space="preserve">
+    <value>L'équipe doit changer un minimum de joueur</value>
+  </data>
+  <data name="QuestionCorrectingIllegalSetPlayerAnswer2" xml:space="preserve">
+    <value>L'équipe peut changer n'importe quel nombre de joueur, tant que cela résulte en une situation correct</value>
+  </data>
+  <data name="QuestionCorrectingIllegalSetPlayerAnswer3" xml:space="preserve">
+    <value>L'équipe ne peut pas faire de changement, mais devra remplacer ses joueurs dès que la partie reprend</value>
+  </data>
+  <data name="QuestionCorrectingIllegalSetPlayerText" xml:space="preserve">
+    <value>Parmis les options suivantes, laquel ou lesquelles sont vraies pour corriger un ensemble de joueur illégal ?</value>
+  </data>
+  <data name="QuestionDangerousKickText" xml:space="preserve">
+    <value>Quel est la pénalité pour un coup de pied dangereux sur un adversaire ?</value>
+  </data>
+  <data name="QuestionDeadQuafflePlayText" xml:space="preserve">
+    <value>Quel est la pénalité pour une action illégal sur un souaffle mort ?</value>
+  </data>
+  <data name="QuestionDecliningCatchAnswer1" xml:space="preserve">
+    <value>Une équipe peut refuser n'importe quel capture du vif</value>
+  </data>
+  <data name="QuestionDecliningCatchAnswer2" xml:space="preserve">
+    <value>L'attrapage peut etre juste après un goal, mais avant que l'arbitre ne l'ai confirmé.</value>
+  </data>
+  <data name="QuestionDecliningCatchAnswer3" xml:space="preserve">
+    <value>L'attrapage se produit après un évenement de but (valide ou non), et avant le changement dans la validation de ce but</value>
+  </data>
+  <data name="QuestionDecliningCatchAnswer4" xml:space="preserve">
+    <value>Le changement de score doit changer le fait que l'attrapage produise un score qui entrainerait une égalité</value>
+  </data>
+  <data name="QuestionDecliningCatchText" xml:space="preserve">
+    <value>Parmis les options suivantes, laquel ou lesquelles sont vraies pour une équipe souhaitant refuser un attrapage du vif d'or ?</value>
+  </data>
+  <data name="QuestionDefBlueCardsAnswer1" xml:space="preserve">
+    <value>Un deuxieme carton bleu est augmenté en carton jaune</value>
+  </data>
+  <data name="QuestionDefBlueCardsAnswer2" xml:space="preserve">
+    <value>Turnover de toute balle sur laquelle le joueur fautif a agit ou dont il a empeché la possession</value>
+  </data>
+  <data name="QuestionDefBlueCardsAnswer3" xml:space="preserve">
+    <value>Turnover du souaffle</value>
+  </data>
+  <data name="QuestionDefBlueCardsAnswer4" xml:space="preserve">
+    <value>Le joueur revient dans la partie au bout d'une minute</value>
+  </data>
+  <data name="QuestionDefBlueCardsAnswer5" xml:space="preserve">
+    <value>Le joueur revient dans la partie quand son équipe reçoit un but</value>
+  </data>
+  <data name="QuestionDefBlueCardsText" xml:space="preserve">
+    <value>Parmis les options suivantes, laquel ou lesquelles sont vraies lors d'un carton bleu ?</value>
+  </data>
+  <data name="QuestionDefRedCardsAnswer1" xml:space="preserve">
+    <value>Turnover de toute balle sur laquelle le joueur fautif a agit ou dont il a empeché la possession</value>
+  </data>
+  <data name="QuestionDefRedCardsAnswer2" xml:space="preserve">
+    <value>Turnover du souaffle</value>
+  </data>
+  <data name="QuestionDefRedCardsAnswer3" xml:space="preserve">
+    <value>Un joueur revient dans la partie au bout d'une minute</value>
+  </data>
+  <data name="QuestionDefRedCardsAnswer4" xml:space="preserve">
+    <value>Un joueur revient dans la partie au bout de deux minutes</value>
+  </data>
+  <data name="QuestionDefRedCardsAnswer5" xml:space="preserve">
+    <value>Un joueur revient dans la partie quand son équipe reçoit un but</value>
+  </data>
+  <data name="QuestionDefRedCardsExplanation" xml:space="preserve">
+    <value>Etant donné qu'un joueur ayant reçu un carton rouge ne peut plus jouer dans cette partie, un autre joueur devra servir la minute de pénalité et reprendre la partie.</value>
+  </data>
+  <data name="QuestionDefRedCardsText" xml:space="preserve">
+    <value>Parmis les options suivantes, laquel ou lesquelles sont vraies lors d'un carton rouge ?</value>
+  </data>
+  <data name="QuestionDefYellowCardsAnswer1" xml:space="preserve">
+    <value>Un deuxieme carton jaune est augmenté en carton rouge</value>
+  </data>
+  <data name="QuestionDefYellowCardsAnswer2" xml:space="preserve">
+    <value>Turnover de toute balle sur laquelle le joueur fautif a agit ou dont il a empeché la possession</value>
+  </data>
+  <data name="QuestionDefYellowCardsAnswer3" xml:space="preserve">
+    <value>Turnover du souaffle</value>
+  </data>
+  <data name="QuestionDefYellowCardsAnswer4" xml:space="preserve">
+    <value>Le joueur revient dans la partie au bout d'une minute</value>
+  </data>
+  <data name="QuestionDefYellowCardsAnswer5" xml:space="preserve">
+    <value>Le joueur revient dans la partie quand son équipe reçoit un but</value>
+  </data>
+  <data name="QuestionDefYellowCardsText" xml:space="preserve">
+    <value>Parmis les options suivantes, laquel ou lesquelles sont vraies lors d'un carton jaune ?</value>
+  </data>
+  <data name="QuestionDelayOfGameText" xml:space="preserve">
+    <value>Quel est la pénalité pour retarder le jeu ?</value>
+  </data>
+  <data name="QuestionDislodgeHoopIntentionnalyText" xml:space="preserve">
+    <value>Quel est la pénalité pour intentionnellement disloquer un anneau ?</value>
+  </data>
+  <data name="QuestionDislodgeHoopRecklessText" xml:space="preserve">
+    <value>Quel est la pénalité pour un disloquage d'anneau imprudent ?</value>
+  </data>
+  <data name="QuestionDislodgeHoopRepeatedlyText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur qui disloque non-intentionnellement mais régulierement un anneau ?</value>
+  </data>
+  <data name="QuestionEgregiousUnsportsmanlikeConductText" xml:space="preserve">
+    <value>Quel est la pénalité pour un comportement antisportif extreme ou abusif ?</value>
+  </data>
+  <data name="QuestionFailedAvoidQuaffleText" xml:space="preserve">
+    <value>Quel est la pénalité pour un echec d'évitement du souaffle ?</value>
+  </data>
+  <data name="QuestionFailKOProcedureAnswer1" xml:space="preserve">
+    <value>Répéter la procédure</value>
+  </data>
+  <data name="QuestionFailKOProcedureExplanation" xml:space="preserve">
+    <value>Violer cette règle de façon répétitive ou intentionnellement augmente la pénalité.</value>
+  </data>
+  <data name="QuestionFailKOProcedureText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur ne respectant pas la procédure de mise hors-jeu ?</value>
+  </data>
+  <data name="QuestionFailReplaceHeadbandExplanation" xml:space="preserve">
+    <value>Le joueur peut finir l'action avant de remettre son bandeau</value>
+  </data>
+  <data name="QuestionFailReplaceHeadbandText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur ne remettant pas son bandeau ?</value>
+  </data>
+  <data name="QuestionFailSendSeekerAnswer1" xml:space="preserve">
+    <value>Pas de pénalité</value>
+  </data>
+  <data name="QuestionFailSendSeekerAnswer2" xml:space="preserve">
+    <value>Turnover et envoyer un attrapeur immédiatement</value>
+  </data>
+  <data name="QuestionFailSendSeekerAnswer3" xml:space="preserve">
+    <value>Carton bleu pour le porte-parole de l'équipe</value>
+  </data>
+  <data name="QuestionFailSendSeekerAnswer4" xml:space="preserve">
+    <value>Carton jaune pour le porte-parole de l'équipe</value>
+  </data>
+  <data name="QuestionFailSendSeekerAnswer5" xml:space="preserve">
+    <value>Carton rouge pour le porte-parole de l'équipe</value>
+  </data>
+  <data name="QuestionFailSendSeekerPlayerText" xml:space="preserve">
+    <value>Quel est la pénalité pour ne pas envoyer un attrapeur dans le jeu intentionnellement ?</value>
+  </data>
+  <data name="QuestionFakeBeatText" xml:space="preserve">
+    <value>Quel est la pénalité pour créer un contact illégal sur un adversaire avec son cognard tenu ?</value>
+  </data>
+  <data name="QuestionFalseStartText" xml:space="preserve">
+    <value>Quel est la pénalité pour un faux départ ?</value>
+  </data>
+  <data name="QuestionFeigningInjuryText" xml:space="preserve">
+    <value>Quel est la pénalité pour feindre une blessure ?</value>
+  </data>
+  <data name="QuestionGoalLineMetersAnswer1" xml:space="preserve">
+    <value>15 mètres</value>
+  </data>
+  <data name="QuestionGoalLineMetersAnswer2" xml:space="preserve">
+    <value>16.5 mètres</value>
+  </data>
+  <data name="QuestionGoalLineMetersAnswer3" xml:space="preserve">
+    <value>18 mètres</value>
+  </data>
+  <data name="QuestionGoalLineMetersText" xml:space="preserve">
+    <value>A quel distance de la ligne de milieu de terrain est la ligne des anneaux ?</value>
+  </data>
+  <data name="QuestionGoalLineYardAnswer1" xml:space="preserve">
+    <value>15 yards</value>
+  </data>
+  <data name="QuestionGoalLineYardAnswer2" xml:space="preserve">
+    <value>16.5 yards</value>
+  </data>
+  <data name="QuestionGoalLineYardAnswer3" xml:space="preserve">
+    <value>18 yards</value>
+  </data>
+  <data name="QuestionGoalLineYardText" xml:space="preserve">
+    <value>A quel distance de la ligne de milieu de terrain est la ligne des anneaux ?</value>
+  </data>
+  <data name="QuestionGoaltendingAnswer1" xml:space="preserve">
+    <value>Le but est compté bon pour l'équipe recevant la faute</value>
+  </data>
+  <data name="QuestionGoaltendingText" xml:space="preserve">
+    <value>Quel est la pénalité pour une protection illégal des buts ?</value>
+  </data>
+  <data name="QuestionIgnoreKnockoutText" xml:space="preserve">
+    <value>Quel est la pénalité ignorer délibérement une mise hors-jeu ?</value>
+  </data>
+  <data name="QuestionIgnoreRefDirectiveExplanation" xml:space="preserve">
+    <value>Cela est également vrai pour les arbitres assistant, du snitch et le porteur du vif.</value>
+  </data>
+  <data name="QuestionIgnoreRefDirectiveText" xml:space="preserve">
+    <value>Quel est la pénalité pour ignorer une instruction de l'arbitre ?</value>
+  </data>
+  <data name="QuestionIgnoringBoundaryCallText" xml:space="preserve">
+    <value>Quel est la pénalité pour ignorer intentionnellement ou abusivement une directive de limite de terrain ?</value>
+  </data>
+  <data name="QuestionIllegalBlockBatBludgerText" xml:space="preserve">
+    <value>Quel est la pénalité pour un bloque ou une frappe de cognard illégal, avec une balle tenue ?</value>
+  </data>
+  <data name="QuestionIllegalBludgerSwatExplanation" xml:space="preserve">
+    <value>Un cognard ne peut etre dévié que par un batteur, et uniquement avec un ballon tenu ou s'il n'est pas encore touché (le batteur deviendra donc touché avec cette déviation)</value>
+  </data>
+  <data name="QuestionIllegalBludgerSwatText" xml:space="preserve">
+    <value>Quel est la pénalité pour une déflection illégal du cognard avec une partie du corps ?</value>
+  </data>
+  <data name="QuestionIllegalContactHelplessReceiverExplanation" xml:space="preserve">
+    <value>Un receveur sans appui est défini comme un receveur dans le processus de recevoir une balle dans les airs.</value>
+  </data>
+  <data name="QuestionIllegalContactHelplessReceiverText" xml:space="preserve">
+    <value>Quel est la pénalité pour un contact illégal sur un receveur sans appui ?</value>
+  </data>
+  <data name="QuestionIllegalGoOutOfBoundText" xml:space="preserve">
+    <value>Quel est la pénalité pour sortir ou rester hors du terrain intentionnellement ou abusivement ?</value>
+  </data>
+  <data name="QuestionIllegalHurdlingExplanation" xml:space="preserve">
+    <value>Un saut par dessus un joueur est défini comme un saut ou un plongeon par dessus un joueur , et n'est pas légal sur un joueur se tenant debout</value>
+  </data>
+  <data name="QuestionIllegalHurdlingText" xml:space="preserve">
+    <value>Quel est la pénalité pour un saut par dessus un joueur ou une tentative de saut ?</value>
+  </data>
+  <data name="QuestionIllegalImmunityClaimText" xml:space="preserve">
+    <value>Quel est la pénalité pour un demande d'immunité illegal ?</value>
+  </data>
+  <data name="QuestionIllegalInterpositionText" xml:space="preserve">
+    <value>Quel est la pénalité pour une interposition illégal ?</value>
+  </data>
+  <data name="QuestionIllegalResetOpponentHoopText" xml:space="preserve">
+    <value>Quel est la pénalité pour une remis ene place d'un anneau illégal ?</value>
+  </data>
+  <data name="QuestionIllegalResetText" xml:space="preserve">
+    <value>Quel est la pénalité pour un reset illégal ?</value>
+  </data>
+  <data name="QuestionIllegalSecondKickText" xml:space="preserve">
+    <value>Quel est la pénalité pour un deuxième coup de pied illégal ?</value>
+  </data>
+  <data name="QuestionIllegalSetPlayerAnswer1" xml:space="preserve">
+    <value>Pas de pénalité</value>
+  </data>
+  <data name="QuestionIllegalSetPlayerAnswer2" xml:space="preserve">
+    <value>Turnover et correction de la composition d'équipe</value>
+  </data>
+  <data name="QuestionIllegalSetPlayerAnswer3" xml:space="preserve">
+    <value>Carton bleu pour le porte-parole</value>
+  </data>
+  <data name="QuestionIllegalSetPlayerAnswer4" xml:space="preserve">
+    <value>Carton jaune pour le porte-parole</value>
+  </data>
+  <data name="QuestionIllegalSetPlayerAnswer5" xml:space="preserve">
+    <value>Carton rouge pour le porte-parole</value>
+  </data>
+  <data name="QuestionIllegalSetPlayerText" xml:space="preserve">
+    <value>Quel est la pénalité pour une équipe ayant un set de joueur illégal en jeu ?</value>
+  </data>
+  <data name="QuestionIllegalSubstitutionAnswer1" xml:space="preserve">
+    <value>Recommencer la procédure</value>
+  </data>
+  <data name="QuestionIllegalSubstitutionExplanation" xml:space="preserve">
+    <value>Une substitution illégal doit affecter le jeu, autrement la faute est une infraction de procédure</value>
+  </data>
+  <data name="QuestionIllegalSubstitutionText" xml:space="preserve">
+    <value>Quel est la pénalité pour un remplacement illégal ?</value>
+  </data>
+  <data name="QuestionIllegalSwatBludgerText" xml:space="preserve">
+    <value>Quel est la pénalité pour une frappe du cognard illégal avec une balle tenue ?</value>
+  </data>
+  <data name="QuestionIllegalTimeoutRequestText" xml:space="preserve">
+    <value>Quel est la pénalité pour une demande illegal de temps-mort ?</value>
+  </data>
+  <data name="QuestionIllegalUseOfBallText" xml:space="preserve">
+    <value>Quel est la pénalité pour l'utilisation illégal d'une balle de sa propre position ?</value>
+  </data>
+  <data name="QuestionImmunityViolationExplanation" xml:space="preserve">
+    <value>Une violation de l'immunité est définie pour un joueur demandant légalement l'immunité, puis ne récupérant pas correctement le cognard</value>
+  </data>
+  <data name="QuestionImmunityViolationText" xml:space="preserve">
+    <value>Quel est la pénalité pour une faute d'immunité ?</value>
+  </data>
+  <data name="QuestionImproperImmunityClaimText" xml:space="preserve">
+    <value>Quel est la pénalité pour une demande d'immunité non conforme ?</value>
+  </data>
+  <data name="QuestionIncidentalBallInterferenceText" xml:space="preserve">
+    <value>Quel est la pénalité pour une interposition accidentel sur une balle ?</value>
+  </data>
+  <data name="QuestionIncidentalInterpositionBallInterferenceText" xml:space="preserve">
+    <value>Quel est la pénalité pour une interposition accidentel sur une balle ?</value>
+  </data>
+  <data name="QuestionIntentionalFailKoProcedureAnswer1" xml:space="preserve">
+    <value>Recommencer la procédure</value>
+  </data>
+  <data name="QuestionIntentionalFailKoProcedureText" xml:space="preserve">
+    <value>Quel est la pénalité pour une violation volontaire ou répétitive de la procédure de hors-jeu ?</value>
+  </data>
+  <data name="QuestionIntentionalMotionViolationText" xml:space="preserve">
+    <value>Quel est la pénalité pour une violation intentionnel de la règle de mouvement naturel ?</value>
+  </data>
+  <data name="QuestionInteractingWhenKOText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur intéragissant avec le jeu tandis qu'il est hors-jeu ?</value>
+  </data>
+  <data name="QuestionInteractKoPlayerText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur intéragissant avec un joueur hors-jeu ?</value>
+  </data>
+  <data name="QuestionInterpositionBallInterferenceText" xml:space="preserve">
+    <value>Quel est la pénalité pour une interposition sur une balle ?</value>
+  </data>
+  <data name="QuestionKeeperLineMetersAnswer1" xml:space="preserve">
+    <value>à 10 mètres</value>
+  </data>
+  <data name="QuestionKeeperLineMetersAnswer2" xml:space="preserve">
+    <value>à 11 mètres</value>
+  </data>
+  <data name="QuestionKeeperLineMetersAnswer3" xml:space="preserve">
+    <value>à 12 mètres</value>
+  </data>
+  <data name="QuestionKeeperLineMetersText" xml:space="preserve">
+    <value>A quel distance est la ligne de zone du gardien de la ligne du milieu de terrain?</value>
+  </data>
+  <data name="QuestionKeeperLineYardAnswer1" xml:space="preserve">
+    <value>à 10 yards</value>
+  </data>
+  <data name="QuestionKeeperLineYardAnswer2" xml:space="preserve">
+    <value>à 11 yards</value>
+  </data>
+  <data name="QuestionKeeperLineYardAnswer3" xml:space="preserve">
+    <value>à 12 yards</value>
+  </data>
+  <data name="QuestionKeeperLineYardText" xml:space="preserve">
+    <value>At which distance is the keeper line from the midfield line ?</value>
+  </data>
+  <data name="QuestionKeeperPowersAnswer1" xml:space="preserve">
+    <value>Ce joueur peut bloquer les cognards</value>
+  </data>
+  <data name="QuestionKeeperPowersAnswer2" xml:space="preserve">
+    <value>Ce joueur peut donner un coup de pied dans la balle n'importe quel nombre de fois</value>
+  </data>
+  <data name="QuestionKeeperPowersAnswer3" xml:space="preserve">
+    <value>Ce joueur est immunisé au hors-jeu par contact avec un cognard</value>
+  </data>
+  <data name="QuestionKeeperPowersAnswer4" xml:space="preserve">
+    <value>Ce joueur récupère le souaffle si celui-ci sort du terrain après un arrêt</value>
+  </data>
+  <data name="QuestionKeeperPowersAnswer5" xml:space="preserve">
+    <value>Ce joueur ne peut pas etre touché, intéragit avec, et ne peut pas se voir volé le souaffle quand il en a l'unique possession</value>
+  </data>
+  <data name="QuestionKeeperPowersText" xml:space="preserve">
+    <value>Quels sont les pouvoir spécifiques au gardien ?</value>
+  </data>
+  <data name="QuestionLinesExternMetersAnswer1" xml:space="preserve">
+    <value>La ligne de largeur fait 30 mètres</value>
+  </data>
+  <data name="QuestionLinesExternMetersAnswer2" xml:space="preserve">
+    <value>La ligne de largeur fait 33 mètres</value>
+  </data>
+  <data name="QuestionLinesExternMetersAnswer3" xml:space="preserve">
+    <value>La ligne de largeur fait 36 mètres</value>
+  </data>
+  <data name="QuestionLinesExternMetersAnswer4" xml:space="preserve">
+    <value>La ligne de longueur fait 60 mètres</value>
+  </data>
+  <data name="QuestionLinesExternMetersAnswer5" xml:space="preserve">
+    <value>La ligne de longueur fait 63 mètres</value>
+  </data>
+  <data name="QuestionLinesExternMetersAnswer6" xml:space="preserve">
+    <value>La ligne de longueur fait 66 mètres</value>
+  </data>
+  <data name="QuestionLinesExternMetersText" xml:space="preserve">
+    <value>Quel sont les tailles des lignes externes du terrain ?</value>
+  </data>
+  <data name="QuestionLinesExternYardsAnswer1" xml:space="preserve">
+    <value>La ligne de largeur fait 30 yards</value>
+  </data>
+  <data name="QuestionLinesExternYardsAnswer2" xml:space="preserve">
+    <value>La ligne de largeur fait 33 yards</value>
+  </data>
+  <data name="QuestionLinesExternYardsAnswer3" xml:space="preserve">
+    <value>La ligne de largeur fait 36 yards</value>
+  </data>
+  <data name="QuestionLinesExternYardsAnswer4" xml:space="preserve">
+    <value>La ligne de largeur fait 60 yards</value>
+  </data>
+  <data name="QuestionLinesExternYardsAnswer5" xml:space="preserve">
+    <value>La ligne de largeur fait 63 yards</value>
+  </data>
+  <data name="QuestionLinesExternYardsAnswer6" xml:space="preserve">
+    <value>La ligne de largeur fait 66 yards</value>
+  </data>
+  <data name="QuestionLinesExternYardsText" xml:space="preserve">
+    <value>Quel sont les tailles des lignes externes du terrain ?</value>
+  </data>
+  <data name="QuestionMinorAvoidQuaffleText" xml:space="preserve">
+    <value>Quel est la pénalité pour un echec mineur d'évitement du souaffle ?</value>
+  </data>
+  <data name="QuestionMinorIllegalImmunityClaimText" xml:space="preserve">
+    <value>Quel est la pénalité pour une violation mineure de la règle de demande d'immunité ?</value>
+  </data>
+  <data name="QuestionMinorIllegalInterpositionText" xml:space="preserve">
+    <value>Quel est la pénalité pour une interposition illégal mineure ?</value>
+  </data>
+  <data name="QuestionMoveHoopIntentionnalyText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur déplaçant un anneau intentionnellement ?</value>
+  </data>
+  <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer1" xml:space="preserve">
+    <value>Le joueur avec le temps restant le plus faible revient en jeu</value>
+  </data>
+  <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer2" xml:space="preserve">
+    <value>Les deux joueurs reviennent en jeu</value>
+  </data>
+  <data name="QuestionMultiplePlayersInBoxWhenScoreText" xml:space="preserve">
+    <value>Deux joueur d'une même équipe sont dans la zone de pénalité, servant un carton jaune. Leur équipe reçoit un but : </value>
+  </data>
+  <data name="QuestionNaturalMotionViolationText" xml:space="preserve">
+    <value>Quel est la pénalité pour une violation non-intentionnel de la règle de mouvement naturel ?</value>
+  </data>
+  <data name="QuestionPlayBrokenBroomText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur jouant avec un balai détruit, et sachant cela ?</value>
+  </data>
+  <data name="QuestionPlayIllegalEquipmentText" xml:space="preserve">
+    <value>Quel est la pénalité pour une entrée en jeu sans porter les équipements requis ?</value>
+  </data>
+  <data name="QuestionPlayIllegalFingernailsExplanation" xml:space="preserve">
+    <value>Des ongles trop long peuvent etre remarqué lorsque la paume est tendu vers le haut, par example</value>
+  </data>
+  <data name="QuestionPlayIllegalFingernailsText" xml:space="preserve">
+    <value>Quel est la pénalité pour entrer en jeu avec des ongles trop longs ou pointus ?</value>
+  </data>
+  <data name="QuestionPreventOutOfBoundFromEnteringText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur empéchant illégalement et physiquement un autre joueur de revenir sur le terrain ?</value>
+  </data>
+  <data name="QuestionRemoveIllegalEquipmentText" xml:space="preserve">
+    <value>Quel est la pénalité pour retirer une pièce d'équipement nécessaire pour un joueur sur le terrain ?</value>
+  </data>
+  <data name="QuestionRepeatVulgarLanguageText" xml:space="preserve">
+    <value>Quel est la pénalité pour l'utilisation répétée d'un language vulgaire ou explicite ?</value>
+  </data>
+  <data name="QuestionSeekerFalseStartText" xml:space="preserve">
+    <value>Quel est la pénalité pour un faux-départ de l'attrapeur ?</value>
+  </data>
+  <data name="QuestionSendingBallOutOfBoundText" xml:space="preserve">
+    <value>Quel est la pénalité pour propulser une balle avec l'intention d'envoyer n'importe quel balle hors du terrain ?</value>
+  </data>
+  <data name="QuestionSideLineInterferenceText" xml:space="preserve">
+    <value>Quel est la pénalité pour un remplçant intérferant dans le match ?</value>
+  </data>
+  <data name="QuestionStandardContactPenaltyAnswer1" xml:space="preserve">
+    <value>Cette pénalité peut etre réduite</value>
+  </data>
+  <data name="QuestionStandardContactPenaltyAnswer2" xml:space="preserve">
+    <value>Cette pénalité peut etre augmentée</value>
+  </data>
+  <data name="QuestionStandardContactPenaltyExplanation" xml:space="preserve">
+    <value>La pénalité devrait etre réduite à un retour aux anneaux si le joueur fautif corrige immédiatement sa position, et augmentée vers un carton rouge si l'action était dangereuse.</value>
+  </data>
+  <data name="QuestionStandardContactPenaltyText" xml:space="preserve">
+    <value>Quel est la pénalité standard pour une violation d'une règle de contact ?</value>
+  </data>
+  <data name="QuestionStruckBeaterViolationText" xml:space="preserve">
+    <value>Quel est la pénalité pour une violation de la règle du batteur touché ?</value>
+  </data>
+  <data name="QuestionSubstitutionViolationAnswer1" xml:space="preserve">
+    <value>Recommencer la procédure</value>
+  </data>
+  <data name="QuestionSubstitutionViolationExplanation" xml:space="preserve">
+    <value>Une infraction de procédure de substitution est définie comme une substitution illégal n'ayant pas affecté le jeu</value>
+  </data>
+  <data name="QuestionSubstitutionViolationText" xml:space="preserve">
+    <value>Quel est la pénalité pour une infraction de la procédure de substitution ?</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer1" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer2" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer3" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer4" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="QuestionTeamCompositionText" xml:space="preserve">
+    <value>Quel sont les limites basse et haute du nombre de joueur dans une équipe ?</value>
+  </data>
+  <data name="QuestionTeamPenaltyAnswer1" xml:space="preserve">
+    <value>L'équipe doit jouer avec moins de joueur que nécessaire</value>
+  </data>
+  <data name="QuestionTeamPenaltyAnswer2" xml:space="preserve">
+    <value>L'équipe doit déclarer forfait</value>
+  </data>
+  <data name="QuestionTeamPenaltyExplanation" xml:space="preserve">
+    <value>Cela est également vrai si une équipe compte davantage de 6 joueurs, mais ne peut pas respecter la règle des 4 maximum</value>
+  </data>
+  <data name="QuestionTeamPenaltyText" xml:space="preserve">
+    <value>Que se passe-t-il lorsqu'une équipe ne possède plus le nombre nécessaire de joueur durant un match ?</value>
+  </data>
+  <data name="QuestionThirdBludgerInterferenceAnswer1" xml:space="preserve">
+    <value>Double turnover de cognard</value>
+  </data>
+  <data name="QuestionThirdBludgerInterferenceExplanation" xml:space="preserve">
+    <value>L'un des cognard à turnover devrait générallement etre le troisième bludger</value>
+  </data>
+  <data name="QuestionThirdBludgerInterferenceText" xml:space="preserve">
+    <value>Quel est la pénalité pour une interférence sur le troisième cognard ?</value>
+  </data>
+  <data name="QuestionTurnoverWhenNoElligibleAnswer1" xml:space="preserve">
+    <value>La balle est placée au pied des anneaux de l'équipe ayant subi la faute</value>
+  </data>
+  <data name="QuestionTurnoverWhenNoElligibleAnswer2" xml:space="preserve">
+    <value>La balle ne peut pas etre jouée tant que l'équipe ayant subi la faute ne la joue</value>
+  </data>
+  <data name="QuestionTurnoverWhenNoElligibleAnswer3" xml:space="preserve">
+    <value>Le turnover est annulé</value>
+  </data>
+  <data name="QuestionTurnoverWhenNoElligibleText" xml:space="preserve">
+    <value>Que se passe-t-il lorsqu'un turnover est déclaré, mais qu'aucun joueur élligible ne peut recevoir la balle ?</value>
+  </data>
+  <data name="QuestionUnsportsmanlikeConductText" xml:space="preserve">
+    <value>Quel est la pénalité pour un comportement anti-sportif ?</value>
+  </data>
+  <data name="QuestionUseBallInteractSnitchText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur utilisant une balle pour intéragir avec le porteur du vif ?</value>
+  </data>
+  <data name="QuestionUseIllegalEquipmentAnswer1" xml:space="preserve">
+    <value>Le joueur doit etre remplacé et modifier son équipement hors du jeu</value>
+  </data>
+  <data name="QuestionUseIllegalEquipmentText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur jouant avec un équipement illégal ?</value>
+  </data>
+  <data name="QuestionUseSpecificalIllegalEquipmentAnswer1" xml:space="preserve">
+    <value>Le joueur doit etre remplacé et modifier son équipement hors du jeu</value>
+  </data>
+  <data name="QuestionUseSpecificalIllegalEquipmentText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur utilisant un équipement spécifié illégal par la personne organisant le tournoi ?</value>
+  </data>
+  <data name="QuestionViolentContactText" xml:space="preserve">
+    <value>Quel est la pénalité pour un contact dangereux ?</value>
+  </data>
+  <data name="QuestionViolentKickText" xml:space="preserve">
+    <value>Quel est la pénalité pour un coup de pied violent ou abusif ?</value>
+  </data>
+  <data name="QuestionYellowDuringAdvantageAnswer1" xml:space="preserve">
+    <value>Le joueur doit aller dans la zone de pénalité</value>
+  </data>
+  <data name="QuestionYellowDuringAdvantageAnswer2" xml:space="preserve">
+    <value>Le joueur reste en jeu mais doit retourner aux anneaux</value>
+  </data>
+  <data name="QuestionYellowDuringAdvantageAnswer3" xml:space="preserve">
+    <value>Le joueur reste en jeu</value>
+  </data>
+  <data name="QuestionYellowDuringAdvantageExplanation" xml:space="preserve">
+    <value>Etant donné que la faute a eu lieu avant le but, celui-ci aurait laissé rentrer le joueur sur le terrain. Dans ce cas, le joueur n'est pas envoyé dans la zone de pénalité et peut continuer le jeu.</value>
+  </data>
+  <data name="QuestionYellowDuringAdvantageText" xml:space="preserve">
+    <value>Un joueur commet une faute de niveau carton bleu ou jaune, provoquant un avantage. Après le but, l'arbitre arrete le jeu et donne le carton au joueur.</value>
+  </data>
+  <data name="RedCard" xml:space="preserve">
+    <value>Carton rouge</value>
+  </data>
+  <data name="Turnover" xml:space="preserve">
+    <value>Turnover</value>
+  </data>
+  <data name="YellowCard" xml:space="preserve">
+    <value>Carton jaune</value>
+  </data>
 </root>

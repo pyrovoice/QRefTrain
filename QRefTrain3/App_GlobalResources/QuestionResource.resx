@@ -145,13 +145,10 @@
     <value>What is the penalty for changing position or location after brooms down, at the beginning of a match ?</value>
   </data>
   <data name="QuestionChargeTackleHelplessReceiverExplanation" xml:space="preserve">
-    <value>An helpless receiver is defined as a receiver who is in the process of catching a ball that is in the air.</value>
+    <value>A helpless receiver is defined as a receiver who is in the process of catching a ball that is in the air.</value>
   </data>
   <data name="QuestionChargeTackleHelplessReceiverText" xml:space="preserve">
     <value>What is a penalty a charge or tackle on a helpless receiver ?</value>
-  </data>
-  <data name="QuestionContactWhenKOExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionContactWhenKOText" xml:space="preserve">
     <value>What is the penalty for making an illegal contact while knocked out ?</value>
@@ -163,19 +160,13 @@
     <value>The team may change any number of player, as ling as this result in a legal set of players</value>
   </data>
   <data name="QuestionCorrectingIllegalSetPlayerAnswer3" xml:space="preserve">
-    <value>The team cannot hange players immediatly, but must sub players as soon as the game restart</value>
+    <value>The team cannot change players immediatly, but must sub players as soon as the game restart</value>
   </data>
   <data name="QuestionCorrectingIllegalSetPlayerText" xml:space="preserve">
     <value>What of the following is true when correcting an illegal set of player ?</value>
   </data>
-  <data name="QuestionDangerousKickExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionDangerousKickText" xml:space="preserve">
     <value>What is the penalty for a dangerous kick or a kick to an opponent ?</value>
-  </data>
-  <data name="QuestionDeadQuafflePlayExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionDeadQuafflePlayText" xml:space="preserve">
     <value>What is the penalty for illegaly acting on a dead quaffle ?</value>
@@ -187,13 +178,10 @@
     <value>The catch can be just after a goal and before the referee confirmed the goal as good</value>
   </data>
   <data name="QuestionDecliningCatchAnswer3" xml:space="preserve">
-    <value>The catch occured after a goal event, and before the referee adjust his call for this event)</value>
+    <value>The catch occured after a goal event (good or otherwise), and before the referee adjust his call for this event</value>
   </data>
   <data name="QuestionDecliningCatchAnswer4" xml:space="preserve">
     <value>The change in score must change whether the catch would end the period in a tie</value>
-  </data>
-  <data name="QuestionDecliningCatchExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionDecliningCatchText" xml:space="preserve">
     <value>What of the following are true for a team that wants to decline a snitch catch ?</value>
@@ -258,20 +246,11 @@
   <data name="QuestionDelayOfGameText" xml:space="preserve">
     <value>What is the penalty for a delay of game ?</value>
   </data>
-  <data name="QuestionDislodgeHoopIntentionnalyExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionDislodgeHoopIntentionnalyText" xml:space="preserve">
     <value>What is the penalty for intentionnaly dislodging a hoop ?</value>
   </data>
-  <data name="QuestionDislodgeHoopRecklessExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionDislodgeHoopRecklessText" xml:space="preserve">
     <value>What is the penalty for recklessly dislodging a hoop ?</value>
-  </data>
-  <data name="QuestionDislodgeHoopRepeatedlyExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionDislodgeHoopRepeatedlyText" xml:space="preserve">
     <value>What is the penalty for unintentionally dislodging hoops repeatedly ?</value>
@@ -315,14 +294,8 @@
   <data name="QuestionFailSendSeekerPlayerText" xml:space="preserve">
     <value>What is the penalty for intentionnaly failing to send a seeker into the game ?</value>
   </data>
-  <data name="QuestionFakeBeatExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionFakeBeatText" xml:space="preserve">
     <value>What is the penalty for illegally contacting an opponent with a held bludger</value>
-  </data>
-  <data name="QuestionFalseStartExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionFalseStartText" xml:space="preserve">
     <value>What is the penalty for a false start ?</value>
@@ -339,9 +312,6 @@
   <data name="QuestionGoalLineMetersAnswer3" xml:space="preserve">
     <value>18 meters</value>
   </data>
-  <data name="QuestionGoalLineMetersExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionGoalLineMetersText" xml:space="preserve">
     <value>At which distance is the goal line from the midfield line ?</value>
   </data>
@@ -354,23 +324,14 @@
   <data name="QuestionGoalLineYardAnswer3" xml:space="preserve">
     <value>18 yards</value>
   </data>
-  <data name="QuestionGoalLineYardExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionGoalLineYardText" xml:space="preserve">
     <value>At which distance is the goal line from the midfield line ?</value>
   </data>
   <data name="QuestionGoaltendingAnswer1" xml:space="preserve">
     <value>The score is counter as good for the fouled team</value>
   </data>
-  <data name="QuestionGoaltendingExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionGoaltendingText" xml:space="preserve">
     <value>What is the penalty for goaltending ?</value>
-  </data>
-  <data name="QuestionIgnoreKnockoutAnswer" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionIgnoreKnockoutText" xml:space="preserve">
     <value>What is the penalty for willfully ignoring being knocked out ?</value>
@@ -383,9 +344,6 @@
   </data>
   <data name="QuestionIgnoringBoundaryCallText" xml:space="preserve">
     <value>What is the penalty for intentionally or blatantly ignoring a “boundary” call ?</value>
-  </data>
-  <data name="QuestionIllegalBlockBatBludgerExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionIllegalBlockBatBludgerText" xml:space="preserve">
     <value>What is the penalty for an illegal bludger bat or block ?</value>
@@ -411,17 +369,11 @@
   <data name="QuestionIllegalHurdlingText" xml:space="preserve">
     <value>What is the penalty for illegaly hurdling or attempting to hurdle ?</value>
   </data>
-  <data name="QuestionIllegalImmunityClaimExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionIllegalImmunityClaimText" xml:space="preserve">
     <value>What is the penalty for an illegal immunity claim ?</value>
   </data>
   <data name="QuestionIllegalInterpositionText" xml:space="preserve">
     <value>What is the penalty for an illegal interposition ?</value>
-  </data>
-  <data name="QuestionIllegalResetOpponentHoopExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionIllegalResetOpponentHoopText" xml:space="preserve">
     <value>What is the penalty for illegaly resetting an opponent's hoop ?</value>
@@ -459,29 +411,20 @@
   <data name="QuestionIllegalSubstitutionText" xml:space="preserve">
     <value>What is the penalty for an illegal substitution ?</value>
   </data>
-  <data name="QuestionIllegalSwatBludgerExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionIllegalSwatBludgerText" xml:space="preserve">
     <value>What is the penalty for an illegal bludger swat ?</value>
-  </data>
-  <data name="QuestionIllegalTimeoutRequestExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionIllegalTimeoutRequestText" xml:space="preserve">
     <value>What is the penalty for an illegal timeout request ?</value>
   </data>
   <data name="QuestionIllegalUseOfBallText" xml:space="preserve">
-    <value>What is the penalty for an illegal use of one's position ?</value>
+    <value>What is the penalty for an illegal use of a ball of one's position ?</value>
   </data>
   <data name="QuestionImmunityViolationExplanation" xml:space="preserve">
-    <value>An immunity violation is defined as a player that legally claimed immunity, then did not correctly retrieved the thir bludger</value>
+    <value>An immunity violation is defined as a player that legally claimed immunity, then did not correctly retrieved the third bludger</value>
   </data>
   <data name="QuestionImmunityViolationText" xml:space="preserve">
     <value>What is the penalty for an immunity violation ?</value>
-  </data>
-  <data name="QuestionImproperImmunityClaimExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionImproperImmunityClaimText" xml:space="preserve">
     <value>What is the penalty for an improper immunity claim ?</value>
@@ -495,20 +438,11 @@
   <data name="QuestionIntentionalFailKoProcedureAnswer1" xml:space="preserve">
     <value>Repeat procedure</value>
   </data>
-  <data name="QuestionIntentionalFailKoProcedureExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionIntentionalFailKoProcedureText" xml:space="preserve">
     <value>What is the penalty for intentionally or repeatedly violating the knockout procedure ?</value>
   </data>
-  <data name="QuestionIntentionalMotionViolationExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionIntentionalMotionViolationText" xml:space="preserve">
     <value>What is the penalty for an intentionnal natural motion violation ?</value>
-  </data>
-  <data name="QuestionInteractingWhenKOExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionInteractingWhenKOText" xml:space="preserve">
     <value>What is the penalty for illegally interacting with play while knocked out ?</value>
@@ -528,9 +462,6 @@
   <data name="QuestionKeeperLineMetersAnswer3" xml:space="preserve">
     <value>At 12 meters</value>
   </data>
-  <data name="QuestionKeeperLineMetersExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionKeeperLineMetersText" xml:space="preserve">
     <value>At which distance is the keeper line from the midfield line ?</value>
   </data>
@@ -543,26 +474,23 @@
   <data name="QuestionKeeperLineYardAnswer3" xml:space="preserve">
     <value>At 12 yards</value>
   </data>
-  <data name="QuestionKeeperLineYardExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionKeeperLineYardText" xml:space="preserve">
     <value>At which distance is the keeper line from the midfield line ?</value>
   </data>
   <data name="QuestionKeeperPowersAnswer1" xml:space="preserve">
-    <value>He can block a bludger</value>
+    <value>That player can block a bludger</value>
   </data>
   <data name="QuestionKeeperPowersAnswer2" xml:space="preserve">
-    <value>He can kick the ball any number of time</value>
+    <value>That player can kick the ball any number of time</value>
   </data>
   <data name="QuestionKeeperPowersAnswer3" xml:space="preserve">
-    <value>He is immune to KO by bludgers</value>
+    <value>That player is immune to KO by bludgers</value>
   </data>
   <data name="QuestionKeeperPowersAnswer4" xml:space="preserve">
-    <value>He gets the quaffle back if it goes out of bound after a save</value>
+    <value>That player gets the quaffle back if it goes out of bound after a save</value>
   </data>
   <data name="QuestionKeeperPowersAnswer5" xml:space="preserve">
-    <value>He cannot be contacted, interacted with, or stolen the quaffle while he is the sole possessor of it</value>
+    <value>That player cannot be contacted, interacted with, or stolen the quaffle while he is the sole possessor of it</value>
   </data>
   <data name="QuestionKeeperPowersText" xml:space="preserve">
     <value>What are the keeper-specific powers ?</value>
@@ -584,9 +512,6 @@
   </data>
   <data name="QuestionLinesExternMetersAnswer6" xml:space="preserve">
     <value>Sidelines are 66 meters</value>
-  </data>
-  <data name="QuestionLinesExternMetersExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionLinesExternMetersText" xml:space="preserve">
     <value>What are the length of the extern field lines ?</value>
@@ -615,20 +540,11 @@
   <data name="QuestionMinorAvoidQuaffleText" xml:space="preserve">
     <value>What is the penalty for a minor failure to avoid a propelled quaffle ?</value>
   </data>
-  <data name="QuestionMinorIllegalImmunityClaimExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionMinorIllegalImmunityClaimText" xml:space="preserve">
     <value>What is the penalty for a minor illegal immunity claim ?</value>
   </data>
-  <data name="QuestionMinorIllegalInterpositionExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionMinorIllegalInterpositionText" xml:space="preserve">
     <value>What is the penalty for a minor illegal interposition ?</value>
-  </data>
-  <data name="QuestionMoveHoopIntentionnalyExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionMoveHoopIntentionnalyText" xml:space="preserve">
     <value>What is the penalty for moving a hoop intentionnaly ?</value>
@@ -640,22 +556,13 @@
     <value>Both players are released</value>
   </data>
   <data name="QuestionMultiplePlayersInBoxWhenScoreText" xml:space="preserve">
-    <value>Two red players are in the penalty box serving a yellow penalty when their team get scored against :</value>
-  </data>
-  <data name="QuestionNaturalMotionViolationExplanation" xml:space="preserve">
-    <value />
+    <value>Two players of the same team are in the penalty box serving a yellow penalty when their team get scored against :</value>
   </data>
   <data name="QuestionNaturalMotionViolationText" xml:space="preserve">
     <value>What is the penalty for an unintentionnal natural motion violation ?</value>
   </data>
-  <data name="QuestionPlayBrokenBroomExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionPlayBrokenBroomText" xml:space="preserve">
     <value>What is the penalty for knowingly playing with a broken broom ?</value>
-  </data>
-  <data name="QuestionPlayIllegalEquipmentExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionPlayIllegalEquipmentText" xml:space="preserve">
     <value>What is the penalty for entering play without wearing mandatory equipment ?</value>
@@ -669,17 +576,11 @@
   <data name="QuestionPreventOutOfBoundFromEnteringText" xml:space="preserve">
     <value>What is the penalty for illegally physically preventing the inbounding player from re-entering the pitch ?</value>
   </data>
-  <data name="QuestionRemoveIllegalEquipmentExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionRemoveIllegalEquipmentText" xml:space="preserve">
     <value>What is the penalty for removing a mandatory equipment while in play ?</value>
   </data>
   <data name="QuestionRepeatVulgarLanguageText" xml:space="preserve">
     <value>What is the penalty for the repeated use of explicit or vulgar language ?</value>
-  </data>
-  <data name="QuestionSeekerFalseStartExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionSeekerFalseStartText" xml:space="preserve">
     <value>What is the penalty for a seeker false start ?</value>
@@ -701,9 +602,6 @@
   </data>
   <data name="QuestionStandardContactPenaltyText" xml:space="preserve">
     <value>What is the penalty for a standard contact violation ?</value>
-  </data>
-  <data name="QuestionStruckBeaterViolationExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionStruckBeaterViolationText" xml:space="preserve">
     <value>What is the penalty for a struck beater violation</value>
@@ -732,9 +630,6 @@
   <data name="QuestionThirdBludgerInterferenceAnswer1" xml:space="preserve">
     <value>Double bludger turnover</value>
   </data>
-  <data name="QuestionThirdBludgerInterferenceExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionThirdBludgerInterferenceText" xml:space="preserve">
     <value>What is the penalty for a third bludger interference ?</value>
   </data>
@@ -759,29 +654,17 @@
   <data name="QuestionUseIllegalEquipmentAnswer1" xml:space="preserve">
     <value>The player must sub and correct his equipment before entering play</value>
   </data>
-  <data name="QuestionUseIllegalEquipmentExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionUseIllegalEquipmentText" xml:space="preserve">
     <value>What is the penalty for playing with an illegal equipment ?</value>
   </data>
   <data name="QuestionUseSpecificalIllegalEquipmentAnswer1" xml:space="preserve">
     <value>The player must sub and correct his equipment before entering play</value>
   </data>
-  <data name="QuestionUseSpecificalIllegalEquipmentExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionUseSpecificalIllegalEquipmentText" xml:space="preserve">
     <value>What is the penalty for using an equipment that was specified as illegal by the tournament organisator ?</value>
   </data>
-  <data name="QuestionViolentContactExplanation" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuestionViolentContactText" xml:space="preserve">
     <value>What is the penalty for a reckless contact ?</value>
-  </data>
-  <data name="QuestionViolentKickExplanation" xml:space="preserve">
-    <value />
   </data>
   <data name="QuestionViolentKickText" xml:space="preserve">
     <value>What is the penalty for a violent or egregious kick ?</value>
@@ -796,10 +679,10 @@
     <value>The player keeps playing</value>
   </data>
   <data name="QuestionYellowDuringAdvantageExplanation" xml:space="preserve">
-    <value>Since the foul happened before the score, the score would have released the player. In this case, the player is not sent to the penalty box and keeps playing.</value>
+    <value>Since the foul happened before the score, it would have released the player. In this case, the player is not sent to the penalty box and keeps playing.</value>
   </data>
   <data name="QuestionYellowDuringAdvantageText" xml:space="preserve">
-    <value>A player do a blue or yellow card offense during an advantage.After the fouled team scores, the referee gives the card to the player.</value>
+    <value>A player do a blue or yellow card offense causing an advantage. After the fouled team scores, the referee gives the card to the player.</value>
   </data>
   <data name="RedCard" xml:space="preserve">
     <value>Red card</value>
@@ -809,5 +692,23 @@
   </data>
   <data name="YellowCard" xml:space="preserve">
     <value>Yellow card</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer1" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer2" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer3" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="QuestionTeamCompositionAnswer4" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="QuestionTeamCompositionText" xml:space="preserve">
+    <value>What is the lower and upper limit of the number of player in a team ?</value>
+  </data>
+  <data name="QuestionThirdBludgerInterferenceExplanation" xml:space="preserve">
+    <value>One of the turned over bludger should usually be the one that was on the ground.</value>
   </data>
 </root>

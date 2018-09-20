@@ -142,7 +142,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An helpless receiver is defined as a receiver who is in the process of catching a ball that is in the air..
+        ///   Looks up a localized string similar to A helpless receiver is defined as a receiver who is in the process of catching a ball that is in the air..
         /// </summary>
         public static string QuestionChargeTackleHelplessReceiverExplanation {
             get {
@@ -156,15 +156,6 @@ namespace QRefResources {
         public static string QuestionChargeTackleHelplessReceiverText {
             get {
                 return ResourceManager.GetString("QuestionChargeTackleHelplessReceiverText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionContactWhenKOExplanation {
-            get {
-                return ResourceManager.GetString("QuestionContactWhenKOExplanation", resourceCulture);
             }
         }
         
@@ -196,7 +187,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The team cannot hange players immediatly, but must sub players as soon as the game restart.
+        ///   Looks up a localized string similar to The team cannot change players immediatly, but must sub players as soon as the game restart.
         /// </summary>
         public static string QuestionCorrectingIllegalSetPlayerAnswer3 {
             get {
@@ -214,29 +205,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionDangerousKickExplanation {
-            get {
-                return ResourceManager.GetString("QuestionDangerousKickExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for a dangerous kick or a kick to an opponent ?.
         /// </summary>
         public static string QuestionDangerousKickText {
             get {
                 return ResourceManager.GetString("QuestionDangerousKickText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionDeadQuafflePlayExplanation {
-            get {
-                return ResourceManager.GetString("QuestionDeadQuafflePlayExplanation", resourceCulture);
             }
         }
         
@@ -268,7 +241,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The catch occured after a goal event, and before the referee adjust his call for this event).
+        ///   Looks up a localized string similar to The catch occured after a goal event (good or otherwise), and before the referee adjust his call for this event.
         /// </summary>
         public static string QuestionDecliningCatchAnswer3 {
             get {
@@ -282,15 +255,6 @@ namespace QRefResources {
         public static string QuestionDecliningCatchAnswer4 {
             get {
                 return ResourceManager.GetString("QuestionDecliningCatchAnswer4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionDecliningCatchExplanation {
-            get {
-                return ResourceManager.GetString("QuestionDecliningCatchExplanation", resourceCulture);
             }
         }
         
@@ -484,15 +448,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionDislodgeHoopIntentionnalyExplanation {
-            get {
-                return ResourceManager.GetString("QuestionDislodgeHoopIntentionnalyExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for intentionnaly dislodging a hoop ?.
         /// </summary>
         public static string QuestionDislodgeHoopIntentionnalyText {
@@ -502,29 +457,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionDislodgeHoopRecklessExplanation {
-            get {
-                return ResourceManager.GetString("QuestionDislodgeHoopRecklessExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for recklessly dislodging a hoop ?.
         /// </summary>
         public static string QuestionDislodgeHoopRecklessText {
             get {
                 return ResourceManager.GetString("QuestionDislodgeHoopRecklessText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionDislodgeHoopRepeatedlyExplanation {
-            get {
-                return ResourceManager.GetString("QuestionDislodgeHoopRepeatedlyExplanation", resourceCulture);
             }
         }
         
@@ -655,29 +592,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionFakeBeatExplanation {
-            get {
-                return ResourceManager.GetString("QuestionFakeBeatExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for illegally contacting an opponent with a held bludger.
         /// </summary>
         public static string QuestionFakeBeatText {
             get {
                 return ResourceManager.GetString("QuestionFakeBeatText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionFalseStartExplanation {
-            get {
-                return ResourceManager.GetString("QuestionFalseStartExplanation", resourceCulture);
             }
         }
         
@@ -727,15 +646,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionGoalLineMetersExplanation {
-            get {
-                return ResourceManager.GetString("QuestionGoalLineMetersExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to At which distance is the goal line from the midfield line ?.
         /// </summary>
         public static string QuestionGoalLineMetersText {
@@ -772,15 +682,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionGoalLineYardExplanation {
-            get {
-                return ResourceManager.GetString("QuestionGoalLineYardExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to At which distance is the goal line from the midfield line ?.
         /// </summary>
         public static string QuestionGoalLineYardText {
@@ -799,29 +700,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionGoaltendingExplanation {
-            get {
-                return ResourceManager.GetString("QuestionGoaltendingExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for goaltending ?.
         /// </summary>
         public static string QuestionGoaltendingText {
             get {
                 return ResourceManager.GetString("QuestionGoaltendingText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIgnoreKnockoutAnswer {
-            get {
-                return ResourceManager.GetString("QuestionIgnoreKnockoutAnswer", resourceCulture);
             }
         }
         
@@ -858,15 +741,6 @@ namespace QRefResources {
         public static string QuestionIgnoringBoundaryCallText {
             get {
                 return ResourceManager.GetString("QuestionIgnoringBoundaryCallText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIllegalBlockBatBludgerExplanation {
-            get {
-                return ResourceManager.GetString("QuestionIllegalBlockBatBludgerExplanation", resourceCulture);
             }
         }
         
@@ -943,15 +817,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIllegalImmunityClaimExplanation {
-            get {
-                return ResourceManager.GetString("QuestionIllegalImmunityClaimExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for an illegal immunity claim ?.
         /// </summary>
         public static string QuestionIllegalImmunityClaimText {
@@ -966,15 +831,6 @@ namespace QRefResources {
         public static string QuestionIllegalInterpositionText {
             get {
                 return ResourceManager.GetString("QuestionIllegalInterpositionText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIllegalResetOpponentHoopExplanation {
-            get {
-                return ResourceManager.GetString("QuestionIllegalResetOpponentHoopExplanation", resourceCulture);
             }
         }
         
@@ -1087,29 +943,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIllegalSwatBludgerExplanation {
-            get {
-                return ResourceManager.GetString("QuestionIllegalSwatBludgerExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for an illegal bludger swat ?.
         /// </summary>
         public static string QuestionIllegalSwatBludgerText {
             get {
                 return ResourceManager.GetString("QuestionIllegalSwatBludgerText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIllegalTimeoutRequestExplanation {
-            get {
-                return ResourceManager.GetString("QuestionIllegalTimeoutRequestExplanation", resourceCulture);
             }
         }
         
@@ -1123,7 +961,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What is the penalty for an illegal use of one&apos;s position ?.
+        ///   Looks up a localized string similar to What is the penalty for an illegal use of a ball of one&apos;s position ?.
         /// </summary>
         public static string QuestionIllegalUseOfBallText {
             get {
@@ -1132,7 +970,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An immunity violation is defined as a player that legally claimed immunity, then did not correctly retrieved the thir bludger.
+        ///   Looks up a localized string similar to An immunity violation is defined as a player that legally claimed immunity, then did not correctly retrieved the third bludger.
         /// </summary>
         public static string QuestionImmunityViolationExplanation {
             get {
@@ -1146,15 +984,6 @@ namespace QRefResources {
         public static string QuestionImmunityViolationText {
             get {
                 return ResourceManager.GetString("QuestionImmunityViolationText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionImproperImmunityClaimExplanation {
-            get {
-                return ResourceManager.GetString("QuestionImproperImmunityClaimExplanation", resourceCulture);
             }
         }
         
@@ -1195,15 +1024,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIntentionalFailKoProcedureExplanation {
-            get {
-                return ResourceManager.GetString("QuestionIntentionalFailKoProcedureExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for intentionally or repeatedly violating the knockout procedure ?.
         /// </summary>
         public static string QuestionIntentionalFailKoProcedureText {
@@ -1213,29 +1033,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionIntentionalMotionViolationExplanation {
-            get {
-                return ResourceManager.GetString("QuestionIntentionalMotionViolationExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for an intentionnal natural motion violation ?.
         /// </summary>
         public static string QuestionIntentionalMotionViolationText {
             get {
                 return ResourceManager.GetString("QuestionIntentionalMotionViolationText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionInteractingWhenKOExplanation {
-            get {
-                return ResourceManager.GetString("QuestionInteractingWhenKOExplanation", resourceCulture);
             }
         }
         
@@ -1294,15 +1096,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionKeeperLineMetersExplanation {
-            get {
-                return ResourceManager.GetString("QuestionKeeperLineMetersExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to At which distance is the keeper line from the midfield line ?.
         /// </summary>
         public static string QuestionKeeperLineMetersText {
@@ -1339,15 +1132,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionKeeperLineYardExplanation {
-            get {
-                return ResourceManager.GetString("QuestionKeeperLineYardExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to At which distance is the keeper line from the midfield line ?.
         /// </summary>
         public static string QuestionKeeperLineYardText {
@@ -1357,7 +1141,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to He can block a bludger.
+        ///   Looks up a localized string similar to That player can block a bludger.
         /// </summary>
         public static string QuestionKeeperPowersAnswer1 {
             get {
@@ -1366,7 +1150,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to He can kick the ball any number of time.
+        ///   Looks up a localized string similar to That player can kick the ball any number of time.
         /// </summary>
         public static string QuestionKeeperPowersAnswer2 {
             get {
@@ -1375,7 +1159,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to He is immune to KO by bludgers.
+        ///   Looks up a localized string similar to That player is immune to KO by bludgers.
         /// </summary>
         public static string QuestionKeeperPowersAnswer3 {
             get {
@@ -1384,7 +1168,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to He gets the quaffle back if it goes out of bound after a save.
+        ///   Looks up a localized string similar to That player gets the quaffle back if it goes out of bound after a save.
         /// </summary>
         public static string QuestionKeeperPowersAnswer4 {
             get {
@@ -1393,7 +1177,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to He cannot be contacted, interacted with, or stolen the quaffle while he is the sole possessor of it.
+        ///   Looks up a localized string similar to That player cannot be contacted, interacted with, or stolen the quaffle while he is the sole possessor of it.
         /// </summary>
         public static string QuestionKeeperPowersAnswer5 {
             get {
@@ -1461,15 +1245,6 @@ namespace QRefResources {
         public static string QuestionLinesExternMetersAnswer6 {
             get {
                 return ResourceManager.GetString("QuestionLinesExternMetersAnswer6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionLinesExternMetersExplanation {
-            get {
-                return ResourceManager.GetString("QuestionLinesExternMetersExplanation", resourceCulture);
             }
         }
         
@@ -1555,15 +1330,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionMinorIllegalImmunityClaimExplanation {
-            get {
-                return ResourceManager.GetString("QuestionMinorIllegalImmunityClaimExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for a minor illegal immunity claim ?.
         /// </summary>
         public static string QuestionMinorIllegalImmunityClaimText {
@@ -1573,29 +1339,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionMinorIllegalInterpositionExplanation {
-            get {
-                return ResourceManager.GetString("QuestionMinorIllegalInterpositionExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for a minor illegal interposition ?.
         /// </summary>
         public static string QuestionMinorIllegalInterpositionText {
             get {
                 return ResourceManager.GetString("QuestionMinorIllegalInterpositionText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionMoveHoopIntentionnalyExplanation {
-            get {
-                return ResourceManager.GetString("QuestionMoveHoopIntentionnalyExplanation", resourceCulture);
             }
         }
         
@@ -1627,20 +1375,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Two red players are in the penalty box serving a yellow penalty when their team get scored against :.
+        ///   Looks up a localized string similar to Two players of the same team are in the penalty box serving a yellow penalty when their team get scored against :.
         /// </summary>
         public static string QuestionMultiplePlayersInBoxWhenScoreText {
             get {
                 return ResourceManager.GetString("QuestionMultiplePlayersInBoxWhenScoreText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionNaturalMotionViolationExplanation {
-            get {
-                return ResourceManager.GetString("QuestionNaturalMotionViolationExplanation", resourceCulture);
             }
         }
         
@@ -1654,29 +1393,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionPlayBrokenBroomExplanation {
-            get {
-                return ResourceManager.GetString("QuestionPlayBrokenBroomExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for knowingly playing with a broken broom ?.
         /// </summary>
         public static string QuestionPlayBrokenBroomText {
             get {
                 return ResourceManager.GetString("QuestionPlayBrokenBroomText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionPlayIllegalEquipmentExplanation {
-            get {
-                return ResourceManager.GetString("QuestionPlayIllegalEquipmentExplanation", resourceCulture);
             }
         }
         
@@ -1717,15 +1438,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionRemoveIllegalEquipmentExplanation {
-            get {
-                return ResourceManager.GetString("QuestionRemoveIllegalEquipmentExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for removing a mandatory equipment while in play ?.
         /// </summary>
         public static string QuestionRemoveIllegalEquipmentText {
@@ -1740,15 +1452,6 @@ namespace QRefResources {
         public static string QuestionRepeatVulgarLanguageText {
             get {
                 return ResourceManager.GetString("QuestionRepeatVulgarLanguageText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionSeekerFalseStartExplanation {
-            get {
-                return ResourceManager.GetString("QuestionSeekerFalseStartExplanation", resourceCulture);
             }
         }
         
@@ -1816,15 +1519,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionStruckBeaterViolationExplanation {
-            get {
-                return ResourceManager.GetString("QuestionStruckBeaterViolationExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for a struck beater violation.
         /// </summary>
         public static string QuestionStruckBeaterViolationText {
@@ -1857,6 +1551,51 @@ namespace QRefResources {
         public static string QuestionSubstitutionViolationText {
             get {
                 return ResourceManager.GetString("QuestionSubstitutionViolationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6.
+        /// </summary>
+        public static string QuestionTeamCompositionAnswer1 {
+            get {
+                return ResourceManager.GetString("QuestionTeamCompositionAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7.
+        /// </summary>
+        public static string QuestionTeamCompositionAnswer2 {
+            get {
+                return ResourceManager.GetString("QuestionTeamCompositionAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 21.
+        /// </summary>
+        public static string QuestionTeamCompositionAnswer3 {
+            get {
+                return ResourceManager.GetString("QuestionTeamCompositionAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 22.
+        /// </summary>
+        public static string QuestionTeamCompositionAnswer4 {
+            get {
+                return ResourceManager.GetString("QuestionTeamCompositionAnswer4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the lower and upper limit of the number of player in a team ?.
+        /// </summary>
+        public static string QuestionTeamCompositionText {
+            get {
+                return ResourceManager.GetString("QuestionTeamCompositionText", resourceCulture);
             }
         }
         
@@ -1906,7 +1645,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to One of the turned over bludger should usually be the one that was on the ground..
         /// </summary>
         public static string QuestionThirdBludgerInterferenceExplanation {
             get {
@@ -1987,15 +1726,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionUseIllegalEquipmentExplanation {
-            get {
-                return ResourceManager.GetString("QuestionUseIllegalEquipmentExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for playing with an illegal equipment ?.
         /// </summary>
         public static string QuestionUseIllegalEquipmentText {
@@ -2014,15 +1744,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionUseSpecificalIllegalEquipmentExplanation {
-            get {
-                return ResourceManager.GetString("QuestionUseSpecificalIllegalEquipmentExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for using an equipment that was specified as illegal by the tournament organisator ?.
         /// </summary>
         public static string QuestionUseSpecificalIllegalEquipmentText {
@@ -2032,29 +1753,11 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionViolentContactExplanation {
-            get {
-                return ResourceManager.GetString("QuestionViolentContactExplanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for a reckless contact ?.
         /// </summary>
         public static string QuestionViolentContactText {
             get {
                 return ResourceManager.GetString("QuestionViolentContactText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string QuestionViolentKickExplanation {
-            get {
-                return ResourceManager.GetString("QuestionViolentKickExplanation", resourceCulture);
             }
         }
         
@@ -2095,7 +1798,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Since the foul happened before the score, the score would have released the player. In this case, the player is not sent to the penalty box and keeps playing..
+        ///   Looks up a localized string similar to Since the foul happened before the score, it would have released the player. In this case, the player is not sent to the penalty box and keeps playing..
         /// </summary>
         public static string QuestionYellowDuringAdvantageExplanation {
             get {
@@ -2104,7 +1807,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A player do a blue or yellow card offense during an advantage.After the fouled team scores, the referee gives the card to the player..
+        ///   Looks up a localized string similar to A player do a blue or yellow card offense causing an advantage. After the fouled team scores, the referee gives the card to the player..
         /// </summary>
         public static string QuestionYellowDuringAdvantageText {
             get {

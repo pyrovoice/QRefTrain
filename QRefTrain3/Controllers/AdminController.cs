@@ -32,6 +32,25 @@ namespace QRefTrain3.Controllers
             return View();
         }
 
+        public ActionResult Export()
+        {
+            string test = "";
+            string delimiter = ";";
+            foreach(Question q in Dal.Instance.getAllQuestions())
+            {
+                test += q.QuestionText + delimiter + q.AnswerExplanation + delimiter + q.Subject + delimiter + q.VideoURL + delimiter + q.NationalGoverningBodies + delimiter;
+                foreach(Answer a in q.Answers)
+                {
+                    test += a.Answertext + delimiter + a.IsTrue + delimiter;
+                }
+                test += "\n";
+            }
+
+            System.IO.File.WriteAllText("C:\\Users\\maxim\\Desktop\\data.txt", test);
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult AddQuestion(string BaseName, bool isNoPenalty, bool isTurnOver, bool isBlueCard, bool isYellowCard, bool isRedCard, bool isBackToHoops,
             bool isNoPenaltyTrue, bool isTurnOverTrue, bool isBlueCardTrue, bool isYellowCardTrue, bool isRedCardTrue, bool isBackToHoopsTrue,
