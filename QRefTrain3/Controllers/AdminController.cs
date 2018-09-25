@@ -51,6 +51,16 @@ namespace QRefTrain3.Controllers
             return View();
         }
 
+        public ActionResult QuestionListing()
+        {
+            var questions = Dal.Instance.getAllQuestions();
+            foreach (Question q in questions)
+            {
+                q.Answers.Sort((val1, val2) => val1.CompareTo(val2));
+            }
+            return View("QuestionsListing", questions);
+        }
+
         [HttpPost]
         public ActionResult AddQuestion(string BaseName, bool isNoPenalty, bool isTurnOver, bool isBlueCard, bool isYellowCard, bool isRedCard, bool isBackToHoops,
             bool isNoPenaltyTrue, bool isTurnOverTrue, bool isBlueCardTrue, bool isYellowCardTrue, bool isRedCardTrue, bool isBackToHoopsTrue,

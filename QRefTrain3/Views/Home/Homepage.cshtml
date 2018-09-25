@@ -4,22 +4,26 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@Resources.Resource.Homepage</title>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-    <h5 class="bottomMargin">@Resources.Resource.Homepage_ParameterPrompt</h5>
-    <div class="padding-top">
-        @using (Html.BeginForm("MovetoTrainingQuiz", "Home"))
+    <h5 class="bottomMargin">@Resources.Resource.Homepage_ParameterPrompt <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="@Resources.Resource.Homepage_Helper"></i></h5>
+    @using (Html.BeginForm("MovetoQuiz", "Home"))
+    {
+        <!-- If the user already has an exam test, offer a resume test button-->
+        if (Model.Value)
         {
-            <div class="btn-group-toggle" data-toggle="buttons">
-                @foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
-                {
-                    <label class="btn btn-secondary shortLabel">
-                        <input type="checkbox" name="Subjects" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString())
-                    </label>
-                }
-            </div>
-
+            using (Html.BeginForm("ResumeTestQuiz", "Home"))
+            {
+                <input type="submit" value="@Resources.Resource.Homepage_ResumeQuiz" class="btn btn-primary" />
+                <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
+            }
+        }
+        else
+        {
+            <!-- NGB selection -->
             List<SelectListItem> ngbs = new List<SelectListItem>();
             foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
             {
@@ -28,55 +32,41 @@
                     ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
                 }
             }
+
             if (Request.Cookies["RequestedNGB"] != null && Request.Cookies["RequestedNGB"].Value != "")
             {
                 ngbs.FirstOrDefault(q => q.Value == Request.Cookies["RequestedNGB"].Value).Selected = true;
             }
-            <div class="btn-group-toggle bottomMargin" data-toggle="buttons">
-                <div class="shortLabel bottomMargin">
-                    @Html.DropDownList("NGB", ngbs, new { @id = "NGBs" })
-                </div>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="NGB_Only" value="NGB_Only" />@Resources.Resource.Homepage_NGBSpecificPrompt
-                </label>
+            <div class="shortLabel bottomMargin">
+                @Html.DropDownList("NGB", ngbs, new { @id = "NGBs" })
             </div>
-            <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
-            <span class="field-validation-error">@ViewBag.ErrorQuiztraining</span>
-        }
-    </div>
-    <hr />
-    <div>
-        @if (Model.Value)
-        {
-            using (Html.BeginForm("ResumeTestQuiz", "Home"))
-            {
-                <input type="submit" value="@Resources.Resource.Homepage_ResumeQuiz" class="btn btn-primary" />
-            }
-        }
-        else
-        {
-            <h5 class="bottomMargin">@Resources.Resource.Homepage_TestPrompt</h5>
-            using (Html.BeginForm("MovetoTestQuiz", "Home"))
-            {
-                List<SelectListItem> ngbs = new List<SelectListItem>();
-                foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
-                {
-                    if (item != QRefTrain3.Models.NationalGoverningBody.All)
+
+            <div class="padding-top">
+                <!-- Fields selection buttons -->
+                <div class="btn-group-toggle bottomMargin" data-toggle="buttons">
+                    @foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
                     {
-                        ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                        <label class="btn btn-secondary shortLabel">
+                            <input type="checkbox" name="Subjects" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString())
+                        </label>
                     }
-                }
-                if (Request.Cookies["RequestedNGB"] != null && Request.Cookies["RequestedNGB"].Value != "")
-                {
-                    ngbs.FirstOrDefault(q => q.Value == Request.Cookies["RequestedNGB"].Value).Selected = true;
-                }
-                <div class="shortLabel bottomMargin">
-                    @Html.DropDownList("NGB", ngbs, new { @id = "NGBs" })
                 </div>
+
+                <!-- NGB Only button -->
+                <div class="btn-group-toggle bottomMargin" data-toggle="buttons">
+                    <label class="btn btn-secondary">
+                        <input type="checkbox" name="NGB_Only" value="NGB_Only" />@Resources.Resource.Homepage_NGBSpecificPrompt
+                    </label>
+                </div>
+
+                <!-- Exam or training switch-->
+                <input type="checkbox" name="isExam" data-toggle="toggle" data-on="@Resources.Resource.Exam" data-off="@Resources.Resource.Training" data-onstyle="warning" data-offstyle="success">
+
+                <!-- Submit -->
                 <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
-                <span class="field-validation-error">@ViewBag.ErrorQuizOfficial</span>
-            }
+                <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
+            </div>
         }
-    </div>
+    }
 </body>
 </html>

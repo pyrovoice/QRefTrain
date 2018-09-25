@@ -148,7 +148,7 @@
     <value>NGB specific questions only</value>
   </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
-    <value>Training test</value>
+    <value>Start a test</value>
   </data>
   <data name="Homepage_ReminderBeta01" xml:space="preserve">
     <value>This website is in beta.</value>
@@ -347,5 +347,17 @@
   </data>
   <data name="Subject_BallInteraction" xml:space="preserve">
     <value>Ball interaction</value>
+  </data>
+  <data name="Homepage_QuickStartQuizz" xml:space="preserve">
+    <value>Quick start</value>
+  </data>
+  <data name="Exam" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+  <data name="Training" xml:space="preserve">
+    <value>Training</value>
+  </data>
+  <data name="Homepage_Helper" xml:space="preserve">
+    <value>Choose the NGB, then choose one or more fields if you want to do a specific training. Do not select anything if you're taking an exam or if you want all fields. Finally, choose whether you want questions specific to this NGB, then select whether you want to take a training or an exam, and validate.</value>
   </data>
 </root>

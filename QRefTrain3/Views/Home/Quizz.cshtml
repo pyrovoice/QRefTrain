@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>Quizz</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/Site.css")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
@@ -29,8 +28,7 @@
             {
                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
                 <div class="QuizzQuestion">
-                    <div class="QuizzQuestionTitle">@Model.DisplayedQuestions[i].Id : @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Name)</div>
-                    <h5 class="QuizzQuestiontext">@Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</h5>
+                    <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].Id) @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
                     @if (@Model.DisplayedQuestions[i].IsVideo)
                     {
                         <div class="QuizzQuestionVideoContainer">
@@ -45,7 +43,7 @@
                         {
                             <label class="btn btn-light halfpageItem halfpageItemCollapse">
                                 @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)
+                                <span class="verticalCenter">@Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)</span>
                             </label>
                             @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                         }

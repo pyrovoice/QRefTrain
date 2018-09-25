@@ -142,11 +142,29 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exam.
+        /// </summary>
+        public static string Exam {
+            get {
+                return ResourceManager.GetString("Exam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HomePage.
         /// </summary>
         public static string Homepage {
             get {
                 return ResourceManager.GetString("Homepage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the NGB, then choose one or more fields if you want to do a specific training. Do not select anything if you&apos;re taking an exam or if you want all fields. Finally, choose whether you want questions specific to this NGB, then select whether you want to take a training or an exam, and validate..
+        /// </summary>
+        public static string Homepage_Helper {
+            get {
+                return ResourceManager.GetString("Homepage_Helper", resourceCulture);
             }
         }
         
@@ -160,11 +178,20 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Training test.
+        ///   Looks up a localized string similar to Start a test.
         /// </summary>
         public static string Homepage_ParameterPrompt {
             get {
                 return ResourceManager.GetString("Homepage_ParameterPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick start.
+        /// </summary>
+        public static string Homepage_QuickStartQuizz {
+            get {
+                return ResourceManager.GetString("Homepage_QuickStartQuizz", resourceCulture);
             }
         }
         
@@ -750,6 +777,15 @@ namespace QRefResources {
         public static string TopDiv_Questions {
             get {
                 return ResourceManager.GetString("TopDiv_Questions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training.
+        /// </summary>
+        public static string Training {
+            get {
+                return ResourceManager.GetString("Training", resourceCulture);
             }
         }
     }

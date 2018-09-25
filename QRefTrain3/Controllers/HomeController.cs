@@ -13,71 +13,64 @@ namespace QRefTrain3.Controllers
     {
         public ActionResult Homepage()
         {
-            ViewBag.ErrorQuizTraining = TempData["ErrorQuizTraining"];
-            ViewBag.ErrorQuizOfficial = TempData["ErrorQuizOfficial"];
+            ViewBag.ErrorQuiz = TempData["ErrorQuiz"];
             return View(HttpContext.User.Identity.IsAuthenticated && Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name) != null);
         }
 
         /// <summary>
-        /// Load questions according to parameters, then load a quizz page with those questions
+        /// Check the user is not doing wrong manipulations, then loads questions and the quiz page according to the input parameters
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="ngb"></param>
+        /// <param name="Subjects"></param>
+        /// <param name="NGB_Only"></param>
+        /// <param name="isExam"></param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult MovetoTrainingQuiz(List<string> Subjects, string NGB, string NGB_Only)
+        public ActionResult MoveToQuiz(string ngb, List<string> Subjects, string NGB_Only, string isExam)
         {
-            if (Subjects == null || NGB == null)
+            // Get connected user
+            User connectedUser = null;
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                TempData["ErrorQuizTraining"] = "Please select at least one subject";
+                connectedUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
+            }
+
+            // Check the user does not have an incoming exam (if connected)
+            if(connectedUser != null && Dal.Instance.GetOngoingExamByUsername(connectedUser.Name) != null)
+            {
+                TempData["ErrorQuiz"] = "You have an ongoing test. Please complete it before starting a new test.";
                 return RedirectToAction("Homepage");
             }
-            return MoveToQuiz(NGB, Subjects, NGB_Only != null, ResultType.Training);
-        }
-
-        [HttpPost]
-        public ActionResult MovetoTestQuiz(string NGB)
-        {
-            if (!HttpContext.User.Identity.IsAuthenticated)
-            {
-                TempData["ErrorQuizOfficial"] = "You must be logged in in order to take an exam.";
-                return RedirectToAction("Homepage");
-            }
-            // In case the user refresh the page, do not recreate a form
-            Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
-            if (exam != null)
-            {
-                return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate));
-            }
-            else
-            {
-                Dal.Instance.CloseExamByUsername(HttpContext.User.Identity.Name);
-            }
-            return MoveToQuiz(NGB, null, true, ResultType.Exam);
-        }
-
-        private ActionResult MoveToQuiz(string ngb, List<string> Subjects, bool NGB_Only, ResultType rType)
-        {
             // Update the user's choice so he does not have to chose again next time
             Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, ngb, DateTime.Now.AddMonths(1));
-            // Get 10 randoms questions from the selected parameters, or all if there is not 10.
-            List<Question> questions = GetQuestions(ngb, Subjects, NGB_Only);
-            if (questions == null || questions.Count == 0)
+
+            // If exam is selected, check the user is connected
+            if(isExam != null && connectedUser == null)
             {
-                TempData["ErrorQuizTraining"] = "There is no question for the selected subject(s)";
+                TempData["ErrorQuiz"] = "You must be logged in to start an Exam. Please connect or select Training";
                 return RedirectToAction("Homepage");
             }
+
+            // All verifications done, we can proceed to creating the quiz
+            ResultType examType;
+            List<Question> questions;
             DateTime? dt = null;
-            if (rType == ResultType.Exam)
+            // Depending on whether Exam or Training is selected, we set the parameters
+            if (isExam != null)
             {
+                examType = ResultType.Exam;
+                questions = GetQuestions(ngb, null, true);
                 dt = Dal.Instance.GetDBTime();
                 Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, dt.Value);
             }
-            QuizzViewModel quizzModel = new QuizzViewModel(questions, rType, dt);
-            return View("Quizz", quizzModel);
-        }
+            else
+            {
+                examType = ResultType.Training;
+                questions = GetQuestions(ngb, Subjects, NGB_Only != null);
+            }
 
-        private List<Question> GetQuestions(string ngb)
-        {
-            return GetQuestions(ngb, null, true);
+            QuizzViewModel quizzModel = new QuizzViewModel(questions, examType, dt);
+            return View("Quizz", quizzModel);
         }
 
         private List<Question> GetQuestions(string ngb, List<string> subjects, bool NGB_only)
@@ -150,7 +143,7 @@ namespace QRefTrain3.Controllers
                     {
                         LogText = "Quizz result error : Time between start and end of test is too high.";
                     }
-                    if(LogText != null)
+                    if (LogText != null)
                     {
                         Dal.Instance.CreateLog(new Log()
                         {

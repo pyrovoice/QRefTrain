@@ -145,7 +145,7 @@
     <value>Uniquement cette NGB</value>
   </data>
   <data name="Homepage_ParameterPrompt" xml:space="preserve">
-    <value>Test d'entrainement</value>
+    <value>Lancez un test</value>
   </data>
   <data name="Homepage_ReminderBeta01" xml:space="preserve">
     <value>Ce site est en beta.</value>
@@ -332,5 +332,17 @@
   </data>
   <data name="Subject_BallInteraction" xml:space="preserve">
     <value>Interation avec une balle</value>
+  </data>
+  <data name="Homepage_QuickStartQuizz" xml:space="preserve">
+    <value>Lancement rapide</value>
+  </data>
+  <data name="Exam" xml:space="preserve">
+    <value>Examen</value>
+  </data>
+  <data name="Training" xml:space="preserve">
+    <value>Entrainement</value>
+  </data>
+  <data name="Homepage_Helper" xml:space="preserve">
+    <value>Choisissez l'NGB, puis choisissez un ou plusieurs sujets, ou aucun si vous souhaitez passer un exam ou voulez n'importe quel sujet. Choisissez ensuite si vous souhaitez des questions spécifique à cette NGB, puis choisissez Examen ou Entrainement, et validez.</value>
   </data>
 </root>

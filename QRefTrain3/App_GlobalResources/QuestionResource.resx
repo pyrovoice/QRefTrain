@@ -711,4 +711,10 @@
   <data name="QuestionThirdBludgerInterferenceExplanation" xml:space="preserve">
     <value>One of the turned over bludger should usually be the one that was on the ground.</value>
   </data>
+  <data name="QuestionInboundingProcedureViolationExplanation" xml:space="preserve">
+    <value>If an incoming beater was faulty but was retrieving the third bludger, </value>
+  </data>
+  <data name="QuestionInboundingProcedureViolationText" xml:space="preserve">
+    <value>What is the penalty for an inbounding procedure violation ?</value>
+  </data>
 </root>

@@ -997,6 +997,24 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If an incoming beater was faulty but was retrieving the third bludger, .
+        /// </summary>
+        public static string QuestionInboundingProcedureViolationExplanation {
+            get {
+                return ResourceManager.GetString("QuestionInboundingProcedureViolationExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for an inbounding procedure violation ?.
+        /// </summary>
+        public static string QuestionInboundingProcedureViolationText {
+            get {
+                return ResourceManager.GetString("QuestionInboundingProcedureViolationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for an incidental interposition ball interference ?.
         /// </summary>
         public static string QuestionIncidentalBallInterferenceText {
