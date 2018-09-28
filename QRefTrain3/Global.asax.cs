@@ -20,8 +20,6 @@ namespace QRefTrain3
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //To remove in production, is used to update db when there are changes in the code
-            Database.SetInitializer<QuestionsContext>(new DropCreateDatabaseIfModelChanges<QuestionsContext>());
         }
     }
 }

@@ -11,7 +11,6 @@ namespace QRefTrain3.Models
         public string Answertext { get; set; }
         public bool IsTrue { get; set; }
         public virtual List<Result> Results { get; set; } = new List<Result>();
-        public virtual List<Question> Questions { get; set; } = new List<Question>();
 
         private static readonly string[] commonAnswers = { "NoPenalty", "backToHoops", "Turnover", "BlueCard", "YellowCard", "RedCard" };
 

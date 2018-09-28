@@ -199,12 +199,9 @@ namespace QRefTrain3.Models
 
         public Question CreateQuestion(Question question)
         {
-            using (var db = new QuestionsContext())
-            {
-                Context.Questions.Add(question);
-                Context.SaveChanges();
-                return question;
-            }
+            Context.Questions.Add(question);
+            Context.SaveChanges();
+            return question;
         }
 
         public void Dispose()

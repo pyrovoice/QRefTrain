@@ -276,19 +276,16 @@
   <data name="QuestionFailReplaceHeadbandText" xml:space="preserve">
     <value>What is the penalty for failing to replace a lost headband ?</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer1" xml:space="preserve">
-    <value>No penalty</value>
-  </data>
-  <data name="QuestionFailSendSeekerAnswer2" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer1" xml:space="preserve">
     <value>Turnover and immediatly send a seeker</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer3" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer2" xml:space="preserve">
     <value>Blue card for the speaking captain</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer4" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer3" xml:space="preserve">
     <value>Yellow card for the speaking captain</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer5" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer4" xml:space="preserve">
     <value>Red card for the speaking captain</value>
   </data>
   <data name="QuestionFailSendSeekerPlayerText" xml:space="preserve">
@@ -716,5 +713,8 @@
   </data>
   <data name="QuestionInboundingProcedureViolationText" xml:space="preserve">
     <value>What is the penalty for an inbounding procedure violation ?</value>
+  </data>
+  <data name="QuestionEncroachingPitchText" xml:space="preserve">
+    <value>What is the penalty for encroaching the pitch ?</value>
   </data>
 </root>

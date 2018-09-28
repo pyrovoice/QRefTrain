@@ -484,6 +484,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for encroaching the pitch ?.
+        /// </summary>
+        public static string QuestionEncroachingPitchText {
+            get {
+                return ResourceManager.GetString("QuestionEncroachingPitchText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for a failure to avoid a propelled quaffle ?.
         /// </summary>
         public static string QuestionFailedAvoidQuaffleText {
@@ -538,47 +547,38 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No penalty.
-        /// </summary>
-        public static string QuestionFailSendSeekerAnswer1 {
-            get {
-                return ResourceManager.GetString("QuestionFailSendSeekerAnswer1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Turnover and immediatly send a seeker.
         /// </summary>
-        public static string QuestionFailSendSeekerAnswer2 {
+        public static string QuestionFailSendSeekerPlayerAnswer1 {
             get {
-                return ResourceManager.GetString("QuestionFailSendSeekerAnswer2", resourceCulture);
+                return ResourceManager.GetString("QuestionFailSendSeekerPlayerAnswer1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Blue card for the speaking captain.
         /// </summary>
-        public static string QuestionFailSendSeekerAnswer3 {
+        public static string QuestionFailSendSeekerPlayerAnswer2 {
             get {
-                return ResourceManager.GetString("QuestionFailSendSeekerAnswer3", resourceCulture);
+                return ResourceManager.GetString("QuestionFailSendSeekerPlayerAnswer2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Yellow card for the speaking captain.
         /// </summary>
-        public static string QuestionFailSendSeekerAnswer4 {
+        public static string QuestionFailSendSeekerPlayerAnswer3 {
             get {
-                return ResourceManager.GetString("QuestionFailSendSeekerAnswer4", resourceCulture);
+                return ResourceManager.GetString("QuestionFailSendSeekerPlayerAnswer3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Red card for the speaking captain.
         /// </summary>
-        public static string QuestionFailSendSeekerAnswer5 {
+        public static string QuestionFailSendSeekerPlayerAnswer4 {
             get {
-                return ResourceManager.GetString("QuestionFailSendSeekerAnswer5", resourceCulture);
+                return ResourceManager.GetString("QuestionFailSendSeekerPlayerAnswer4", resourceCulture);
             }
         }
         

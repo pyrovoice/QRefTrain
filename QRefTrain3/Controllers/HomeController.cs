@@ -43,7 +43,7 @@ namespace QRefTrain3.Controllers
             // Check the user does not have an incoming exam (if connected)
             if(connectedUser != null && Dal.Instance.GetOngoingExamByUsername(connectedUser.Name) != null)
             {
-                TempData["ErrorQuiz"] = "You have an ongoing test. Please complete it before starting a new test.";
+                TempData["ErrorQuiz"] = QRefResources.Resource.Error_OngoingTest;
                 return RedirectToAction("Homepage");
             }
             // Update the user's choice so he does not have to chose again next time
@@ -52,7 +52,7 @@ namespace QRefTrain3.Controllers
             // If exam is selected, check the user is connected
             if(isExam != null && connectedUser == null)
             {
-                TempData["ErrorQuiz"] = "You must be logged in to start an Exam. Please connect or select Training";
+                TempData["ErrorQuiz"] = QRefResources.Resource.Error_LoginForTest;
                 return RedirectToAction("Homepage");
             }
 
@@ -115,7 +115,7 @@ namespace QRefTrain3.Controllers
             Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name, 10);
             if(exam == null)
             {
-                TempData["ErrorQuiz"] = "Exam timed out";
+                TempData["ErrorQuiz"] = QRefResources.Resource.Error_TestTimeout;
                 return RedirectToAction("Homepage");
             }
             return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate));

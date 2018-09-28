@@ -11,21 +11,8 @@ namespace QRefTrain3.Models
         public QuestionsContext()
         {
             Database.SetInitializer<QuestionsContext>(null);
+            //Database.SetInitializer<QuestionsContext>(new DropCreateDatabaseIfModelChanges<QuestionsContext>());
         }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Question>()
-                .HasMany(question => question.Answers)
-                .WithMany(answer => answer.Questions)
-                .Map(relation =>
-                {
-                    relation.MapLeftKey("Answer_Id");
-                    relation.MapRightKey("Question_Id");
-                    relation.ToTable("AnswerQuestions");
-                });
-        }
-
 
         public DbSet<User> Users { get; set; }
         public DbSet<Question> Questions { get; set; }

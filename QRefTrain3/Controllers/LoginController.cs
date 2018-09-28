@@ -72,13 +72,13 @@ namespace QRefTrain3.Controllers
         {
             if (!newPassword.Equals(confirmPassword))
             {
-                @ViewBag.Error = "Please specify the same password in both entries.";
+                @ViewBag.Error = QRefResources.Resource.ErrorDifferentPassword;
                 return View("ResetCode");
             }
             Request request = Dal.Instance.GetRequestByCode(resetCode);
             if (request == null)
             {
-                @ViewBag.Error = "Please verify that the code you entered is valid.";
+                @ViewBag.Error = QRefResources.Resource.ErrorWrongCode;
                 return View("ResetCode");
             }
             Dal.Instance.UpdateUserChangePassword(request.User, newPassword);

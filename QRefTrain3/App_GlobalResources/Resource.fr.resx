@@ -331,7 +331,7 @@
     <value>Lien</value>
   </data>
   <data name="Subject_BallInteraction" xml:space="preserve">
-    <value>Interation avec une balle</value>
+    <value>Action sur balle</value>
   </data>
   <data name="Homepage_QuickStartQuizz" xml:space="preserve">
     <value>Lancement rapide</value>
@@ -344,5 +344,20 @@
   </data>
   <data name="Homepage_Helper" xml:space="preserve">
     <value>Choisissez l'NGB, puis choisissez un ou plusieurs sujets, ou aucun si vous souhaitez passer un exam ou voulez n'importe quel sujet. Choisissez ensuite si vous souhaitez des questions spécifique à cette NGB, puis choisissez Examen ou Entrainement, et validez.</value>
+  </data>
+  <data name="Error_LoginForTest" xml:space="preserve">
+    <value>Vous devez etre connecté pour commencer un examen. Veuillez vous connecter ou choisissez Entrainement</value>
+  </data>
+  <data name="Error_OngoingTest" xml:space="preserve">
+    <value>Vous avez un test en cours. Veuillez le compléter ou l'abandonner.</value>
+  </data>
+  <data name="Error_TestTimeout" xml:space="preserve">
+    <value>L'examen s'est fini</value>
+  </data>
+  <data name="ErrorDifferentPassword" xml:space="preserve">
+    <value>Mots de passes différents</value>
+  </data>
+  <data name="ErrorWrongCode" xml:space="preserve">
+    <value>Veuillez vérifier que le code que vous avez entré est valide</value>
   </data>
 </root>

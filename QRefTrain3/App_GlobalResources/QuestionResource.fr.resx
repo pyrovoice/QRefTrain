@@ -270,19 +270,16 @@
   <data name="QuestionFailReplaceHeadbandText" xml:space="preserve">
     <value>Quel est la pénalité pour un joueur ne remettant pas son bandeau ?</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer1" xml:space="preserve">
-    <value>Pas de pénalité</value>
-  </data>
-  <data name="QuestionFailSendSeekerAnswer2" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer1" xml:space="preserve">
     <value>Turnover et envoyer un attrapeur immédiatement</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer3" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer2" xml:space="preserve">
     <value>Carton bleu pour le porte-parole de l'équipe</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer4" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer3" xml:space="preserve">
     <value>Carton jaune pour le porte-parole de l'équipe</value>
   </data>
-  <data name="QuestionFailSendSeekerAnswer5" xml:space="preserve">
+  <data name="QuestionFailSendSeekerPlayerAnswer4" xml:space="preserve">
     <value>Carton rouge pour le porte-parole de l'équipe</value>
   </data>
   <data name="QuestionFailSendSeekerPlayerText" xml:space="preserve">
@@ -469,7 +466,7 @@
     <value>à 12 yards</value>
   </data>
   <data name="QuestionKeeperLineYardText" xml:space="preserve">
-    <value>At which distance is the keeper line from the midfield line ?</value>
+    <value>A quel distance est la ligne de zone du gardien de la ligne du milieu de terrain?</value>
   </data>
   <data name="QuestionKeeperPowersAnswer1" xml:space="preserve">
     <value>Ce joueur peut bloquer les cognards</value>
@@ -556,7 +553,7 @@
     <value>Quel est la pénalité pour une violation non-intentionnel de la règle de mouvement naturel ?</value>
   </data>
   <data name="QuestionPlayBrokenBroomText" xml:space="preserve">
-    <value>Quel est la pénalité pour un joueur jouant avec un balai détruit, et sachant cela ?</value>
+    <value>Quel est la pénalité pour un joueur jouant sciemment avec un balai détruit ?</value>
   </data>
   <data name="QuestionPlayIllegalEquipmentText" xml:space="preserve">
     <value>Quel est la pénalité pour une entrée en jeu sans porter les équipements requis ?</value>
@@ -704,5 +701,11 @@
   </data>
   <data name="YellowCard" xml:space="preserve">
     <value>Carton jaune</value>
+  </data>
+  <data name="QuestionInboundingProcedureViolationText" xml:space="preserve">
+    <value>Quel est la pénalité pour une infraction de la procédure de retour sur le terrain ?</value>
+  </data>
+  <data name="QuestionEncroachingPitchText" xml:space="preserve">
+    <value>Quel est la pénalité pour un joueur empiétant sur le terrain ?</value>
   </data>
 </root>

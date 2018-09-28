@@ -10,6 +10,8 @@ namespace QRefTrain3.Controllers
     public class AdminController : BaseController
     {
 
+        private readonly string filepath = "C:\\Users\\maxim\\Desktop\\data.txt";
+
         public ActionResult Index()
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
@@ -38,7 +40,7 @@ namespace QRefTrain3.Controllers
             string delimiter = ";";
             foreach(Question q in Dal.Instance.getAllQuestions())
             {
-                test += q.QuestionText + delimiter + q.AnswerExplanation + delimiter + q.Subject + delimiter + q.VideoURL + delimiter + q.NationalGoverningBodies + delimiter;
+                test += q.QuestionText + delimiter + q.AnswerExplanation + delimiter + q.Subject + delimiter + q.VideoURL + delimiter + q.NationalGoverningBodies.Replace(";", "-") + delimiter;
                 foreach(Answer a in q.Answers)
                 {
                     test += a.Answertext + delimiter + a.IsTrue + delimiter;
@@ -46,9 +48,39 @@ namespace QRefTrain3.Controllers
                 test += "\n";
             }
 
-            System.IO.File.WriteAllText("C:\\Users\\maxim\\Desktop\\data.txt", test);
+            System.IO.File.WriteAllText(filepath, test);
 
             return View();
+        }
+
+        public ActionResult Import()
+        {
+            var lines = System.IO.File.ReadAllLines(filepath);
+            foreach(string line in lines)
+            {
+                Question q = new Question();
+                string[] data = line.Split(';');
+                q.Name = data[0].Replace("Text", "Name");
+                q.QuestionText = data[0];
+                q.AnswerExplanation = data[1];
+                q.Subject = (QuestionSubject) Enum.Parse(typeof(QuestionSubject), data[2]);
+                q.VideoURL = data[3];
+                q.IsVideo = String.IsNullOrEmpty(data[3]);
+                q.NationalGoverningBodies = data[4];
+                q.Answers = new List<Answer>();
+                for(int i = 5; i < data.Count()-1; i += 2)
+                {
+                    Answer a = new Answer()
+                    {
+                        Answertext = data[i],
+                        IsTrue = data[i + 1].Equals("True")
+                    };
+                    q.Answers.Add(a);
+                }
+                Dal.Instance.CreateQuestion(q);
+            }
+
+            return RedirectToAction("QuestionListing");
         }
 
         public ActionResult QuestionListing()

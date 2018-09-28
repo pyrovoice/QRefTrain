@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201809160937577_wut.Designer.cs">
       <DependentUpon>201809160937577_wut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809281459312_a.cs" />
+    <Compile Include="Migrations\201809281459312_a.Designer.cs">
+      <DependentUpon>201809281459312_a.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -397,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809160937577_wut.resx">
       <DependentUpon>201809160937577_wut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809281459312_a.resx">
+      <DependentUpon>201809281459312_a.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

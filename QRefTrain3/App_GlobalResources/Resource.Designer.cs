@@ -133,11 +133,56 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must be logged in to start an Exam. Please connect or select Training.
+        /// </summary>
+        public static string Error_LoginForTest {
+            get {
+                return ResourceManager.GetString("Error_LoginForTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have an ongoing test. Please complete it or abandon it..
+        /// </summary>
+        public static string Error_OngoingTest {
+            get {
+                return ResourceManager.GetString("Error_OngoingTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There was an error when validating the test. Please contact the support for more information..
         /// </summary>
         public static string Error_QuizError {
             get {
                 return ResourceManager.GetString("Error_QuizError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam timed out.
+        /// </summary>
+        public static string Error_TestTimeout {
+            get {
+                return ResourceManager.GetString("Error_TestTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Different passwords.
+        /// </summary>
+        public static string ErrorDifferentPassword {
+            get {
+                return ResourceManager.GetString("ErrorDifferentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please verify that the code you entered is valid..
+        /// </summary>
+        public static string ErrorWrongCode {
+            get {
+                return ResourceManager.GetString("ErrorWrongCode", resourceCulture);
             }
         }
         

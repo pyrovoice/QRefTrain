@@ -360,4 +360,19 @@
   <data name="Homepage_Helper" xml:space="preserve">
     <value>Choose the NGB, then choose one or more fields if you want to do a specific training. Do not select anything if you're taking an exam or if you want all fields. Finally, choose whether you want questions specific to this NGB, then select whether you want to take a training or an exam, and validate.</value>
   </data>
+  <data name="Error_LoginForTest" xml:space="preserve">
+    <value>You must be logged in to start an Exam. Please connect or select Training</value>
+  </data>
+  <data name="Error_OngoingTest" xml:space="preserve">
+    <value>You have an ongoing test. Please complete it or abandon it.</value>
+  </data>
+  <data name="Error_TestTimeout" xml:space="preserve">
+    <value>Exam timed out</value>
+  </data>
+  <data name="ErrorDifferentPassword" xml:space="preserve">
+    <value>Different passwords</value>
+  </data>
+  <data name="ErrorWrongCode" xml:space="preserve">
+    <value>Please verify that the code you entered is valid.</value>
+  </data>
 </root>
