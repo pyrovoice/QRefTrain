@@ -48,6 +48,12 @@
                             @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                         }
                     </div>
+                    @if (i != Model.DisplayedQuestions.Count - 1)
+                    {
+                        <div class="next">
+                            <img src="~/Elements/expand_arrow.png" alt="Next" height="80" width="160" />
+                        </div>
+                    }
                 </div>
                 if (i != Model.DisplayedQuestions.Count - 1)
                 {
@@ -61,9 +67,15 @@
 </body>
 </html>
 
+<script>
+    $(".next").click(function () {
+        $('html,body').animate({ scrollTop: $(this).parent().next().offset().top }, 'fast');
+
+    });
+</script>
+
 @if (Model.StartTime.HasValue)
 {
-
     <script>
     $(document).ready(function () {
         //10 minutes

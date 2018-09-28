@@ -14,7 +14,12 @@ namespace QRefTrain3.Controllers
         public ActionResult Homepage()
         {
             ViewBag.ErrorQuiz = TempData["ErrorQuiz"];
-            return View(HttpContext.User.Identity.IsAuthenticated && Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name) != null);
+            Exam exam = null;
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name, 10);
+            }
+            return View(exam != null);
         }
 
         /// <summary>
@@ -108,7 +113,19 @@ namespace QRefTrain3.Controllers
         public ActionResult ResumeTestQuiz()
         {
             Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name, 10);
+            if(exam == null)
+            {
+                TempData["ErrorQuiz"] = "Exam timed out";
+                return RedirectToAction("Homepage");
+            }
             return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate));
+        }
+
+        [HttpPost]
+        public ActionResult CancelTest()
+        {
+            Dal.Instance.CloseExamByUsername(HttpContext.User.Identity.Name);
+            return RedirectToAction("Homepage");
         }
 
         [HttpPost]

@@ -25,17 +25,10 @@ namespace QRefTrain3.Models
             Context.Database.ExecuteSqlCommand("CreateUser @name, @password, @email", new SqlParameter("@name", user.Name), new SqlParameter("@password", user.Password), new SqlParameter("@email", user.Email));
         }
 
-        public List<Question> GetQuestionByIds(List<int> questionsAskedIds)
-        {
-            List<Question> list = Context.Questions.Where(q => questionsAskedIds.Contains(q.Id)).ToList();
-            return list;
-        }
-
         public List<Result> GetNLastResultByUser(User user, int number)
         {
             List<Result> results = GetResultByUser(user);
             return results.OrderByDescending(o => o.DateTime).ToList().Take(number).ToList();
-
         }
 
         public User GetUserByMail(string userMail)
@@ -82,7 +75,9 @@ namespace QRefTrain3.Models
         public Exam GetOngoingExamByUsername(string userName, int nbrMinute)
         {
             DateTime dbTime = GetDBTime();
-            return Context.Exams.FirstOrDefault<Exam>(exam => exam.User.Name.Equals(userName) && SqlFunctions.DateDiff("minute", dbTime, exam.StartDate) <= nbrMinute);
+            var a = Context.Exams.ToList();
+            Exam exam = a.FirstOrDefault(e => (dbTime - e.StartDate).TotalMinutes <= nbrMinute);
+            return exam;
         }
 
         internal void UpdateUserChangePassword(User user, string newPassword)
@@ -198,7 +193,8 @@ namespace QRefTrain3.Models
 
         public User GetUserByName(string name)
         {
-            return Context.Database.SqlQuery<User>("Select * from Users where name = @name", new SqlParameter("name", name)).FirstOrDefault();
+            //return Context.Database.SqlQuery<User>("Select * from Users where name = @name", new SqlParameter("name", name)).FirstOrDefault();
+            return Context.Users.FirstOrDefault(u => u.Name.Equals(name));
         }
 
         public Question CreateQuestion(Question question)
@@ -289,9 +285,12 @@ namespace QRefTrain3.Models
 
         public void DeleteExamByUserId(int userId)
         {
+            var a = Context.Exams.ToList();
             Context.Exams.RemoveRange(Context.Exams.Where<Exam>(exam => exam.User.Id == userId));
             Context.SaveChanges();
+            a = Context.Exams.ToList();
         }
+
         public User Authenticate(string userName, string userPassword)
         {
             if (userName == null || userName.Equals("") || userPassword == null || userPassword.Equals(""))
