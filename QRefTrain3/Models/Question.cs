@@ -19,12 +19,8 @@ namespace QRefTrain3.Models
     public class Question
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Question name not valid")]
-        public string Name { get; set; }
         [Required]
         public QuestionSubject Subject { get; set; }
-        [Required]
-        public bool IsVideo { get; set; }
         public string VideoURL { get; set; }
         [Required]
         public string QuestionText { get; set; }
@@ -36,16 +32,18 @@ namespace QRefTrain3.Models
         public string NationalGoverningBodies { get; set; }
         public virtual List<Exam> Exams { get; set; }
         public virtual List<Result> Results { get; set; }
+        // This is used to display multiple questions as a single one
+        public int QuestionSetNumber { get; set; }
 
-        public Question(string name, QuestionSubject subject, string videoUrl, string questionText, 
-            List<Answer> answers, string answerExplanation, params NationalGoverningBody[] bodies)
+        public Question( QuestionSubject subject, string videoUrl, string questionText,
+            List<Answer> answers, string answerExplanation, int questionSetNumber, params NationalGoverningBody[] bodies)
         {
-            this.Name = name;
             this.Subject = subject;
-            if (videoUrl != null && !videoUrl.Equals("")) { this.IsVideo = true; this.VideoURL = videoUrl; } else { this.IsVideo = false; this.VideoURL = null; }
+            this.VideoURL = String.IsNullOrEmpty(videoUrl) ? null : videoUrl;
             this.QuestionText = questionText;
             this.Answers = answers;
             this.AnswerExplanation = answerExplanation;
+            this.QuestionSetNumber = questionSetNumber;
             if (bodies.Contains<NationalGoverningBody>(Models.NationalGoverningBody.All) || bodies.Count() == 0 || bodies == null)
             {
                 this.NationalGoverningBodies = "ALL";
@@ -56,15 +54,15 @@ namespace QRefTrain3.Models
             }
         }
 
-        public Question(string name, QuestionSubject subject, string videoUrl, string questionText,
-            List<Answer> answers, string answerExplanation, params string[] bodies)
+        public Question(QuestionSubject subject, string videoUrl, string questionText,
+            List<Answer> answers, string answerExplanation, int questionSetNumber, params string[] bodies)
         {
-            this.Name = name;
             this.Subject = subject;
-            if (videoUrl != null && !videoUrl.Equals("")) { this.IsVideo = true; this.VideoURL = videoUrl; } else { this.IsVideo = false; this.VideoURL = null; }
+            this.VideoURL = String.IsNullOrEmpty(videoUrl) ? null : videoUrl;
             this.QuestionText = questionText;
             this.Answers = answers;
             this.AnswerExplanation = answerExplanation;
+            this.QuestionSetNumber = questionSetNumber;
             if (bodies == null || bodies.Contains(Models.NationalGoverningBody.All.ToString()) || bodies.Count() == 0)
             {
                 this.NationalGoverningBodies = "ALL";
@@ -82,9 +80,9 @@ namespace QRefTrain3.Models
 
         public static Boolean IsQuestionCorrect(Question question, List<int> answerIds)
         {
-            foreach(Answer a in question.Answers)
+            foreach (Answer a in question.Answers)
             {
-                if((answerIds.Contains(a.Id) && !a.IsTrue) || (!answerIds.Contains(a.Id) && a.IsTrue))
+                if ((answerIds.Contains(a.Id) && !a.IsTrue) || (!answerIds.Contains(a.Id) && a.IsTrue))
                 {
                     return false;
                 }

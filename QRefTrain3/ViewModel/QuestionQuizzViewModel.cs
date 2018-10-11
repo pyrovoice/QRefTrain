@@ -14,16 +14,8 @@ namespace QRefTrain3.ViewModel
         public string VideoURL { get; set; }
         public string QuestionText { get; set; }
         public List<AnswerQuizzViewModel> Answers { get; set; }
-
-        public QuestionQuizzViewModel(int id, string name, bool isVideo, string videoURL, string questionText, List<AnswerQuizzViewModel> answers)
-        {
-            Id = id;
-            Name = name;
-            IsVideo = isVideo;
-            VideoURL = videoURL;
-            QuestionText = questionText;
-            Answers = answers;
-        }
+        public int SelectedAnswerId { get; set; }
+        public int SetId { get; set; }
 
         public QuestionQuizzViewModel(Question question)
         {
@@ -42,6 +34,7 @@ namespace QRefTrain3.ViewModel
             IsVideo = question.IsVideo;
             VideoURL = question.VideoURL;
             QuestionText = question.QuestionText;
+            this.SetId = question.setId();
             Answers = answersViewModel;
         }
 
