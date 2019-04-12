@@ -21,7 +21,7 @@ namespace QRefTrain3.Models
         public int Id { get; set; }
         [Required]
         public QuestionSubject Subject { get; set; }
-        public string VideoURL { get; set; }
+        public string GifName { get; set; }
         [Required]
         public string QuestionText { get; set; }
         [Required]
@@ -32,18 +32,15 @@ namespace QRefTrain3.Models
         public string NationalGoverningBodies { get; set; }
         public virtual List<Exam> Exams { get; set; }
         public virtual List<Result> Results { get; set; }
-        // This is used to display multiple questions as a single one
-        public int QuestionSetNumber { get; set; }
 
-        public Question( QuestionSubject subject, string videoUrl, string questionText,
-            List<Answer> answers, string answerExplanation, int questionSetNumber, params NationalGoverningBody[] bodies)
+        public Question( QuestionSubject subject, string gifName, string questionText,
+            List<Answer> answers, string answerExplanation, params NationalGoverningBody[] bodies)
         {
             this.Subject = subject;
-            this.VideoURL = String.IsNullOrEmpty(videoUrl) ? null : videoUrl;
+            this.GifName = String.IsNullOrEmpty(gifName) ? null : gifName;
             this.QuestionText = questionText;
             this.Answers = answers;
             this.AnswerExplanation = answerExplanation;
-            this.QuestionSetNumber = questionSetNumber;
             if (bodies.Contains<NationalGoverningBody>(Models.NationalGoverningBody.All) || bodies.Count() == 0 || bodies == null)
             {
                 this.NationalGoverningBodies = "ALL";
@@ -54,15 +51,14 @@ namespace QRefTrain3.Models
             }
         }
 
-        public Question(QuestionSubject subject, string videoUrl, string questionText,
-            List<Answer> answers, string answerExplanation, int questionSetNumber, params string[] bodies)
+        public Question(QuestionSubject subject, string gifName, string questionText,
+            List<Answer> answers, string answerExplanation, params string[] bodies)
         {
             this.Subject = subject;
-            this.VideoURL = String.IsNullOrEmpty(videoUrl) ? null : videoUrl;
+            this.GifName = String.IsNullOrEmpty(gifName) ? null : gifName;
             this.QuestionText = questionText;
             this.Answers = answers;
             this.AnswerExplanation = answerExplanation;
-            this.QuestionSetNumber = questionSetNumber;
             if (bodies == null || bodies.Contains(Models.NationalGoverningBody.All.ToString()) || bodies.Count() == 0)
             {
                 this.NationalGoverningBodies = "ALL";

@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201809281459312_a.Designer.cs">
       <DependentUpon>201809281459312_a.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291802080_addGif.cs" />
+    <Compile Include="Migrations\201903291802080_addGif.Designer.cs">
+      <DependentUpon>201903291802080_addGif.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -253,6 +257,7 @@
     <Content Include="Elements\goodAnswer.jpg" />
     <Content Include="Elements\logo_movie.png" />
     <Content Include="Elements\logo_reddit.png" />
+    <Content Include="Elements\QuestionGifs\quidditchGifExample.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -404,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809281459312_a.resx">
       <DependentUpon>201809281459312_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291802080_addGif.resx">
+      <DependentUpon>201903291802080_addGif.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

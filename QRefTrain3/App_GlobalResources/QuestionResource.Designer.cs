@@ -619,6 +619,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This is a placeholder for this question&apos;s text. If you find the answer, congrats..
+        /// </summary>
+        public static string QuestionGifTestQuestionText {
+            get {
+                return ResourceManager.GetString("QuestionGifTestQuestionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 15 meters.
         /// </summary>
         public static string QuestionGoalLineMetersAnswer1 {

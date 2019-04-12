@@ -27,34 +27,40 @@
             for (int i = 0; i < Model.DisplayedQuestions.Count; i++)
             {
                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
-                <div class="QuizzQuestion">
-                    <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].Id) @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
-                    @if (@Model.DisplayedQuestions[i].IsVideo)
-                    {
-                        <div class="QuizzQuestionVideoContainer">
-                            <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
-                                    src="@Model.DisplayedQuestions[i].VideoURL"
-                                    frameborder="0"></iframe>
-                        </div>
-                    }
-                    <div class="btn-group-toggle" data-toggle="buttons">
-
-                        @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
-                        {
-                            <label class="btn btn-light halfpageItem halfpageItemCollapse">
-                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                <span class="verticalCenter">@Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)</span>
-                            </label>
-                            @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
-                        }
-                    </div>
-                    @if (i != Model.DisplayedQuestions.Count - 1)
-                    {
-                        <div class="next">
-                            <img src="~/Elements/expand_arrow.png" alt="Next" height="80" width="160" />
-                        </div>
-                    }
+        <div class="QuizzQuestion">
+            <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].Id) @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
+            @if (!String.IsNullOrEmpty(@Model.DisplayedQuestions[i].GifName))
+            {
+                /**
+                 * Obsolete from when I used video
+                <div class="QuizzQuestionVideoContainer">
+                    <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
+                            src="@Model.DisplayedQuestions[i].VideoURL"
+                            frameborder="0"></iframe>
                 </div>
+                **/
+
+                <iframe src='@Model.DisplayedQuestions[i].GifName?autoplay=0' frameborder='0' scrolling='no' width='640' height='346'></iframe>
+
+            }
+            <div class="btn-group-toggle" data-toggle="buttons">
+
+                @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
+                {
+                    <label class="btn btn-light halfpageItem halfpageItemCollapse">
+                        @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                        <span class="verticalCenter">@Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)</span>
+                    </label>
+                    @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
+                }
+            </div>
+            @if (i != Model.DisplayedQuestions.Count - 1)
+            {
+                <div class="next">
+                    <img src="~/Elements/expand_arrow.png" alt="Next" height="80" width="160" />
+                </div>
+            }
+        </div>
                 if (i != Model.DisplayedQuestions.Count - 1)
                 {
                     <hr />
@@ -72,6 +78,55 @@
         $('html,body').animate({ scrollTop: $(this).parent().next().offset().top }, 'fast');
 
     });
+    /*
+    function createElement(type, callback) {
+        var element = document.createElement(type);
+
+        callback(element);
+
+        return element;
+    }
+
+    function freezeGif(img) {
+        var width = img.width,
+            height = img.height,
+            canvas = createElement('canvas', function (clone) {
+                clone.width = width;
+                clone.height = height;
+            }),
+            attr,
+            i = 0;
+
+        var freeze = function () {
+            canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+
+            for (i = 0; i < img.attributes.length; i++) {
+                attr = img.attributes[i];
+
+                if (attr.name !== '"') { // test for invalid attributes
+                    canvas.setAttribute(attr.name, attr.value);
+                }
+            }
+
+            canvas.style.position = 'absolute';
+
+            img.parentNode.insertBefore(canvas, img);
+            img.style.opacity = 0;
+        };
+
+        if (img.complete) {
+            freeze();
+        } else {
+            img.addEventListener('load', freeze, true);
+        }
+    }
+
+    function freezeAllGifs() {
+        return new Array().slice.apply(document.images).map(freezeGif);
+    }
+
+    freezeAllGifs();*/
+
 </script>
 
 @if (Model.StartTime.HasValue)

@@ -7,15 +7,17 @@
         <div>
             <div class="flex-container">
                 <h5>@question.Id</h5>
-                <h5>@Resources.QuestionResource.ResourceManager.GetString(question.Name)</h5>
-                @if (question.IsVideo)
+                @if (!String.IsNullOrEmpty(question.GifName))
                 {
+                    /*
+                     * Obsolete from when I was using videos
                     <div><img id="@question.Id" src="~/Elements/logo_movie.png" height="30" width="30" /></div>
                     <div class="hiddenInformations QuizzQuestionVideoContainer" id=@("hidden" + question.Id)>
                         <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
                                 src="@question.VideoURL"
                                 frameborder="0"></iframe>
                     </div>
+                    */
                 }
             </div>
             <div>@Resources.QuestionResource.ResourceManager.GetString(question.QuestionText)</div>

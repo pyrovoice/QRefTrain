@@ -40,7 +40,7 @@ namespace QRefTrain3.Controllers
             string delimiter = ";";
             foreach(Question q in Dal.Instance.getAllQuestions())
             {
-                test += q.QuestionText + delimiter + q.AnswerExplanation + delimiter + q.Subject + delimiter + q.VideoURL + delimiter + q.NationalGoverningBodies.Replace(";", "-") + delimiter;
+                test += q.QuestionText + delimiter + q.AnswerExplanation + delimiter + q.Subject + delimiter + q.GifName  + delimiter + q.NationalGoverningBodies.Replace(";", "-") + delimiter;
                 foreach(Answer a in q.Answers)
                 {
                     test += a.Answertext + delimiter + a.IsTrue + delimiter;
@@ -60,12 +60,10 @@ namespace QRefTrain3.Controllers
             {
                 Question q = new Question();
                 string[] data = line.Split(';');
-                q.Name = data[0].Replace("Text", "Name");
                 q.QuestionText = data[0];
                 q.AnswerExplanation = data[1];
                 q.Subject = (QuestionSubject) Enum.Parse(typeof(QuestionSubject), data[2]);
-                q.VideoURL = data[3];
-                q.IsVideo = String.IsNullOrEmpty(data[3]);
+                q.GifName = data[3];
                 q.NationalGoverningBodies = data[4];
                 q.Answers = new List<Answer>();
                 for(int i = 5; i < data.Count()-1; i += 2)
@@ -128,7 +126,8 @@ namespace QRefTrain3.Controllers
                 answers.Add(new Answer("backToHoops", isBackToHoopsTrue));
             }
 
-            Question questionToAdd = new Question(BaseName + "Title", (Models.QuestionSubject)Enum.Parse(typeof(Models.QuestionSubject), QuestionSubject), Video, BaseName + "Text", answers, BaseName + "Explanation", NGBs.ToArray());
+            Question questionToAdd = new Question( (Models.QuestionSubject)Enum.Parse(typeof(Models.QuestionSubject), QuestionSubject),
+                Video, BaseName + "Text", answers, BaseName + "Explanation", NGBs.ToArray());
             Dal.Instance.CreateQuestion(questionToAdd);
             return RedirectToAction("Index");
         }

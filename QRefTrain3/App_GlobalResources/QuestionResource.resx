@@ -717,4 +717,7 @@
   <data name="QuestionEncroachingPitchText" xml:space="preserve">
     <value>What is the penalty for encroaching the pitch ?</value>
   </data>
+  <data name="QuestionGifTestQuestionText" xml:space="preserve">
+    <value>This is a placeholder for this question's text. If you find the answer, congrats.</value>
+  </data>
 </root>
