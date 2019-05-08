@@ -57,6 +57,11 @@ namespace QRefTrain3.Models
             return Context.Answers.ToList();
         }
 
+        public QuestionSuite GetQuestionSuiteByString(string questionSuiteText)
+        {
+            return Context.QuestionSuites.FirstOrDefault(s => s.code.Equals(questionSuiteText));
+        }
+
         public Answer GetAnswer(string answerTitle, bool isAnswerTrue)
         {
             return Context.Answers.FirstOrDefault(a => a.Answertext.Equals(answerTitle) && a.IsTrue == isAnswerTrue);
@@ -153,7 +158,7 @@ namespace QRefTrain3.Models
             return Context.Answers.FirstOrDefault(q => q.Id == id);
         }
 
-        public Exam CreateExam(string name, List<Question> questions, DateTime timeNow)
+        public Exam CreateExam(string name, List<Question> questions, DateTime timeNow, int? suiteId)
         {
             User user = GetUserByName(name);
 
@@ -161,7 +166,8 @@ namespace QRefTrain3.Models
             {
                 Questions = questions,
                 StartDate = timeNow,
-                User = user
+                User = user,
+                SuiteId = suiteId
             };
             Context.Exams.Add(exam);
             Context.SaveChanges();
@@ -239,6 +245,11 @@ namespace QRefTrain3.Models
             Context.Database.ExecuteSqlCommand("delete from Questions");
             Context.Database.ExecuteSqlCommand("delete from Users");
 
+        }
+
+        public QuestionSuite GetQuestionSuiteById(int value)
+        {
+            return Context.QuestionSuites.FirstOrDefault(s => s.Id == value);
         }
 
         /// <summary>

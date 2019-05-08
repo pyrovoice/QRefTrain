@@ -31,7 +31,7 @@ namespace QRefTrain3.Controllers
         /// <param name="isExam"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult MoveToQuiz(string ngb, List<string> Subjects, string NGB_Only, string isExam)
+        public ActionResult MoveToQuiz(string ngb, List<string> Subjects, string NGB_Only, string isExam, string QuestionSuiteText)
         {
             // Get connected user
             User connectedUser = null;
@@ -46,6 +46,30 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_OngoingTest;
                 return RedirectToAction("Homepage");
             }
+            QuizzViewModel quizzModel;
+
+            //========================== Start of QuestionSuite ===============================
+            //If the question suite was selected, start it in exam mode
+            if (!String.IsNullOrEmpty(QuestionSuiteText))
+            {
+                if(connectedUser == null)
+                {
+                    TempData["ErrorQuestionSuite"] = QRefResources.Resource.Error_LoginForTest;
+                    return RedirectToAction("Homepage");
+                }
+                QuestionSuite suite = Dal.Instance.GetQuestionSuiteByString(QuestionSuiteText);
+                if(suite == null)
+                {
+                    TempData["ErrorQuestionSuite"] = QRefResources.Resource.Error_NoSuiteString;
+                    return RedirectToAction("Homepage");
+                }
+                DateTime d = Dal.Instance.GetDBTime();
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, suite.questions, d, suite.Id);
+                quizzModel = new QuizzViewModel(suite.questions, ResultType.Exam, d, suite.Id);
+                return View("Quizz", quizzModel);
+            }
+            //========================== End of QuestionSuite ===============================
+
             // Update the user's choice so he does not have to chose again next time
             Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, ngb, DateTime.Now.AddMonths(1));
 
@@ -66,7 +90,7 @@ namespace QRefTrain3.Controllers
                 examType = ResultType.Exam;
                 questions = GetQuestions(ngb, null, true);
                 dt = Dal.Instance.GetDBTime();
-                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, dt.Value);
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, dt.Value, null);
             }
             else
             {
@@ -74,7 +98,7 @@ namespace QRefTrain3.Controllers
                 questions = GetQuestions(ngb, Subjects, NGB_Only != null);
             }
 
-            QuizzViewModel quizzModel = new QuizzViewModel(questions, examType, dt);
+            quizzModel = new QuizzViewModel(questions, examType, dt, null);
             return View("Quizz", quizzModel);
         }
 
@@ -118,7 +142,7 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_TestTimeout;
                 return RedirectToAction("Homepage");
             }
-            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate));
+            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate, exam.SuiteId));
         }
 
         [HttpPost]
@@ -174,6 +198,16 @@ namespace QRefTrain3.Controllers
                     Dal.Instance.DeleteExamByUserId(currentUser.Id);
                 }
                 result.User = currentUser;
+                if(quizzModel.SuiteID.HasValue)
+                {
+                    QuestionSuite qs = Dal.Instance.GetQuestionSuiteById(quizzModel.SuiteID.Value);
+                    if(qs != null)
+                    {
+                        String body = "User " + currentUser.Name + " completed your exam " + qs.name + "\nResult: " + result.GetNumberGoodAnswers() + "/" + result.QuestionsAsked.Count + "\nTime: " + Dal.Instance.GetDBTime();
+                        Helper.MailingHelper.SendMail(qs.owner, "User " + currentUser.Name + " completed your exam " + qs.name, body);
+                        result.Reporter = qs.owner;
+                    }
+                }
                 Dal.Instance.CreateResult(result);
             }
 

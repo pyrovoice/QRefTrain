@@ -360,4 +360,19 @@
   <data name="ErrorWrongCode" xml:space="preserve">
     <value>Veuillez vérifier que le code que vous avez entré est valide</value>
   </data>
+  <data name="Homepage_StartQuestionSuite" xml:space="preserve">
+    <value>Commencer l'exam personnalisé</value>
+  </data>
+  <data name="Homepage_QuestionSuitePlaceholder" xml:space="preserve">
+    <value>Code de l'examen</value>
+  </data>
+  <data name="Error_NoSuiteString" xml:space="preserve">
+    <value>No exam found for this code. Please verify the exam code.</value>
+  </data>
+  <data name="QuestionSuite_GoTo" xml:space="preserve">
+    <value>Exams personalisés</value>
+  </data>
+  <data name="QuestionSuite_Create" xml:space="preserve">
+    <value>Créer un nouvel Exam</value>
+  </data>
 </root>

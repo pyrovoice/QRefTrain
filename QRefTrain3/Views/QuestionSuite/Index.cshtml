@@ -1,0 +1,15 @@
+﻿@model List<QRefTrain3.Models.QuestionSuite>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+    @using (Html.BeginForm("CreateQuestionSuite"))
+    {
+        <input type="submit" value="@Resources.Resource.QuestionSuite_Create" class="btn btn-primary" />
+    }
+</body>

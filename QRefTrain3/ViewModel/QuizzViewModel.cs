@@ -11,13 +11,14 @@ namespace QRefTrain3.ViewModel
         public List<QuestionQuizzViewModel> DisplayedQuestions { get; set; }
         public ResultType ResultType { get; set; }
         public DateTime? StartTime { get; set; }
+        public int? SuiteID { get; set; }
 
         public QuizzViewModel()
         {
 
         }
 
-        public QuizzViewModel(List<Question> displayedQuestions, ResultType type, DateTime? startTime)
+        public QuizzViewModel(List<Question> displayedQuestions, ResultType type, DateTime? startTime, int? suiteID)
         {
             DisplayedQuestions = new List<QuestionQuizzViewModel>();
             foreach (Question question in displayedQuestions)
@@ -27,6 +28,7 @@ namespace QRefTrain3.ViewModel
             }
             this.ResultType = type;
             this.StartTime = startTime;
+            this.SuiteID = suiteID;
         }
     }
 }

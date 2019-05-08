@@ -54,7 +54,7 @@
                     }
                 </div>
 
-                
+
                 <div class="btn-group-toggle bottomMargin" data-toggle="buttons">
                     <!-- NGB Only button -->
                     <label class="btn btn-secondary">
@@ -64,13 +64,25 @@
                     <input type="checkbox" name="isExam" data-toggle="toggle" data-on="@Resources.Resource.Exam" data-off="@Resources.Resource.Training" data-onstyle="warning" data-offstyle="success">
                 </div>
 
-                
+
 
                 <!-- Submit -->
                 <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
                 <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
             </div>
         }
+        <hr />
+
+        <!-- Question Suite form -->
+        using (Html.BeginForm("MovetoQuiz", "Home"))
+        {
+            <!-- String field for QuestionSuite text-->
+            @Html.TextBox("QuestionSuiteText", null, new { placeholder = Resources.Resource.Homepage_QuestionSuitePlaceholder, @class = "control-label" })
+
+            <!-- Submit -->
+            <input type="submit" value="@Resources.Resource.Homepage_StartQuestionSuite" class="btn btn-primary" />
+            <span class="field-validation-error">@ViewBag.ErrorQuestionSuite</span>
+        }
     }
-</body>
+    </body>
 </html>

@@ -375,4 +375,19 @@
   <data name="ErrorWrongCode" xml:space="preserve">
     <value>Please verify that the code you entered is valid.</value>
   </data>
+  <data name="Homepage_StartQuestionSuite" xml:space="preserve">
+    <value>Start custom exam</value>
+  </data>
+  <data name="Homepage_QuestionSuitePlaceholder" xml:space="preserve">
+    <value>Exam code</value>
+  </data>
+  <data name="Error_NoSuiteString" xml:space="preserve">
+    <value>No exam found for this code. Please verify the exam code.</value>
+  </data>
+  <data name="QuestionSuite_GoTo" xml:space="preserve">
+    <value>Custom Exams</value>
+  </data>
+  <data name="QuestionSuite_Create" xml:space="preserve">
+    <value>Create a new Exam</value>
+  </data>
 </root>

@@ -142,6 +142,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No exam found for this code. Please verify the exam code..
+        /// </summary>
+        public static string Error_NoSuiteString {
+            get {
+                return ResourceManager.GetString("Error_NoSuiteString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have an ongoing test. Please complete it or abandon it..
         /// </summary>
         public static string Error_OngoingTest {
@@ -232,6 +241,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exam code.
+        /// </summary>
+        public static string Homepage_QuestionSuitePlaceholder {
+            get {
+                return ResourceManager.GetString("Homepage_QuestionSuitePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quick start.
         /// </summary>
         public static string Homepage_QuickStartQuizz {
@@ -273,6 +291,15 @@ namespace QRefResources {
         public static string Homepage_ResumeQuiz {
             get {
                 return ResourceManager.GetString("Homepage_ResumeQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start custom exam.
+        /// </summary>
+        public static string Homepage_StartQuestionSuite {
+            get {
+                return ResourceManager.GetString("Homepage_StartQuestionSuite", resourceCulture);
             }
         }
         
@@ -579,6 +606,24 @@ namespace QRefResources {
         public static string Question_Seeker {
             get {
                 return ResourceManager.GetString("Question_Seeker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new Exam.
+        /// </summary>
+        public static string QuestionSuite_Create {
+            get {
+                return ResourceManager.GetString("QuestionSuite_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Exams.
+        /// </summary>
+        public static string QuestionSuite_GoTo {
+            get {
+                return ResourceManager.GetString("QuestionSuite_GoTo", resourceCulture);
             }
         }
         

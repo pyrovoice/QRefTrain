@@ -189,8 +189,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\QuestionSuiteController.cs" />
     <Compile Include="Helper\CookieHelper.cs" />
     <Compile Include="Helper\CultureHelper.cs" />
+    <Compile Include="Helper\MailingHelper.cs" />
     <Compile Include="Helper\UserInfoHelper.cs" />
     <Compile Include="Migrations\201809131336227_Initial.cs" />
     <Compile Include="Migrations\201809131336227_Initial.Designer.cs">
@@ -208,10 +210,19 @@
     <Compile Include="Migrations\201903291802080_addGif.Designer.cs">
       <DependentUpon>201903291802080_addGif.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905051155447_Fix.cs" />
+    <Compile Include="Migrations\201905051155447_Fix.Designer.cs">
+      <DependentUpon>201905051155447_Fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905060651383_addReporterToResult.cs" />
+    <Compile Include="Migrations\201905060651383_addReporterToResult.Designer.cs">
+      <DependentUpon>201905060651383_addReporterToResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Logs.cs" />
+    <Compile Include="Models\QuestionSuite.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="App_GlobalResources\Resource.fr.Designer.cs">
       <DependentUpon>Resource.fr.resx</DependentUpon>
@@ -361,6 +372,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\QuestionsListing.cshtml" />
+    <Content Include="Views\QuestionSuite\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -412,6 +424,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903291802080_addGif.resx">
       <DependentUpon>201903291802080_addGif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905051155447_Fix.resx">
+      <DependentUpon>201905051155447_Fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905060651383_addReporterToResult.resx">
+      <DependentUpon>201905060651383_addReporterToResult.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

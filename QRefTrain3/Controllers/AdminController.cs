@@ -14,7 +14,7 @@ namespace QRefTrain3.Controllers
 
         public ActionResult Index()
         {
-            if (!HttpContext.User.Identity.IsAuthenticated)
+            if (!HttpContext.User.Identity.IsAuthenticated || Dal.Instance.GetUserByName(HttpContext.User.Identity.Name).UserRole != UserRole.Admin)
             {
                 return RedirectToAction("Homepage", "Home");
             }

@@ -1,10 +1,6 @@
 ﻿using QRefTrain3.Models;
 using QRefTrain3.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -165,40 +161,7 @@ namespace QRefTrain3.Controllers
 
         private bool SendMail(User user, string body)
         {
-            using (SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com"))
-            {
-                var mail = new MailMessage();
-                mail.From = new MailAddress("qreftrain@gmail.com");
-                mail.To.Add(user.Email);
-                mail.Subject = "QuidditchRefTraining Subscription";
-                mail.Body = body;
-                mail.IsBodyHtml = true;
-                SmtpServer.Port = 587;
-                SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("qreftrain@gmail.com", "uypcjrqukouxmzws");
-                SmtpServer.EnableSsl = true;
-                try
-                {
-                    Dal.Instance.CreateLog(new Log()
-                    {
-                        LogText = "Registeration mail sent with body " + body + "using adress " + mail.From,
-                        LogTime = DateTime.Now,
-                        UserId = user.Id
-                    });
-                    SmtpServer.Send(mail);
-                }
-                catch (Exception e)
-                {
-                    Dal.Instance.CreateLog(new Log()
-                    {
-                        LogText = "Error when sending mail to : " + user.Email + ", with body : " + body + "\nException : " + e.Message,
-                        LogTime = new DateTime(),
-                        UserId = user.Id
-                    });
-                    return false;
-                }
-                return true;
-            }
+            return Helper.MailingHelper.SendMail(user, "QuidditchRefTraining Subscription", body);
         }
     }
 }

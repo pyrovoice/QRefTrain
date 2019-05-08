@@ -32,6 +32,7 @@ namespace QRefTrain3.Models
         public string NationalGoverningBodies { get; set; }
         public virtual List<Exam> Exams { get; set; }
         public virtual List<Result> Results { get; set; }
+        public virtual List<QuestionSuite> QuestionSuites { get; set; }
 
         public Question( QuestionSubject subject, string gifName, string questionText,
             List<Answer> answers, string answerExplanation, params NationalGoverningBody[] bodies)
