@@ -331,7 +331,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Elements\credentials.json" />
-    <None Include="Properties\PublishProfiles\QuidditchRefTraining - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\QuidditchRefTraining - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -444,6 +444,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809131336227_Initial.resx">
       <DependentUpon>201809131336227_Initial.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809160937577_wut.resx">
       <DependentUpon>201809160937577_wut.cs</DependentUpon>

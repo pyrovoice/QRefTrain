@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-    <h5 class="bottomMargin">@Resources.Resource.Homepage_ParameterPrompt <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="@Resources.Resource.Homepage_Helper"></i></h5>
+    <h5 class="bottomMargin">@QRefResources.Resource.Homepage_ParameterPrompt <i class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="@QRefResources.Resource.Homepage_Helper"></i></h5>
     <!-- If the user already has an exam test, offer a resume test button-->
     @if (Model.Value)
     {
         using (Html.BeginForm("ResumeTestQuiz", "Home"))
         {
-            <input type="submit" value="@Resources.Resource.Homepage_ResumeQuiz" class="btn btn-primary" />
+            <input type="submit" value="@QRefResources.Resource.Homepage_ResumeQuiz" class="btn btn-primary" />
             <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
         }
         @Html.ActionLink("Cancel", "CancelTest", "Home", new { area = "" })
@@ -31,7 +31,7 @@
             {
                 if (item != QRefTrain3.Models.NationalGoverningBody.All)
                 {
-                    ngbs.Add(new SelectListItem() { Text = @Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                    ngbs.Add(new SelectListItem() { Text = QRefResources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
                 }
             }
 
@@ -49,7 +49,7 @@
                     @foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
                     {
                         <label class="btn btn-secondary shortLabel">
-                            <input type="checkbox" name="Subjects" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString())
+                            <input type="checkbox" name="Subjects" value="@item.ToString()" />@QRefResources.Resource.ResourceManager.GetString("Subject_" + item.ToString())
                         </label>
                     }
                 </div>
@@ -58,16 +58,16 @@
                 <div class="btn-group-toggle bottomMargin" data-toggle="buttons">
                     <!-- NGB Only button -->
                     <label class="btn btn-secondary">
-                        <input type="checkbox" name="NGB_Only" value="NGB_Only" />@Resources.Resource.Homepage_NGBSpecificPrompt
+                        <input type="checkbox" name="NGB_Only" value="NGB_Only" />@QRefResources.Resource.Homepage_NGBSpecificPrompt
                     </label>
                     <!-- Exam or training switch-->
-                    <input type="checkbox" name="isExam" data-toggle="toggle" data-on="@Resources.Resource.Exam" data-off="@Resources.Resource.Training" data-onstyle="warning" data-offstyle="success">
+                    <input type="checkbox" name="isExam" data-toggle="toggle" data-on="@QRefResources.Resource.Exam" data-off="@QRefResources.Resource.Training" data-onstyle="warning" data-offstyle="success">
                 </div>
 
 
 
                 <!-- Submit -->
-                <input type="submit" value="@Resources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
+                <input type="submit" value="@QRefResources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
                 <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
             </div>
         }
@@ -77,10 +77,10 @@
         using (Html.BeginForm("MovetoQuiz", "Home"))
         {
             <!-- String field for QuestionSuite text-->
-            @Html.TextBox("QuestionSuiteText", null, new { placeholder = Resources.Resource.Homepage_QuestionSuitePlaceholder, @class = "control-label" })
+            @Html.TextBox("QuestionSuiteText", null, new { placeholder = QRefResources.Resource.Homepage_QuestionSuitePlaceholder, @class = "control-label" })
 
             <!-- Submit -->
-            <input type="submit" value="@Resources.Resource.Homepage_StartQuestionSuite" class="btn btn-primary" />
+            <input type="submit" value="@QRefResources.Resource.Homepage_StartQuestionSuite" class="btn btn-primary" />
             <span class="field-validation-error">@ViewBag.ErrorQuestionSuite</span>
         }
     }

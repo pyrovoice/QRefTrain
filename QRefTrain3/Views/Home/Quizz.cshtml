@@ -29,7 +29,7 @@
                 {
                     @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
                     <div class="QuizzQuestion">
-                        <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].PublicId) @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
+                        <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].PublicId) @QRefResources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
                         @if (!String.IsNullOrEmpty(@Model.DisplayedQuestions[i].GifName))
                         {
                             /**
@@ -50,7 +50,7 @@
                             {
                                 <label class="btn btn-light halfpageItem halfpageItemCollapse">
                                     @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                    <span class="verticalCenter">@Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)</span>
+                                    <span class="verticalCenter">@QRefResources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)</span>
                                 </label>
                                 @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                             }
@@ -67,7 +67,7 @@
                         <hr />
                     }
                 }
-                <input id="submit" type="submit" value="@Resources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
+                <input id="submit" type="submit" value="@QRefResources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
             }
         </div>
     <div class="bigBottomPadding"></div>

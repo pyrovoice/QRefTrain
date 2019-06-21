@@ -3,16 +3,16 @@
 @if (Model.IsAutenthified)
 {
     <h3>
-        @Resources.Resource.Login_AlreadyConnected
+        @QRefResources.Resource.Login_AlreadyConnected
         @Model.User.Name
     </h3>
-    @Html.ActionLink(@Resources.Resource.Login_DisconnectPrompt, "Disconnect")
+    @Html.ActionLink(QRefResources.Resource.Login_DisconnectPrompt, "Disconnect")
 }
 else
 {
     using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-        <h4>@Resources.Resource.Login_EnterInformationPrompt</h4>
+        <h4>@QRefResources.Resource.Login_EnterInformationPrompt</h4>
         <hr />
         <div class="form-group">
             @Html.LabelFor(m => m.User.Name, new { @class = "col-md-2 control-label" })
@@ -30,10 +30,10 @@ else
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default" value=@Resources.Resource.Login />
+                <input type="submit" class="btn btn-default" value=@QRefResources.Resource.Login />
             </div>
         </div>
         <br />
-        @Html.ActionLink(Resources.Resource.Login_Resetpassword, "Login", "ResetPassword")
+        @Html.ActionLink(QRefResources.Resource.Login_Resetpassword, "Login", "ResetPassword")
     }
 }

@@ -10,8 +10,8 @@ namespace QRefTrain3.Models
     {
         public QuestionsContext()
         {
-            Database.SetInitializer<QuestionsContext>(null);
-            //Database.SetInitializer<QuestionsContext>(new DropCreateDatabaseIfModelChanges<QuestionsContext>());
+            //Database.SetInitializer<QuestionsContext>(null);
+            Database.SetInitializer<QuestionsContext>(new CreateDatabaseIfNotExists<QuestionsContext>());
         }
 
         public DbSet<User> Users { get; set; }

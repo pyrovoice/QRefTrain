@@ -22,7 +22,7 @@
         }
         else
         {
-            @Html.ActionLink(Resources.Resource.QuestionSuite_GoTo, "Index", "QuestionSuite", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink(QRefResources.Resource.QuestionSuite_GoTo, "Index", "QuestionSuite", new { area = "" }, new { @class = "navbar-brand" })
             @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
             @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
         }
@@ -52,7 +52,7 @@
 
     <footer>
         <hr />
-        <div class="footerText"><strong>@Resources.Resource.Homepage_ReminderBeta01</strong> @Resources.Resource.Homepage_ReminderBeta02 <a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank">@Resources.Resource.Homepage_ReminderBeta03</a>.</div>
+        <div class="footerText"><strong>@QRefResources.Resource.Homepage_ReminderBeta01</strong> @QRefResources.Resource.Homepage_ReminderBeta02 <a href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank">@QRefResources.Resource.Homepage_ReminderBeta03</a>.</div>
     </footer>
 </body>
 </html>

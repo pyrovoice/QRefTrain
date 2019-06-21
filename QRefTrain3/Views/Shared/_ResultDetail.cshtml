@@ -6,7 +6,7 @@
     {
         <div>
             <div class="flex-container">
-                <h5>(@question.PublicId)  @Resources.QuestionResource.ResourceManager.GetString(question.QuestionText)</h5>
+                <h5>(@question.PublicId)  @QRefResources.QuestionResource.ResourceManager.GetString(question.QuestionText)</h5>
                 @if (!String.IsNullOrEmpty(question.GifName))
                 {
                     /*
@@ -42,10 +42,10 @@
                         backGround = "redBack";
                     }
 
-                    <div class="answer @backGround"><img id="selection" src="~/Elements/@(Model.SelectedAnswers.Contains(question.Answers[counter]) ? "checkBoxSelected" : "checkBoxUnselected").png" height="25" width="25" />@Resources.QuestionResource.ResourceManager.GetString(question.Answers[counter].Answertext)</div>
+                    <div class="answer @backGround"><img id="selection" src="~/Elements/@(Model.SelectedAnswers.Contains(question.Answers[counter]) ? "checkBoxSelected" : "checkBoxUnselected").png" height="25" width="25" />@QRefResources.QuestionResource.ResourceManager.GetString(question.Answers[counter].Answertext)</div>
                 }
             </div>
-            <div>@Resources.QuestionResource.ResourceManager.GetString(question.AnswerExplanation)</div>
+            <div>@QRefResources.QuestionResource.ResourceManager.GetString(question.AnswerExplanation)</div>
         </div>
         if (Model.QuestionsAsked.Last() != question)
         {

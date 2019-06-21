@@ -5,19 +5,19 @@
     {
         @Html.AntiForgeryToken()
         <div class="form-group">
-            @Html.Label(Resources.Resource.Login_ResetCode, new { @class = "col-md-2 control-label" })
+            @Html.Label(QRefResources.Resource.Login_ResetCode, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBox("resetCode", null, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group">
-            @Html.Label(Resources.Resource.Login_NewPassword, new { @class = "col-md-2 control-label" })
+            @Html.Label(QRefResources.Resource.Login_NewPassword, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBox("newPassword", null, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group">
-            @Html.Label(Resources.Resource.Login_ConfirmPassword, new { @class = "col-md-2 control-label" })
+            @Html.Label(QRefResources.Resource.Login_ConfirmPassword, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBox("confirmPassword", null, new { @class = "form-control" })
             </div>

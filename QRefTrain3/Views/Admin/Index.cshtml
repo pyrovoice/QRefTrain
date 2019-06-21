@@ -86,7 +86,7 @@
                     List<SelectListItem> subjects = new List<SelectListItem>();
                     foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
                     {
-                        SelectListItem i = new SelectListItem() { Text = Resources.Resource.ResourceManager.GetString("Subject_" + item.ToString()), Value = item.ToString() };
+                        SelectListItem i = new SelectListItem() { Text = QRefResources.Resource.ResourceManager.GetString("Subject_" + item.ToString()), Value = item.ToString() };
                         subjects.Add(i);
                     }
                 }
@@ -99,13 +99,13 @@
                     @foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
                     {
                         <label class="btn btn-secondary shortLabel">
-                            <input type="checkbox" name="NGBs" value="@item.ToString()" />@Resources.Resource.ResourceManager.GetString("NGBs_" + item.ToString())
+                            <input type="checkbox" name="NGBs" value="@item.ToString()" />@QRefResources.Resource.ResourceManager.GetString("NGBs_" + item.ToString())
                         </label>
                     }
                 </div>
             </div>
         </div>
-        <input id="submit" type="submit" value="@Resources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
+        <input id="submit" type="submit" value="@QRefResources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
     }
 </body>
 </html>

@@ -12,24 +12,24 @@
     @foreach (QRefTrain3.Models.QuestionSubject subject in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
     {
     <div class="QuizzQuestionTitle">
-        @Resources.Resource.ResourceManager.GetString("Subject_" + subject.ToString())
+        @QRefResources.Resource.ResourceManager.GetString("Subject_" + subject.ToString())
     </div>
         <hr />
         foreach (QRefTrain3.Models.Question q in Model)
         {
             if (q.Subject == subject)
             {
-                <div class="QuizzQuestionTitle">(@q.Id) @Resources.QuestionResource.ResourceManager.GetString(q.QuestionText)</div>
-                <div>@q.VideoURL</div>
+                <div class="QuizzQuestionTitle">(@q.Id) @QRefResources.QuestionResource.ResourceManager.GetString(q.QuestionText)</div>
+                <div>@q.GifName</divQRefResources
                 <div class="btn-group-toggle" data-toggle="buttons">
                     @foreach (QRefTrain3.Models.Answer a in q.Answers)
                     {
                         <label class="btn @(a.IsTrue ? "greenBack" : "greyBack") halfpageItem halfpageItemCollapse">
-                            <span class="verticalCenter">@Resources.QuestionResource.ResourceManager.GetString(a.Answertext)</span>
+                            <span class="verticalCenter">@QRefResources.QuestionResource.ResourceManager.GetString(a.Answertext)</span>
                         </label>
                     }
                 </div>
-                <div>@Resources.QuestionResource.ResourceManager.GetString(q.AnswerExplanation)</div>
+                <div>@QRefResources.QuestionResource.ResourceManager.GetString(q.AnswerExplanation)</div>
                 <div class="bigBottomPadding"></div>
             }
         }
