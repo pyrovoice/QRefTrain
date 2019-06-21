@@ -779,4 +779,142 @@ drive without it counting as a reset.</value>
   <data name="ResetUsed" xml:space="preserve">
     <value>Reset Used</value>
   </data>
+  <data name="BeaterCommit3rdInterference" xml:space="preserve">
+    <value>The beater who threw the bludger commited a third bludger interference.</value>
+  </data>
+  <data name="ChargeAfterClaimAnswer1" xml:space="preserve">
+    <value>The beater that claimed immunity should be penalized</value>
+  </data>
+  <data name="ChargeAfterClaimExplanation" xml:space="preserve">
+    <value>It is forbidden to take any other action than retrieving the bludger when claiming immunity.</value>
+  </data>
+  <data name="Claim2DeadAnswer1" xml:space="preserve">
+    <value>Blue player's claim of immunity is invalid, he should be send back to hoops</value>
+  </data>
+  <data name="Claim2DeadAnswer2" xml:space="preserve">
+    <value>Blue player's claim of immunity is valid</value>
+  </data>
+  <data name="Claim2DeadAnswer3" xml:space="preserve">
+    <value>Blue player's claim of immunity is invalid, he should be given a blue card</value>
+  </data>
+  <data name="Claim2DeadExplanation" xml:space="preserve">
+    <value>Blue player cannot claim immunity while 2 bludgers are dead. However, since the claim did not affect the game yet, the penalty is reduced to a minor invalid immunity claim.</value>
+  </data>
+  <data name="ClaimAfterDeadExplanation" xml:space="preserve">
+    <value>Here the claim is done right as the bludger hits the ground, becoming dead. Thus the claim is valid.</value>
+  </data>
+  <data name="ClaimAfterLeaveHandExplanation" xml:space="preserve">
+    <value>A claim made when a bludger is live does not make the player immune to that bludger.</value>
+  </data>
+  <data name="ClaimBeforeLeaveHandExplanation" xml:space="preserve">
+    <value>A claim made before the opposing beater made the bludger live is valid, even if that player already started the movement.</value>
+  </data>
+  <data name="ClaimerIsBeat1" xml:space="preserve">
+    <value>Beater that claimed immunity is beat</value>
+  </data>
+  <data name="ClaimerIsBeat2" xml:space="preserve">
+    <value>Beater that claimed immunity is immune</value>
+  </data>
+  <data name="ClaimStillLiveAnswer1" xml:space="preserve">
+    <value>Blue beater claim is valid and he can keep playing.</value>
+  </data>
+  <data name="ClaimStillLiveAnswer2" xml:space="preserve">
+    <value>Blue beater committed an improper immunity claim and must be sent back to hoops.</value>
+  </data>
+  <data name="ClaimStillLiveExplanation" xml:space="preserve">
+    <value>Claiming immunity while the third bludger is still live results in an improper immunity claim.</value>
+  </data>
+  <data name="ImmunityShootHoopsAnswer1" xml:space="preserve">
+    <value>The kick is valid, no penalty</value>
+  </data>
+  <data name="ImmunityShootHoopsAnswer2" xml:space="preserve">
+    <value>The kick is invalid, yellow player should be penalized</value>
+  </data>
+  <data name="ImmunityShootHoopsExplanation" xml:space="preserve">
+    <value>Kicking to the player's hoops is a valid way of retrieving the bludger</value>
+  </data>
+  <data name="OneClaimOtherGetAnswer1" xml:space="preserve">
+    <value>Blue beater that raised is fist should be penalized</value>
+  </data>
+  <data name="OneClaimOtherGetAnswer2" xml:space="preserve">
+    <value>Blue beater that got the ball should be penalized</value>
+  </data>
+  <data name="OneClaimOtherGetAnswer3" xml:space="preserve">
+    <value>Both blue beaters should be penalized</value>
+  </data>
+  <data name="OneClaimOtherGetExplanation" xml:space="preserve">
+    <value>Nothing prevents the beater that did not claimed immunity to get the third bludger.</value>
+  </data>
+  <data name="PackBludgersAnswer1" xml:space="preserve">
+    <value>The beater gathering the bludgers commits a foul by getting the 2sd bludger</value>
+  </data>
+  <data name="PackBludgersAnswer2" xml:space="preserve">
+    <value>The beater gathering the bludgers commits a foul by getting the 3rd bludger</value>
+  </data>
+  <data name="PackBludgersAnswer3" xml:space="preserve">
+    <value>The beater gathering the bludgers commits no foul</value>
+  </data>
+  <data name="PackBludgersExplanation" xml:space="preserve">
+    <value>As there was always 2 dead bludgers at the same time, there can be no 3rd bludger interference.</value>
+  </data>
+  <data name="QuestionWhatIsTrue" xml:space="preserve">
+    <value>Which of the followings are true?</value>
+  </data>
+  <data name="ShootAfterBeatAnswer1" xml:space="preserve">
+    <value>The kick was valid, no penalty.</value>
+  </data>
+  <data name="ShootAfterBeatAnswer2" xml:space="preserve">
+    <value>The kick was valid and blue is KO, but yellow player should be penalized</value>
+  </data>
+  <data name="ShootAfterBeatAnswer3" xml:space="preserve">
+    <value>The kick was not valid, yellow player should be penalized</value>
+  </data>
+  <data name="ShootAfterBeatExplanation" xml:space="preserve">
+    <value>Shooting the bludger is a valid way of retrieving it, so no penalty should be issued here.</value>
+  </data>
+  <data name="ShootImmuneBeaterAnswer1" xml:space="preserve">
+    <value>Blue beater is still immune and may retrieve the bludger</value>
+  </data>
+  <data name="ShootImmuneBeaterAnswer2" xml:space="preserve">
+    <value>Blue beater is not immune anymore but not KO</value>
+  </data>
+  <data name="ShootImmuneBeaterExplanation" xml:space="preserve">
+    <value>Nothing in the rules prevent a player from trying to beat another immune player, as long as this does not transgress another rule.</value>
+  </data>
+  <data name="ThrowBackGet3rdAnswer1" xml:space="preserve">
+    <value>No penalty for blue player</value>
+  </data>
+  <data name="ThrowBackGet3rdAnswer2" xml:space="preserve">
+    <value>The beater is still immune</value>
+  </data>
+  <data name="ThrowBackGet3rdExplanation" xml:space="preserve">
+    <value>Taking the third bludger without having used its own bludger in a valid way is a 3rd bludger interference</value>
+  </data>
+  <data name="ThrowToImmuneGetExplanation" xml:space="preserve">
+    <value>Taking the third bludger without having used its own bludger in a valid way is a 3rd bludger interference</value>
+  </data>
+  <data name="TwoClaim1LowerAnswer1" xml:space="preserve">
+    <value>Claim is valid, no penalty.</value>
+  </data>
+  <data name="TwoClaim1LowerAnswer2" xml:space="preserve">
+    <value>One blue player should be penalized</value>
+  </data>
+  <data name="TwoClaim1LowerAnswer3" xml:space="preserve">
+    <value>Both blue players should be penalized</value>
+  </data>
+  <data name="TwoClaim1LowerExplanation" xml:space="preserve">
+    <value>When both beaters in a team claim immunity, one must lower his fist immediatly to avoid a penalty.</value>
+  </data>
+  <data name="TwoClaimAnswer1" xml:space="preserve">
+    <value>Claim is valid, no penalty. </value>
+  </data>
+  <data name="TwoClaimAnswer2" xml:space="preserve">
+    <value>One blue beater should be penalized</value>
+  </data>
+  <data name="TwoClaimAnswer3" xml:space="preserve">
+    <value>Both blue beaters should be penalized</value>
+  </data>
+  <data name="TwoClaimExplanation" xml:space="preserve">
+    <value>If no beater immediatly lowers his fist, one beater commits a minor invalid immunity claim and should be send back to hoops</value>
+  </data>
 </root>

@@ -765,4 +765,142 @@
   <data name="ResetUsed" xml:space="preserve">
     <value>Reset Utilisé</value>
   </data>
+  <data name="BeaterCommit3rdInterference" xml:space="preserve">
+    <value>Le batteur ayant propulsé le cognard a commis une Interférence avec le troisième cognard</value>
+  </data>
+  <data name="ChargeAfterClaimAnswer1" xml:space="preserve">
+    <value>Le batteur ayant demandé l'immunité doit etre pénalisé</value>
+  </data>
+  <data name="ChargeAfterClaimExplanation" xml:space="preserve">
+    <value>Il est interdit d'accomplir une autre action que celle de récupérer le troisième cognard après avoir demandé l'immunité.</value>
+  </data>
+  <data name="Claim2DeadAnswer1" xml:space="preserve">
+    <value>La demande d'immunité du joueur bleu est invalide, il doit etre renvoyé aux anneaux.</value>
+  </data>
+  <data name="Claim2DeadAnswer2" xml:space="preserve">
+    <value>La demande d'immunité du joueur bleu est valide.</value>
+  </data>
+  <data name="Claim2DeadAnswer3" xml:space="preserve">
+    <value>La demande d'immunité du joueur bleu est invalide, il doit recevoir un carton bleu</value>
+  </data>
+  <data name="Claim2DeadExplanation" xml:space="preserve">
+    <value>Le joueur bleu ne peut pas demander l'immunité alors que deux cognards sont morts. Cependant, comme cette demande n'as pas encore affecté le jeux, la pénalité est réduite à une demande d’immunité invalide mineure.</value>
+  </data>
+  <data name="ClaimAfterDeadExplanation" xml:space="preserve">
+    <value>Ici, la demande d'immunité est faite juste après que le bludger ait touché le sol, devenant mort. La demande est donc valide.</value>
+  </data>
+  <data name="ClaimAfterLeaveHandExplanation" xml:space="preserve">
+    <value>Une demande d'immunité faire alors qu'un cognard est vivant ne rend pas le joueur immunisé à ce cognard.</value>
+  </data>
+  <data name="ClaimBeforeLeaveHandExplanation" xml:space="preserve">
+    <value>Une demande d'immunité faites avant que le cognard ait été rendu vivant par le batteur adverse est valide, même si ce batteur était déjà dans le processus de lancer la balle.</value>
+  </data>
+  <data name="ClaimerIsBeat1" xml:space="preserve">
+    <value>Le batteur demandant l'immunité est KO</value>
+  </data>
+  <data name="ClaimerIsBeat2" xml:space="preserve">
+    <value>Le batteur demandant l'immunité est immunisé</value>
+  </data>
+  <data name="ClaimStillLiveAnswer1" xml:space="preserve">
+    <value>La demande d'immunité du Batteur bleu est valide et il peut continuer le jeu</value>
+  </data>
+  <data name="ClaimStillLiveAnswer2" xml:space="preserve">
+    <value>Le batteur bleu a commit une demande d’immunité impropre et doit etre renvoyé aux anneaux</value>
+  </data>
+  <data name="ClaimStillLiveExplanation" xml:space="preserve">
+    <value>Demander l'immunité alors que le troisième cognard est encore vivant est une demande d’immunité impropre</value>
+  </data>
+  <data name="ImmunityShootHoopsAnswer1" xml:space="preserve">
+    <value>Le tir est valide, pas de pénalité</value>
+  </data>
+  <data name="ImmunityShootHoopsAnswer2" xml:space="preserve">
+    <value>Le tir est invalide, le joueur jaune doit etre pénalisé</value>
+  </data>
+  <data name="ImmunityShootHoopsExplanation" xml:space="preserve">
+    <value>Tirer au pied vers ses propres anneaux est un moyen valide de récupérer le troisieme bludger</value>
+  </data>
+  <data name="OneClaimOtherGetAnswer1" xml:space="preserve">
+    <value>Le batteur bleu ayant demandé l'immunité doit etre pénalisé</value>
+  </data>
+  <data name="OneClaimOtherGetAnswer2" xml:space="preserve">
+    <value>Le batteur bleu ayant récupéré la balle doit etre pénalisé</value>
+  </data>
+  <data name="OneClaimOtherGetAnswer3" xml:space="preserve">
+    <value>Les deux batteurs bleus doivent etre pénalisés.</value>
+  </data>
+  <data name="OneClaimOtherGetExplanation" xml:space="preserve">
+    <value>Rien n'empeche le batteur n'ayant pas demandé l'immunité de récupérer le troisième cognard.</value>
+  </data>
+  <data name="PackBludgersAnswer1" xml:space="preserve">
+    <value>Le batteur récupérant les cognards commet une faute après en touchant le deuxieme cognard</value>
+  </data>
+  <data name="PackBludgersAnswer2" xml:space="preserve">
+    <value>Le batteur récupérant les cognards commet une faute après en touchant le troisieme cognard</value>
+  </data>
+  <data name="PackBludgersAnswer3" xml:space="preserve">
+    <value>Le batteur récupérant les cognards ne commet pas de faute</value>
+  </data>
+  <data name="PackBludgersExplanation" xml:space="preserve">
+    <value>Etant donné qu'il y a toujours deux cognards morts au sol, il ne peut pas y avoir d'interférence avec le troisième cognard.</value>
+  </data>
+  <data name="QuestionWhatIsTrue" xml:space="preserve">
+    <value>Parmis les propositions suivantes, lesquelles sont justes?</value>
+  </data>
+  <data name="ShootAfterBeatAnswer1" xml:space="preserve">
+    <value>Le tir est valide, pas de pénalité</value>
+  </data>
+  <data name="ShootAfterBeatAnswer2" xml:space="preserve">
+    <value>Le tir est valide et le batteur bleu est hors-jeu, mais le batteur jaune dit etre pénalisé</value>
+  </data>
+  <data name="ShootAfterBeatAnswer3" xml:space="preserve">
+    <value>Le tir n'est pas valide, le joueur jaune doit etre pénalisé</value>
+  </data>
+  <data name="ShootAfterBeatExplanation" xml:space="preserve">
+    <value>Tirer le cognard au pied est un moyen valide de récupérer le troisième cognard.</value>
+  </data>
+  <data name="ShootImmuneBeaterAnswer1" xml:space="preserve">
+    <value>Batteur bleu est toujours immunisé et peut récupérer le cognard</value>
+  </data>
+  <data name="ShootImmuneBeaterAnswer2" xml:space="preserve">
+    <value>Batteur bleu n'est plus immunisé mais n'est pas KO</value>
+  </data>
+  <data name="ShootImmuneBeaterExplanation" xml:space="preserve">
+    <value>Rien dans les règles n'empeche un joueur de tenter un KO sur un joueur immunisé, tant que cette tentative n'enfreint pas une autre règle.</value>
+  </data>
+  <data name="ThrowBackGet3rdAnswer1" xml:space="preserve">
+    <value>Pas de penalité pour le joueur bleu</value>
+  </data>
+  <data name="ThrowBackGet3rdAnswer2" xml:space="preserve">
+    <value>Le batteur est toujours immunisé</value>
+  </data>
+  <data name="ThrowBackGet3rdExplanation" xml:space="preserve">
+    <value>Prendre le troisième cognard sans avoir utilisé son propre cognard d'une façon valide avant est une interférence avec le troisième cognard</value>
+  </data>
+  <data name="ThrowToImmuneGetExplanation" xml:space="preserve">
+    <value>Prendre le troisième cognard sans avoir utilisé son propre cognard d'une façon valide avant est une interférence avec le troisième cognard</value>
+  </data>
+  <data name="TwoClaim1LowerAnswer1" xml:space="preserve">
+    <value>La demande est valide, pas de pénalité</value>
+  </data>
+  <data name="TwoClaim1LowerAnswer2" xml:space="preserve">
+    <value>Un joueur bleu devrait etre pénalisé.</value>
+  </data>
+  <data name="TwoClaim1LowerAnswer3" xml:space="preserve">
+    <value>Les deux joueurs bleus devraient etre pénalisés</value>
+  </data>
+  <data name="TwoClaim1LowerExplanation" xml:space="preserve">
+    <value>Quand deux batteurs d'une même équipes demandent l'immunité, l'un d'entre eux doit immédiatement abaisser son poing pour éviter une pénalité.</value>
+  </data>
+  <data name="TwoClaimAnswer1" xml:space="preserve">
+    <value>La demande est valide, pas de pénalité</value>
+  </data>
+  <data name="TwoClaimAnswer2" xml:space="preserve">
+    <value>Un joueur bleu devrait etre pénalisé.</value>
+  </data>
+  <data name="TwoClaimAnswer3" xml:space="preserve">
+    <value>Les deux joueurs bleus devraient etre pénalisés</value>
+  </data>
+  <data name="TwoClaimExplanation" xml:space="preserve">
+    <value>Si aucun batteur n'abaisse son poing immédiatement, l'un des batteurs commet une demande d’immunité invalide mineure et doit etre renvoyé aux anneaux.</value>
+  </data>
 </root>

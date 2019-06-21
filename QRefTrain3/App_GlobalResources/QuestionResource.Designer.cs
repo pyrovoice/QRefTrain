@@ -70,6 +70,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The beater who threw the bludger commited a third bludger interference..
+        /// </summary>
+        public static string BeaterCommit3rdInterference {
+            get {
+                return ResourceManager.GetString("BeaterCommit3rdInterference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A player crossing two lines in a single run is considered having used only one reset..
         /// </summary>
         public static string BeaterResetCrossBothLinesExplanation {
@@ -97,11 +106,236 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The beater that claimed immunity should be penalized.
+        /// </summary>
+        public static string ChargeAfterClaimAnswer1 {
+            get {
+                return ResourceManager.GetString("ChargeAfterClaimAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is forbidden to take any other action than retrieving the bludger when claiming immunity..
+        /// </summary>
+        public static string ChargeAfterClaimExplanation {
+            get {
+                return ResourceManager.GetString("ChargeAfterClaimExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue player&apos;s claim of immunity is invalid, he should be send back to hoops.
+        /// </summary>
+        public static string Claim2DeadAnswer1 {
+            get {
+                return ResourceManager.GetString("Claim2DeadAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue player&apos;s claim of immunity is valid.
+        /// </summary>
+        public static string Claim2DeadAnswer2 {
+            get {
+                return ResourceManager.GetString("Claim2DeadAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue player&apos;s claim of immunity is invalid, he should be given a blue card.
+        /// </summary>
+        public static string Claim2DeadAnswer3 {
+            get {
+                return ResourceManager.GetString("Claim2DeadAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue player cannot claim immunity while 2 bludgers are dead. However, since the claim did not affect the game yet, the penalty is reduced to a minor invalid immunity claim..
+        /// </summary>
+        public static string Claim2DeadExplanation {
+            get {
+                return ResourceManager.GetString("Claim2DeadExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Here the claim is done right as the bludger hits the ground, becoming dead. Thus the claim is valid..
+        /// </summary>
+        public static string ClaimAfterDeadExplanation {
+            get {
+                return ResourceManager.GetString("ClaimAfterDeadExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A claim made when a bludger is live does not make the player immune to that bludger..
+        /// </summary>
+        public static string ClaimAfterLeaveHandExplanation {
+            get {
+                return ResourceManager.GetString("ClaimAfterLeaveHandExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A claim made before the opposing beater made the bludger live is valid, even if that player already started the movement..
+        /// </summary>
+        public static string ClaimBeforeLeaveHandExplanation {
+            get {
+                return ResourceManager.GetString("ClaimBeforeLeaveHandExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beater that claimed immunity is beat.
+        /// </summary>
+        public static string ClaimerIsBeat1 {
+            get {
+                return ResourceManager.GetString("ClaimerIsBeat1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beater that claimed immunity is immune.
+        /// </summary>
+        public static string ClaimerIsBeat2 {
+            get {
+                return ResourceManager.GetString("ClaimerIsBeat2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue beater claim is valid and he can keep playing..
+        /// </summary>
+        public static string ClaimStillLiveAnswer1 {
+            get {
+                return ResourceManager.GetString("ClaimStillLiveAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue beater committed an improper immunity claim and must be sent back to hoops..
+        /// </summary>
+        public static string ClaimStillLiveAnswer2 {
+            get {
+                return ResourceManager.GetString("ClaimStillLiveAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Claiming immunity while the third bludger is still live results in an improper immunity claim..
+        /// </summary>
+        public static string ClaimStillLiveExplanation {
+            get {
+                return ResourceManager.GetString("ClaimStillLiveExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The kick is valid, no penalty.
+        /// </summary>
+        public static string ImmunityShootHoopsAnswer1 {
+            get {
+                return ResourceManager.GetString("ImmunityShootHoopsAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The kick is invalid, yellow player should be penalized.
+        /// </summary>
+        public static string ImmunityShootHoopsAnswer2 {
+            get {
+                return ResourceManager.GetString("ImmunityShootHoopsAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kicking to the player&apos;s hoops is a valid way of retrieving the bludger.
+        /// </summary>
+        public static string ImmunityShootHoopsExplanation {
+            get {
+                return ResourceManager.GetString("ImmunityShootHoopsExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No penalty.
         /// </summary>
         public static string NoPenalty {
             get {
                 return ResourceManager.GetString("NoPenalty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue beater that raised is fist should be penalized.
+        /// </summary>
+        public static string OneClaimOtherGetAnswer1 {
+            get {
+                return ResourceManager.GetString("OneClaimOtherGetAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue beater that got the ball should be penalized.
+        /// </summary>
+        public static string OneClaimOtherGetAnswer2 {
+            get {
+                return ResourceManager.GetString("OneClaimOtherGetAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both blue beaters should be penalized.
+        /// </summary>
+        public static string OneClaimOtherGetAnswer3 {
+            get {
+                return ResourceManager.GetString("OneClaimOtherGetAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing prevents the beater that did not claimed immunity to get the third bludger..
+        /// </summary>
+        public static string OneClaimOtherGetExplanation {
+            get {
+                return ResourceManager.GetString("OneClaimOtherGetExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The beater gathering the bludgers commits a foul by getting the 2sd bludger.
+        /// </summary>
+        public static string PackBludgersAnswer1 {
+            get {
+                return ResourceManager.GetString("PackBludgersAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The beater gathering the bludgers commits a foul by getting the 3rd bludger.
+        /// </summary>
+        public static string PackBludgersAnswer2 {
+            get {
+                return ResourceManager.GetString("PackBludgersAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The beater gathering the bludgers commits no foul.
+        /// </summary>
+        public static string PackBludgersAnswer3 {
+            get {
+                return ResourceManager.GetString("PackBludgersAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to As there was always 2 dead bludgers at the same time, there can be no 3rd bludger interference..
+        /// </summary>
+        public static string PackBludgersExplanation {
+            get {
+                return ResourceManager.GetString("PackBludgersExplanation", resourceCulture);
             }
         }
         
@@ -1870,6 +2104,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Which of the followings are true?.
+        /// </summary>
+        public static string QuestionWhatIsTrue {
+            get {
+                return ResourceManager.GetString("QuestionWhatIsTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The player goes to the penalty box.
         /// </summary>
         public static string QuestionYellowDuringAdvantageAnswer1 {
@@ -2025,11 +2268,182 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The kick was valid, no penalty..
+        /// </summary>
+        public static string ShootAfterBeatAnswer1 {
+            get {
+                return ResourceManager.GetString("ShootAfterBeatAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The kick was valid and blue is KO, but yellow player should be penalized.
+        /// </summary>
+        public static string ShootAfterBeatAnswer2 {
+            get {
+                return ResourceManager.GetString("ShootAfterBeatAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The kick was not valid, yellow player should be penalized.
+        /// </summary>
+        public static string ShootAfterBeatAnswer3 {
+            get {
+                return ResourceManager.GetString("ShootAfterBeatAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shooting the bludger is a valid way of retrieving it, so no penalty should be issued here..
+        /// </summary>
+        public static string ShootAfterBeatExplanation {
+            get {
+                return ResourceManager.GetString("ShootAfterBeatExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue beater is still immune and may retrieve the bludger.
+        /// </summary>
+        public static string ShootImmuneBeaterAnswer1 {
+            get {
+                return ResourceManager.GetString("ShootImmuneBeaterAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue beater is not immune anymore but not KO.
+        /// </summary>
+        public static string ShootImmuneBeaterAnswer2 {
+            get {
+                return ResourceManager.GetString("ShootImmuneBeaterAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing in the rules prevent a player from trying to beat another immune player, as long as this does not transgress another rule..
+        /// </summary>
+        public static string ShootImmuneBeaterExplanation {
+            get {
+                return ResourceManager.GetString("ShootImmuneBeaterExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No penalty for blue player.
+        /// </summary>
+        public static string ThrowBackGet3rdAnswer1 {
+            get {
+                return ResourceManager.GetString("ThrowBackGet3rdAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The beater is still immune.
+        /// </summary>
+        public static string ThrowBackGet3rdAnswer2 {
+            get {
+                return ResourceManager.GetString("ThrowBackGet3rdAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taking the third bludger without having used its own bludger in a valid way is a 3rd bludger interference.
+        /// </summary>
+        public static string ThrowBackGet3rdExplanation {
+            get {
+                return ResourceManager.GetString("ThrowBackGet3rdExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taking the third bludger without having used its own bludger in a valid way is a 3rd bludger interference.
+        /// </summary>
+        public static string ThrowToImmuneGetExplanation {
+            get {
+                return ResourceManager.GetString("ThrowToImmuneGetExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turnover.
         /// </summary>
         public static string Turnover {
             get {
                 return ResourceManager.GetString("Turnover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Claim is valid, no penalty..
+        /// </summary>
+        public static string TwoClaim1LowerAnswer1 {
+            get {
+                return ResourceManager.GetString("TwoClaim1LowerAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One blue player should be penalized.
+        /// </summary>
+        public static string TwoClaim1LowerAnswer2 {
+            get {
+                return ResourceManager.GetString("TwoClaim1LowerAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both blue players should be penalized.
+        /// </summary>
+        public static string TwoClaim1LowerAnswer3 {
+            get {
+                return ResourceManager.GetString("TwoClaim1LowerAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When both beaters in a team claim immunity, one must lower his fist immediatly to avoid a penalty..
+        /// </summary>
+        public static string TwoClaim1LowerExplanation {
+            get {
+                return ResourceManager.GetString("TwoClaim1LowerExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Claim is valid, no penalty. .
+        /// </summary>
+        public static string TwoClaimAnswer1 {
+            get {
+                return ResourceManager.GetString("TwoClaimAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One blue beater should be penalized.
+        /// </summary>
+        public static string TwoClaimAnswer2 {
+            get {
+                return ResourceManager.GetString("TwoClaimAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both blue beaters should be penalized.
+        /// </summary>
+        public static string TwoClaimAnswer3 {
+            get {
+                return ResourceManager.GetString("TwoClaimAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If no beater immediatly lowers his fist, one beater commits a minor invalid immunity claim and should be send back to hoops.
+        /// </summary>
+        public static string TwoClaimExplanation {
+            get {
+                return ResourceManager.GetString("TwoClaimExplanation", resourceCulture);
             }
         }
         

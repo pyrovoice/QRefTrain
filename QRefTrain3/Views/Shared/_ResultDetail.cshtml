@@ -6,7 +6,7 @@
     {
         <div>
             <div class="flex-container">
-                <h5>@question.Id</h5>
+                <h5>(@question.PublicId)  @Resources.QuestionResource.ResourceManager.GetString(question.QuestionText)</h5>
                 @if (!String.IsNullOrEmpty(question.GifName))
                 {
                     /*
@@ -18,9 +18,9 @@
                                 frameborder="0"></iframe>
                     </div>
                     */
+                    <iframe src='@question.GifName?autoplay=0' frameborder='0' scrolling='no' width='640' height='346'></iframe>
                 }
             </div>
-            <div>@Resources.QuestionResource.ResourceManager.GetString(question.QuestionText)</div>
             <div class="flex-container">
                 @for (int counter = 0; counter < question.Answers.Count; counter++)
                 {
