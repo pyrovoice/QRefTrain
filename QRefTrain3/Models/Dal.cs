@@ -25,6 +25,11 @@ namespace QRefTrain3.Models
             Context.Database.ExecuteSqlCommand("CreateUser @name, @password, @email", new SqlParameter("@name", user.Name), new SqlParameter("@password", user.Password), new SqlParameter("@email", user.Email));
         }
 
+        public List<QuestionSuite> GetQuestionSuiteByUser(User currentUser)
+        {
+            return Context.QuestionSuites.Where(q => q.owner == currentUser).ToList();
+        }
+
         public List<Result> GetNLastResultByUser(User user, int number)
         {
             List<Result> results = GetResultByUser(user);
@@ -34,6 +39,22 @@ namespace QRefTrain3.Models
         public User GetUserByMail(string userMail)
         {
             return Context.Users.FirstOrDefault(u => u.Email.Equals(userMail));
+        }
+
+        internal object GetQuestionSuiteByCode(string code)
+        {
+            return Context.QuestionSuites.FirstOrDefault(u => u.code.Equals(code));
+        }
+
+        internal List<Question> GetQuestionsById(List<string> questionIds)
+        {
+            return Context.Questions.Where<Question>(q => questionIds.Contains(q.Id.ToString())).ToList<Question>();
+        }
+
+        internal void CreateQuestionSuite(QuestionSuite newQuestionSuite)
+        {
+            Context.QuestionSuites.Add(newQuestionSuite);
+            Context.SaveChanges();
         }
 
         /// <summary>
@@ -46,10 +67,19 @@ namespace QRefTrain3.Models
         /// <returns></returns>
         public List<Question> GetQuestionsByParameter(List<string> subjects, string NGB, bool NGB_Only)
         {
-            return Context.Questions.Where<Question>(q =>
-            subjects.Contains(q.Subject.ToString())
-            && (q.NationalGoverningBodies.Contains(NGB) || (NGB_Only == false && q.NationalGoverningBodies == NationalGoverningBody.All.ToString())))
-            .ToList<Question>();
+            if (subjects == null)
+            {
+                return Context.Questions.Where<Question>(q =>
+                (q.NationalGoverningBodies.Contains(NGB) || (NGB_Only == false && q.NationalGoverningBodies == NationalGoverningBody.All.ToString())) && q.IsRetired == false)
+                .ToList<Question>();
+            }
+            else
+            {
+                return Context.Questions.Where<Question>(q =>
+                (subjects.Contains(q.Subject.ToString()))
+                && (q.NationalGoverningBodies.Contains(NGB) || (NGB_Only == false && q.NationalGoverningBodies == NationalGoverningBody.All.ToString())) && q.IsRetired == false)
+                .ToList<Question>();
+            }
         }
 
         public List<Answer> getAllAnswers()
@@ -115,6 +145,11 @@ namespace QRefTrain3.Models
                     User = user
                 };
             }
+        }
+
+        public List<Question> GetQuestionsByParameter(string ngb)
+        {
+            return GetQuestionsByParameter(null, ngb, true);
         }
 
         public List<Question> GetQuestionsByNGB(string NGB)
@@ -309,5 +344,16 @@ namespace QRefTrain3.Models
             return affectedRows.FirstOrDefault();
         }
 
+        public List<Question> getAllQuestionsExceptRetired()
+        {
+            return Context.Questions.Where(q => q.IsRetired == false).ToList();
+        }
+
+        public void RetireQuestion(Question question)
+        {
+            Question q2 = Context.Questions.Single(q => q.Id == question.Id);
+            q2.IsRetired = true;
+            Context.SaveChanges();
+        }
     }
 }

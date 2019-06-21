@@ -21,7 +21,7 @@ namespace QRefTrain3.Models
             List<Answer> answers = new List<Answer>() { new Answer("Question_Sample_Answer1", false), new Answer("Question_Sample_Answer2", true) }; 
             answers.Add(new Answer("Question_Sample_Answer3",  false ));
             answers.Add(new Answer("Question_Sample_Answer4", false ));
-            return new Question(subject, "https://www.youtube.com/embed/BKSoi96X6fA?start=67&end=70", "Question_Sample_Text", answers, "Question_Sample_Explanation", bodies);
+            return new Question("Factory Question", subject, "https://www.youtube.com/embed/BKSoi96X6fA?start=67&end=70", "Question_Sample_Text", answers, "Question_Sample_Explanation", bodies);
         }
     }
 }

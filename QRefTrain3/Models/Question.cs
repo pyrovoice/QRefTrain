@@ -20,8 +20,10 @@ namespace QRefTrain3.Models
     {
         public int Id { get; set; }
         [Required]
+        public string PublicId { get; set; }
+        [Required]
         public QuestionSubject Subject { get; set; }
-        public string GifName { get; set; }
+        public string GifName { get; set; } = null;
         [Required]
         public string QuestionText { get; set; }
         [Required]
@@ -30,13 +32,16 @@ namespace QRefTrain3.Models
         public string AnswerExplanation { get; set; }
         [Required]
         public string NationalGoverningBodies { get; set; }
+        //Indicate whether a question has been replaced or removed, and thus should not be used anymore.
+        public bool IsRetired { get; set; } = false;
         public virtual List<Exam> Exams { get; set; }
         public virtual List<Result> Results { get; set; }
         public virtual List<QuestionSuite> QuestionSuites { get; set; }
 
-        public Question( QuestionSubject subject, string gifName, string questionText,
+        public Question(string publicId, QuestionSubject subject, string gifName, string questionText,
             List<Answer> answers, string answerExplanation, params NationalGoverningBody[] bodies)
         {
+            this.PublicId = publicId;
             this.Subject = subject;
             this.GifName = String.IsNullOrEmpty(gifName) ? null : gifName;
             this.QuestionText = questionText;
@@ -52,9 +57,10 @@ namespace QRefTrain3.Models
             }
         }
 
-        public Question(QuestionSubject subject, string gifName, string questionText,
+        public Question(string publicId, QuestionSubject subject, string gifName, string questionText,
             List<Answer> answers, string answerExplanation, params string[] bodies)
         {
+            this.PublicId = publicId;
             this.Subject = subject;
             this.GifName = String.IsNullOrEmpty(gifName) ? null : gifName;
             this.QuestionText = questionText;
@@ -92,6 +98,71 @@ namespace QRefTrain3.Models
             foreach (Answer a in this.Answers)
             {
                 if ((answer.Contains(a) && !a.IsTrue) || (!answer.Contains(a) && a.IsTrue))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Compare all fields of two questions, except ID, to determine whether they contain the same data or not.
+        /// Usefull when importing Questions.
+        /// </summary>
+        /// <param name="otherQ"></param>
+        /// <returns></returns>
+        public Boolean IsSimilar(Question otherQ)
+        {
+            if (!this.PublicId.Equals(otherQ.PublicId))
+            {
+                return false;
+            }
+            if (this.GifName == null && otherQ.GifName != null)
+            {
+                return false;
+            }
+            if (this.GifName != null && otherQ.GifName == null)
+            {
+                return false;
+            }
+
+            if (this.GifName != null && !this.GifName.Equals(otherQ.GifName))
+            {
+                return false;
+            }
+
+            if (this.Subject != otherQ.Subject)
+            {
+                return false;
+            }
+            if (!this.QuestionText.Equals(otherQ.QuestionText))
+            {
+                return false;
+            }
+            if (!this.AnswerExplanation.Equals(otherQ.AnswerExplanation))
+            {
+                return false;
+            }
+            if (this.NationalGoverningBodies != otherQ.NationalGoverningBodies)
+            {
+                return false;
+            }
+            if (this.Answers.Count != otherQ.Answers.Count)
+            {
+                return false;
+            }
+            foreach (Answer a in this.Answers)
+            {
+                Boolean isFound = false;
+                foreach (Answer otherA in otherQ.Answers)
+                {
+                    if (otherA.IsSimilar(a))
+                    {
+                        isFound = true;
+                        break;
+                    }
+                }
+                if (!isFound)
                 {
                     return false;
                 }

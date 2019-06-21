@@ -720,4 +720,63 @@
   <data name="QuestionGifTestQuestionText" xml:space="preserve">
     <value>This is a placeholder for this question's text. If you find the answer, congrats.</value>
   </data>
+  <data name="BeaterResetCrossBothLinesExplanation" xml:space="preserve">
+    <value>A player crossing two lines in a single run is considered having used only one reset.</value>
+  </data>
+  <data name="BeaterResetReturnsExplanation" xml:space="preserve">
+    <value>A player menaced by an opposing beater may cross the midline without it being an illegal reset, but still use a reset for his team.</value>
+  </data>
+  <data name="PhysicalResetReturnsFastExplanation" xml:space="preserve">
+    <value>A player physically forced behind the midfield line does not use its team's reset, under the condition that he or she makes the Quaffle cross the line back as soon as reasonnably possible.</value>
+  </data>
+  <data name="PhysicalResetReturnsMediumFastExplanation" xml:space="preserve">
+    <value>A player physically forced behind the midfield line does not use its team's reset, under the condition that he or she makes the Quaffle cross the line back as soon as reasonnably possible.</value>
+  </data>
+  <data name="PhysicalResetReturnsSlowExplanation" xml:space="preserve">
+    <value>A player physically forced behind the midfield line does not use its team's reset, under the condition that he or she makes the Quaffle cross the line back as soon as reasonnably possible. Here, the player is taking its time, forcing a reset used call.</value>
+  </data>
+  <data name="QuestionQuaffleCarrier" xml:space="preserve">
+    <value>What is the penalty for the Quaffle Carrier?</value>
+  </data>
+  <data name="QuestionQuaffleCarriers" xml:space="preserve">
+    <value>What is the penalty for the quaffle carries team?</value>
+  </data>
+  <data name="QuestionResetRandom" xml:space="preserve">
+    <value>What is the penalty for the Quaffle Carrier? (We assume they are not aware of who is behind them)</value>
+  </data>
+  <data name="ResetAfterGetBack" xml:space="preserve">
+    <value>What is the penalty for the player who just passed to his keeper?</value>
+  </data>
+  <data name="ResetAfterGetBackExplanation" xml:space="preserve">
+    <value>The player who initiates a drive may carry or propel the quaffle backward
+across one or both restrictor lines immediately upon the beginning of the
+drive without it counting as a reset.</value>
+  </data>
+  <data name="ResetAtBeatExplanation" xml:space="preserve">
+    <value>A player has to be there when the ball arrives for the pass to be considered valid, regardless of the state of the player at the beginning of the pass.</value>
+  </data>
+  <data name="ResetAtRandomNoneExplanation" xml:space="preserve">
+    <value>A player throwing behind crossing a reset line, or further into his own half, without anyone to receive perpetrates an illegal reset.</value>
+  </data>
+  <data name="ResetAtRandomSomeoneExplanation" xml:space="preserve">
+    <value>A player throwing behind crossing a reset line, or further into his own half, without knowing if anyone is here to receive perpetrates an illegal reset. Carefull not to penalize a player that knows where their teammates are without having to look.</value>
+  </data>
+  <data name="ResetBothWhilePassingExplanation" xml:space="preserve">
+    <value>The pass during the run back creates two separate reset actions, which triggers the illegal reset.</value>
+  </data>
+  <data name="ResetDeadQuaffle" xml:space="preserve">
+    <value>What is the penalty for the player who kicked the Quaffle?</value>
+  </data>
+  <data name="ResetDeadQuaffleExplanation" xml:space="preserve">
+    <value>A loose quaffle does not require a receiver to be reset.</value>
+  </data>
+  <data name="ResetOpponentJerkBallExplanation" xml:space="preserve">
+    <value>An opposing player jerking the Quaffle behind a reset line does not trigger the reset used, as long as the driving team makes it go back as soon as possible.</value>
+  </data>
+  <data name="ResetThrowBothLineExplanation" xml:space="preserve">
+    <value>A player passing across two lines is considered having used only one reset, as it is a single action.</value>
+  </data>
+  <data name="ResetUsed" xml:space="preserve">
+    <value>Reset Used</value>
+  </data>
 </root>

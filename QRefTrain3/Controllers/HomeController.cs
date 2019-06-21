@@ -107,14 +107,7 @@ namespace QRefTrain3.Controllers
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = new List<Question>();
             // Get all questions, and create a list of 10 questions at random.
-            if (subjects != null)
-            {
-                allQuestions = Dal.Instance.GetQuestionsByParameter(subjects, ngb, NGB_only);
-            }
-            else
-            {
-                allQuestions = Dal.Instance.GetQuestionsByNGB(ngb);
-            }
+            allQuestions = Dal.Instance.GetQuestionsByParameter(subjects, ngb, NGB_only);
 
             if (allQuestions.Count <= 0)
             {

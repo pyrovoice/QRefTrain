@@ -708,4 +708,61 @@
   <data name="QuestionEncroachingPitchText" xml:space="preserve">
     <value>Quel est la pénalité pour un joueur empiétant sur le terrain ?</value>
   </data>
+  <data name="BeaterResetCrossBothLinesExplanation" xml:space="preserve">
+    <value>Un joueur passant deux lignes dans une seule course n'est considéré comme ayant reset une seule fois.</value>
+  </data>
+  <data name="BeaterResetReturnsExplanation" xml:space="preserve">
+    <value>Un joueur menacé par un beater adverse peut passer la ligne sans que le reset soit illégale, mais utilise quand meme un reset pour son équipe.</value>
+  </data>
+  <data name="PhysicalResetReturnsFastExplanation" xml:space="preserve">
+    <value>Un joueur physiquement forcé derrière la ligne du milieu de terrain n'utilise pas le reset, a condition de faire repasser cette ligne au Souaffle dès que raisonnablement possible.</value>
+  </data>
+  <data name="PhysicalResetReturnsMediumFastExplanation" xml:space="preserve">
+    <value>Un joueur physiquement forcé derrière la ligne du milieu de terrain n'utilise pas le reset, a condition de faire repasser cette ligne au Souaffle dès que raisonnablement possible.</value>
+  </data>
+  <data name="PhysicalResetReturnsSlowExplanation" xml:space="preserve">
+    <value>Un joueur physiquement forcé derrière la ligne du milieu de terrain n'utilise pas le reset, a condition de faire repasser cette ligne au Souaffle dès que raisonnablement possible. Ici, le joueur prend son temps pour revenir, forçant une utilisation du reset.</value>
+  </data>
+  <data name="QuestionQuaffleCarrier" xml:space="preserve">
+    <value>Quel est la pénalité pour le porteur du souaffle?</value>
+  </data>
+  <data name="QuestionQuaffleCarriers" xml:space="preserve">
+    <value>Quel est la pénalité pour l'équipes des porteurs du souaffle?</value>
+  </data>
+  <data name="QuestionResetRandom" xml:space="preserve">
+    <value>Quel est la pénalité pour le porteur du souaffle? (Partez du principe que ce joueur ne connait pas la situation derrière lui ou elle)</value>
+  </data>
+  <data name="ResetAfterGetBack" xml:space="preserve">
+    <value>Quel est la pénalité pour la joueuse ayant passé à son gardien?</value>
+  </data>
+  <data name="ResetAfterGetBackExplanation" xml:space="preserve">
+    <value>Le joueur qui initie une attaque peut immédiatement faire reculer le Souaffle en arrière sans utiliser un reset. </value>
+  </data>
+  <data name="ResetAtBeatExplanation" xml:space="preserve">
+    <value>Un joueur doit etre présent a l'arrivé de la balle pour que la passe soit considérée valide, peut importe l'état du joueur au début de la passe.</value>
+  </data>
+  <data name="ResetAtRandomNoneExplanation" xml:space="preserve">
+    <value>Un joueur renvoyant le Souaffle en arrière, avec la balle passant une ligne de reset ou allant plus profondement dans sa propre moitié de terrain, sans personne pour recevoir commet un reset illégale.</value>
+  </data>
+  <data name="ResetAtRandomSomeoneExplanation" xml:space="preserve">
+    <value>Un joueur renvoyant le Souaffle en arrière, avec la balle passant une ligne de reset ou allant plus profondement dans sa propre moitié de terrain, sans savoir si un joueur de son équipe est present commet un reset illégale. Attention de ne pas pénaliser un joueur sachant ou est son coéquipier sans avoir à regarder.</value>
+  </data>
+  <data name="ResetBothWhilePassingExplanation" xml:space="preserve">
+    <value>La passe durant la course en arrière fait que deux actions de reset séparée ont été commise, ce qui déclanche le reset illégale.</value>
+  </data>
+  <data name="ResetDeadQuaffle" xml:space="preserve">
+    <value>Quel est la pénalité pour la personne ayant mis un coup de pied dans le Souaffle?</value>
+  </data>
+  <data name="ResetDeadQuaffleExplanation" xml:space="preserve">
+    <value>Un Souaffle au sol (loose quaffle) ne nécessite pas d'avoir un receveur valide pour etre reset.</value>
+  </data>
+  <data name="ResetOpponentJerkBallExplanation" xml:space="preserve">
+    <value>Un joueur adverse frappant la balle derrière une ligne de reset ne déclanche pas un reset utilisé, tant que l'équipe menant l'attaque fais repasser la ligne a ce Souaffle dès que possible.</value>
+  </data>
+  <data name="ResetThrowBothLineExplanation" xml:space="preserve">
+    <value>Un joueur passant deux lignes en une seule passe n'est considéré comme ayant reset une seule fois, car ce n'est qu'une seule action.</value>
+  </data>
+  <data name="ResetUsed" xml:space="preserve">
+    <value>Reset Utilisé</value>
+  </data>
 </root>

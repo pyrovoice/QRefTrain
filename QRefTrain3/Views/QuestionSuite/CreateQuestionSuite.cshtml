@@ -1,0 +1,39 @@
+﻿@model List<QRefTrain3.Models.Question>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Quizz</title>
+    @Styles.Render("~/Content/css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    @foreach (QRefTrain3.Models.QuestionSubject subject in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
+    {
+        <div class="QuizzQuestionTitle">
+            @Resources.Resource.ResourceManager.GetString("Subject_" + subject.ToString())
+        </div>
+        <hr />
+        foreach (QRefTrain3.Models.Question q in Model)
+        {
+            if (q.Subject == subject)
+            {
+                <div class="QuizzQuestionTitle">(@q.Id) @Resources.QuestionResource.ResourceManager.GetString(q.QuestionText)</div>
+                <div>@q.GifName</div>
+                <div class="btn-group-toggle" data-toggle="buttons">
+                    @foreach (QRefTrain3.Models.Answer a in q.Answers)
+                    {
+                        <label class="btn @(a.IsTrue ? "greenBack" : "greyBack") halfpageItem halfpageItemCollapse">
+                            <span class="verticalCenter">@Resources.QuestionResource.ResourceManager.GetString(a.Answertext)</span>
+                        </label>
+                    }
+                </div>
+                <div>@Resources.QuestionResource.ResourceManager.GetString(q.AnswerExplanation)</div>
+                <input type="checkbox" name="questionIds" value="@q.Id.ToString())" />
+                <div class="bigBottomPadding"></div>
+            }
+        }
+    }
+</body>
+</html>

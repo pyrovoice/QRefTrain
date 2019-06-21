@@ -1,4 +1,4 @@
-﻿@model List<QRefTrain3.Models.QuestionSuite>
+﻿@model QRefTrain3.ViewModel.QuestionSuiteViewModel
 
 <!DOCTYPE html>
 
@@ -12,4 +12,43 @@
     {
         <input type="submit" value="@Resources.Resource.QuestionSuite_Create" class="btn btn-primary" />
     }
+    @if (Model.PreviouslyCreatedQuestionSuiteCode != null)
+    {
+        <div>
+            <input type="text" id="previouslyCreatedCode" value="@Model.PreviouslyCreatedQuestionSuiteCode" readonly>
+            <button onclick="copyCode()">Copy Code</button>
+        </div>
+    }
+    @foreach (QRefTrain3.Models.QuestionSuite suite in Model.UserQuestionSuites)
+    {
+        <div class="flex-container">
+            <div>@suite.name</div>
+            @using (Html.BeginForm("Details", "QuestionSuite", FormMethod.Post))
+            {
+                @Html.Hidden("hiddenSuiteId", suite.Id)
+                <input type="submit" class="button" value="details" />
+            }
+            @using (Html.BeginForm("Delete", "QuestionSuite", FormMethod.Post))
+            {
+                @Html.Hidden("hiddenSuiteId", suite.Id)
+                <input type="submit" class="button" value="Delete" />
+            }
+        </div>
+    }
 </body>
+</html>
+<script>
+    function copyCode() {
+        /* Get the text field */
+        var copyText = document.getElementById("previouslyCreatedCode");
+
+        /* Select the text field */
+        copyText.select();
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
+    }
+</script>

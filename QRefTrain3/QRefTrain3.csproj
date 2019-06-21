@@ -58,6 +58,24 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.40.2\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.40.2\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.40.2\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.40.2\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.40.2\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Sheets.v4, Version=1.40.2.1625, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Sheets.v4.1.40.2.1625\lib\net45\Google.Apis.Sheets.v4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
@@ -218,6 +236,14 @@
     <Compile Include="Migrations\201905060651383_addReporterToResult.Designer.cs">
       <DependentUpon>201905060651383_addReporterToResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906200842346_QuestionObsolete.cs" />
+    <Compile Include="Migrations\201906200842346_QuestionObsolete.Designer.cs">
+      <DependentUpon>201906200842346_QuestionObsolete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906210749505_publicId.cs" />
+    <Compile Include="Migrations\201906210749505_publicId.Designer.cs">
+      <DependentUpon>201906210749505_publicId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -233,6 +259,7 @@
     <Compile Include="Models\Requests.cs" />
     <Compile Include="ViewModel\AnswerQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionQuizzViewModel.cs" />
+    <Compile Include="ViewModel\QuestionSuiteViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
     <Compile Include="ViewModel\QuizzViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
@@ -303,6 +330,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Elements\credentials.json" />
     <None Include="Properties\PublishProfiles\QuidditchRefTraining - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -373,6 +401,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\QuestionsListing.cshtml" />
     <Content Include="Views\QuestionSuite\Index.cshtml" />
+    <Content Include="Views\QuestionSuite\CreateQuestionSuite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -430,6 +459,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905060651383_addReporterToResult.resx">
       <DependentUpon>201905060651383_addReporterToResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906200842346_QuestionObsolete.resx">
+      <DependentUpon>201906200842346_QuestionObsolete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906210749505_publicId.resx">
+      <DependentUpon>201906210749505_publicId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,7 @@ namespace QRefTrain3.ViewModel
         public string QuestionText { get; set; }
         public List<AnswerQuizzViewModel> Answers { get; set; }
         public int SelectedAnswerId { get; set; }
+        public string PublicId { get; set; }
 
         public QuestionQuizzViewModel(Question question)
         {
@@ -30,6 +31,7 @@ namespace QRefTrain3.ViewModel
             GifName = question.GifName;
             QuestionText = question.QuestionText;
             Answers = answersViewModel;
+            this.PublicId = question.PublicId;
         }
 
         public QuestionQuizzViewModel()

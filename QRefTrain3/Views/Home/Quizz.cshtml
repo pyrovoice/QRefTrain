@@ -29,7 +29,7 @@
                 {
                     @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
                     <div class="QuizzQuestion">
-                        <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].Id) @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
+                        <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].PublicId) @Resources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
                         @if (!String.IsNullOrEmpty(@Model.DisplayedQuestions[i].GifName))
                         {
                             /**

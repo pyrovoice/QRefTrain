@@ -70,6 +70,24 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A player crossing two lines in a single run is considered having used only one reset..
+        /// </summary>
+        public static string BeaterResetCrossBothLinesExplanation {
+            get {
+                return ResourceManager.GetString("BeaterResetCrossBothLinesExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player menaced by an opposing beater may cross the midline without it being an illegal reset, but still use a reset for his team..
+        /// </summary>
+        public static string BeaterResetReturnsExplanation {
+            get {
+                return ResourceManager.GetString("BeaterResetReturnsExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blue card.
         /// </summary>
         public static string BlueCard {
@@ -84,6 +102,33 @@ namespace QRefResources {
         public static string NoPenalty {
             get {
                 return ResourceManager.GetString("NoPenalty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player physically forced behind the midfield line does not use its team&apos;s reset, under the condition that he or she makes the Quaffle cross the line back as soon as reasonnably possible..
+        /// </summary>
+        public static string PhysicalResetReturnsFastExplanation {
+            get {
+                return ResourceManager.GetString("PhysicalResetReturnsFastExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player physically forced behind the midfield line does not use its team&apos;s reset, under the condition that he or she makes the Quaffle cross the line back as soon as reasonnably possible..
+        /// </summary>
+        public static string PhysicalResetReturnsMediumFastExplanation {
+            get {
+                return ResourceManager.GetString("PhysicalResetReturnsMediumFastExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player physically forced behind the midfield line does not use its team&apos;s reset, under the condition that he or she makes the Quaffle cross the line back as soon as reasonnably possible. Here, the player is taking its time, forcing a reset used call..
+        /// </summary>
+        public static string PhysicalResetReturnsSlowExplanation {
+            get {
+                return ResourceManager.GetString("PhysicalResetReturnsSlowExplanation", resourceCulture);
             }
         }
         
@@ -1465,6 +1510,24 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for the Quaffle Carrier?.
+        /// </summary>
+        public static string QuestionQuaffleCarrier {
+            get {
+                return ResourceManager.GetString("QuestionQuaffleCarrier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for the quaffle carries team?.
+        /// </summary>
+        public static string QuestionQuaffleCarriers {
+            get {
+                return ResourceManager.GetString("QuestionQuaffleCarriers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to What is the penalty for removing a mandatory equipment while in play ?.
         /// </summary>
         public static string QuestionRemoveIllegalEquipmentText {
@@ -1479,6 +1542,15 @@ namespace QRefResources {
         public static string QuestionRepeatVulgarLanguageText {
             get {
                 return ResourceManager.GetString("QuestionRepeatVulgarLanguageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for the Quaffle Carrier? (We assume they are not aware of who is behind them).
+        /// </summary>
+        public static string QuestionResetRandom {
+            get {
+                return ResourceManager.GetString("QuestionResetRandom", resourceCulture);
             }
         }
         
@@ -1848,6 +1920,107 @@ namespace QRefResources {
         public static string RedCard {
             get {
                 return ResourceManager.GetString("RedCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for the player who just passed to his keeper?.
+        /// </summary>
+        public static string ResetAfterGetBack {
+            get {
+                return ResourceManager.GetString("ResetAfterGetBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The player who initiates a drive may carry or propel the quaffle backward
+        ///across one or both restrictor lines immediately upon the beginning of the
+        ///drive without it counting as a reset..
+        /// </summary>
+        public static string ResetAfterGetBackExplanation {
+            get {
+                return ResourceManager.GetString("ResetAfterGetBackExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player has to be there when the ball arrives for the pass to be considered valid, regardless of the state of the player at the beginning of the pass..
+        /// </summary>
+        public static string ResetAtBeatExplanation {
+            get {
+                return ResourceManager.GetString("ResetAtBeatExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player throwing behind crossing a reset line, or further into his own half, without anyone to receive perpetrates an illegal reset..
+        /// </summary>
+        public static string ResetAtRandomNoneExplanation {
+            get {
+                return ResourceManager.GetString("ResetAtRandomNoneExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player throwing behind crossing a reset line, or further into his own half, without knowing if anyone is here to receive perpetrates an illegal reset. Carefull not to penalize a player that knows where their teammates are without having to look..
+        /// </summary>
+        public static string ResetAtRandomSomeoneExplanation {
+            get {
+                return ResourceManager.GetString("ResetAtRandomSomeoneExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The pass during the run back creates two separate reset actions, which triggers the illegal reset..
+        /// </summary>
+        public static string ResetBothWhilePassingExplanation {
+            get {
+                return ResourceManager.GetString("ResetBothWhilePassingExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for the player who kicked the Quaffle?.
+        /// </summary>
+        public static string ResetDeadQuaffle {
+            get {
+                return ResourceManager.GetString("ResetDeadQuaffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A loose quaffle does not require a receiver to be reset..
+        /// </summary>
+        public static string ResetDeadQuaffleExplanation {
+            get {
+                return ResourceManager.GetString("ResetDeadQuaffleExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An opposing player jerking the Quaffle behind a reset line does not trigger the reset used, as long as the driving team makes it go back as soon as possible..
+        /// </summary>
+        public static string ResetOpponentJerkBallExplanation {
+            get {
+                return ResourceManager.GetString("ResetOpponentJerkBallExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A player passing across two lines is considered having used only one reset, as it is a single action..
+        /// </summary>
+        public static string ResetThrowBothLineExplanation {
+            get {
+                return ResourceManager.GetString("ResetThrowBothLineExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Used.
+        /// </summary>
+        public static string ResetUsed {
+            get {
+                return ResourceManager.GetString("ResetUsed", resourceCulture);
             }
         }
         

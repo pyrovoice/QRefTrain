@@ -55,5 +55,18 @@ namespace QRefTrain3.Models
             this.Answertext = answerText;
             this.IsTrue = isTrue;
         }
+
+        public bool IsSimilar(Answer otherA)
+        {
+            if(this.IsTrue != otherA.IsTrue)
+            {
+                return false;
+            }
+            if (!this.Answertext.Equals(otherA.Answertext))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace QRefTrain3.Models
          */
         public void InitApplication()
         {
+            /*
             IDal dal = Dal.Instance;
             dal.reset();
             // Create one of each question
@@ -32,7 +33,7 @@ namespace QRefTrain3.Models
             dal.CreateQuestion(ModelFactory.GetQuestion(QuestionSubject.NHNF, NationalGoverningBody.Canada, NationalGoverningBody.Usa));
             dal.CreateQuestion(ModelFactory.GetQuestion(QuestionSubject.NHNF, NationalGoverningBody.Canada, NationalGoverningBody.Europe));
             dal.CreateUser(ModelFactory.GetDefaultUser());
-
+            */
         }
     }
 }
