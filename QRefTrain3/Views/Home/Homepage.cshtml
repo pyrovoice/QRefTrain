@@ -1,4 +1,5 @@
-﻿@model bool?
+﻿<!-- Exam ongoing? -->
+@model bool?
 <!DOCTYPE html>
 
 <html>
@@ -18,7 +19,10 @@
             <input type="submit" value="@QRefResources.Resource.Homepage_ResumeQuiz" class="btn btn-primary" />
             <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
         }
-        @Html.ActionLink("Cancel", "CancelTest", "Home", new { area = "" })
+        using (Html.BeginForm("CancelTest", "Home"))
+        {
+            <div><input type="submit" value="@QRefResources.Resource.Cancel" class="btn btn-primary" /></div>
+        }
     }
     else
     {
@@ -29,10 +33,7 @@
             List<SelectListItem> ngbs = new List<SelectListItem>();
             foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
             {
-                if (item != QRefTrain3.Models.NationalGoverningBody.All)
-                {
-                    ngbs.Add(new SelectListItem() { Text = QRefResources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
-                }
+                ngbs.Add(new SelectListItem() { Text = QRefResources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
             }
 
             if (Request.Cookies["RequestedNGB"] != null && Request.Cookies["RequestedNGB"].Value != "")
@@ -54,35 +55,36 @@
                     }
                 </div>
 
-
-                <div class="btn-group-toggle bottomMargin" data-toggle="buttons">
-                    <!-- NGB Only button -->
-                    <label class="btn btn-secondary">
-                        <input type="checkbox" name="NGB_Only" value="NGB_Only" />@QRefResources.Resource.Homepage_NGBSpecificPrompt
-                    </label>
-                    <!-- Exam or training switch-->
-                    <input type="checkbox" name="isExam" data-toggle="toggle" data-on="@QRefResources.Resource.Exam" data-off="@QRefResources.Resource.Training" data-onstyle="warning" data-offstyle="success">
-                </div>
-
-
-
                 <!-- Submit -->
                 <input type="submit" value="@QRefResources.Resource.Homepage_StartQuizz" class="btn btn-primary" />
                 <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
             </div>
         }
         <hr />
-
-        <!-- Question Suite form -->
-        using (Html.BeginForm("MovetoQuiz", "Home"))
+        if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
-            <!-- String field for QuestionSuite text-->
-            @Html.TextBox("QuestionSuiteText", null, new { placeholder = QRefResources.Resource.Homepage_QuestionSuitePlaceholder, @class = "control-label" })
+            using (Html.BeginForm("MovetoExam", "Home"))
+            {
+                List<SelectListItem> selectList2 = new List<SelectListItem>();
+                foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
+                {
+                    if (item.ToString().Equals("All"))
+                    {
+                        continue;
+                    }
+                    selectList2.Add(new SelectListItem() { Text = QRefResources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
+                }
 
-            <!-- Submit -->
-            <input type="submit" value="@QRefResources.Resource.Homepage_StartQuestionSuite" class="btn btn-primary" />
-            <span class="field-validation-error">@ViewBag.ErrorQuestionSuite</span>
+                <div class="bottomMargin">@Html.DropDownList("NGB_Exam", selectList2, new { onchange = "form.submit()" })</div>
+                <div><input type="submit" value="@QRefResources.Resource.Homepage_StartExam" class="btn btn-primary" /></div>
+
+            }
+
+        }
+        else
+        {
+            <div>@QRefResources.Resource.Homepage_MustBeConnected </div>
         }
     }
-    </body>
+</body>
 </html>

@@ -7,11 +7,6 @@ using System.Web;
 namespace QRefTrain3.Helper
 {
 
-    public enum Rank
-    {
-        Bronze, Silver, Gold, Diamond
-    }
-
     public class UserInfoHelper
     {
         /// <summary>
@@ -19,13 +14,13 @@ namespace QRefTrain3.Helper
         /// </summary>
         /// <param name="user"></param>
         /// <returns>Bronze if 60%+ average and 10+ result, Silver if 80%+ average and 10+ results, Gold if 90%+ average and 20+ results, Diamond if 98%+ average and 30+ results.</returns>
-        public static Rank? GetUserRank(User user)
+        public static int GetUserRank(User user)
         {
-            if (!user.IsEmailConfirmed) { return null; }
+            //if (!user.IsEmailConfirmed) { return null; }
             var rs = Dal.Instance.GetResultByUser(user);
             for (int i = rs.Count - 1; i >= 0; i--)
             {
-                if (rs[i].User != user || rs[i].ResultType != ResultType.Exam)
+                if (rs[i].ResultType != ResultType.Exam)
                 {
                     rs.RemoveAt(i);
                 }
@@ -33,7 +28,7 @@ namespace QRefTrain3.Helper
             return GetUserRank(user, rs);
         }
 
-        private static Rank? GetUserRank(User user, List<Result> results)
+        private static int GetUserRank(User user, List<Result> results)
         {
             float totalPossibleAnswers = 0;
             float totalGoodAnswers = 0;
@@ -48,21 +43,21 @@ namespace QRefTrain3.Helper
             // Return the rank
             if (results.Count >= 30 && average >= 98)
             {
-                return Rank.Diamond;
+                return 4;
             }
             else if (results.Count >= 20 && average >= 90)
             {
-                return Rank.Gold;
+                return 3;
             }
             else if (results.Count >= 10 && average >= 80)
             {
-                return Rank.Silver;
+                return 2;
             }
             else if (results.Count >= 10 && average >= 60)
             {
-                return Rank.Bronze;
+                return 1;
             }
-            return null;
+            return 0;
         }
     }
 }

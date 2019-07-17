@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201906210749505_publicId.Designer.cs">
       <DependentUpon>201906210749505_publicId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906251142049_timeLimit.cs" />
+    <Compile Include="Migrations\201906251142049_timeLimit.Designer.cs">
+      <DependentUpon>201906251142049_timeLimit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -258,6 +262,7 @@
     </Compile>
     <Compile Include="Models\Requests.cs" />
     <Compile Include="ViewModel\AnswerQuizzViewModel.cs" />
+    <Compile Include="ViewModel\ProfileViewModel.cs" />
     <Compile Include="ViewModel\QuestionQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionSuiteViewModel.cs" />
     <Compile Include="ViewModel\QuestionViewModel.cs" />
@@ -288,14 +293,18 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Elements\badAnswer.jpg" />
+    <Content Include="Elements\bronze.png" />
     <Content Include="Elements\checkBoxSelected.png" />
     <Content Include="Elements\checkBoxUnselected.png" />
     <Content Include="Elements\collapse_arrow.png" />
     <Content Include="Elements\expand_arrow.png" />
+    <Content Include="Elements\gold.png" />
     <Content Include="Elements\goodAnswer.jpg" />
     <Content Include="Elements\logo_movie.png" />
     <Content Include="Elements\logo_reddit.png" />
-    <Content Include="Elements\QuestionGifs\quidditchGifExample.gif" />
+    <Content Include="Elements\plat.png" />
+    <Content Include="Elements\silver.png" />
+    <Content Include="Elements\unget.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -366,7 +375,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -398,10 +409,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Index_old.cshtml" />
     <Content Include="Views\Admin\QuestionsListing.cshtml" />
     <Content Include="Views\QuestionSuite\Index.cshtml" />
     <Content Include="Views\QuestionSuite\CreateQuestionSuite.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\QuestionSuite\EditQuestionSuite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -466,6 +479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906210749505_publicId.resx">
       <DependentUpon>201906210749505_publicId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906251142049_timeLimit.resx">
+      <DependentUpon>201906251142049_timeLimit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

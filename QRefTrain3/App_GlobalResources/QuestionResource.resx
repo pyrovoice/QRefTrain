@@ -381,9 +381,6 @@
   <data name="QuestionIllegalSecondKickText" xml:space="preserve">
     <value>What is the penalty for an illegal second kick ?</value>
   </data>
-  <data name="QuestionIllegalSetPlayerAnswer1" xml:space="preserve">
-    <value>No penalty</value>
-  </data>
   <data name="QuestionIllegalSetPlayerAnswer2" xml:space="preserve">
     <value>Turnover and correct the team composition</value>
   </data>
@@ -490,7 +487,7 @@
     <value>That player cannot be contacted, interacted with, or stolen the quaffle while he is the sole possessor of it</value>
   </data>
   <data name="QuestionKeeperPowersText" xml:space="preserve">
-    <value>What are the keeper-specific powers ?</value>
+    <value>What are the keeper-specific powers ? (Assuming he is in his zone)</value>
   </data>
   <data name="QuestionLinesExternMetersAnswer1" xml:space="preserve">
     <value>Endlines are 30 meters</value>
@@ -916,5 +913,8 @@ drive without it counting as a reset.</value>
   </data>
   <data name="TwoClaimExplanation" xml:space="preserve">
     <value>If no beater immediatly lowers his fist, one beater commits a minor invalid immunity claim and should be send back to hoops</value>
+  </data>
+  <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer3" xml:space="preserve">
+    <value>The team chooses who gets released first</value>
   </data>
 </root>

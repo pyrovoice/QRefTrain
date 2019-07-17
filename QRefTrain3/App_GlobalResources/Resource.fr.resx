@@ -375,4 +375,31 @@
   <data name="QuestionSuite_Create" xml:space="preserve">
     <value>Créer un nouvel Exam</value>
   </data>
+  <data name="QuestionSuite_YouMustLogin" xml:space="preserve">
+    <value>Vous devez etre connecté pour créer et accéder à vos examen personnalisés</value>
+  </data>
+  <data name="QuestionSuite_TimeLimit" xml:space="preserve">
+    <value>Limite de temps (Minutes)</value>
+  </data>
+  <data name="QuestionSuite_Name" xml:space="preserve">
+    <value>Nom du test</value>
+  </data>
+  <data name="Homepage_StartExam" xml:space="preserve">
+    <value>Commencer un test officiel</value>
+  </data>
+  <data name="Homepage_MustBeConnected" xml:space="preserve">
+    <value>Vous devez vous connecter ou créer un compte pour lancer un test officiel.</value>
+  </data>
+  <data name="Error_SelectNGB" xml:space="preserve">
+    <value>Veuillez selectionner une NGB pour commencer un test officiel</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Profile_Exam" xml:space="preserve">
+    <value>Resultats Exam</value>
+  </data>
+  <data name="Profile_Training" xml:space="preserve">
+    <value>Resultats Entrainements</value>
+  </data>
 </root>

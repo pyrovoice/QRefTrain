@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    @using (Html.BeginForm("AddQuestion", "Admin"))
+    {
+    <div class="flex-container">
+        <div class="form-group">
+            @Html.Label("BaseName")
+            @Html.TextBox("BaseName")
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 1")
+            @Html.CheckBox("isAnswer1")
+            @Html.CheckBox("isAnswerTrue1", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 2")
+            @Html.CheckBox("isAnswer2")
+            @Html.CheckBox("isAnswerTrue2", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 3")
+            @Html.CheckBox("isAnswer3")
+            @Html.CheckBox("isAnswerTrue3", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 4")
+            @Html.CheckBox("isAnswer4")
+            @Html.CheckBox("isAnswerTrue4", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 5")
+            @Html.CheckBox("isAnswer5")
+            @Html.CheckBox("isAnswerTrue5", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer 6")
+            @Html.CheckBox("isAnswer6")
+            @Html.CheckBox("isAnswerTrue6", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("No penalty")
+            @Html.CheckBox("isNoPenalty")
+            @Html.CheckBox("isNoPenaltyTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Back to hoops")
+            @Html.CheckBox("isBackToHoops")
+            @Html.CheckBox("isBackToHoopsTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Turnover")
+            @Html.CheckBox("isTurnOver")
+            @Html.CheckBox("isTurnOverTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Blue card")
+            @Html.CheckBox("isBlueCard")
+            @Html.CheckBox("isBlueCardTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Yellow card")
+            @Html.CheckBox("isYellowCard")
+            @Html.CheckBox("isYellowCardTrue", false)
+        </div>
+        <div class="form-group">
+            @Html.Label("Red Card")
+            @Html.CheckBox("isRedCard")
+            @Html.CheckBox("isRedCardTrue", false)
+        </div>
+    </div>
+
+        <div class="flex-container">
+            <div class="form-group">
+                @Html.Label("Video")
+                @Html.TextBox("Video")
+            </div>
+            <div class="form-group">
+                @Html.Label("Question subject")
+                @{
+                    // Create dropdown list of subject and NGB
+                    List<SelectListItem> subjects = new List<SelectListItem>();
+                    foreach (QRefTrain3.Models.QuestionSubject item in Enum.GetValues(typeof(QRefTrain3.Models.QuestionSubject)))
+                    {
+                        SelectListItem i = new SelectListItem() { Text = QRefResources.Resource.ResourceManager.GetString("Subject_" + item.ToString()), Value = item.ToString() };
+                        subjects.Add(i);
+                    }
+                }
+                @Html.DropDownList("QuestionSubject", subjects, new { @id = "QuestionSubject" })
+            </div>
+
+            <div class="form-group">
+                @Html.Label("NGB")
+                <div class="btn-group-toggle" data-toggle="buttons">
+                    @foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
+                    {
+                        <label class="btn btn-secondary shortLabel">
+                            <input type="checkbox" name="NGBs" value="@item.ToString()" />@QRefResources.Resource.ResourceManager.GetString("NGBs_" + item.ToString())
+                        </label>
+                    }
+                </div>
+            </div>
+        </div>
+        <input id="submit" type="submit" value="@QRefResources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
+    }
+</body>
+</html>

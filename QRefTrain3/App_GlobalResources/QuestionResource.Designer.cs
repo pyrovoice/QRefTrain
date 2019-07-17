@@ -1150,15 +1150,6 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No penalty.
-        /// </summary>
-        public static string QuestionIllegalSetPlayerAnswer1 {
-            get {
-                return ResourceManager.GetString("QuestionIllegalSetPlayerAnswer1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Turnover and correct the team composition.
         /// </summary>
         public static string QuestionIllegalSetPlayerAnswer2 {
@@ -1492,7 +1483,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What are the keeper-specific powers ?.
+        ///   Looks up a localized string similar to What are the keeper-specific powers ? (Assuming he is in his zone).
         /// </summary>
         public static string QuestionKeeperPowersText {
             get {
@@ -1677,6 +1668,15 @@ namespace QRefResources {
         public static string QuestionMultiplePlayersInBoxWhenScoreAnswer2 {
             get {
                 return ResourceManager.GetString("QuestionMultiplePlayersInBoxWhenScoreAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The team chooses who gets released first.
+        /// </summary>
+        public static string QuestionMultiplePlayersInBoxWhenScoreAnswer3 {
+            get {
+                return ResourceManager.GetString("QuestionMultiplePlayersInBoxWhenScoreAnswer3", resourceCulture);
             }
         }
         

@@ -61,6 +61,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm password.
         /// </summary>
         public static string CreateAccount_Confirmpassword {
@@ -169,6 +178,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please choose an NGB to start an official exam.
+        /// </summary>
+        public static string Error_SelectNGB {
+            get {
+                return ResourceManager.GetString("Error_SelectNGB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exam timed out.
         /// </summary>
         public static string Error_TestTimeout {
@@ -219,6 +237,15 @@ namespace QRefResources {
         public static string Homepage_Helper {
             get {
                 return ResourceManager.GetString("Homepage_Helper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must login or create an account to take an official exam..
+        /// </summary>
+        public static string Homepage_MustBeConnected {
+            get {
+                return ResourceManager.GetString("Homepage_MustBeConnected", resourceCulture);
             }
         }
         
@@ -291,6 +318,15 @@ namespace QRefResources {
         public static string Homepage_ResumeQuiz {
             get {
                 return ResourceManager.GetString("Homepage_ResumeQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start an official Exam.
+        /// </summary>
+        public static string Homepage_StartExam {
+            get {
+                return ResourceManager.GetString("Homepage_StartExam", resourceCulture);
             }
         }
         
@@ -529,6 +565,24 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exams Results.
+        /// </summary>
+        public static string Profile_Exam {
+            get {
+                return ResourceManager.GetString("Profile_Exam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training Results.
+        /// </summary>
+        public static string Profile_Training {
+            get {
+                return ResourceManager.GetString("Profile_Training", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Advanced.
         /// </summary>
         public static string Question_Advanced {
@@ -624,6 +678,33 @@ namespace QRefResources {
         public static string QuestionSuite_GoTo {
             get {
                 return ResourceManager.GetString("QuestionSuite_GoTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam name.
+        /// </summary>
+        public static string QuestionSuite_Name {
+            get {
+                return ResourceManager.GetString("QuestionSuite_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time limit (Minutes).
+        /// </summary>
+        public static string QuestionSuite_TimeLimit {
+            get {
+                return ResourceManager.GetString("QuestionSuite_TimeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must be logged in to create and review your custom exams..
+        /// </summary>
+        public static string QuestionSuite_YouMustLogin {
+            get {
+                return ResourceManager.GetString("QuestionSuite_YouMustLogin", resourceCulture);
             }
         }
         

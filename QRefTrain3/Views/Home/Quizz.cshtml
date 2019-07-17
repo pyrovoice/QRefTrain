@@ -14,62 +14,61 @@
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    @if (Model.StartTime.HasValue)
+    @if (Model.StartTime.HasValue && Model.TimeLimit.HasValue)
     {
         <div id="timer" class="timer"></div>
-        @Html.HiddenFor(m => m.StartTime.Value)
     }
-        <div>
-            <!-- For each Question, display a new div with the Title, the question code, the question text, the video if there is one, then the possible answers depending on the type of answers-->
-            @using (Html.BeginForm("QuizzResult", "Home"))
+    <div>
+        <!-- For each Question, display a new div with the Title, the question code, the question text, the video if there is one, then the possible answers depending on the type of answers-->
+        @using (Html.BeginForm("QuizzResult", "Home"))
+        {
+            @Html.HiddenFor(m => Model.ResultType)
+            @Html.HiddenFor(m => Model.SuiteID)
+            for (int i = 0; i < Model.DisplayedQuestions.Count; i++)
             {
-                @Html.HiddenFor(m => Model.ResultType)
-                @Html.HiddenFor(m => Model.SuiteID)
-                for (int i = 0; i < Model.DisplayedQuestions.Count; i++)
-                {
-                    @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
-                    <div class="QuizzQuestion">
-                        <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].PublicId) @QRefResources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
-                        @if (!String.IsNullOrEmpty(@Model.DisplayedQuestions[i].GifName))
-                        {
-                            /**
-                             * Obsolete from when I used video
-                            <div class="QuizzQuestionVideoContainer">
-                                <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
-                                        src="@Model.DisplayedQuestions[i].VideoURL"
-                                        frameborder="0"></iframe>
-                            </div>
-                            **/
-
-                            <iframe src='@Model.DisplayedQuestions[i].GifName?autoplay=0' frameborder='0' scrolling='no' width='640' height='346'></iframe>
-
-                        }
-                        <div class="btn-group-toggle" data-toggle="buttons">
-
-                            @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
-                            {
-                                <label class="btn btn-light halfpageItem halfpageItemCollapse">
-                                    @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
-                                    <span class="verticalCenter">@QRefResources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)</span>
-                                </label>
-                                @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
-                            }
+                @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
+                <div class="QuizzQuestion">
+                    <div class="QuizzQuestionTitle">(@Model.DisplayedQuestions[i].PublicId) @QRefResources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].QuestionText)</div>
+                    @if (!String.IsNullOrEmpty(@Model.DisplayedQuestions[i].GifName))
+                    {
+                        /**
+                         * Obsolete from when I used video
+                        <div class="QuizzQuestionVideoContainer">
+                            <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
+                                    src="@Model.DisplayedQuestions[i].VideoURL"
+                                    frameborder="0"></iframe>
                         </div>
-                        @if (i != Model.DisplayedQuestions.Count - 1)
+                        **/
+
+                        <iframe src='@Model.DisplayedQuestions[i].GifName?autoplay=0' frameborder='0' scrolling='no' width='640' height='346'></iframe>
+
+                    }
+                    <div class="btn-group-toggle" data-toggle="buttons">
+
+                        @for (int j = 0; j < Model.DisplayedQuestions[i].Answers.Count; j++)
                         {
-                            <div class="next">
-                                <img src="~/Elements/expand_arrow.png" alt="Next" height="80" width="160" />
-                            </div>
+                            <label class="btn btn-light halfpageItem halfpageItemCollapse">
+                                @Html.CheckBoxFor(m => m.DisplayedQuestions[i].Answers[j].IsSelected)
+                                <span class="verticalCenter">@QRefResources.QuestionResource.ResourceManager.GetString(Model.DisplayedQuestions[i].Answers[j].AnswerText)</span>
+                            </label>
+                            @Html.HiddenFor(m => m.DisplayedQuestions[i].Answers[j].Id)
                         }
                     </div>
-                    if (i != Model.DisplayedQuestions.Count - 1)
+                    @if (i != Model.DisplayedQuestions.Count - 1)
                     {
-                        <hr />
+                        <div class="next">
+                            <img src="~/Elements/expand_arrow.png" alt="Next" height="80" width="160" />
+                        </div>
                     }
+                </div>
+                if (i != Model.DisplayedQuestions.Count - 1)
+                {
+                    <hr />
                 }
-                <input id="submit" type="submit" value="@QRefResources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
             }
-        </div>
+            <input id="submit" type="submit" value="@QRefResources.Resource.Quiz_ValidateAnswer" class="btn-lg btn-primary QuizzValidationButton" />
+        }
+    </div>
     <div class="bigBottomPadding"></div>
 </body>
 </html>
@@ -134,8 +133,8 @@
 {
     <script>
     $(document).ready(function () {
-        //10 minutes
-        var totalTime = 600000;
+        //to milliseconds
+        var totalTime = @Model.TimeLimit.Value*60*1000;
         var msStartTime = @(new DateTimeOffset(Model.StartTime.Value).ToUnixTimeMilliseconds());
         var showtimer = true;
         function updateTimer() {

@@ -13,6 +13,7 @@
     <div class="container bottomMargin">
         <!-- Topdiv -->
         @Html.ActionLink("Quidditch Ref Training", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @Html.ActionLink(QRefResources.Resource.QuestionSuite_GoTo, "Index", "QuestionSuite", new { area = "" }, new { @class = "navbar-brand" })
         <a class="topRightImage" href="https://www.reddit.com/r/QuidditchRefTraining/" target="_blank"><img src="~/Elements/logo_reddit.png" width="124" height="47" /></a>
         <!-- Login/Profile links -->
         @if (!HttpContext.Current.User.Identity.IsAuthenticated)
@@ -22,9 +23,9 @@
         }
         else
         {
-            @Html.ActionLink(QRefResources.Resource.QuestionSuite_GoTo, "Index", "QuestionSuite", new { area = "" }, new { @class = "navbar-brand" })
+
             @Html.ActionLink("Logout", "Disconnect", "Login", new { area = "" }, new { @class = "navbar-brand topRightLink" })
-            @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { area = "" }, new { @class = "navbar-brand topRightLink" })
+            @Html.ActionLink(HttpContext.Current.User.Identity.Name, "DisplayProfile", "Profile", new { name = HttpContext.Current.User.Identity.Name }, new { @class = "navbar-brand topRightLink" })
         }
         <!-- Language selection box -->
         @using (Html.BeginForm("UpdateLanguage", "Home"))

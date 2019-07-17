@@ -375,9 +375,6 @@
   <data name="QuestionIllegalSecondKickText" xml:space="preserve">
     <value>Quel est la pénalité pour un deuxième coup de pied illégal ?</value>
   </data>
-  <data name="QuestionIllegalSetPlayerAnswer1" xml:space="preserve">
-    <value>Pas de pénalité</value>
-  </data>
   <data name="QuestionIllegalSetPlayerAnswer2" xml:space="preserve">
     <value>Turnover et correction de la composition d'équipe</value>
   </data>
@@ -902,5 +899,8 @@
   </data>
   <data name="TwoClaimExplanation" xml:space="preserve">
     <value>Si aucun batteur n'abaisse son poing immédiatement, l'un des batteurs commet une demande d’immunité invalide mineure et doit etre renvoyé aux anneaux.</value>
+  </data>
+  <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer3" xml:space="preserve">
+    <value>L'équipe choisit qui est libéré en premier</value>
   </data>
 </root>

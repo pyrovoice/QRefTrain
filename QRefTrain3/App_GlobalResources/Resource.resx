@@ -390,4 +390,31 @@
   <data name="QuestionSuite_Create" xml:space="preserve">
     <value>Create a new Exam</value>
   </data>
+  <data name="QuestionSuite_YouMustLogin" xml:space="preserve">
+    <value>You must be logged in to create and review your custom exams.</value>
+  </data>
+  <data name="QuestionSuite_TimeLimit" xml:space="preserve">
+    <value>Time limit (Minutes)</value>
+  </data>
+  <data name="QuestionSuite_Name" xml:space="preserve">
+    <value>Exam name</value>
+  </data>
+  <data name="Homepage_StartExam" xml:space="preserve">
+    <value>Start an official Exam</value>
+  </data>
+  <data name="Homepage_MustBeConnected" xml:space="preserve">
+    <value>You must login or create an account to take an official exam.</value>
+  </data>
+  <data name="Error_SelectNGB" xml:space="preserve">
+    <value>Please choose an NGB to start an official exam</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Profile_Exam" xml:space="preserve">
+    <value>Exams Results</value>
+  </data>
+  <data name="Profile_Training" xml:space="preserve">
+    <value>Training Results</value>
+  </data>
 </root>

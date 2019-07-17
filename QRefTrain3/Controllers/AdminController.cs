@@ -52,6 +52,7 @@ namespace QRefTrain3.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Export()
         {
             string test = "";
@@ -70,7 +71,7 @@ namespace QRefTrain3.Controllers
                 }
                 if (toremove)
                 {
-                test = test.Remove(test.Length - 2);
+                    test = test.Remove(test.Length - 2);
                     toremove = false;
                 }
                 test += delimiter;
@@ -97,6 +98,7 @@ namespace QRefTrain3.Controllers
             return View("Index");
         }
 
+        [HttpPost]
         public ActionResult Import()
         {
             var lines = System.IO.File.ReadAllLines(filepath);
@@ -183,7 +185,7 @@ namespace QRefTrain3.Controllers
         }*/
 
 
-
+        [HttpPost]
         public ActionResult ImportFromGoogleDrive()
         {
             UserCredential credential;
@@ -242,7 +244,10 @@ namespace QRefTrain3.Controllers
                                     String[] allGoodAnswers = row[i].ToString().Split(new string[] { "\n" }, StringSplitOptions.None);
                                     for (int goodAnswerCounter = 0; goodAnswerCounter < allGoodAnswers.Length; goodAnswerCounter++)
                                     {
-                                        answers.Add(new Answer(allGoodAnswers[goodAnswerCounter], true));
+                                        if (!String.IsNullOrEmpty(allGoodAnswers[goodAnswerCounter]))
+                                        {
+                                            answers.Add(new Answer(allGoodAnswers[goodAnswerCounter], true));
+                                        }
                                     }
                                     break;
                                 //Bad Answers
@@ -266,8 +271,7 @@ namespace QRefTrain3.Controllers
                                             {
                                                 answers.Add(new Answer("RedCard", false));
                                             }
-                                        }
-                                        else
+                                        }else if (!String.IsNullOrEmpty(allBadAnswers[goodAnswerCounter]))
                                         {
                                             answers.Add(new Answer(allBadAnswers[goodAnswerCounter], false));
                                         }

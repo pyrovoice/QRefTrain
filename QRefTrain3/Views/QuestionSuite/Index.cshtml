@@ -8,32 +8,52 @@
     <title>Profile</title>
 </head>
 <body>
-    @using (Html.BeginForm("CreateQuestionSuite"))
+
+
+    <!-- Question Suite form -->
+    @using (Html.BeginForm("MovetoQuiz", "Home"))
     {
-        <input type="submit" value="@QRefResources.Resource.QuestionSuite_Create" class="btn btn-primary" />
+        <!-- String field for QuestionSuite text-->
+        @Html.TextBox("QuestionSuiteText", null, new { placeholder = QRefResources.Resource.Homepage_QuestionSuitePlaceholder, @class = "control-label" })
+
+        <!-- Submit -->
+        <input type="submit" value="@QRefResources.Resource.Homepage_StartQuestionSuite" class="btn btn-primary" />
+        <span class="field-validation-error">@ViewBag.ErrorQuestionSuite</span>
+        }
+    <hr />
+    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        using (Html.BeginForm("MoveToQuestionSuite", "QuestionSuite"))
+        {
+            <input type="submit" value="@QRefResources.Resource.QuestionSuite_Create" class="btn btn-primary" />
+        }
+        if (Model.PreviouslyCreatedQuestionSuiteCode != null)
+        {
+            <div>
+                <input type="text" id="previouslyCreatedCode" value="@Model.PreviouslyCreatedQuestionSuiteCode" readonly>
+                <button onclick="copyCode()">Copy Code</button>
+            </div>
+        }
+        foreach (QRefTrain3.Models.QuestionSuite suite in Model.UserQuestionSuites)
+        {
+            <div class="flex-container">
+                <div>@suite.Name</div>
+                @using (Html.BeginForm("Details", "QuestionSuite", FormMethod.Post))
+                {
+                    @Html.Hidden("hiddenSuiteId", suite.Id)
+                    <input type="submit" class="button" value="details" />
+                }
+                @using (Html.BeginForm("Delete", "QuestionSuite", FormMethod.Post))
+                {
+                    @Html.Hidden("hiddenSuiteId", suite.Id)
+                    <input type="submit" class="button" value="Delete" />
+                }
+            </div>
+        }
     }
-    @if (Model.PreviouslyCreatedQuestionSuiteCode != null)
+    else
     {
-        <div>
-            <input type="text" id="previouslyCreatedCode" value="@Model.PreviouslyCreatedQuestionSuiteCode" readonly>
-            <button onclick="copyCode()">Copy Code</button>
-        </div>
-    }
-    @foreach (QRefTrain3.Models.QuestionSuite suite in Model.UserQuestionSuites)
-    {
-        <div class="flex-container">
-            <div>@suite.name</div>
-            @using (Html.BeginForm("Details", "QuestionSuite", FormMethod.Post))
-            {
-                @Html.Hidden("hiddenSuiteId", suite.Id)
-                <input type="submit" class="button" value="details" />
-            }
-            @using (Html.BeginForm("Delete", "QuestionSuite", FormMethod.Post))
-            {
-                @Html.Hidden("hiddenSuiteId", suite.Id)
-                <input type="submit" class="button" value="Delete" />
-            }
-        </div>
+        <div>@QRefResources.Resource.QuestionSuite_YouMustLogin</div>
     }
 </body>
 </html>

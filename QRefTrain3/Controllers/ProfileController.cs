@@ -1,4 +1,5 @@
-﻿using QRefTrain3.Models;
+﻿using QRefTrain3.Helper;
+using QRefTrain3.Models;
 using QRefTrain3.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,31 @@ namespace QRefTrain3.Controllers
     public class ProfileController : BaseController
     {
         // GET: Profile
-        public ActionResult DisplayProfile()
+        public ActionResult DisplayProfile(string name)
         {
-            if (!User.Identity.IsAuthenticated)
+            User user = null;
+            if (String.IsNullOrEmpty(name))
+            {
+                user = Dal.Instance.GetUserByName(name);
+            }
+            else if (User.Identity.IsAuthenticated)
+            {
+                user = Dal.Instance.GetUserByName(User.Identity.Name);
+            }
+            else
             {
                 RedirectToAction("Homepage", "Home");
             }
-            User user = Dal.Instance.GetUserByName(User.Identity.Name);
             List<Result> results = Dal.Instance.GetNLastResultByUser(user, 10);
             List<ResultViewModel> viewModels = new List<ResultViewModel>();
-            foreach(Result result in results)
+            foreach (Result result in results)
             {
                 viewModels.Add(new ResultViewModel(result));
             }
-            return View("Profile", viewModels);
+            int userRank = UserInfoHelper.GetUserRank(user);
+            return View("Profile", new ProfileViewModel(viewModels, userRank));
         }
+
         public ActionResult DisplayResultDetails(int id)
         {
             return View("ResultDetail", new ResultViewModel(Dal.Instance.GetResultById(id)));

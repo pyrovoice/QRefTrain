@@ -11,15 +11,30 @@ namespace QRefTrain3.Controllers
 {
     public class HomeController : BaseController
     {
+        //2mn30
+        private static readonly int EXAM_TIME_LIMIT = 1500000;
+        private static readonly int EXAM_NBR_QUESTIONS = 10;
+
         public ActionResult Homepage()
         {
             ViewBag.ErrorQuiz = TempData["ErrorQuiz"];
             Exam exam = null;
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name, 10);
+                exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
             }
             return View(exam != null);
+        }
+
+        [HttpPost]
+        public ActionResult MovetoExam(string NGB_Exam)
+        {
+            if (!String.IsNullOrEmpty(NGB_Exam))
+            {
+                return MoveToQuiz(NGB_Exam, null, true, null);
+            }
+            TempData["ErrorQuiz"] = QRefResources.Resource.Error_SelectNGB;
+            return RedirectToAction("Homepage");
         }
 
         /// <summary>
@@ -31,7 +46,7 @@ namespace QRefTrain3.Controllers
         /// <param name="isExam"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult MoveToQuiz(string ngb, List<string> Subjects, string NGB_Only, string isExam, string QuestionSuiteText)
+        public ActionResult MoveToQuiz(string NGB, List<string> Subjects, bool? isExam, string QuestionSuiteText)
         {
             // Get connected user
             User connectedUser = null;
@@ -41,7 +56,7 @@ namespace QRefTrain3.Controllers
             }
 
             // Check the user does not have an incoming exam (if connected)
-            if(connectedUser != null && Dal.Instance.GetOngoingExamByUsername(connectedUser.Name) != null)
+            if (connectedUser != null && Dal.Instance.GetOngoingExamByUsername(connectedUser.Name) != null)
             {
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_OngoingTest;
                 return RedirectToAction("Homepage");
@@ -52,29 +67,29 @@ namespace QRefTrain3.Controllers
             //If the question suite was selected, start it in exam mode
             if (!String.IsNullOrEmpty(QuestionSuiteText))
             {
-                if(connectedUser == null)
+                if (connectedUser == null)
                 {
                     TempData["ErrorQuestionSuite"] = QRefResources.Resource.Error_LoginForTest;
                     return RedirectToAction("Homepage");
                 }
                 QuestionSuite suite = Dal.Instance.GetQuestionSuiteByString(QuestionSuiteText);
-                if(suite == null)
+                if (suite == null)
                 {
                     TempData["ErrorQuestionSuite"] = QRefResources.Resource.Error_NoSuiteString;
                     return RedirectToAction("Homepage");
                 }
                 DateTime d = Dal.Instance.GetDBTime();
-                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, suite.questions, d, suite.Id);
-                quizzModel = new QuizzViewModel(suite.questions, ResultType.Exam, d, suite.Id);
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, suite.Questions, d, suite.TimeLimit, suite.Id);
+                quizzModel = new QuizzViewModel(newExam);
                 return View("Quizz", quizzModel);
             }
             //========================== End of QuestionSuite ===============================
 
             // Update the user's choice so he does not have to chose again next time
-            Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, ngb, DateTime.Now.AddMonths(1));
+            Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddMonths(1));
 
             // If exam is selected, check the user is connected
-            if(isExam != null && connectedUser == null)
+            if (isExam.HasValue && isExam.Value && connectedUser == null)
             {
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_LoginForTest;
                 return RedirectToAction("Homepage");
@@ -85,29 +100,30 @@ namespace QRefTrain3.Controllers
             List<Question> questions;
             DateTime? dt = null;
             // Depending on whether Exam or Training is selected, we set the parameters
-            if (isExam != null)
+            if (isExam.HasValue && isExam.Value == true)
             {
                 examType = ResultType.Exam;
-                questions = GetQuestions(ngb, null, true);
+                questions = GetQuestions(NGB, null);
                 dt = Dal.Instance.GetDBTime();
-                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, dt.Value, null);
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, dt.Value, EXAM_TIME_LIMIT, null);
+                quizzModel = new QuizzViewModel(newExam);
             }
             else
             {
                 examType = ResultType.Training;
-                questions = GetQuestions(ngb, Subjects, NGB_Only != null);
+                questions = GetQuestions(NGB, Subjects);
+                quizzModel = new QuizzViewModel(questions, examType, dt, EXAM_TIME_LIMIT, null);
             }
 
-            quizzModel = new QuizzViewModel(questions, examType, dt, null);
             return View("Quizz", quizzModel);
         }
 
-        private List<Question> GetQuestions(string ngb, List<string> subjects, bool NGB_only)
+        private List<Question> GetQuestions(string ngb, List<string> subjects)
         {
             List<Question> displayedQuestions = new List<Question>();
             List<Question> allQuestions = new List<Question>();
             // Get all questions, and create a list of 10 questions at random.
-            allQuestions = Dal.Instance.GetQuestionsByParameter(subjects, ngb, NGB_only);
+            allQuestions = Dal.Instance.GetQuestionsByParameter(subjects, ngb);
 
             if (allQuestions.Count <= 0)
             {
@@ -129,13 +145,13 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult ResumeTestQuiz()
         {
-            Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name, 10);
-            if(exam == null)
+            Exam exam = Dal.Instance.GetOngoingExamByUsername(HttpContext.User.Identity.Name);
+            if (exam == null)
             {
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_TestTimeout;
                 return RedirectToAction("Homepage");
             }
-            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate, exam.SuiteId));
+            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate, exam.TimeLimit, exam.SuiteId));
         }
 
         [HttpPost]
@@ -166,14 +182,14 @@ namespace QRefTrain3.Controllers
                 // If the user took an exam, check nothing wrong happened and close the exam
                 if (quizzModel.ResultType == ResultType.Exam)
                 {
-                    quizzModel.StartTime = Dal.Instance.GetOngoingExamByUsername(currentUser.Name).StartDate;
+                    Exam exam = Dal.Instance.GetOngoingExamByUsername(currentUser.Name);
                     // Verification : Time security
                     string LogText = null;
-                    if (!quizzModel.StartTime.HasValue)
+                    if (exam.StartDate == null)
                     {
                         LogText = "Quizz result error : No start time for quizzModel.";
                     }
-                    else if ((Dal.Instance.GetDBTime() - quizzModel.StartTime.Value).Minutes > 12)
+                    else if ((Dal.Instance.GetDBTime() - exam.StartDate).Milliseconds > exam.TimeLimit + 10000)
                     {
                         LogText = "Quizz result error : Time between start and end of test is too high.";
                     }
@@ -191,14 +207,14 @@ namespace QRefTrain3.Controllers
                     Dal.Instance.DeleteExamByUserId(currentUser.Id);
                 }
                 result.User = currentUser;
-                if(quizzModel.SuiteID.HasValue)
+                if (quizzModel.SuiteID.HasValue)
                 {
                     QuestionSuite qs = Dal.Instance.GetQuestionSuiteById(quizzModel.SuiteID.Value);
-                    if(qs != null)
+                    if (qs != null)
                     {
-                        String body = "User " + currentUser.Name + " completed your exam " + qs.name + "\nResult: " + result.GetNumberGoodAnswers() + "/" + result.QuestionsAsked.Count + "\nTime: " + Dal.Instance.GetDBTime();
-                        Helper.MailingHelper.SendMail(qs.owner, "User " + currentUser.Name + " completed your exam " + qs.name, body);
-                        result.Reporter = qs.owner;
+                        String body = "User " + currentUser.Name + " completed your exam " + qs.Name + "\nResult: " + result.GetNumberGoodAnswers() + "/" + result.QuestionsAsked.Count + "\nTime: " + Dal.Instance.GetDBTime();
+                        Helper.MailingHelper.SendMail(qs.Owner, "User " + currentUser.Name + " completed your exam " + qs.Name, body);
+                        result.Reporter = qs.Owner;
                     }
                 }
                 Dal.Instance.CreateResult(result);

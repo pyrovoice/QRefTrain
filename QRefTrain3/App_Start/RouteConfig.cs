@@ -20,6 +20,12 @@ namespace QRefTrain3
             );
 
             routes.MapRoute(
+                name: "SeeProfile",
+                url: "Profile/{action}/{id}",
+                defaults: new { controller = "Profile", action = "DisplayProfile" }
+            );
+
+            routes.MapRoute(
                 name: "ConfirmMail",
                 url: "Login/ConfirmEmail",
                 defaults: new { controller = "Login", action = "ConfirmEmail" }
@@ -34,7 +40,13 @@ namespace QRefTrain3
             routes.MapRoute(
                 name: "Admin",
                 url: "Admin/{action}",
-                defaults: new { controller = "Admin" }
+                defaults: new { controller = "Admin", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "Admin2",
+                url: "Admin",
+                defaults: new { controller = "Admin", action = "Index" }
             );
 
             routes.MapRoute(

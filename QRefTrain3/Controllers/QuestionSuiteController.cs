@@ -15,7 +15,7 @@ namespace QRefTrain3.Controllers
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Homepage", "Home");
+                return View();
             }
             User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
             QuestionSuiteViewModel qsvm = new QuestionSuiteViewModel()
@@ -29,11 +29,11 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult MoveToQuestionSuite()
         {
-            return View("MoveToQuestionSuite");
+            return View("CreateQuestionSuite", Dal.Instance.getAllQuestionsExceptRetired());
         }
 
         [HttpPost]
-        public ActionResult CreateQuestionSuite(String name,  List<string> questionIds)
+        public ActionResult CreateQuestionSuite(String name,  List<string> questionIds, string timeLimit)
         {
             //Create the suite
             if (!HttpContext.User.Identity.IsAuthenticated)
@@ -43,10 +43,10 @@ namespace QRefTrain3.Controllers
             User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
             QuestionSuite newQuestionSuite = new QuestionSuite()
             {
-                code = GenerateNewCode(),
-                name = name,
-                owner = currentUser,
-                questions = Dal.Instance.GetQuestionsById(questionIds)
+                Code = GenerateNewCode(),
+                Name = name,
+                Owner = currentUser,
+                Questions = Dal.Instance.GetQuestionsById(questionIds)
             };
 
             //Update db with new suite
@@ -54,7 +54,7 @@ namespace QRefTrain3.Controllers
 
             QuestionSuiteViewModel qsvm = new QuestionSuiteViewModel()
             {
-                PreviouslyCreatedQuestionSuiteCode = newQuestionSuite.code,
+                PreviouslyCreatedQuestionSuiteCode = newQuestionSuite.Code,
                 UserQuestionSuites = Dal.Instance.GetQuestionSuiteByUser(currentUser)
             };
             //Return to the main page and add a field to copy the suite's ID

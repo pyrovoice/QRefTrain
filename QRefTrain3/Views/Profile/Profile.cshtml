@@ -1,4 +1,4 @@
-﻿@model List<QRefTrain3.ViewModel.ResultViewModel>
+﻿@model QRefTrain3.ViewModel.ProfileViewModel
 
 <!DOCTYPE html>
 
@@ -8,12 +8,29 @@
     <title>Profile</title>
 </head>
 <body>
-
+    <div class="flex-container">
+        @if (Model.UserRank >= 1)
+        {<img src="~/Elements/bronze.png" alt="Italian Trulli" height="50" width="50" />}
+        else
+        {<img src="~/Elements/unget.png" alt="Italian Trulli" height="50" width="50" />}
+        @if (Model.UserRank >= 2)
+        {<img src="~/Elements/silver.png" alt="Italian Trulli" height="50" width="50" />}
+        else
+        {<img src="~/Elements/unget.png" alt="Italian Trulli" height="50" width="50" />}
+        @if (Model.UserRank >= 3)
+        {<img src="~/Elements/gold.png" alt="Italian Trulli" height="50" width="50" />}
+        else
+        {<img src="~/Elements/unget.png" alt="Italian Trulli" height="50" width="50" />}
+        @if (Model.UserRank >= 4)
+        {<img src="~/Elements/plat.png" alt="Italian Trulli" height="50" width="50" />}
+        else
+        {<img src="~/Elements/unget.png" alt="Italian Trulli" height="50" width="50" />}
+    </div>
     <div class="flex-container">
         <div class="halfpageItem">
             <div class="tab">
-                <button class="tablinks active" onclick="displayResults(event, 'trainingResultTable')">@QRefResources.Resource.Homepage_ParameterPrompt</button>
-                <button class="tablinks" onclick="displayResults(event, 'officielResultTable')">@QRefResources.Resource.Homepage_TestPrompt</button>
+                <button class="tablinks active" onclick="displayResults(event, 'trainingResultTable')">@QRefResources.Resource.Profile_Training</button>
+                <button class="tablinks" onclick="displayResults(event, 'officielResultTable')">@QRefResources.Resource.Profile_Exam</button>
             </div>
 
             <table id="trainingResultTable" class="table-striped">
@@ -26,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model)
+                    @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model.Results)
                     {
                         if (result.ResultType == QRefTrain3.Models.ResultType.Training)
                         {
@@ -50,7 +67,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model)
+                    @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model.Results)
                     {
                         if (result.ResultType == QRefTrain3.Models.ResultType.Exam)
                         {
@@ -65,7 +82,7 @@
                 </tbody>
             </table>
         </div>
-        <div >
+        <div>
             averages
         </div>
     </div>
