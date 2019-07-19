@@ -900,6 +900,24 @@
   <data name="TwoClaimExplanation" xml:space="preserve">
     <value>Si aucun batteur n'abaisse son poing immédiatement, l'un des batteurs commet une demande d’immunité invalide mineure et doit etre renvoyé aux anneaux.</value>
   </data>
+  <data name="ContactBothJump" xml:space="preserve">
+    <value>Quels propositions sont vraies? (Si non précisé, assumez que la proposition s'applique a l'attaque)</value>
+  </data>
+  <data name="ContactBothJumpAnswer1" xml:space="preserve">
+    <value>le défenseur devra recevoir la meme penalité</value>
+  </data>
+  <data name="ContactBothJumpExplanation" xml:space="preserve">
+    <value>Bien que cette action puisse etre interprétée comme une charge (illégal en l'air), l'intention du joueur est importante. Ici, aucun joueur n'attaque le corps de l'adversaire, comme lors d'une charge.</value>
+  </data>
+  <data name="ContactBeforeBallAnswer1" xml:space="preserve">
+    <value>Reinitialisez la position des joueurs et recommancez le broom's up</value>
+  </data>
+  <data name="ContactBeforeBallAnswer2" xml:space="preserve">
+    <value>Le joueur bleu doit etre pénalisé</value>
+  </data>
+  <data name="ContactBeforeBallAnswer3" xml:space="preserve">
+    <value>Le joueur blanc doit etre pénalisé</value>
+  </data>
   <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer3" xml:space="preserve">
     <value>L'équipe choisit qui est libéré en premier</value>
   </data>
