@@ -126,6 +126,24 @@
   <data name="NoPenalty" xml:space="preserve">
     <value>Pas de pénalité</value>
   </data>
+  <data name="BothGripBallStoppage" xml:space="preserve">
+    <value>Two opposing beater were grabbing and fighting for the same ball as play is stopped. None had sole control before. Which of the following are true?</value>
+  </data>
+  <data name="BothGripBallStoppageAnswer2" xml:space="preserve">
+    <value>Both players stay in position but cannot fight for the ball during broom's down</value>
+  </data>
+  <data name="BothGripBallStoppageAnswer1" xml:space="preserve">
+    <value>Both players must release the ball to the ground, then can restart attacking it on broom's up</value>
+  </data>
+  <data name="BothGripBallStoppageAnswer3" xml:space="preserve">
+    <value>Both players must release the ball to the ground while broom's down, but can grab it again before broom's up.</value>
+  </data>
+  <data name="BothGripBallStoppageAnswer4" xml:space="preserve">
+    <value>Both players stay in position during broom's down and can try to get a better gripping on the ball before broom's up.</value>
+  </data>
+  <data name="BothGripBallStoppageExplanation" xml:space="preserve">
+    <value>It's a good idea to have an assistant watch the situation during broom's down.</value>
+  </data>
   <data name="QuestionActingDuringBroomsDownExplanation" xml:space="preserve">
     <value>Les joueurs tenant déjà une balle peuvent la garder.</value>
   </data>
