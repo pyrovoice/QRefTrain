@@ -914,6 +914,27 @@ drive without it counting as a reset.</value>
   <data name="TwoClaimExplanation" xml:space="preserve">
     <value>If no beater immediatly lowers his fist, one beater commits a minor invalid immunity claim and should be send back to hoops</value>
   </data>
+  <data name="ContactBothJump" xml:space="preserve">
+    <value>What of the followings are true (If unspecified, for the quaffle carrier)</value>
+  </data>
+  <data name="ContactBothJumpAnswer1" xml:space="preserve">
+    <value>Defending player should receive the same penalty</value>
+  </data>
+  <data name="ContactBothJumpExplanation" xml:space="preserve">
+    <value>While this could be considered a charge (illegal in the air), the intent of the player is also important. here players don't play the opponent's body, as a charge would, but instead jump for the goal.</value>
+  </data>
+  <data name="ContactBeforeBallAnswer1" xml:space="preserve">
+    <value>Reset and redo the boom's up</value>
+  </data>
+  <data name="ContactBeforeBallAnswer2" xml:space="preserve">
+    <value>Blue player should be penalized</value>
+  </data>
+  <data name="ContactBeforeBallAnswer3" xml:space="preserve">
+    <value>White player should be penalized</value>
+  </data>
+  <data name="ContactBeforeBallExplanation" xml:space="preserve">
+    <value>Here you can see white player going for the quaffle, while blue player instead go first for the player, then for the quffle after the contact. An incidental charge as both players went for the quaffle would have been ok, but that is not the case here.</value>
+  </data>
   <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer3" xml:space="preserve">
     <value>The team chooses who gets released first</value>
   </data>
