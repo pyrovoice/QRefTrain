@@ -92,6 +92,16 @@ namespace QRefTrain3.Models
             return Context.QuestionSuites.FirstOrDefault(s => s.Code.Equals(questionSuiteText));
         }
 
+        internal void DeleteQuestionSuiteById(int hiddenSuiteId)
+        {
+            QuestionSuite qs = Context.QuestionSuites.FirstOrDefault(q => q.Id == hiddenSuiteId);
+            if (qs != null)
+            {
+                Context.QuestionSuites.Remove(qs);
+                Context.SaveChanges();
+            }
+        }
+
         public Answer GetAnswer(string answerTitle, bool isAnswerTrue)
         {
             return Context.Answers.FirstOrDefault(a => a.Answertext.Equals(answerTitle) && a.IsTrue == isAnswerTrue);
@@ -105,6 +115,10 @@ namespace QRefTrain3.Models
         public Exam GetOngoingExamByUsername(string userName)
         {
             User user = GetUserByName(userName);
+            if (user == null)
+            {
+                return null;
+            }
             Exam exam = Context.Exams.FirstOrDefault(e => e.User.Id == user.Id);
             return exam;
         }
@@ -138,9 +152,8 @@ namespace QRefTrain3.Models
                     SelectedAnswers = new List<Answer>(),
                     User = user
                 };
-                DeleteExamByUserId(user.Id);
             }
-            Context.SaveChanges();
+            DeleteExamByUserId(user.Id);
         }
 
         public List<Question> GetQuestionsByParameter(string ngb)
@@ -189,7 +202,7 @@ namespace QRefTrain3.Models
             return Context.Answers.FirstOrDefault(q => q.Id == id);
         }
 
-        public Exam CreateExam(string name, List<Question> questions, DateTime timeNow, int timeLimit, int? suiteId)
+        public Exam CreateExam(string name, List<Question> questions, DateTime timeNow, int timeLimit, QuestionSuite suite)
         {
             User user = GetUserByName(name);
 
@@ -198,8 +211,7 @@ namespace QRefTrain3.Models
                 Questions = questions,
                 StartDate = timeNow,
                 User = user,
-                TimeLimit = timeLimit,
-                SuiteId = suiteId
+                TimeLimit = timeLimit
             };
             Context.Exams.Add(exam);
             Context.SaveChanges();
@@ -325,10 +337,12 @@ namespace QRefTrain3.Models
 
         public void DeleteExamByUserId(int userId)
         {
-            var a = Context.Exams.ToList();
-            Context.Exams.RemoveRange(Context.Exams.Where<Exam>(exam => exam.User.Id == userId));
+            foreach (Exam e in Context.Exams)
+            {
+                if (e.User == null || e.User.Id == userId)
+                    Context.Exams.Remove(e);
+            }
             Context.SaveChanges();
-            a = Context.Exams.ToList();
         }
 
         public User Authenticate(string userName, string userPassword)

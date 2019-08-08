@@ -417,4 +417,10 @@
   <data name="Profile_Training" xml:space="preserve">
     <value>Training Results</value>
   </data>
+  <data name="QuestionSuite_ErrorNbrQuestion" xml:space="preserve">
+    <value>Your exam should have between 1 and 50 questions</value>
+  </data>
+  <data name="QuestionSuite_ErrorTime" xml:space="preserve">
+    <value>The time input is incorrect</value>
+  </data>
 </root>

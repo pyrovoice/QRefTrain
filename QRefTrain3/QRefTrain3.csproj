@@ -248,6 +248,14 @@
     <Compile Include="Migrations\201906251142049_timeLimit.Designer.cs">
       <DependentUpon>201906251142049_timeLimit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908010934470_fff.cs" />
+    <Compile Include="Migrations\201908010934470_fff.Designer.cs">
+      <DependentUpon>201908010934470_fff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908080908053_removeVirtual.cs" />
+    <Compile Include="Migrations\201908080908053_removeVirtual.Designer.cs">
+      <DependentUpon>201908080908053_removeVirtual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -482,6 +490,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906251142049_timeLimit.resx">
       <DependentUpon>201906251142049_timeLimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908010934470_fff.resx">
+      <DependentUpon>201908010934470_fff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908080908053_removeVirtual.resx">
+      <DependentUpon>201908080908053_removeVirtual.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

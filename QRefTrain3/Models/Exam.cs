@@ -13,7 +13,7 @@ namespace QRefTrain3.Models
         public DateTime StartDate { get; set; }
         public int TimeLimit { get; set; }
         public User User { get; set; }
-        public virtual List<Question> Questions { get; set; }
-        public int? SuiteId { get; set; }
+        public List<Question> Questions { get; set; }
+        public QuestionSuite Suite { get; set; }
     }
 }

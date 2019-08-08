@@ -33,8 +33,39 @@ namespace QRefTrain3.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateQuestionSuite(String name,  List<string> questionIds, string timeLimit)
+        public ActionResult CreateQuestionSuite(String name, List<string> questionIds, string timeLimit)
         {
+
+            //Check at least one question was selected and no more than 50
+            if (questionIds.Count < 1 || questionIds.Count > 50)
+            {
+                ViewBag.MailError = QRefResources.Resource.QuestionSuite_ErrorNbrQuestion;
+                return View("CreateQuestionSuite", Dal.Instance.getAllQuestionsExceptRetired());
+            }
+            //Check time limit is valid. If empty, set a default time limit
+            if (String.IsNullOrEmpty(timeLimit))
+            {
+                timeLimit = questionIds.Count.ToString();
+                
+            }else if(timeLimit.Length > 2)
+            {
+                timeLimit = "90";
+            }
+            else if (!Int32.TryParse(timeLimit, out int test))
+            {
+                ViewBag.MailError = QRefResources.Resource.QuestionSuite_ErrorTime;
+                return View("CreateQuestionSuite", Dal.Instance.getAllQuestionsExceptRetired());
+            }
+            //Check name is valid. If empty, set a default name
+            if (String.IsNullOrEmpty(name))
+            {
+                name = "MyCustomExam";
+            }
+            else if (name.Length > 20)
+            {
+                name = name.Substring(0, 19);
+            }
+
             //Create the suite
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
@@ -46,7 +77,8 @@ namespace QRefTrain3.Controllers
                 Code = GenerateNewCode(),
                 Name = name,
                 Owner = currentUser,
-                Questions = Dal.Instance.GetQuestionsById(questionIds)
+                Questions = Dal.Instance.GetQuestionsById(questionIds),
+                TimeLimit = Int32.Parse(timeLimit)
             };
 
             //Update db with new suite
@@ -61,11 +93,18 @@ namespace QRefTrain3.Controllers
             return View("Index", qsvm);
         }
 
-        /// <summary>
-        /// Generate a new 6 character code at random using all upper case letters and numbers, then checks that the code don't already exist.
-        /// </summary>
-        /// <returns>The new code generated</returns>
-        private String GenerateNewCode()
+        [HttpPost]
+        public ActionResult Delete(int hiddenSuiteId)
+        {
+            Dal.Instance.DeleteQuestionSuiteById(hiddenSuiteId);
+            return RedirectToAction("Index");
+        }
+
+            /// <summary>
+            /// Generate a new 6 character code at random using all upper case letters and numbers, then checks that the code don't already exist.
+            /// </summary>
+            /// <returns>The new code generated</returns>
+            private String GenerateNewCode()
         {
             Random random = new Random();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

@@ -9,7 +9,7 @@
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    @using (Html.BeginForm("QuizzResult", "QuestionContext"))
+    @using (Html.BeginForm("CreateQuestionSuite", "QuestionSuite"))
     {
         <div class="form-horizontal">
             <divclass ="form-group">
@@ -53,12 +53,13 @@
                         }
                     </div>
                     <div>@QRefResources.QuestionResource.ResourceManager.GetString(q.AnswerExplanation)</div>
-                    <input type="checkbox" name="questionIds" value="@q.Id.ToString())" />
+                    <input type="checkbox" name="questionIds" value="@q.Id.ToString()" />
                     <div class="bigBottomPadding"></div>
                 }
             }
         }
         <input id="submit" type="submit" value="@QRefResources.Resource.Submit" class="btn-lg btn-primary QuizzValidationButton" />
     }
+    <div class="bigBottomPadding"></div>
 </body>
 </html>

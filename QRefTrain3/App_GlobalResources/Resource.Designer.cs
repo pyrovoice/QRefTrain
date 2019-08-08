@@ -673,6 +673,24 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your exam should have between 1 and 50 questions.
+        /// </summary>
+        public static string QuestionSuite_ErrorNbrQuestion {
+            get {
+                return ResourceManager.GetString("QuestionSuite_ErrorNbrQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The time input is incorrect.
+        /// </summary>
+        public static string QuestionSuite_ErrorTime {
+            get {
+                return ResourceManager.GetString("QuestionSuite_ErrorTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom Exams.
         /// </summary>
         public static string QuestionSuite_GoTo {

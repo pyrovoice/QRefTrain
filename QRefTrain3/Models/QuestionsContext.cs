@@ -22,5 +22,13 @@ namespace QRefTrain3.Models
         public DbSet<Request> Requests { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<QuestionSuite> QuestionSuites { get; set; }
+        /*
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Exam>()
+                .HasOptional<QuestionSuite>(s => s.Suite)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+        }*/
     }
 }

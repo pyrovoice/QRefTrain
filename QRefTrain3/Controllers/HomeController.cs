@@ -15,8 +15,12 @@ namespace QRefTrain3.Controllers
         private static readonly int EXAM_TIME_LIMIT = 1500000;
         private static readonly int EXAM_NBR_QUESTIONS = 10;
 
-        public ActionResult Homepage()
+        public ActionResult Homepage(String suiteID)
         {
+            if (!String.IsNullOrEmpty(suiteID))
+            {
+                return MoveToQuiz(null, null, null, suiteID);
+            }
             ViewBag.ErrorQuiz = TempData["ErrorQuiz"];
             Exam exam = null;
             if (HttpContext.User.Identity.IsAuthenticated)
@@ -79,7 +83,7 @@ namespace QRefTrain3.Controllers
                     return RedirectToAction("Homepage");
                 }
                 DateTime d = Dal.Instance.GetDBTime();
-                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, suite.Questions, d, suite.TimeLimit, suite.Id);
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, suite.Questions, d, suite.TimeLimit, suite);
                 quizzModel = new QuizzViewModel(newExam);
                 return View("Quizz", quizzModel);
             }
@@ -151,7 +155,7 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_TestTimeout;
                 return RedirectToAction("Homepage");
             }
-            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate, exam.TimeLimit, exam.SuiteId));
+            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate, exam.TimeLimit, exam.Suite));
         }
 
         [HttpPost]
@@ -207,9 +211,9 @@ namespace QRefTrain3.Controllers
                     Dal.Instance.DeleteExamByUserId(currentUser.Id);
                 }
                 result.User = currentUser;
-                if (quizzModel.SuiteID.HasValue)
+                if (quizzModel.Suite != null)
                 {
-                    QuestionSuite qs = Dal.Instance.GetQuestionSuiteById(quizzModel.SuiteID.Value);
+                    QuestionSuite qs = quizzModel.Suite;
                     if (qs != null)
                     {
                         String body = "User " + currentUser.Name + " completed your exam " + qs.Name + "\nResult: " + result.GetNumberGoodAnswers() + "/" + result.QuestionsAsked.Count + "\nTime: " + Dal.Instance.GetDBTime();

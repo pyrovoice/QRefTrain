@@ -402,4 +402,10 @@
   <data name="Profile_Training" xml:space="preserve">
     <value>Resultats Entrainements</value>
   </data>
+  <data name="QuestionSuite_ErrorNbrQuestion" xml:space="preserve">
+    <value>Veuillez selectionner entre 1 et 50 questions</value>
+  </data>
+  <data name="QuestionSuite_ErrorTime" xml:space="preserve">
+    <value>La valeur de temps est incorrect</value>
+  </data>
 </root>
