@@ -256,6 +256,10 @@
     <Compile Include="Migrations\201908080908053_removeVirtual.Designer.cs">
       <DependentUpon>201908080908053_removeVirtual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908150942042_LogicExamToQuestionSuite.cs" />
+    <Compile Include="Migrations\201908150942042_LogicExamToQuestionSuite.Designer.cs">
+      <DependentUpon>201908150942042_LogicExamToQuestionSuite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -496,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908080908053_removeVirtual.resx">
       <DependentUpon>201908080908053_removeVirtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908150942042_LogicExamToQuestionSuite.resx">
+      <DependentUpon>201908150942042_LogicExamToQuestionSuite.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

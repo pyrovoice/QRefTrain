@@ -11,9 +11,9 @@ namespace QRefTrain3.Models
     {
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
-        public int TimeLimit { get; set; }
+        //Who passes the test
         public User User { get; set; }
-        public List<Question> Questions { get; set; }
+        //What QuestionSuite should this exam be based on
         public QuestionSuite Suite { get; set; }
     }
 }

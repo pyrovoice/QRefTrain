@@ -72,14 +72,7 @@ namespace QRefTrain3.Controllers
                 return RedirectToAction("Homepage", "Home");
             }
             User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
-            QuestionSuite newQuestionSuite = new QuestionSuite()
-            {
-                Code = GenerateNewCode(),
-                Name = name,
-                Owner = currentUser,
-                Questions = Dal.Instance.GetQuestionsById(questionIds),
-                TimeLimit = Int32.Parse(timeLimit)
-            };
+            QuestionSuite newQuestionSuite = new QuestionSuite(Dal.Instance.GetQuestionsById(questionIds), currentUser, name, Int32.Parse(timeLimit));
 
             //Update db with new suite
             Dal.Instance.CreateQuestionSuite(newQuestionSuite);
@@ -100,24 +93,7 @@ namespace QRefTrain3.Controllers
             return RedirectToAction("Index");
         }
 
-            /// <summary>
-            /// Generate a new 6 character code at random using all upper case letters and numbers, then checks that the code don't already exist.
-            /// </summary>
-            /// <returns>The new code generated</returns>
-            private String GenerateNewCode()
-        {
-            Random random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            string code;
-            do
-            {
-                code = new string(Enumerable.Repeat(chars, 6)
-                  .Select(s => s[random.Next(s.Length)]).ToArray());
-
-            } while (Dal.Instance.GetQuestionSuiteByCode(code) != null);
-            return code;
-
-        }
+          
 
     }
 }

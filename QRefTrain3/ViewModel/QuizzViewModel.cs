@@ -19,21 +19,32 @@ namespace QRefTrain3.ViewModel
 
         }
 
-        public QuizzViewModel(List<Question> displayedQuestions, ResultType type, DateTime? startTime, int? timeLimit, QuestionSuite suite)
+        public QuizzViewModel(ResultType type, DateTime? startTime, QuestionSuite suite)
         {
-            foreach (Question question in displayedQuestions)
+            foreach (Question question in suite.Questions)
             {
                 DisplayedQuestions.Add(new QuestionQuizzViewModel(question));
             }
             this.ResultType = type;
             this.StartTime = startTime;
             this.Suite = suite;
+        }
+
+        public QuizzViewModel(ResultType type, DateTime? startTime, int? timeLimit, List<Question> questions)
+        {
+            foreach (Question question in questions)
+            {
+                DisplayedQuestions.Add(new QuestionQuizzViewModel(question));
+            }
+            this.ResultType = type;
+            this.StartTime = startTime;
+            this.Suite = null;
             this.TimeLimit = timeLimit;
         }
 
         public QuizzViewModel(Exam exam)
         {
-            foreach (Question question in exam.Questions)
+            foreach (Question question in exam.Suite.Questions)
             {
                 DisplayedQuestions.Add(new QuestionQuizzViewModel(question));
 
@@ -41,7 +52,7 @@ namespace QRefTrain3.ViewModel
             this.ResultType = ResultType.Exam;
             this.StartTime = exam.StartDate;
             this.Suite = exam.Suite;
-            this.TimeLimit = exam.TimeLimit;
+            this.TimeLimit = exam.Suite.TimeLimit;
         }
     }
 }

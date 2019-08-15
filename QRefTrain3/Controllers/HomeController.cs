@@ -83,7 +83,7 @@ namespace QRefTrain3.Controllers
                     return RedirectToAction("Homepage");
                 }
                 DateTime d = Dal.Instance.GetDBTime();
-                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, suite.Questions, d, suite.TimeLimit, suite);
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, d, suite);
                 quizzModel = new QuizzViewModel(newExam);
                 return View("Quizz", quizzModel);
             }
@@ -109,14 +109,14 @@ namespace QRefTrain3.Controllers
                 examType = ResultType.Exam;
                 questions = GetQuestions(NGB, null);
                 dt = Dal.Instance.GetDBTime();
-                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, questions, dt.Value, EXAM_TIME_LIMIT, null);
+                Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, dt.Value, EXAM_TIME_LIMIT, questions);
                 quizzModel = new QuizzViewModel(newExam);
             }
             else
             {
                 examType = ResultType.Training;
                 questions = GetQuestions(NGB, Subjects);
-                quizzModel = new QuizzViewModel(questions, examType, dt, EXAM_TIME_LIMIT, null);
+                quizzModel = new QuizzViewModel(examType, dt, EXAM_TIME_LIMIT, null);
             }
 
             return View("Quizz", quizzModel);
@@ -155,7 +155,7 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_TestTimeout;
                 return RedirectToAction("Homepage");
             }
-            return View("Quizz", new QuizzViewModel(exam.Questions, ResultType.Exam, exam.StartDate, exam.TimeLimit, exam.Suite));
+            return View("Quizz", new QuizzViewModel(ResultType.Exam, exam.StartDate, exam.Suite));
         }
 
         [HttpPost]
@@ -193,7 +193,7 @@ namespace QRefTrain3.Controllers
                     {
                         LogText = "Quizz result error : No start time for quizzModel.";
                     }
-                    else if ((Dal.Instance.GetDBTime() - exam.StartDate).Milliseconds > exam.TimeLimit + 10000)
+                    else if ((Dal.Instance.GetDBTime() - exam.StartDate).Milliseconds > exam.Suite.TimeLimit + 10000)
                     {
                         LogText = "Quizz result error : Time between start and end of test is too high.";
                     }

@@ -51,10 +51,11 @@ namespace QRefTrain3.Models
             return Context.Questions.Where<Question>(q => questionIds.Contains(q.Id.ToString())).ToList<Question>();
         }
 
-        internal void CreateQuestionSuite(QuestionSuite newQuestionSuite)
+        public QuestionSuite CreateQuestionSuite(QuestionSuite newQuestionSuite)
         {
             Context.QuestionSuites.Add(newQuestionSuite);
             Context.SaveChanges();
+            return newQuestionSuite;
         }
 
         /// <summary>
@@ -92,9 +93,9 @@ namespace QRefTrain3.Models
             return Context.QuestionSuites.FirstOrDefault(s => s.Code.Equals(questionSuiteText));
         }
 
-        internal void DeleteQuestionSuiteById(int hiddenSuiteId)
+        internal void DeleteQuestionSuiteById(int suiteId)
         {
-            QuestionSuite qs = Context.QuestionSuites.FirstOrDefault(q => q.Id == hiddenSuiteId);
+            QuestionSuite qs = Context.QuestionSuites.FirstOrDefault(q => q.Id == suiteId);
             if (qs != null)
             {
                 Context.QuestionSuites.Remove(qs);
@@ -144,14 +145,17 @@ namespace QRefTrain3.Models
             User user = GetUserByName(userName);
             foreach (Exam ongoingExam in Context.Exams.Where(q => q.User.Name.Equals(userName)).ToList())
             {
-                Result result = new Result()
+                if (ongoingExam.Suite != null)
                 {
-                    DateTime = GetDBTime(),
-                    QuestionsAsked = ongoingExam.Questions,
-                    ResultType = ResultType.Exam,
-                    SelectedAnswers = new List<Answer>(),
-                    User = user
-                };
+                    Result result = new Result()
+                    {
+                        DateTime = GetDBTime(),
+                        QuestionsAsked = ongoingExam.Suite.Questions,
+                        ResultType = ResultType.Exam,
+                        SelectedAnswers = new List<Answer>(),
+                        User = user
+                    };
+                }
             }
             DeleteExamByUserId(user.Id);
         }
@@ -202,20 +206,33 @@ namespace QRefTrain3.Models
             return Context.Answers.FirstOrDefault(q => q.Id == id);
         }
 
-        public Exam CreateExam(string name, List<Question> questions, DateTime timeNow, int timeLimit, QuestionSuite suite)
+        public Exam CreateExam(string name, DateTime timeNow, QuestionSuite suite)
         {
             User user = GetUserByName(name);
 
             Exam exam = new Exam()
             {
-                Questions = questions,
                 StartDate = timeNow,
                 User = user,
-                TimeLimit = timeLimit
+                Suite = suite
             };
             Context.Exams.Add(exam);
             Context.SaveChanges();
             return exam;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name">User's name that play the exam</param>
+        /// <param name="timeNow">Time at the creation of the exam</param>
+        /// <param name="timeLimit">How long after the start does the exam closes</param>
+        /// <param name="questions">A list of question used to created and link to a suite</param>
+        /// <returns></returns>
+        public Exam CreateExam(string name, DateTime timeNow, int timeLimit, List<Question> questions)
+        {
+            var qs = CreateQuestionSuite(new QuestionSuite(questions, null, "Temporary", timeLimit));
+            return CreateExam(name, timeNow, qs);
         }
 
         public Result GetResultById(int resultId)
@@ -340,7 +357,13 @@ namespace QRefTrain3.Models
             foreach (Exam e in Context.Exams)
             {
                 if (e.User == null || e.User.Id == userId)
+                {
                     Context.Exams.Remove(e);
+                    if(e.Suite != null && e.Suite.Owner == null)
+                    {
+                        DeleteQuestionSuiteById(e.Suite.Id);
+                    }
+                }
             }
             Context.SaveChanges();
         }
