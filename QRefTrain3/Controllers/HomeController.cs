@@ -71,17 +71,19 @@ namespace QRefTrain3.Controllers
             //If the question suite was selected, start it in exam mode
             if (!String.IsNullOrEmpty(QuestionSuiteText))
             {
-                if (connectedUser == null)
-                {
-                    TempData["ErrorQuestionSuite"] = QRefResources.Resource.Error_LoginForTest;
-                    return RedirectToAction("Homepage");
-                }
                 QuestionSuite suite = Dal.Instance.GetQuestionSuiteByString(QuestionSuiteText);
                 if (suite == null)
                 {
                     TempData["ErrorQuestionSuite"] = QRefResources.Resource.Error_NoSuiteString;
                     return RedirectToAction("Homepage");
                 }
+                //If user is not connected, we cannot register that the exam started froma  suite. Then, we consider it a training quiz, allowing a user to still take the suite while not being registered
+                if (connectedUser == null)
+                {
+                    quizzModel = new QuizzViewModel(ResultType.Training, Dal.Instance.GetDBTime(), suite.TimeLimit, suite.Questions);
+                    return View("Quizz", quizzModel);
+                }
+                // Else we create an exam as usual based on the suite
                 DateTime d = Dal.Instance.GetDBTime();
                 Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, d, suite);
                 quizzModel = new QuizzViewModel(newExam);

@@ -222,13 +222,13 @@ namespace QRefTrain3.Models
         }
 
         /// <summary>
-        /// 
+        /// Creates a temporary question suite then create an exam using this suite.
         /// </summary>
         /// <param name="name">User's name that play the exam</param>
         /// <param name="timeNow">Time at the creation of the exam</param>
         /// <param name="timeLimit">How long after the start does the exam closes</param>
         /// <param name="questions">A list of question used to created and link to a suite</param>
-        /// <returns></returns>
+        /// <returns>The newly created exam</returns>
         public Exam CreateExam(string name, DateTime timeNow, int timeLimit, List<Question> questions)
         {
             var qs = CreateQuestionSuite(new QuestionSuite(questions, null, "Temporary", timeLimit));
