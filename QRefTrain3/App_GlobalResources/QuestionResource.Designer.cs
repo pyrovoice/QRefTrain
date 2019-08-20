@@ -70,6 +70,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Body blocking that way is legal even without a ball involved. Carefull, a body block has force applied AFTER contact is initiated, not before..
+        /// </summary>
+        public static string BBNoBallExplanation {
+            get {
+                return ResourceManager.GetString("BBNoBallExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The beater who threw the bludger commited a third bludger interference..
         /// </summary>
         public static string BeaterCommit3rdInterference {
@@ -97,11 +106,110 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Once outside the pitch, green player becomes immune. Yellow player is willingly throwing a ball with the intention of sending it out of pitch, which is illegal. (Blue card).
+        /// </summary>
+        public static string BeatOutsideField1Explanation {
+            get {
+                return ResourceManager.GetString("BeatOutsideField1Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A feet outside is enough for green player to become immune. Consequently, Yellow player is willingly throwing a ball with the intention of sending it out of pitch, which is illegal. (Blue card).
+        /// </summary>
+        public static string BeatOutsideField2Explanation {
+            get {
+                return ResourceManager.GetString("BeatOutsideField2Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The green player does not become immune until she reaches outside the field..
+        /// </summary>
+        public static string BeatOutsideField3Explanation {
+            get {
+                return ResourceManager.GetString("BeatOutsideField3Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow player is closest when the bludger goes out, so she gets priority..
+        /// </summary>
+        public static string BludgerPriority1Explanation {
+            get {
+                return ResourceManager.GetString("BludgerPriority1Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While yellow player is closest when the bludger goes out, she is not elligible because she already own a bludger. The next closest player is green, so she can retrieve the bludger thrown..
+        /// </summary>
+        public static string BludgerPriority2Explanation {
+            get {
+                return ResourceManager.GetString("BludgerPriority2Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to As green is the closest elligible player when the bludger goes out, she is the one who can retrieve the bludger at the start. However, after the beat, the next closest elligible player become the yellow player..
+        /// </summary>
+        public static string BludgerPriority3Explanation {
+            get {
+                return ResourceManager.GetString("BludgerPriority3Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blue card.
         /// </summary>
         public static string BlueCard {
             get {
                 return ResourceManager.GetString("BlueCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both players must release the ball to the ground, then can restart attacking it on broom&apos;s up.
+        /// </summary>
+        public static string BothGripBallStoppageAnswer1 {
+            get {
+                return ResourceManager.GetString("BothGripBallStoppageAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both players stay in position but cannot fight for the ball during broom&apos;s down.
+        /// </summary>
+        public static string BothGripBallStoppageAnswer2 {
+            get {
+                return ResourceManager.GetString("BothGripBallStoppageAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both players must release the ball to the ground while broom&apos;s down, but can grab it again before broom&apos;s up..
+        /// </summary>
+        public static string BothGripBallStoppageAnswer3 {
+            get {
+                return ResourceManager.GetString("BothGripBallStoppageAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Both players stay in position during broom&apos;s down and can try to get a better gripping on the ball before broom&apos;s up..
+        /// </summary>
+        public static string BothGripBallStoppageAnswer4 {
+            get {
+                return ResourceManager.GetString("BothGripBallStoppageAnswer4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s a good idea to have an assistant watch the situation during broom&apos;s down..
+        /// </summary>
+        public static string BothGripBallStoppageExplanation {
+            get {
+                return ResourceManager.GetString("BothGripBallStoppageExplanation", resourceCulture);
             }
         }
         
@@ -120,6 +228,15 @@ namespace QRefResources {
         public static string ChargeAfterClaimExplanation {
             get {
                 return ResourceManager.GetString("ChargeAfterClaimExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow player already has force as the contact begin, qualifying this contact for a charge. Charges are illegal without a ball involved..
+        /// </summary>
+        public static string ChargeNoBallExplanation {
+            get {
+                return ResourceManager.GetString("ChargeNoBallExplanation", resourceCulture);
             }
         }
         
@@ -232,6 +349,123 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clip 1.
+        /// </summary>
+        public static string Clip1 {
+            get {
+                return ResourceManager.GetString("Clip1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clip 2.
+        /// </summary>
+        public static string Clip2 {
+            get {
+                return ResourceManager.GetString("Clip2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset and redo the boom&apos;s up.
+        /// </summary>
+        public static string ContactBeforeBallAnswer1 {
+            get {
+                return ResourceManager.GetString("ContactBeforeBallAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue player should be penalized.
+        /// </summary>
+        public static string ContactBeforeBallAnswer2 {
+            get {
+                return ResourceManager.GetString("ContactBeforeBallAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White player should be penalized.
+        /// </summary>
+        public static string ContactBeforeBallAnswer3 {
+            get {
+                return ResourceManager.GetString("ContactBeforeBallAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Here you can see white player going for the quaffle, while blue player instead go first for the player, then for the quffle after the contact. An incidental charge as both players went for the quaffle would have been ok, but that is not the case here..
+        /// </summary>
+        public static string ContactBeforeBallExplanation {
+            get {
+                return ResourceManager.GetString("ContactBeforeBallExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What of the followings are true (If unspecified, for the quaffle carrier).
+        /// </summary>
+        public static string ContactBothJump {
+            get {
+                return ResourceManager.GetString("ContactBothJump", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Defending player should receive the same penalty.
+        /// </summary>
+        public static string ContactBothJumpAnswer1 {
+            get {
+                return ResourceManager.GetString("ContactBothJumpAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While this could be considered a charge (illegal in the air), the intent of the player is also important. here players don&apos;t play the opponent&apos;s body, as a charge would, but instead jump for the goal..
+        /// </summary>
+        public static string ContactBothJumpExplanation {
+            get {
+                return ResourceManager.GetString("ContactBothJumpExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Even when the player lowers its fist, they stay immune until they retrieve the bludger..
+        /// </summary>
+        public static string FistDownStillImuneExplanation {
+            get {
+                return ResourceManager.GetString("FistDownStillImuneExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Green player is beat..
+        /// </summary>
+        public static string GreenIsBeat {
+            get {
+                return ResourceManager.GetString("GreenIsBeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Green player should retrieve the bludger.
+        /// </summary>
+        public static string GreenPlayerRetrieveBludger {
+            get {
+                return ResourceManager.GetString("GreenPlayerRetrieveBludger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The green player should retrieve the quaffle.
+        /// </summary>
+        public static string GreenPlayerRetrieveQuaffle {
+            get {
+                return ResourceManager.GetString("GreenPlayerRetrieveQuaffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The kick is valid, no penalty.
         /// </summary>
         public static string ImmunityShootHoopsAnswer1 {
@@ -255,6 +489,186 @@ namespace QRefResources {
         public static string ImmunityShootHoopsExplanation {
             get {
                 return ResourceManager.GetString("ImmunityShootHoopsExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Which way is correct to inbound a bludger?.
+        /// </summary>
+        public static string InboundingBludger {
+            get {
+                return ResourceManager.GetString("InboundingBludger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A bludger has to be inbounded to the closest point from where you retrieve it..
+        /// </summary>
+        public static string InboundingBludgerExplanation {
+            get {
+                return ResourceManager.GetString("InboundingBludgerExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caution: if the opposing team controls two bludgers, this bludger cannot be turned over. Only apply the back to hoops penalty in this case..
+        /// </summary>
+        public static string InboundingBludgerThrowExplanation {
+            get {
+                return ResourceManager.GetString("InboundingBludgerThrowExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Which way is correct to inbound a quaffle?.
+        /// </summary>
+        public static string InboundingQuaffle {
+            get {
+                return ResourceManager.GetString("InboundingQuaffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A quaffle has to be inbounded to the point where it left the field..
+        /// </summary>
+        public static string InboundingQuaffleExplanation {
+            get {
+                return ResourceManager.GetString("InboundingQuaffleExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The quaffle cannot be thrown in. Also, the player has 5 seconds to inbound any ball..
+        /// </summary>
+        public static string InboundingQuaffleThrowExplanation {
+            get {
+                return ResourceManager.GetString("InboundingQuaffleThrowExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While the player did not went in exactly where the official requested him to, the difference is not significant enough to warrant a penalty..
+        /// </summary>
+        public static string InboundingSteppedOutExplanation {
+            get {
+                return ResourceManager.GetString("InboundingSteppedOutExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keeper is beat.
+        /// </summary>
+        public static string KeeperBeatFeetInAnswer1 {
+            get {
+                return ResourceManager.GetString("KeeperBeatFeetInAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beater who threw the bluger should be penalized.
+        /// </summary>
+        public static string KeeperBeatFeetInAnswer2 {
+            get {
+                return ResourceManager.GetString("KeeperBeatFeetInAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keeper is not beat.
+        /// </summary>
+        public static string KeeperBeatFeetInAnswer3 {
+            get {
+                return ResourceManager.GetString("KeeperBeatFeetInAnswer3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keeper should be penalized.
+        /// </summary>
+        public static string KeeperBeatFeetInAnswer4 {
+            get {
+                return ResourceManager.GetString("KeeperBeatFeetInAnswer4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While the keeper is mostly out of his zone when hit, his feet is still in, so she is still protected..
+        /// </summary>
+        public static string KeeperBeatFeetInExplanation {
+            get {
+                return ResourceManager.GetString("KeeperBeatFeetInExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The keeper stopped being protected once out of the zone, and cannot become protected again until the opposing team controls the quaffle..
+        /// </summary>
+        public static string KeeperOutStoledExplanation {
+            get {
+                return ResourceManager.GetString("KeeperOutStoledExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While green player&apos;s hand was close, yellow player hit the ball before it was touching the ball..
+        /// </summary>
+        public static string KickHandCloseExplanation {
+            get {
+                return ResourceManager.GetString("KickHandCloseExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Green player had her hand on the ball, thus making the kick illegal..
+        /// </summary>
+        public static string KickHandOnBallExplanation {
+            get {
+                return ResourceManager.GetString("KickHandOnBallExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Green player had to remove her hand to not get kicked, making it an illegal kick..
+        /// </summary>
+        public static string KickHandRemovedExplanation {
+            get {
+                return ResourceManager.GetString("KickHandRemovedExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While yellow player kicks the ball as green player touched it, the kick was severely restrained when yellow player realized it would be an illegal kick. In this case, use no harm no foul..
+        /// </summary>
+        public static string KickRestrainedExplanation {
+            get {
+                return ResourceManager.GetString("KickRestrainedExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The KO procedure requires the player to remove their broom, touch the hoop then remount their broom. Note that affecting play after a wrong procedure would have been a yellow card..
+        /// </summary>
+        public static string KOProcessNotFollowed1 {
+            get {
+                return ResourceManager.GetString("KOProcessNotFollowed1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While the player start to remove its broom, the brooms does not leave their legs completely. The procedure is not correct. This is important during games where beater will want to gain time after being beat near a hoop..
+        /// </summary>
+        public static string KOProcessNotFollowed2 {
+            get {
+                return ResourceManager.GetString("KOProcessNotFollowed2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -340,6 +754,24 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to What penalty should green player receive?.
+        /// </summary>
+        public static string PenaltyGreenPlayer {
+            get {
+                return ResourceManager.GetString("PenaltyGreenPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What penalty should yellow player receive?.
+        /// </summary>
+        public static string PenaltyYellowPlayer {
+            get {
+                return ResourceManager.GetString("PenaltyYellowPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A player physically forced behind the midfield line does not use its team&apos;s reset, under the condition that he or she makes the Quaffle cross the line back as soon as reasonnably possible..
         /// </summary>
         public static string PhysicalResetReturnsFastExplanation {
@@ -363,6 +795,24 @@ namespace QRefResources {
         public static string PhysicalResetReturnsSlowExplanation {
             get {
                 return ResourceManager.GetString("PhysicalResetReturnsSlowExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Push a player that way is legal even without a ball involed. Carefull, a push should not involve excessive force or force before the contact..
+        /// </summary>
+        public static string PushNoBallExplanation {
+            get {
+                return ResourceManager.GetString("PushNoBallExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For the quaffle, except some specific cases, the team that can retrieve the quaffle is always the team that did not threw it outside..
+        /// </summary>
+        public static string QuafflePriority1Explanation {
+            get {
+                return ResourceManager.GetString("QuafflePriority1Explanation", resourceCulture);
             }
         }
         
@@ -2113,6 +2563,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assuming the player went in a bit farther than the official indicated, which of the following is true?.
+        /// </summary>
+        public static string QuestionWhatIsTrueSteppedout {
+            get {
+                return ResourceManager.GetString("QuestionWhatIsTrueSteppedout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The player goes to the penalty box.
         /// </summary>
         public static string QuestionYellowDuringAdvantageAnswer1 {
@@ -2163,6 +2622,33 @@ namespace QRefResources {
         public static string RedCard {
             get {
                 return ResourceManager.GetString("RedCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat the procedure.
+        /// </summary>
+        public static string RepeatProcedure {
+            get {
+                return ResourceManager.GetString("RepeatProcedure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After the ball was passed as the keeper requested, the keeper controls the quaffle inside his keeper zone, game can proceed..
+        /// </summary>
+        public static string RequestInZoneExplanation {
+            get {
+                return ResourceManager.GetString("RequestInZoneExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Since the ball was touched by another player or official after the goal, the keeper needs to get back into his keeper zone before proceeding with the game..
+        /// </summary>
+        public static string RequestOutZoneExplanation {
+            get {
+                return ResourceManager.GetString("RequestOutZoneExplanation", resourceCulture);
             }
         }
         
@@ -2268,6 +2754,33 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The keeper correctly goes back into her own half of the field. At this point, she&apos;s the first one that touched the ball after the goal and is in her own half, so she can start the attack..
+        /// </summary>
+        public static string RestartBackToMidfieldExplanation {
+            get {
+                return ResourceManager.GetString("RestartBackToMidfieldExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The keeper cannot restart from the opposing half of the field..
+        /// </summary>
+        public static string RestartOpposingMidfieldExplanation {
+            get {
+                return ResourceManager.GetString("RestartOpposingMidfieldExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Since no one touched the quaffle after the goal, the keeper can start the attack from her own half of the field..
+        /// </summary>
+        public static string RestartOutOfZoneExplanation {
+            get {
+                return ResourceManager.GetString("RestartOutOfZoneExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The kick was valid, no penalty..
         /// </summary>
         public static string ShootAfterBeatAnswer1 {
@@ -2327,6 +2840,42 @@ namespace QRefResources {
         public static string ShootImmuneBeaterExplanation {
             get {
                 return ResourceManager.GetString("ShootImmuneBeaterExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The keeper should get the quaffle, ending yellow&apos;s attack.
+        /// </summary>
+        public static string SoleControlAnswer1 {
+            get {
+                return ResourceManager.GetString("SoleControlAnswer1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play should keep going.
+        /// </summary>
+        public static string SoleControlAnswer2 {
+            get {
+                return ResourceManager.GetString("SoleControlAnswer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The keeper must be the sole owner of the quaffle to be protected. Since yellow player is contesting it, play keeps going..
+        /// </summary>
+        public static string SoleControlExplanation {
+            get {
+                return ResourceManager.GetString("SoleControlExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is illegal to steal a ball from a protected keeper..
+        /// </summary>
+        public static string StealProtectedKeeperExplanation {
+            get {
+                return ResourceManager.GetString("StealProtectedKeeperExplanation", resourceCulture);
             }
         }
         
@@ -2453,6 +3002,42 @@ namespace QRefResources {
         public static string YellowCard {
             get {
                 return ResourceManager.GetString("YellowCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow player should be penalized.
+        /// </summary>
+        public static string YellowPenalized {
+            get {
+                return ResourceManager.GetString("YellowPenalized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow player should retrieve the bludger.
+        /// </summary>
+        public static string YellowPlayerRetrieveBludger {
+            get {
+                return ResourceManager.GetString("YellowPlayerRetrieveBludger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The yellow player should retrieve the quaffle.
+        /// </summary>
+        public static string YellowPlayerRetrieveQuaffle {
+            get {
+                return ResourceManager.GetString("YellowPlayerRetrieveQuaffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

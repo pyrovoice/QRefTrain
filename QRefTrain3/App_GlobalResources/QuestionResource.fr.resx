@@ -939,4 +939,109 @@
   <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer3" xml:space="preserve">
     <value>L'équipe choisit qui est libéré en premier</value>
   </data>
+  <data name="BBNoBallExplanation" xml:space="preserve">
+    <value>Un bloque est legal meme sans qu'un joueur ne possède de balle. Attention, un bloque n'as de force appliqué qu'après le début du contact.</value>
+  </data>
+  <data name="ChargeNoBallExplanation" xml:space="preserve">
+    <value>Le joueur jaune engage le contact avec de la force, ce qui crée une charge. Les charges sont illégales sans qu'un joueur possède la balle.</value>
+  </data>
+  <data name="InboundingBludgerExplanation" xml:space="preserve">
+    <value>Un cognard doit etre ramener sur le terrain au point le plus proche par rapport a la position ou le joueur le récupère.</value>
+  </data>
+  <data name="InboundingBludgerThrowExplanation" xml:space="preserve">
+    <value>Attention: Si l'équipe adverse controle déjà deux cognards, ce cognard ne peut pas etre rendu a l'equipe adverse. Par conséquent, seul le retour au anneaux doit etre appliqué.</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer1" xml:space="preserve">
+    <value>Le gardien est KO</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer2" xml:space="preserve">
+    <value>Le batteur ayant lancé la balle devrait etre pénalisé</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer3" xml:space="preserve">
+    <value>Le gardien n'est pas KO</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer4" xml:space="preserve">
+    <value>Le gardien devrait etre pénalisé</value>
+  </data>
+  <data name="KeeperBeatFeetInExplanation" xml:space="preserve">
+    <value>Bien que presaue entierement en dehors de sa zone, le gardien a toujours un pied dedans. Il est donc encore protégé.</value>
+  </data>
+  <data name="KeeperOutStoledExplanation" xml:space="preserve">
+    <value>Le gardien cesse d'etre protégé une fois hors de sa zone, et ne peut plus devenir protégé jusqu'a ce que l'equipe adverse ne récupère le souaffle.</value>
+  </data>
+  <data name="KickHandCloseExplanation" xml:space="preserve">
+    <value>Bien que la main du joueur vert ait été proche, le joueur jaune a pu donner un coup de pied a la balle avant le contact.</value>
+  </data>
+  <data name="KickHandOnBallExplanation" xml:space="preserve">
+    <value>Le joueur vert avait sa main sur la balle, le kick est donc illegal.</value>
+  </data>
+  <data name="KickHandRemovedExplanation" xml:space="preserve">
+    <value>Le joueur vert a du retirer sa main pour éviter le coup de pied, rendant celui-ci illégal.</value>
+  </data>
+  <data name="KickRestrainedExplanation" xml:space="preserve">
+    <value>Bien que le joueur jaune ait mis un coup de pied a la balle alors que le joueur vert la touchait, elle a retenue son coup lorsqu'elle s'est rendu compte que le kick aurait été illégal. Dans cette situation, utilisez le no harm no foul.</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="PenaltyGreenPlayer" xml:space="preserve">
+    <value>Quel pénalité devrait recevoir le joueur vert?</value>
+  </data>
+  <data name="RequestInZoneExplanation" xml:space="preserve">
+    <value>Après que la gardienne ait demandé la balle, celle-ci controle le quaffle dans sa propre zone. La partie peut continuer.</value>
+  </data>
+  <data name="RequestOutZoneExplanation" xml:space="preserve">
+    <value>Etant donné qu'un autre joueur ou arbitre a touché la balle depuis le but, la gardienne doit revenir dans sa zone avant de pouvoir commencer l'attaque.</value>
+  </data>
+  <data name="RestartBackToMidfieldExplanation" xml:space="preserve">
+    <value>La gardienne revient correctement dans sa moitié de terrain. A cette instant, elle est la première a avoir touché la balle après le but et se trouve dans sa moitié du terrain. Elle peut donc commencer l'attaque.</value>
+  </data>
+  <data name="RestartOpposingMidfieldExplanation" xml:space="preserve">
+    <value>Le gardien ne peut pas recommencer depuis la moitié opposée du trrain.</value>
+  </data>
+  <data name="RestartOutOfZoneExplanation" xml:space="preserve">
+    <value>Etant donné que personne n'as touché le souaffle après le but, la gardienne peut commencer l'attaque depuis sa moitié de terrain.</value>
+  </data>
+  <data name="StealProtectedKeeperExplanation" xml:space="preserve">
+    <value>Il est illégal de voler la balle du gardien protégé.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="BeatOutsideField1Explanation" xml:space="preserve">
+    <value>Une fois hors du terrain, le joueur vert devient immunisé. Le joueur jaune envoie donc son cognard avec l'intention d'envoyer une balle hors du terrain, ce qui est illegal. (Carton bleu)</value>
+  </data>
+  <data name="BeatOutsideField2Explanation" xml:space="preserve">
+    <value>Un pied hors du terrain suffit a rendre le joueur vert immunisé. Par conséquent, Le joueur jaune envoie donc son cognard avec l'intention d'envoyer une balle hors du terrain, ce qui est illegal. (Carton bleu)</value>
+  </data>
+  <data name="BludgerPriority1Explanation" xml:space="preserve">
+    <value>Le joueur jaune est la plus proche quand le cognard sort du terrain, elle a donc la priorité.</value>
+  </data>
+  <data name="BludgerPriority2Explanation" xml:space="preserve">
+    <value>Bien que la joueuse jaune ait été la plus proche quand le cognard est sorti du terrain, elle n'est pas éligible car elle possesse déjà un cognard. C'ets donc le joueur elligible suivant, ici le joueur vert, qui pourras récupérer le cognard.</value>
+  </data>
+  <data name="BludgerPriority3Explanation" xml:space="preserve">
+    <value>Le joueur vert commence par etre le joueur elligible le plus proche au moment ou le cognard sort du terrain. Cependant, après avoir été mise KO, le nouveau joueur elligible le plus proche devient le joueur jaune.</value>
+  </data>
+  <data name="GreenIsBeat" xml:space="preserve">
+    <value>Le joueur vert est KO</value>
+  </data>
+  <data name="GreenPlayerRetrieveBludger" xml:space="preserve">
+    <value>Le joueur vert devrait récupérer le cognard</value>
+  </data>
+  <data name="InboundingBludger" xml:space="preserve">
+    <value>Quel est la manière correct de ramener un cognard dans le terrain?</value>
+  </data>
+  <data name="InboundingQuaffle" xml:space="preserve">
+    <value>Quel est la manière correct de ramener un souaffle sur le terrain?</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Le souaffle doit etre ramené sur le terrain au point ou il l'as quitté.</value>
+  </data>
+  <data name="YellowPenalized" xml:space="preserve">
+    <value>Le joueur jaune devrait etre pénalisé</value>
+  </data>
+  <data name="YellowPlayerRetrieveBludger" xml:space="preserve">
+    <value>Le joueur jaune devrait récupérer le cognard</value>
+  </data>
 </root>

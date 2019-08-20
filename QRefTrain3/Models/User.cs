@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QRefTrain3.Models
 {
-    public enum UserRole { Default, Admin, Moderator}
+    public enum UserRole { Default, Moderator, Admin }
 
     public class User
     {

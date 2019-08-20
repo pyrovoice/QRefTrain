@@ -260,6 +260,10 @@
     <Compile Include="Migrations\201908150942042_LogicExamToQuestionSuite.Designer.cs">
       <DependentUpon>201908150942042_LogicExamToQuestionSuite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908191227393_ExplanationQuestionNotRequired.cs" />
+    <Compile Include="Migrations\201908191227393_ExplanationQuestionNotRequired.Designer.cs">
+      <DependentUpon>201908191227393_ExplanationQuestionNotRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -503,6 +507,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908150942042_LogicExamToQuestionSuite.resx">
       <DependentUpon>201908150942042_LogicExamToQuestionSuite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908191227393_ExplanationQuestionNotRequired.resx">
+      <DependentUpon>201908191227393_ExplanationQuestionNotRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

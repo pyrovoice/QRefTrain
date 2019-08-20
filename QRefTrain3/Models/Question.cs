@@ -28,7 +28,6 @@ namespace QRefTrain3.Models
         public string QuestionText { get; set; }
         [Required]
         public virtual List<Answer> Answers { get; set; }
-        [Required]
         public string AnswerExplanation { get; set; }
         [Required]
         public string NationalGoverningBodies { get; set; }

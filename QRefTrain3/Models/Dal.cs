@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.SqlServer;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -267,7 +268,24 @@ namespace QRefTrain3.Models
         public Question CreateQuestion(Question question)
         {
             Context.Questions.Add(question);
-            Context.SaveChanges();
+            try
+            {
+                Context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
             return question;
         }
 
