@@ -1112,4 +1112,10 @@ drive without it counting as a reset.</value>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="CanKeeperRestart" xml:space="preserve">
+    <value>Can the keeper start the attack?</value>
+  </data>
+  <data name="ContactBeforeBall" xml:space="preserve">
+    <value>What is the penalty for the blue player?</value>
+  </data>
 </root>

@@ -214,6 +214,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can the keeper start the attack?.
+        /// </summary>
+        public static string CanKeeperRestart {
+            get {
+                return ResourceManager.GetString("CanKeeperRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The beater that claimed immunity should be penalized.
         /// </summary>
         public static string ChargeAfterClaimAnswer1 {
@@ -363,6 +372,15 @@ namespace QRefResources {
         public static string Clip2 {
             get {
                 return ResourceManager.GetString("Clip2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is the penalty for the blue player?.
+        /// </summary>
+        public static string ContactBeforeBall {
+            get {
+                return ResourceManager.GetString("ContactBeforeBall", resourceCulture);
             }
         }
         

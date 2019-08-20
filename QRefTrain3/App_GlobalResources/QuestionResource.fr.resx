@@ -523,22 +523,22 @@
     <value>Quel sont les tailles des lignes externes du terrain ?</value>
   </data>
   <data name="QuestionLinesExternYardsAnswer1" xml:space="preserve">
-    <value>La ligne de largeur fait 30 yards</value>
+    <value>La ligne de fin fait 30 yards</value>
   </data>
   <data name="QuestionLinesExternYardsAnswer2" xml:space="preserve">
-    <value>La ligne de largeur fait 33 yards</value>
+    <value>La ligne de fin fait 33 yards</value>
   </data>
   <data name="QuestionLinesExternYardsAnswer3" xml:space="preserve">
-    <value>La ligne de largeur fait 36 yards</value>
+    <value>La ligne de fin fait 36 yards</value>
   </data>
   <data name="QuestionLinesExternYardsAnswer4" xml:space="preserve">
-    <value>La ligne de largeur fait 60 yards</value>
+    <value>La ligne de coté fait 60 yards</value>
   </data>
   <data name="QuestionLinesExternYardsAnswer5" xml:space="preserve">
-    <value>La ligne de largeur fait 63 yards</value>
+    <value>La ligne de coté fait 63 yards</value>
   </data>
   <data name="QuestionLinesExternYardsAnswer6" xml:space="preserve">
-    <value>La ligne de largeur fait 66 yards</value>
+    <value>La ligne de coté fait 66 yards</value>
   </data>
   <data name="QuestionLinesExternYardsText" xml:space="preserve">
     <value>Quel sont les tailles des lignes externes du terrain ?</value>
@@ -1043,5 +1043,11 @@
   </data>
   <data name="YellowPlayerRetrieveBludger" xml:space="preserve">
     <value>Le joueur jaune devrait récupérer le cognard</value>
+  </data>
+  <data name="CanKeeperRestart" xml:space="preserve">
+    <value>Le gardien peut-il commencer l'attaque?</value>
+  </data>
+  <data name="ContactBeforeBall" xml:space="preserve">
+    <value>Quel est la pénalité pour le joueur bleu?</value>
   </data>
 </root>
