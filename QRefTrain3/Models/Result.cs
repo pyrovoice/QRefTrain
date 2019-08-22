@@ -9,13 +9,13 @@ namespace QRefTrain3.Models
     public class Result
     {
         public int Id { get; set; }
-        public User User { get; set; }
-        public List<Question> QuestionsAsked { get; set; } = new List<Question>();
-        public List<Answer> SelectedAnswers { get; set; } = new List<Answer>();
+        public virtual User User { get; set; }
+        public virtual List<Question> QuestionsAsked { get; set; } = new List<Question>();
+        public virtual List<Answer> SelectedAnswers { get; set; } = new List<Answer>();
         public ResultType ResultType { get; set; }
         [Column(TypeName = "DateTime2")]
         public DateTime DateTime { get; set; }
-        public User Reporter { get; set; }
+        public virtual User Reporter { get; set; }
 
         public int GetNumberGoodAnswers()
         {

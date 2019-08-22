@@ -264,6 +264,14 @@
     <Compile Include="Migrations\201908191227393_ExplanationQuestionNotRequired.Designer.cs">
       <DependentUpon>201908191227393_ExplanationQuestionNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908201902154_AddVirtual.cs" />
+    <Compile Include="Migrations\201908201902154_AddVirtual.Designer.cs">
+      <DependentUpon>201908201902154_AddVirtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210925433_VirtualEverywhere.cs" />
+    <Compile Include="Migrations\201908210925433_VirtualEverywhere.Designer.cs">
+      <DependentUpon>201908210925433_VirtualEverywhere.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -512,6 +520,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908191227393_ExplanationQuestionNotRequired.resx">
       <DependentUpon>201908191227393_ExplanationQuestionNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201902154_AddVirtual.resx">
+      <DependentUpon>201908201902154_AddVirtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210925433_VirtualEverywhere.resx">
+      <DependentUpon>201908210925433_VirtualEverywhere.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

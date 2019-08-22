@@ -30,7 +30,7 @@ namespace QRefTrain3.Helper
                     {
                         LogText = "Registeration mail sent with body " + body + "using adress " + mail.From,
                         LogTime = DateTime.Now,
-                        UserId = user.Id
+                        User = user
                     });
                 }
                 catch (Exception e)
@@ -39,7 +39,7 @@ namespace QRefTrain3.Helper
                     {
                         LogText = "Error when sending mail to : " + user.Email + ", with body : " + body + "\nException : " + e.Message,
                         LogTime = new DateTime(),
-                        UserId = user.Id
+                        User = user
                     });
                     return false;
                 }

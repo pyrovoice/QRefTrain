@@ -52,12 +52,19 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult MoveToQuiz(string NGB, List<string> Subjects, bool? isExam, string QuestionSuiteText)
         {
+            
             // Get connected user
             User connectedUser = null;
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 connectedUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
             }
+            Dal.Instance.CreateLog(new Log()
+            {
+                LogText = "User " + connectedUser != null ? connectedUser.Name : "Unknown" + "Tried to start a quiz",
+                LogTime = DateTime.Now,
+                User = connectedUser
+            });
 
             // Check the user does not have an incoming exam (if connected)
             if (connectedUser != null && Dal.Instance.GetOngoingExamByUsername(connectedUser.Name) != null)
@@ -118,7 +125,7 @@ namespace QRefTrain3.Controllers
             {
                 examType = ResultType.Training;
                 questions = GetQuestions(NGB, Subjects);
-                quizzModel = new QuizzViewModel(examType, dt, EXAM_TIME_LIMIT, null);
+                quizzModel = new QuizzViewModel(examType, dt, EXAM_TIME_LIMIT, questions);
             }
 
             return View("Quizz", quizzModel);
@@ -203,7 +210,7 @@ namespace QRefTrain3.Controllers
                     {
                         Dal.Instance.CreateLog(new Log()
                         {
-                            UserId = currentUser.Id,
+                            User = currentUser,
                             LogText = LogText,
                             LogTime = Dal.Instance.GetDBTime()
                         });

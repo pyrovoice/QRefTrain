@@ -15,7 +15,7 @@ namespace QRefTrain3.Models
         [Required]
         public RequestType RequestType { get; set; }
         [Required]
-        public User User { get; set; }
+        public virtual User User { get; set; }
         [Required]
         [StringLength(32)]
         public string SecretCode { get; set; }

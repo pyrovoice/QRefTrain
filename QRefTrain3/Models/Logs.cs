@@ -11,7 +11,7 @@ namespace QRefTrain3.Models
         public int Id { get; set; }
         [Column(TypeName = "DateTime2")]
         public DateTime LogTime { get; set; }
-        public int? UserId { get; set; }
+        public virtual User User { get; set; }
         public String LogText { get; set; }
     }
 }

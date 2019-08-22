@@ -91,7 +91,8 @@ namespace QRefTrain3.Models
 
         public QuestionSuite GetQuestionSuiteByString(string questionSuiteText)
         {
-            return Context.QuestionSuites.FirstOrDefault(s => s.Code.Equals(questionSuiteText));
+            var qs = Context.QuestionSuites.FirstOrDefault(s => s.Code.Equals(questionSuiteText));
+            return qs;
         }
 
         internal void DeleteQuestionSuiteById(int suiteId)
