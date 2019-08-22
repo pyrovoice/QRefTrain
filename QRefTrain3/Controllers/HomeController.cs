@@ -52,19 +52,14 @@ namespace QRefTrain3.Controllers
         [HttpPost]
         public ActionResult MoveToQuiz(string NGB, List<string> Subjects, bool? isExam, string QuestionSuiteText)
         {
-            
+
             // Get connected user
             User connectedUser = null;
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 connectedUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
             }
-            Dal.Instance.CreateLog(new Log()
-            {
-                LogText = "User " + connectedUser != null ? connectedUser.Name : "Unknown" + "Tried to start a quiz",
-                LogTime = DateTime.Now,
-                User = connectedUser
-            });
+
 
             // Check the user does not have an incoming exam (if connected)
             if (connectedUser != null && Dal.Instance.GetOngoingExamByUsername(connectedUser.Name) != null)
@@ -74,7 +69,7 @@ namespace QRefTrain3.Controllers
             }
             QuizzViewModel quizzModel;
 
-            //========================== Start of QuestionSuite ===============================
+            //========================== Start of Custom exam ===============================
             //If the question suite was selected, start it in exam mode
             if (!String.IsNullOrEmpty(QuestionSuiteText))
             {
@@ -94,9 +89,12 @@ namespace QRefTrain3.Controllers
                 DateTime d = Dal.Instance.GetDBTime();
                 Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, d, suite);
                 quizzModel = new QuizzViewModel(newExam);
+                //Log the test taken
+                Dal.Instance.CreateLog(new Log(DateTime.Now, connectedUser, "User started a custom exam"));
+                //start the test
                 return View("Quizz", quizzModel);
             }
-            //========================== End of QuestionSuite ===============================
+            //========================== End of Custom exam ===============================
 
             // Update the user's choice so he does not have to chose again next time
             Helper.CookieHelper.UpdateCookie(Request, Response, CookieNames.RequestedNGB, NGB, DateTime.Now.AddMonths(1));
@@ -119,6 +117,7 @@ namespace QRefTrain3.Controllers
                 questions = GetQuestions(NGB, null);
                 dt = Dal.Instance.GetDBTime();
                 Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, dt.Value, EXAM_TIME_LIMIT, questions);
+                Dal.Instance.CreateLog(new Log(DateTime.Now, connectedUser, "User started an exam"));
                 quizzModel = new QuizzViewModel(newExam);
             }
             else
@@ -126,6 +125,16 @@ namespace QRefTrain3.Controllers
                 examType = ResultType.Training;
                 questions = GetQuestions(NGB, Subjects);
                 quizzModel = new QuizzViewModel(examType, dt, EXAM_TIME_LIMIT, questions);
+
+                //create a log
+                if (connectedUser != null)
+                {
+                    Dal.Instance.CreateLog(new Log(DateTime.Now, connectedUser, "User started a test"));
+                }
+                else
+                {
+                    Dal.Instance.CreateLog(new Log(DateTime.Now, null, "Unknown User started a test"));
+                }
             }
 
             return View("Quizz", quizzModel);

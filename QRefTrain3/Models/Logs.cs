@@ -13,5 +13,16 @@ namespace QRefTrain3.Models
         public DateTime LogTime { get; set; }
         public virtual User User { get; set; }
         public String LogText { get; set; }
+
+        public Log()
+        {
+        }
+
+        public Log(DateTime logTime, User user, string logText)
+        {
+            LogTime = logTime;
+            User = user;
+            LogText = logText;
+        }
     }
 }
