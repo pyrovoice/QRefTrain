@@ -20,14 +20,6 @@ namespace QRefTrain3.Models
         public String LogText { get; set; }
         public DateTime LogTime { get; set; }
         public int? UserId { get; set; }
-
-
-        public Log(LogLevel level, string message, DateTime dateTime, int id)
-        {
-            this.Level = level;
-            this.LogText = message;
-            this.LogTime = dateTime;
-            this.UserId = id;
-        }
+        public String LogText { get; set; }
     }
 }

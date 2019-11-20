@@ -27,13 +27,12 @@ namespace QRefTrain3.Models
         [Required]
         public string QuestionText { get; set; }
         [Required]
-        public virtual List<Answer> Answers { get; set; }
-        [Required]
         public string AnswerExplanation { get; set; }
         [Required]
         public string NationalGoverningBodies { get; set; }
         //Indicate whether a question has been replaced or removed, and thus should not be used anymore.
         public bool IsRetired { get; set; } = false;
+        public virtual List<Answer> Answers { get; set; }
         public virtual List<Result> Results { get; set; }
         public virtual List<QuestionSuite> QuestionSuites { get; set; }
 

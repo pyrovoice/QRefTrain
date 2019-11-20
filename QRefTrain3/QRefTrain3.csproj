@@ -262,6 +262,18 @@
     <Compile Include="Migrations\201908150942042_LogicExamToQuestionSuite.Designer.cs">
       <DependentUpon>201908150942042_LogicExamToQuestionSuite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908191227393_ExplanationQuestionNotRequired.cs" />
+    <Compile Include="Migrations\201908191227393_ExplanationQuestionNotRequired.Designer.cs">
+      <DependentUpon>201908191227393_ExplanationQuestionNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908201902154_AddVirtual.cs" />
+    <Compile Include="Migrations\201908201902154_AddVirtual.Designer.cs">
+      <DependentUpon>201908201902154_AddVirtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210925433_VirtualEverywhere.cs" />
+    <Compile Include="Migrations\201908210925433_VirtualEverywhere.Designer.cs">
+      <DependentUpon>201908210925433_VirtualEverywhere.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -354,6 +366,8 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Elements\credentials.json" />
+    <None Include="Properties\PublishProfiles\QuidditchRefTraining - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\QuidditchRefTraining - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\QuidditchRefTraining - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -505,6 +519,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908150942042_LogicExamToQuestionSuite.resx">
       <DependentUpon>201908150942042_LogicExamToQuestionSuite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908191227393_ExplanationQuestionNotRequired.resx">
+      <DependentUpon>201908191227393_ExplanationQuestionNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201902154_AddVirtual.resx">
+      <DependentUpon>201908201902154_AddVirtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210925433_VirtualEverywhere.resx">
+      <DependentUpon>201908210925433_VirtualEverywhere.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

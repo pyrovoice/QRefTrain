@@ -953,4 +953,169 @@ drive without it counting as a reset.</value>
   <data name="QuestionMultiplePlayersInBoxWhenScoreAnswer3" xml:space="preserve">
     <value>The team chooses who gets released first</value>
   </data>
+  <data name="BBNoBallExplanation" xml:space="preserve">
+    <value>Body blocking that way is legal even without a ball involved. Carefull, a body block has force applied AFTER contact is initiated, not before.</value>
+  </data>
+  <data name="BeatOutsideField1Explanation" xml:space="preserve">
+    <value>Once outside the pitch, green player becomes immune. Yellow player is willingly throwing a ball with the intention of sending it out of pitch, which is illegal. (Blue card)</value>
+  </data>
+  <data name="BeatOutsideField2Explanation" xml:space="preserve">
+    <value>A feet outside is enough for green player to become immune. Consequently, Yellow player is willingly throwing a ball with the intention of sending it out of pitch, which is illegal. (Blue card)</value>
+  </data>
+  <data name="BeatOutsideField3Explanation" xml:space="preserve">
+    <value>The green player does not become immune until she reaches outside the field.</value>
+  </data>
+  <data name="BludgerPriority1Explanation" xml:space="preserve">
+    <value>Yellow player is closest when the bludger goes out, so she gets priority.</value>
+  </data>
+  <data name="BludgerPriority2Explanation" xml:space="preserve">
+    <value>While yellow player is closest when the bludger goes out, she is not elligible because she already own a bludger. The next closest player is green, so she can retrieve the bludger thrown.</value>
+  </data>
+  <data name="BludgerPriority3Explanation" xml:space="preserve">
+    <value>As green is the closest elligible player when the bludger goes out, she is the one who can retrieve the bludger at the start. However, after the beat, the next closest elligible player become the yellow player.</value>
+  </data>
+  <data name="ChargeNoBallExplanation" xml:space="preserve">
+    <value>Yellow player already has force as the contact begin, qualifying this contact for a charge. Charges are illegal without a ball involved.</value>
+  </data>
+  <data name="Clip1" xml:space="preserve">
+    <value>Clip 1</value>
+  </data>
+  <data name="Clip2" xml:space="preserve">
+    <value>Clip 2</value>
+  </data>
+  <data name="FistDownStillImuneExplanation" xml:space="preserve">
+    <value>Even when the player lowers its fist, they stay immune until they retrieve the bludger.</value>
+  </data>
+  <data name="GreenIsBeat" xml:space="preserve">
+    <value>Green player is beat.</value>
+  </data>
+  <data name="GreenPlayerRetrieveBludger" xml:space="preserve">
+    <value>Green player should retrieve the bludger</value>
+  </data>
+  <data name="GreenPlayerRetrieveQuaffle" xml:space="preserve">
+    <value>The green player should retrieve the quaffle</value>
+  </data>
+  <data name="InboundingBludger" xml:space="preserve">
+    <value>Which way is correct to inbound a bludger?</value>
+  </data>
+  <data name="InboundingBludgerExplanation" xml:space="preserve">
+    <value>A bludger has to be inbounded to the closest point from where you retrieve it.</value>
+  </data>
+  <data name="InboundingBludgerThrowExplanation" xml:space="preserve">
+    <value>Caution: if the opposing team controls two bludgers, this bludger cannot be turned over. Only apply the back to hoops penalty in this case.</value>
+  </data>
+  <data name="InboundingQuaffle" xml:space="preserve">
+    <value>Which way is correct to inbound a quaffle?</value>
+  </data>
+  <data name="InboundingQuaffleExplanation" xml:space="preserve">
+    <value>A quaffle has to be inbounded to the point where it left the field.</value>
+  </data>
+  <data name="InboundingQuaffleThrowExplanation" xml:space="preserve">
+    <value>The quaffle cannot be thrown in. Also, the player has 5 seconds to inbound any ball.</value>
+  </data>
+  <data name="InboundingSteppedOutExplanation" xml:space="preserve">
+    <value>While the player did not went in exactly where the official requested him to, the difference is not significant enough to warrant a penalty.</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer1" xml:space="preserve">
+    <value>Keeper is beat</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer2" xml:space="preserve">
+    <value>Beater who threw the bluger should be penalized</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer3" xml:space="preserve">
+    <value>Keeper is not beat</value>
+  </data>
+  <data name="KeeperBeatFeetInAnswer4" xml:space="preserve">
+    <value>Keeper should be penalized</value>
+  </data>
+  <data name="KeeperBeatFeetInExplanation" xml:space="preserve">
+    <value>While the keeper is mostly out of his zone when hit, his feet is still in, so she is still protected.</value>
+  </data>
+  <data name="KeeperOutStoledExplanation" xml:space="preserve">
+    <value>The keeper stopped being protected once out of the zone, and cannot become protected again until the opposing team controls the quaffle.</value>
+  </data>
+  <data name="KickHandCloseExplanation" xml:space="preserve">
+    <value>While green player's hand was close, yellow player hit the ball before it was touching the ball.</value>
+  </data>
+  <data name="KickHandOnBallExplanation" xml:space="preserve">
+    <value>Green player had her hand on the ball, thus making the kick illegal.</value>
+  </data>
+  <data name="KickHandRemovedExplanation" xml:space="preserve">
+    <value>Green player had to remove her hand to not get kicked, making it an illegal kick.</value>
+  </data>
+  <data name="KickRestrainedExplanation" xml:space="preserve">
+    <value>While yellow player kicks the ball as green player touched it, the kick was severely restrained when yellow player realized it would be an illegal kick. In this case, use no harm no foul.</value>
+  </data>
+  <data name="KOProcessNotFollowed1" xml:space="preserve">
+    <value>The KO procedure requires the player to remove their broom, touch the hoop then remount their broom. Note that affecting play after a wrong procedure would have been a yellow card.</value>
+  </data>
+  <data name="KOProcessNotFollowed2" xml:space="preserve">
+    <value>While the player start to remove its broom, the brooms does not leave their legs completely. The procedure is not correct. This is important during games where beater will want to gain time after being beat near a hoop.</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PenaltyGreenPlayer" xml:space="preserve">
+    <value>What penalty should green player receive?</value>
+  </data>
+  <data name="PenaltyYellowPlayer" xml:space="preserve">
+    <value>What penalty should yellow player receive?</value>
+  </data>
+  <data name="PushNoBallExplanation" xml:space="preserve">
+    <value>Push a player that way is legal even without a ball involed. Carefull, a push should not involve excessive force or force before the contact.</value>
+  </data>
+  <data name="QuafflePriority1Explanation" xml:space="preserve">
+    <value>For the quaffle, except some specific cases, the team that can retrieve the quaffle is always the team that did not threw it outside.</value>
+  </data>
+  <data name="QuestionWhatIsTrueSteppedout" xml:space="preserve">
+    <value>Assuming the player went in a bit farther than the official indicated, which of the following is true?</value>
+  </data>
+  <data name="RepeatProcedure" xml:space="preserve">
+    <value>Repeat the procedure</value>
+  </data>
+  <data name="RequestInZoneExplanation" xml:space="preserve">
+    <value>After the ball was passed as the keeper requested, the keeper controls the quaffle inside his keeper zone, game can proceed.</value>
+  </data>
+  <data name="RequestOutZoneExplanation" xml:space="preserve">
+    <value>Since the ball was touched by another player or official after the goal, the keeper needs to get back into his keeper zone before proceeding with the game.</value>
+  </data>
+  <data name="RestartBackToMidfieldExplanation" xml:space="preserve">
+    <value>The keeper correctly goes back into her own half of the field. At this point, she's the first one that touched the ball after the goal and is in her own half, so she can start the attack.</value>
+  </data>
+  <data name="RestartOpposingMidfieldExplanation" xml:space="preserve">
+    <value>The keeper cannot restart from the opposing half of the field.</value>
+  </data>
+  <data name="RestartOutOfZoneExplanation" xml:space="preserve">
+    <value>Since no one touched the quaffle after the goal, the keeper can start the attack from her own half of the field.</value>
+  </data>
+  <data name="SoleControlAnswer1" xml:space="preserve">
+    <value>The keeper should get the quaffle, ending yellow's attack</value>
+  </data>
+  <data name="SoleControlAnswer2" xml:space="preserve">
+    <value>Play should keep going</value>
+  </data>
+  <data name="SoleControlExplanation" xml:space="preserve">
+    <value>The keeper must be the sole owner of the quaffle to be protected. Since yellow player is contesting it, play keeps going.</value>
+  </data>
+  <data name="StealProtectedKeeperExplanation" xml:space="preserve">
+    <value>It is illegal to steal a ball from a protected keeper.</value>
+  </data>
+  <data name="YellowPenalized" xml:space="preserve">
+    <value>Yellow player should be penalized</value>
+  </data>
+  <data name="YellowPlayerRetrieveBludger" xml:space="preserve">
+    <value>Yellow player should retrieve the bludger</value>
+  </data>
+  <data name="YellowPlayerRetrieveQuaffle" xml:space="preserve">
+    <value>The yellow player should retrieve the quaffle</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="CanKeeperRestart" xml:space="preserve">
+    <value>Can the keeper start the attack?</value>
+  </data>
+  <data name="ContactBeforeBall" xml:space="preserve">
+    <value>What is the penalty for the blue player?</value>
+  </data>
 </root>
