@@ -151,13 +151,10 @@
     <value>Start a test</value>
   </data>
   <data name="Homepage_ReminderBeta01" xml:space="preserve">
-    <value>This website is in beta.</value>
+    <value>As this website is evolving, your help is very important! Please contact us at </value>
   </data>
-  <data name="Homepage_ReminderBeta02" xml:space="preserve">
-    <value>For any question or remark, please contact qreftrain@gmail.com or visit </value>
-  </data>
-  <data name="Homepage_ReminderBeta03" xml:space="preserve">
-    <value>our subreddit</value>
+  <data name="Homepage_MailAdress" xml:space="preserve">
+    <value>qreftrain@gmail.com</value>
   </data>
   <data name="Homepage_ResumeQuiz" xml:space="preserve">
     <value>Resume test</value>
@@ -422,5 +419,14 @@
   </data>
   <data name="QuestionSuite_ErrorTime" xml:space="preserve">
     <value>The time input is incorrect</value>
+  </data>
+  <data name="Homepage_GoogleForm" xml:space="preserve">
+    <value>google form</value>
+  </data>
+  <data name="Homepage_ReminderBeta02" xml:space="preserve">
+    <value> or fill the following </value>
+  </data>
+  <data name="Homepage_ReminderBeta03" xml:space="preserve">
+    <value> .Thank you a lot !</value>
   </data>
 </root>

@@ -26,25 +26,21 @@ namespace QRefTrain3.Helper
                 try
                 {
                     SmtpServer.Send(mail);
-                    Dal.Instance.CreateLog(new Log()
-                    {
-                        LogText = "Registeration mail sent with body " + body + "using adress " + mail.From,
-                        LogTime = DateTime.Now,
-                        UserId = user.Id
-                    });
+                    Dal.Instance.CreateLog(new Log(LogLevel.INFO, "Registeration mail sent with body " + body + "using adress " + mail.From, DateTime.Now, user.Id));
                 }
                 catch (Exception e)
                 {
-                    Dal.Instance.CreateLog(new Log()
-                    {
-                        LogText = "Error when sending mail to : " + user.Email + ", with body : " + body + "\nException : " + e.Message,
-                        LogTime = new DateTime(),
-                        UserId = user.Id
-                    });
+                    Dal.Instance.CreateLog(new Log(LogLevel.ERROR, "Error when sending mail to : " + user.Email + ", with body : " + body + "\nException : " + e.Message, DateTime.Now, user.Id));
                     return false;
                 }
                 return true;
             }
+        }
+
+        public static void SendMailToQuestionSuiteOwner(Result resultToValidate)
+        {
+            String body = "User " + resultToValidate.User.Name + " completed your exam " + resultToValidate.QuestionSuite.Name + "\nResult: " + resultToValidate.GetNumberGoodAnswers() + "/" + resultToValidate.QuestionsAsked.Count + "\nTime: " + Dal.Instance.GetDBTime();
+            Helper.MailingHelper.SendMail(resultToValidate.QuestionSuite.Owner, "User " + resultToValidate.User.Name + " completed your exam " + resultToValidate.QuestionSuite.Name, body);
         }
     }
 }

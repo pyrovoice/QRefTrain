@@ -65,7 +65,7 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_OngoingTest;
                 return RedirectToAction("Homepage");
             }
-            QuizzViewModel quizzModel;
+            QuizViewModel quizzModel;
 
             //========================== Start of QuestionSuite ===============================
             //If the question suite was selected, start it in exam mode
@@ -80,13 +80,13 @@ namespace QRefTrain3.Controllers
                 //If user is not connected, we cannot register that the exam started froma  suite. Then, we consider it a training quiz, allowing a user to still take the suite while not being registered
                 if (connectedUser == null)
                 {
-                    quizzModel = new QuizzViewModel(ResultType.Training, Dal.Instance.GetDBTime(), suite.TimeLimit, suite.Questions);
+                    quizzModel = new QuizViewModel(ResultType.Training, Dal.Instance.GetDBTime(), suite);
                     return View("Quizz", quizzModel);
                 }
                 // Else we create an exam as usual based on the suite
                 DateTime d = Dal.Instance.GetDBTime();
                 Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, d, suite);
-                quizzModel = new QuizzViewModel(newExam);
+                quizzModel = new QuizViewModel(newExam);
                 return View("Quizz", quizzModel);
             }
             //========================== End of QuestionSuite ===============================
@@ -112,13 +112,13 @@ namespace QRefTrain3.Controllers
                 questions = GetQuestions(NGB, null);
                 dt = Dal.Instance.GetDBTime();
                 Exam newExam = Dal.Instance.CreateExam(HttpContext.User.Identity.Name, dt.Value, EXAM_TIME_LIMIT, questions);
-                quizzModel = new QuizzViewModel(newExam);
+                quizzModel = new QuizViewModel(newExam);
             }
             else
             {
                 examType = ResultType.Training;
                 questions = GetQuestions(NGB, Subjects);
-                quizzModel = new QuizzViewModel(examType, dt, EXAM_TIME_LIMIT, null);
+                quizzModel = new QuizViewModel(examType, dt, EXAM_TIME_LIMIT, null);
             }
 
             return View("Quizz", quizzModel);
@@ -157,7 +157,7 @@ namespace QRefTrain3.Controllers
                 TempData["ErrorQuiz"] = QRefResources.Resource.Error_TestTimeout;
                 return RedirectToAction("Homepage");
             }
-            return View("Quizz", new QuizzViewModel(ResultType.Exam, exam.StartDate, exam.Suite));
+            return View("Quizz", new QuizViewModel(ResultType.Exam, exam.StartDate, exam.Suite));
         }
 
         [HttpPost]
@@ -168,73 +168,41 @@ namespace QRefTrain3.Controllers
         }
 
         [HttpPost]
-        public ActionResult QuizzResult(QuizzViewModel quizzModel)
+        public ActionResult QuizzResult(QuizViewModel quizzModel)
         {
-            Result result;
-            result = new Result() { ResultType = quizzModel.ResultType, DateTime = Dal.Instance.GetDBTime() };
-            foreach (QuestionQuizzViewModel q in quizzModel.DisplayedQuestions)
-            {
-                result.QuestionsAsked.Add(Dal.Instance.GetQuestionById(q.Id));
-                foreach (AnswerQuizzViewModel a in q.Answers)
-                {
-                    if (a.IsSelected) { result.SelectedAnswers.Add(Dal.Instance.GetAnswerById(a.Id)); }
-                }
-            }
-
-            // If the user is connected, save the result to his profile
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
-                // If the user took an exam, check nothing wrong happened and close the exam
-                if (quizzModel.ResultType == ResultType.Exam)
-                {
-                    Exam exam = Dal.Instance.GetOngoingExamByUsername(currentUser.Name);
-                    // Verification : Time security
-                    string LogText = null;
-                    if (exam.StartDate == null)
-                    {
-                        LogText = "Quizz result error : No start time for quizzModel.";
-                    }
-                    else if ((Dal.Instance.GetDBTime() - exam.StartDate).Milliseconds > exam.Suite.TimeLimit + 10000)
-                    {
-                        LogText = "Quizz result error : Time between start and end of test is too high.";
-                    }
-                    if (LogText != null)
-                    {
-                        Dal.Instance.CreateLog(new Log()
-                        {
-                            UserId = currentUser.Id,
-                            LogText = LogText,
-                            LogTime = Dal.Instance.GetDBTime()
-                        });
-                        Dal.Instance.CloseExamByUsername(currentUser.Name);
-                        return View("ErrorPage", QRefResources.Resource.Error_QuizError);
-                    }
-                    Dal.Instance.DeleteExamByUserId(currentUser.Id);
-                }
-                result.User = currentUser;
-                if (quizzModel.Suite != null)
-                {
-                    QuestionSuite qs = quizzModel.Suite;
-                    if (qs != null)
-                    {
-                        String body = "User " + currentUser.Name + " completed your exam " + qs.Name + "\nResult: " + result.GetNumberGoodAnswers() + "/" + result.QuestionsAsked.Count + "\nTime: " + Dal.Instance.GetDBTime();
-                        Helper.MailingHelper.SendMail(qs.Owner, "User " + currentUser.Name + " completed your exam " + qs.Name, body);
-                        result.Reporter = qs.Owner;
-                    }
-                }
-                Dal.Instance.CreateResult(result);
-            }
-
+            Result result = ResultFromQuizModel(quizzModel);
+            new QuizResolver(result).ValidateAndResolveQuizResult();
             return View("QuizResult", new ResultViewModel(result));
         }
 
-        [HttpPost]
-        public ActionResult UpdateLanguage(String languages)
+        private Result ResultFromQuizModel(QuizViewModel quizModel)
         {
-            // Validate input
-            languages = CultureHelper.GetImplementedCulture(languages);
-            // Save culture in a cookie
+            List<Question> questionsAsked = new List<Question>();
+            List<Answer> answers = new List<Answer>();
+            // As questions and answers are managed differently in the quiz, we need to retrieve questions and all checked answers.
+            foreach (QuestionQuizzViewModel q in quizModel.DisplayedQuestions)
+            {
+                questionsAsked.Add(Dal.Instance.GetQuestionById(q.Id));
+                foreach (AnswerQuizzViewModel a in q.Answers)
+                {
+                    if (a.IsSelected) { answers.Add(Dal.Instance.GetAnswerById(a.Id)); }
+                }
+            }
+            Result result = new Result(Dal.Instance.GetUserByName(HttpContext.User.Identity.Name), 
+                questionsAsked, answers,
+                quizModel.ResultType, 
+                Dal.Instance.GetDBTime(), 
+                quizModel.Suite);
+
+            return result;
+        }
+
+        [HttpPost]
+        public ActionResult UpdateLanguage(String userSelectedLanguage)
+        {
+            userSelectedLanguage = CultureHelper.GetImplementedOrDefaultCulture(userSelectedLanguage);
+            CookieHelper.UpdateCookie(Request, Response, CookieNames.languageCookie, userSelectedLanguage, DateTime.Now.AddYears(1));
+            /*
             HttpCookie cookie = Request.Cookies["_culture"];
             if (cookie != null)
                 cookie.Value = languages;   // update cookie value
@@ -247,6 +215,7 @@ namespace QRefTrain3.Controllers
                 };
             }
             Response.Cookies.Add(cookie);
+            */
             return RedirectToAction("Homepage");
         }
     }

@@ -6,7 +6,7 @@ namespace QRefTrain3.Helper
 
     public enum CookieNames
     {
-        RequestedNGB
+        RequestedNGB, languageCookie
     }
 
     public class CookieHelper

@@ -208,9 +208,11 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\QuestionSuiteController.cs" />
+    <Compile Include="CustomException\ValidationExamException.cs" />
     <Compile Include="Helper\CookieHelper.cs" />
     <Compile Include="Helper\CultureHelper.cs" />
     <Compile Include="Helper\MailingHelper.cs" />
+    <Compile Include="Helper\QuizResolver.cs" />
     <Compile Include="Helper\UserInfoHelper.cs" />
     <Compile Include="Migrations\201809131336227_Initial.cs" />
     <Compile Include="Migrations\201809131336227_Initial.Designer.cs">

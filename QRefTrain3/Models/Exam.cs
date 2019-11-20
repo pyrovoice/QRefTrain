@@ -15,5 +15,6 @@ namespace QRefTrain3.Models
         public User User { get; set; }
         //What QuestionSuite should this exam be based on
         public QuestionSuite Suite { get; set; }
+        public Boolean IsClosed { get; set; } = false;
     }
 }

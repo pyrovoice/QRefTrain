@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<QRefTrain3.Models.Log>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,5 +21,25 @@
     {
         <input type="submit" value="ImportFromGoogleDrive" class="btn btn-primary" />
     }
+    </hr>
+    <table id="trainingResultTable" class="table-striped">
+        <thead>
+            <tr>
+                <th class="col-md-1">LogTime</th>
+                <th class="col-md-1">UserId</th>
+                <th class="col-md-1">LogText</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (QRefTrain3.Models.Log log in Model)
+            {
+            <tr>
+                <td>@log.LogTime</td>
+                <td>@log.UserId</td>
+                <td>@log.LogText</td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </body>
 </html>

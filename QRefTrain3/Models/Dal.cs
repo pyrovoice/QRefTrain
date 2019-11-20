@@ -51,6 +51,11 @@ namespace QRefTrain3.Models
             return Context.Questions.Where<Question>(q => questionIds.Contains(q.Id.ToString())).ToList<Question>();
         }
 
+        internal List<Log> getAllLogs()
+        {
+            return Context.Logs.ToList();
+        }
+
         public QuestionSuite CreateQuestionSuite(QuestionSuite newQuestionSuite)
         {
             Context.QuestionSuites.Add(newQuestionSuite);
@@ -120,7 +125,7 @@ namespace QRefTrain3.Models
             {
                 return null;
             }
-            Exam exam = Context.Exams.FirstOrDefault(e => e.User.Id == user.Id);
+            Exam exam = Context.Exams.FirstOrDefault(e => e.User.Id == user.Id && e.IsClosed == false);
             return exam;
         }
 
@@ -147,17 +152,11 @@ namespace QRefTrain3.Models
             {
                 if (ongoingExam.Suite != null)
                 {
-                    Result result = new Result()
-                    {
-                        DateTime = GetDBTime(),
-                        QuestionsAsked = ongoingExam.Suite.Questions,
-                        ResultType = ResultType.Exam,
-                        SelectedAnswers = new List<Answer>(),
-                        User = user
-                    };
+                    Result result = new Result(user, ongoingExam.Suite.Questions, new List<Answer>(), ResultType.Exam, GetDBTime(), ongoingExam.Suite);
                 }
+                ongoingExam.IsClosed = true;
             }
-            DeleteExamByUserId(user.Id);
+            Context.SaveChanges();
         }
 
         public List<Question> GetQuestionsByParameter(string ngb)

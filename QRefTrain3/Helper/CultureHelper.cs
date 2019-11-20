@@ -27,7 +27,7 @@ namespace QRefTrain3.Helper
         /// Returns a valid culture name based on "name" parameter. If "name" is not valid, it returns the default culture "en-US"
         /// </summary>
         /// <param name="name" />Culture's name (e.g. en-US)</param>
-        public static string GetImplementedCulture(string name)
+        public static string GetImplementedOrDefaultCulture(string name)
         {
             // make sure it's not null
             if (string.IsNullOrEmpty(name))

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace QRefTrain3.ViewModel
 {
-    public class QuizzViewModel
+    public class QuizViewModel
     {
         public List<QuestionQuizzViewModel> DisplayedQuestions { get; set; } = new List<QuestionQuizzViewModel>();
         public ResultType ResultType { get; set; }
@@ -14,12 +14,12 @@ namespace QRefTrain3.ViewModel
         public int? TimeLimit { get; set; }
         public QuestionSuite Suite { get; set; }
 
-        public QuizzViewModel()
+        public QuizViewModel()
         {
 
         }
 
-        public QuizzViewModel(ResultType type, DateTime? startTime, QuestionSuite suite)
+        public QuizViewModel(ResultType type, DateTime? startTime, QuestionSuite suite)
         {
             foreach (Question question in suite.Questions)
             {
@@ -30,7 +30,7 @@ namespace QRefTrain3.ViewModel
             this.Suite = suite;
         }
 
-        public QuizzViewModel(ResultType type, DateTime? startTime, int? timeLimit, List<Question> questions)
+        public QuizViewModel(ResultType type, DateTime? startTime, int? timeLimit, List<Question> questions)
         {
             foreach (Question question in questions)
             {
@@ -42,7 +42,7 @@ namespace QRefTrain3.ViewModel
             this.TimeLimit = timeLimit;
         }
 
-        public QuizzViewModel(Exam exam)
+        public QuizViewModel(Exam exam)
         {
             foreach (Question question in exam.Suite.Questions)
             {

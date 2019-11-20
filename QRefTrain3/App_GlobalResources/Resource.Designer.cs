@@ -232,11 +232,29 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to google form.
+        /// </summary>
+        public static string Homepage_GoogleForm {
+            get {
+                return ResourceManager.GetString("Homepage_GoogleForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the NGB, then choose one or more fields if you want to do a specific training. Do not select anything if you&apos;re taking an exam or if you want all fields. Finally, choose whether you want questions specific to this NGB, then select whether you want to take a training or an exam, and validate..
         /// </summary>
         public static string Homepage_Helper {
             get {
                 return ResourceManager.GetString("Homepage_Helper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to qreftrain@gmail.com.
+        /// </summary>
+        public static string Homepage_MailAdress {
+            get {
+                return ResourceManager.GetString("Homepage_MailAdress", resourceCulture);
             }
         }
         
@@ -286,7 +304,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This website is in beta..
+        ///   Looks up a localized string similar to As this website is evolving, your help is very important! Please contact us at .
         /// </summary>
         public static string Homepage_ReminderBeta01 {
             get {
@@ -295,7 +313,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For any question or remark, please contact qreftrain@gmail.com or visit .
+        ///   Looks up a localized string similar to  or fill the following .
         /// </summary>
         public static string Homepage_ReminderBeta02 {
             get {
@@ -304,7 +322,7 @@ namespace QRefResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to our subreddit.
+        ///   Looks up a localized string similar to  .Thank you a lot !.
         /// </summary>
         public static string Homepage_ReminderBeta03 {
             get {

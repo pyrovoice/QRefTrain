@@ -24,7 +24,7 @@ namespace QRefTrain3.Controllers
                         null;
 
             // Validate culture name
-            cultureName = CultureHelper.GetImplementedCulture(cultureName); 
+            cultureName = CultureHelper.GetImplementedOrDefaultCulture(cultureName); 
 
             // Modify current thread's cultures            
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);

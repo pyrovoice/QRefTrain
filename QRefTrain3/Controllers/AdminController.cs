@@ -49,7 +49,7 @@ namespace QRefTrain3.Controllers
                 });
                 return RedirectToAction("Homepage", "Home");
             }*/
-            return View();
+            return View("Index", Dal.Instance.getAllLogs());
         }
 
         [HttpPost]
