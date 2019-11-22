@@ -26,7 +26,7 @@ namespace QRefTrain3.Models
             Context.Database.ExecuteSqlCommand("CreateUser @name, @password, @email", new SqlParameter("@name", user.Name), new SqlParameter("@password", user.Password), new SqlParameter("@email", user.Email));
         }
 
-        public List<QuestionSuite> GetQuestionSuiteByUser(User currentUser)
+        public List<QuizTemplate> GetQuestionSuiteByUser(User currentUser)
         {
             return Context.QuestionSuites.Where(q => q.Owner.Id == currentUser.Id).ToList();
         }
@@ -57,44 +57,21 @@ namespace QRefTrain3.Models
             return Context.Logs.ToList();
         }
 
-        public QuestionSuite CreateQuestionSuite(QuestionSuite newQuestionSuite)
+        public QuizTemplate CreateTemporaryQuizTemplate(QuizTemplate newQuestionSuite)
         {
             Context.QuestionSuites.Add(newQuestionSuite);
             Context.SaveChanges();
             return newQuestionSuite;
         }
 
-        /// <summary>
-        /// Returns a list of all questions responding to the given parameters (AND tests)
-        /// </summary>
-        /// <param name="fields">Fields of the selected questions. Any number.</param>
-        /// <param name="difficulties">Difficulties of the selected questions. Any number.</param>
-        /// <param name="NGB">Chosen NGB. Alway one.</param>
-        /// <param name="NGB_Only">Whether we retrieve questions that apply to all NGB or to this particular NGB (some questions might be specific to multiple NGBs, and will be returned)</param>
-        /// <returns></returns>
-        public List<Question> GetQuestionsByParameter(List<string> subjects, string NGB)
-        {
-            if (subjects == null)
-            {
-                return Context.Questions.Where<Question>(q =>
-                (q.NationalGoverningBodies.Contains(NGB) || q.NationalGoverningBodies == NationalGoverningBody.All.ToString()) && q.IsRetired == false)
-                .ToList<Question>();
-            }
-            else
-            {
-                return Context.Questions.Where<Question>(q =>
-                (subjects.Contains(q.Subject.ToString()))
-                && (q.NationalGoverningBodies.Contains(NGB) || q.NationalGoverningBodies == NationalGoverningBody.All.ToString()) && q.IsRetired == false)
-                .ToList<Question>();
-            }
-        }
+
 
         public List<Answer> getAllAnswers()
         {
             return Context.Answers.ToList();
         }
 
-        public QuestionSuite GetQuestionSuiteByString(string questionSuiteText)
+        public QuizTemplate GetQuestionSuiteByString(string questionSuiteText)
         {
             var qs = Context.QuestionSuites.FirstOrDefault(s => s.Code.Equals(questionSuiteText));
             return qs;
@@ -102,13 +79,15 @@ namespace QRefTrain3.Models
 
         internal void DeleteQuestionSuiteById(int suiteId)
         {
-            QuestionSuite qs = Context.QuestionSuites.FirstOrDefault(q => q.Id == suiteId);
+            QuizTemplate qs = Context.QuestionSuites.FirstOrDefault(q => q.Id == suiteId);
             if (qs != null)
             {
                 Context.QuestionSuites.Remove(qs);
                 Context.SaveChanges();
             }
         }
+
+
 
         public Answer GetAnswer(string answerTitle, bool isAnswerTrue)
         {
@@ -120,14 +99,14 @@ namespace QRefTrain3.Models
             return Context.Requests.FirstOrDefault(q => q.SecretCode.Equals(code));
         }
 
-        public Exam GetOngoingExamByUsername(string userName)
+        public Quiz GetOngoingExamByUsername(string userName)
         {
             User user = GetUserByName(userName);
             if (user == null)
             {
                 return null;
             }
-            Exam exam = Context.Exams.FirstOrDefault(e => e.User.Id == user.Id && e.IsClosed == false);
+            Quiz exam = Context.Exams.FirstOrDefault(e => e.User.Id == user.Id && e.IsClosed == false);
             return exam;
         }
 
@@ -150,11 +129,11 @@ namespace QRefTrain3.Models
         public void CloseExamByUsername(string userName)
         {
             User user = GetUserByName(userName);
-            foreach (Exam ongoingExam in Context.Exams.Where(q => q.User.Name.Equals(userName)).ToList())
+            foreach (Quiz ongoingExam in Context.Exams.Where(q => q.User.Name.Equals(userName)).ToList())
             {
                 if (ongoingExam.Suite != null)
                 {
-                    Result result = new Result(user, ongoingExam.Suite.Questions, new List<Answer>(), ResultType.Exam, GetDBTime(), ongoingExam.Suite);
+                    Result result = new Result(user, ongoingExam.Suite.Questions, new List<Answer>(), QuizType.Exam, GetDBTime(), ongoingExam.Suite);
                 }
                 ongoingExam.IsClosed = true;
             }
@@ -163,7 +142,21 @@ namespace QRefTrain3.Models
 
         public List<Question> GetQuestionsByParameter(string ngb)
         {
-            return GetQuestionsByParameter(null, ngb);
+            return Context.Questions.Where<Question>(q =>
+                (q.NationalGoverningBodies.Contains(ngb) || q.NationalGoverningBodies == NationalGoverningBody.All.ToString()) && q.IsRetired == false)
+                .ToList<Question>();
+        }
+
+        public List<Question> GetQuestionsByParameter(string NGB, List<string> subjects)
+        {
+            if (subjects == null)
+            {
+                return GetQuestionsByParameter(NGB);
+            }
+            return Context.Questions.Where<Question>(q =>
+            (subjects.Contains(q.Subject.ToString()))
+            && (q.NationalGoverningBodies.Contains(NGB) || q.NationalGoverningBodies == NationalGoverningBody.All.ToString()) && q.IsRetired == false)
+            .ToList<Question>();
         }
 
         public List<Question> GetQuestionsByNGB(string NGB)
@@ -207,21 +200,6 @@ namespace QRefTrain3.Models
             return Context.Answers.FirstOrDefault(q => q.Id == id);
         }
 
-        public Exam CreateExam(string name, DateTime timeNow, QuestionSuite suite)
-        {
-            User user = GetUserByName(name);
-
-            Exam exam = new Exam()
-            {
-                StartDate = timeNow,
-                User = user,
-                Suite = suite
-            };
-            Context.Exams.Add(exam);
-            Context.SaveChanges();
-            return exam;
-        }
-
         /// <summary>
         /// Creates a temporary question suite then create an exam using this suite.
         /// </summary>
@@ -230,10 +208,19 @@ namespace QRefTrain3.Models
         /// <param name="timeLimit">How long after the start does the exam closes</param>
         /// <param name="questions">A list of question used to created and link to a suite</param>
         /// <returns>The newly created exam</returns>
-        public Exam CreateExam(string name, DateTime timeNow, int timeLimit, List<Question> questions)
+        public Quiz CreateQuiz(string name, int timeLimit, List<Question> questions)
         {
-            var qs = CreateQuestionSuite(new QuestionSuite(questions, null, "Temporary", timeLimit));
-            return CreateExam(name, timeNow, qs);
+            var qs = CreateTemporaryQuizTemplate(new QuizTemplate(questions, null, "Temporary", timeLimit));
+            return CreateQuiz(name, qs);
+        }
+
+        public Quiz CreateQuiz(string name, QuizTemplate quizTemplate)
+        {
+            User user = GetUserByName(name);
+            Quiz exam = new Quiz(GetDBTime(), user, quizTemplate);
+            Context.Exams.Add(exam);
+            Context.SaveChanges();
+            return exam;
         }
 
         public Result GetResultById(int resultId)
@@ -246,7 +233,7 @@ namespace QRefTrain3.Models
             List<Result> results = new List<Result>();
             foreach (Result result in Context.Results)
             {
-                if (result.User.Id == user.Id)
+                if (result.User != null && result.User.Id == user.Id)
                 {
                     results.Add(result);
                 }
@@ -254,7 +241,7 @@ namespace QRefTrain3.Models
             return results;
         }
 
-        public Exam GetExamById(int examId)
+        public Quiz GetExamById(int examId)
         {
             return Context.Exams.FirstOrDefault(exam => exam.Id == examId);
         }
@@ -326,7 +313,7 @@ namespace QRefTrain3.Models
 
         }
 
-        public QuestionSuite GetQuestionSuiteById(int value)
+        public QuizTemplate GetQuestionSuiteById(int value)
         {
             return Context.QuestionSuites.FirstOrDefault(s => s.Id == value);
         }
@@ -372,12 +359,12 @@ namespace QRefTrain3.Models
 
         public void DeleteExamByUserId(int userId)
         {
-            foreach (Exam e in Context.Exams)
+            foreach (Quiz e in Context.Exams)
             {
                 if (e.User == null || e.User.Id == userId)
                 {
                     Context.Exams.Remove(e);
-                    if(e.Suite != null && e.Suite.Owner == null)
+                    if (e.Suite != null && e.Suite.Owner == null)
                     {
                         DeleteQuestionSuiteById(e.Suite.Id);
                     }

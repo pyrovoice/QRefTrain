@@ -5,23 +5,19 @@ using System.Web;
 
 namespace QRefTrain3.Models
 {
-    /// <summary>
-    /// A question suite is used to represent a template for a quiz, and contains the question list and time limit. 
-    /// It can also contain a user if it is user created, 
-    /// otherwise it will be a temporary suite created specifically for the exam.
-    /// </summary>
-    public class QuestionSuite
+    public class QuizTemplate
     {
         public int Id { get; set; }
         public virtual List<Question> Questions { get; set; }
+        // If null, the template is temporary
         public virtual User Owner { get; set; }
         public string Code { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } 
         public int TimeLimit { get; set; }
 
-        public QuestionSuite() { }
+        public QuizTemplate() { }
 
-        public QuestionSuite(List<Question> questions, User owner, string name, int timeLimit)
+        public QuizTemplate(List<Question> questions, User owner, string name, int timeLimit)
         {
             Questions = questions;
             Owner = owner;

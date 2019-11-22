@@ -151,6 +151,15 @@ namespace QRefResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No question exists for the selected subject(s). This is due to the Beta statut of the website. We apologise for the inconvenience..
+        /// </summary>
+        public static string Error_NoQuestionsForTest {
+            get {
+                return ResourceManager.GetString("Error_NoQuestionsForTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No exam found for this code. Please verify the exam code..
         /// </summary>
         public static string Error_NoSuiteString {
@@ -174,6 +183,24 @@ namespace QRefResources {
         public static string Error_QuizError {
             get {
                 return ResourceManager.GetString("Error_QuizError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This template contains no question..
+        /// </summary>
+        public static string Error_QuizTemplateContainsNoQuestion {
+            get {
+                return ResourceManager.GetString("Error_QuizTemplateContainsNoQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The owner of this quiz template deleted his or her account..
+        /// </summary>
+        public static string Error_QuizTemplateOwnerDoesNotExist {
+            get {
+                return ResourceManager.GetString("Error_QuizTemplateOwnerDoesNotExist", resourceCulture);
             }
         }
         

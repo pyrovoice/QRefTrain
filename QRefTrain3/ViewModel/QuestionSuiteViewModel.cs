@@ -9,6 +9,6 @@ namespace QRefTrain3.ViewModel
     public class QuestionSuiteViewModel
     {
         public string PreviouslyCreatedQuestionSuiteCode;
-        public List<QuestionSuite> UserQuestionSuites;
+        public List<QuizTemplate> UserQuestionSuites;
     }
 }

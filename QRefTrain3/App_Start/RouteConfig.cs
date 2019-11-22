@@ -50,9 +50,22 @@ namespace QRefTrain3
             );
 
             routes.MapRoute(
-                name: "QuestionSuite",
-                url: "QuestionSuite",
-                defaults: new { controller = "QuestionSuite", action = "Index" }
+                name: "QuizTemplate",
+                url: "QuizTemplate",
+                defaults: new { controller = "QuizTemplate", action = "Index" }
+            );
+
+
+            routes.MapRoute(
+                name: "Quiz",
+                url: "Quiz/{action}",
+                defaults: new { controller = "Quiz", action = "Index", }
+            );
+
+            routes.MapRoute(
+                name: "StartQuizTemplate",
+                url: "Quiz/{id}",
+                defaults: new { controller = "Quiz", action = "Quiz", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

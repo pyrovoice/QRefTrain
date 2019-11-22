@@ -414,4 +414,13 @@
   <data name="Homepage_ReminderBeta03" xml:space="preserve">
     <value> suivant. Merci énormément !</value>
   </data>
+  <data name="Error_NoQuestionsForTest" xml:space="preserve">
+    <value>Aucune question n'existe pour le ou les sujets choisis. Ceci est dû au statut de beta du site. Nous nous excusons de la gène occasionnée.</value>
+  </data>
+  <data name="Error_QuizTemplateOwnerDoesNotExist" xml:space="preserve">
+    <value>Le createur de ce modèle de quiz a supprimé son compte.</value>
+  </data>
+  <data name="Error_QuizTemplateContainsNoQuestion" xml:space="preserve">
+    <value>Ce modèle de quiz ne contient aucune question.</value>
+  </data>
 </root>

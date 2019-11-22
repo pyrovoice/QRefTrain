@@ -26,10 +26,9 @@ namespace QRefTrain3.Models
         }
 
         /// <summary>
-        /// Sort answer by text, using the folliwing rule :
-        /// <para />An answer having a text that's a common text answer takes priority over a text that's not in the common answers.
-        /// <para />If two answers have a common text, the order in the array is used (from "NoPenalty" to "RedCard")
-        /// <para />If no answer has a common text, use the classic string comparison
+        /// Sort answer by its text, using the following rule :
+        /// <para />Some texts are used very often (Red card, no penalty...). Those are shown first, always in the same order (check the array in this class for the order)
+        /// <para />The rest of the answers are compared using the usual string comparison.
         /// </summary>
         /// <param name="obj">The other Answer. No two answers should have the same text.</param>
         /// <returns></returns>

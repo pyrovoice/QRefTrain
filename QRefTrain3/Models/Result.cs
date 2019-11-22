@@ -7,7 +7,7 @@ using System.Web;
 namespace QRefTrain3.Models
 {
 
-    public enum ResultType
+    public enum QuizType
     {
         Training, Exam
     }
@@ -17,19 +17,23 @@ namespace QRefTrain3.Models
 
         public int Id { get; set; }
         public User User { get; set; }
-        public List<Question> QuestionsAsked { get; set; } = new List<Question>();
-        public List<Answer> SelectedAnswers { get; set; } = new List<Answer>();
-        public ResultType ResultType { get; set; }
+        public virtual List<Question> QuestionsAsked { get; set; }
+        public virtual List<Answer> SelectedAnswers { get; set; } 
+        public QuizType QuizType { get; set; }
         [Column(TypeName = "DateTime2")]
         public DateTime DateTime { get; set; }
-        public QuestionSuite QuestionSuite { get; set; }
+        public QuizTemplate QuestionSuite { get; set; }
 
-        public Result(User userTakingTheTest, List<Question> questionsAsked, List<Answer> selectedAnswers, ResultType resultType, DateTime dateTime, QuestionSuite questionSuite)
+        public Result()
+        {
+        }
+
+        public Result(User userTakingTheTest, List<Question> questionsAsked, List<Answer> selectedAnswers, QuizType quizType, DateTime dateTime, QuizTemplate questionSuite)
         {
             User = userTakingTheTest;
             QuestionsAsked = questionsAsked;
             SelectedAnswers = selectedAnswers;
-            ResultType = resultType;
+            QuizType = quizType;
             DateTime = dateTime;
             QuestionSuite = questionSuite;
         }

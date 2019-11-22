@@ -14,19 +14,19 @@
     <!-- If the user already has an exam test, offer a resume test button-->
     @if (Model.Value)
     {
-        using (Html.BeginForm("ResumeTestQuiz", "Home"))
+        using (Html.BeginForm("ResumeTestQuiz", "Quiz"))
         {
             <input type="submit" value="@QRefResources.Resource.Homepage_ResumeQuiz" class="btn btn-primary" />
             <span class="field-validation-error">@ViewBag.ErrorQuiz</span>
         }
-        using (Html.BeginForm("CancelTest", "Home"))
+        using (Html.BeginForm("CancelTest", "Quiz"))
         {
             <div><input type="submit" value="@QRefResources.Resource.Cancel" class="btn btn-primary" /></div>
         }
     }
     else
     {
-        using (Html.BeginForm("MovetoQuiz", "Home"))
+        using (Html.BeginForm("StartTrainingQuiz", "Quiz", FormMethod.Post))
         {
 
             <!-- NGB selection -->
@@ -63,7 +63,7 @@
         <hr />
         if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
-            using (Html.BeginForm("MovetoExam", "Home"))
+            using (Html.BeginForm("StartTestQuiz", "Quiz"))
             {
                 List<SelectListItem> selectList2 = new List<SelectListItem>();
                 foreach (QRefTrain3.Models.NationalGoverningBody item in Enum.GetValues(typeof(QRefTrain3.Models.NationalGoverningBody)))
@@ -75,7 +75,7 @@
                     selectList2.Add(new SelectListItem() { Text = QRefResources.Resource.ResourceManager.GetString("NGBs_" + item.ToString()), Value = item.ToString() });
                 }
 
-                <div class="bottomMargin">@Html.DropDownList("NGB_Exam", selectList2, new { onchange = "form.submit()" })</div>
+                <div class="bottomMargin">@Html.DropDownList("NGB", selectList2, new { onchange = "form.submit()" })</div>
                 <div><input type="submit" value="@QRefResources.Resource.Homepage_StartExam" class="btn btn-primary" /></div>
 
             }

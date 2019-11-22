@@ -207,7 +207,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
-    <Compile Include="Controllers\QuestionSuiteController.cs" />
+    <Compile Include="Controllers\QuizTemplateController.cs" />
+    <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="CustomException\ValidationExamException.cs" />
     <Compile Include="Helper\CookieHelper.cs" />
     <Compile Include="Helper\CultureHelper.cs" />
@@ -274,11 +275,19 @@
     <Compile Include="Migrations\201908210925433_VirtualEverywhere.Designer.cs">
       <DependentUpon>201908210925433_VirtualEverywhere.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911201350247_Stuff.cs" />
+    <Compile Include="Migrations\201911201350247_Stuff.Designer.cs">
+      <DependentUpon>201911201350247_Stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911221608272_Cleanup.cs" />
+    <Compile Include="Migrations\201911221608272_Cleanup.Designer.cs">
+      <DependentUpon>201911221608272_Cleanup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Logs.cs" />
-    <Compile Include="Models\QuestionSuite.cs" />
+    <Compile Include="Models\QuizTemplate.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="App_GlobalResources\Resource.fr.Designer.cs">
       <DependentUpon>Resource.fr.resx</DependentUpon>
@@ -414,8 +423,6 @@
     <Content Include="Views\Home\AlterQuestion.cshtml" />
     <Content Include="Views\Login\CreateAccount.cshtml" />
     <Content Include="Views\Home\Homepage.cshtml" />
-    <Content Include="Views\Home\Quizz.cshtml" />
-    <Content Include="Views\Home\QuizResult.cshtml" />
     <Content Include="Views\Profile\Profile.cshtml" />
     <Content Include="Views\Profile\ResultDetail.cshtml" />
     <Content Include="Views\Login\CreateAccountConfirmation.cshtml" />
@@ -439,10 +446,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Admin\Index_old.cshtml" />
     <Content Include="Views\Admin\QuestionsListing.cshtml" />
-    <Content Include="Views\QuestionSuite\Index.cshtml" />
-    <Content Include="Views\QuestionSuite\CreateQuestionSuite.cshtml" />
+    <Content Include="Views\QuizTemplate\Index.cshtml" />
+    <Content Include="Views\QuizTemplate\CreateQuizTemplate.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\QuestionSuite\EditQuestionSuite.cshtml" />
+    <Content Include="Views\QuizTemplate\EditQuizTemplate.cshtml" />
+    <Content Include="Views\Quiz\Quiz.cshtml" />
+    <Content Include="Views\Quiz\QuizResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -528,6 +537,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908210925433_VirtualEverywhere.resx">
       <DependentUpon>201908210925433_VirtualEverywhere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911201350247_Stuff.resx">
+      <DependentUpon>201911201350247_Stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911221608272_Cleanup.resx">
+      <DependentUpon>201911221608272_Cleanup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -45,7 +45,7 @@
                 <tbody>
                     @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model.Results)
                     {
-                        if (result.ResultType == QRefTrain3.Models.ResultType.Training)
+                        if (result.ResultType == QRefTrain3.Models.QuizType.Training)
                         {
                             <tr>
                                 <td>@result.DateTime.ToString("HH:mm dd/MM/yy")</td>
@@ -69,7 +69,7 @@
                 <tbody>
                     @foreach (QRefTrain3.ViewModel.ResultViewModel result in Model.Results)
                     {
-                        if (result.ResultType == QRefTrain3.Models.ResultType.Exam)
+                        if (result.ResultType == QRefTrain3.Models.QuizType.Exam)
                         {
                             <tr>
                                 <td>@result.DateTime.ToString("dd/MM/yy")</td>

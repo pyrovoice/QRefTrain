@@ -24,8 +24,9 @@ namespace QRefTrain3.Helper
             }
             catch (ValidationExamException e)
             {
-                Dal.Instance.CreateLog(new Log(LogLevel.ERROR, e.Message, Dal.Instance.GetDBTime(), ResultToValidate.User.Id));
+                Dal.Instance.CreateLog(new Log(LogLevel.ERROR, e.Message, Dal.Instance.GetDBTime(), ResultToValidate.User));
             }
+            ResolveQuizResult();
         }
 
 
@@ -39,7 +40,7 @@ namespace QRefTrain3.Helper
 
         private void ValidateTimeLimit()
         {
-            Exam currentExam = Dal.Instance.GetOngoingExamByUsername(ResultToValidate.User.Name);
+            Quiz currentExam = Dal.Instance.GetOngoingExamByUsername(ResultToValidate.User.Name);
             if (currentExam.StartDate == null)
             {
                 throw new ValidationExamException("No start date defined for the exam of ID: " + currentExam.Id);
@@ -50,7 +51,7 @@ namespace QRefTrain3.Helper
             }
         }
 
-        private bool IsExamTimeOverLimit(Exam exam)
+        private bool IsExamTimeOverLimit(Quiz exam)
         {
             int timeTakenForExamMillisecond = (ResultToValidate.DateTime - exam.StartDate).Milliseconds;
             if (timeTakenForExamMillisecond > exam.Suite.TimeLimit + EXAM_TIME_LIMIT_SECURITY)
@@ -62,7 +63,7 @@ namespace QRefTrain3.Helper
 
         private bool IsResultOfficial()
         {
-            if (ResultToValidate.ResultType == ResultType.Exam)
+            if (ResultToValidate.QuizType == QuizType.Exam)
             {
                 return true;
             }
@@ -72,19 +73,24 @@ namespace QRefTrain3.Helper
 
         private void ResolveQuizResult()
         {
-            if (ResultToValidate.ResultType == ResultType.Training)
+            if (ResultToValidate.QuizType == QuizType.Training)
             {
-                return;
+                ResolveTraining();
             }
-            if (ResultToValidate.ResultType == ResultType.Exam)
+            if (ResultToValidate.QuizType == QuizType.Exam)
             {
                 ResolveExam();
             }
         }
 
+        private void ResolveTraining()
+        {
+            Dal.Instance.CreateResult(ResultToValidate);
+        }
+
         private void ResolveExam()
         {
-            if (ResultToValidate.QuestionSuite != null)
+            if (ResultToValidate.QuestionSuite.Owner != null)
             {
                 Helper.MailingHelper.SendMailToQuestionSuiteOwner(ResultToValidate);
             }

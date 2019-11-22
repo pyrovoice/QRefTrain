@@ -34,7 +34,7 @@ namespace QRefTrain3.Models
         public bool IsRetired { get; set; } = false;
         public virtual List<Answer> Answers { get; set; }
         public virtual List<Result> Results { get; set; }
-        public virtual List<QuestionSuite> QuestionSuites { get; set; }
+        public virtual List<QuizTemplate> QuestionSuites { get; set; }
 
         public Question(string publicId, QuestionSubject subject, string gifName, string questionText,
             List<Answer> answers, string answerExplanation, params NationalGoverningBody[] bodies)

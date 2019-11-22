@@ -15,11 +15,19 @@ namespace QRefTrain3.Models
     public class Log
     {
         public int Id { get; set; }
-        [Column(TypeName = "DateTime2")]
         public LogLevel Level { get; set; }
         public String LogText { get; set; }
+        [Column(TypeName = "DateTime2")]
         public DateTime LogTime { get; set; }
-        public int? UserId { get; set; }
-        public String LogText { get; set; }
+        //Virtual = nullable for entity framwork
+        public virtual User User { get; set; }
+
+        public Log(LogLevel level, string logText, DateTime logTime, User user)
+        {
+            Level = level;
+            LogText = logText;
+            LogTime = logTime;
+            User = user;
+        }
     }
 }

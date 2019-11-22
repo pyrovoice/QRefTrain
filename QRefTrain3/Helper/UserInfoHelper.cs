@@ -20,7 +20,7 @@ namespace QRefTrain3.Helper
             var rs = Dal.Instance.GetResultByUser(user);
             for (int i = rs.Count - 1; i >= 0; i--)
             {
-                if (rs[i].ResultType != ResultType.Exam)
+                if (rs[i].QuizType != QuizType.Exam)
                 {
                     rs.RemoveAt(i);
                 }

@@ -8,13 +8,11 @@
     <title>Profile</title>
 </head>
 <body>
-
-
     <!-- Question Suite form -->
-    @using (Html.BeginForm("MovetoQuiz", "Home"))
+    @using (Html.BeginForm("StartQuizFromUserQuizSuite", "Quiz"))
     {
         <!-- String field for QuestionSuite text-->
-        @Html.TextBox("QuestionSuiteText", null, new { placeholder = QRefResources.Resource.Homepage_QuestionSuitePlaceholder, @class = "control-label" })
+        @Html.TextBox("questionSuiteText", null, new { placeholder = QRefResources.Resource.Homepage_QuestionSuitePlaceholder, @class = "control-label" })
 
         <!-- Submit -->
         <input type="submit" value="@QRefResources.Resource.Homepage_StartQuestionSuite" class="btn btn-primary" />
@@ -23,7 +21,7 @@
     <hr />
     @if (HttpContext.Current.User.Identity.IsAuthenticated)
     {
-        using (Html.BeginForm("MoveToQuestionSuite", "QuestionSuite"))
+        using (Html.BeginForm("MoveToQuizTemplateCreation", "QuizTemplate"))
         {
             <input type="submit" value="@QRefResources.Resource.QuestionSuite_Create" class="btn btn-primary" />
         }
@@ -34,18 +32,18 @@
                 <button onclick="copyCode()">Copy Code</button>
             </div>
         }
-        foreach (QRefTrain3.Models.QuestionSuite suite in Model.UserQuestionSuites)
+        foreach (QRefTrain3.Models.QuizTemplate quizTemplate in Model.UserQuestionSuites)
         {
             <div class="flex-container">
-                <div>@suite.Name</div>
+                <div>@quizTemplate.Name</div>
                 @using (Html.BeginForm("Details", "QuestionSuite", FormMethod.Post))
                 {
-                    @Html.Hidden("hiddenSuiteId", suite.Id)
+                    @Html.Hidden("hiddenSuiteId", quizTemplate.Id)
                     <input type="submit" class="button" value="details" />
                 }
                 @using (Html.BeginForm("Delete", "QuestionSuite", FormMethod.Post))
                 {
-                    @Html.Hidden("hiddenSuiteId", suite.Id)
+                    @Html.Hidden("hiddenSuiteId", quizTemplate.Id)
                     <input type="submit" class="button" value="Delete" />
                 }
             </div>

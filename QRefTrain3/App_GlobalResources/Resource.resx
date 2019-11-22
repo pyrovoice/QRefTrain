@@ -429,4 +429,13 @@
   <data name="Homepage_ReminderBeta03" xml:space="preserve">
     <value> .Thank you a lot !</value>
   </data>
+  <data name="Error_NoQuestionsForTest" xml:space="preserve">
+    <value>No question exists for the selected subject(s). This is due to the Beta statut of the website. We apologise for the inconvenience.</value>
+  </data>
+  <data name="Error_QuizTemplateOwnerDoesNotExist" xml:space="preserve">
+    <value>The owner of this quiz template deleted his or her account.</value>
+  </data>
+  <data name="Error_QuizTemplateContainsNoQuestion" xml:space="preserve">
+    <value>This template contains no question.</value>
+  </data>
 </root>

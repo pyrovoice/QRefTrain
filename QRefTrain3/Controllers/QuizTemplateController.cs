@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace QRefTrain3.Controllers
 {
-    public class QuestionSuiteController : Controller
+    public class QuizTemplateController : Controller
     {
         // GET: QuestionSuite
         public ActionResult Index()
@@ -27,20 +27,20 @@ namespace QRefTrain3.Controllers
         }
 
         [HttpPost]
-        public ActionResult MoveToQuestionSuite()
+        public ActionResult MoveToQuizTemplateCreation()
         {
-            return View("CreateQuestionSuite", Dal.Instance.getAllQuestionsExceptRetired());
+            return View("CreateQuizTemplate", Dal.Instance.getAllQuestionsExceptRetired());
         }
 
         [HttpPost]
-        public ActionResult CreateQuestionSuite(String name, List<string> questionIds, string timeLimit)
+        public ActionResult CreateQuizTemplate(String name, List<string> questionIds, string timeLimit)
         {
 
             //Check at least one question was selected and no more than 50
             if (questionIds.Count < 1 || questionIds.Count > 50)
             {
                 ViewBag.MailError = QRefResources.Resource.QuestionSuite_ErrorNbrQuestion;
-                return View("CreateQuestionSuite", Dal.Instance.getAllQuestionsExceptRetired());
+                return View("CreateQuizTemplate", Dal.Instance.getAllQuestionsExceptRetired());
             }
             //Check time limit is valid. If empty, set a default time limit
             if (String.IsNullOrEmpty(timeLimit))
@@ -54,7 +54,7 @@ namespace QRefTrain3.Controllers
             else if (!Int32.TryParse(timeLimit, out int test))
             {
                 ViewBag.MailError = QRefResources.Resource.QuestionSuite_ErrorTime;
-                return View("CreateQuestionSuite", Dal.Instance.getAllQuestionsExceptRetired());
+                return View("CreateQuizTemplate", Dal.Instance.getAllQuestionsExceptRetired());
             }
             //Check name is valid. If empty, set a default name
             if (String.IsNullOrEmpty(name))
@@ -72,10 +72,10 @@ namespace QRefTrain3.Controllers
                 return RedirectToAction("Homepage", "Home");
             }
             User currentUser = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
-            QuestionSuite newQuestionSuite = new QuestionSuite(Dal.Instance.GetQuestionsById(questionIds), currentUser, name, Int32.Parse(timeLimit));
+            QuizTemplate newQuestionSuite = new QuizTemplate(Dal.Instance.GetQuestionsById(questionIds), currentUser, name, Int32.Parse(timeLimit));
 
             //Update db with new suite
-            Dal.Instance.CreateQuestionSuite(newQuestionSuite);
+            Dal.Instance.CreateTemporaryQuizTemplate(newQuestionSuite);
 
             QuestionSuiteViewModel qsvm = new QuestionSuiteViewModel()
             {

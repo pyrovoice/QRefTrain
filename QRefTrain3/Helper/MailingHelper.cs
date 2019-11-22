@@ -26,11 +26,11 @@ namespace QRefTrain3.Helper
                 try
                 {
                     SmtpServer.Send(mail);
-                    Dal.Instance.CreateLog(new Log(LogLevel.INFO, "Registeration mail sent with body " + body + "using adress " + mail.From, DateTime.Now, user.Id));
+                    Dal.Instance.CreateLog(new Log(LogLevel.INFO, "Registeration mail sent with body " + body + "using adress " + mail.From, DateTime.Now, user));
                 }
                 catch (Exception e)
                 {
-                    Dal.Instance.CreateLog(new Log(LogLevel.ERROR, "Error when sending mail to : " + user.Email + ", with body : " + body + "\nException : " + e.Message, DateTime.Now, user.Id));
+                    Dal.Instance.CreateLog(new Log(LogLevel.ERROR, "Error when sending mail to : " + user.Email + ", with body : " + body + "\nException : " + e.Message, DateTime.Now, user));
                     return false;
                 }
                 return true;

@@ -12,7 +12,7 @@ namespace QRefTrain3.ViewModel
         public int Id { get; set; }
         public List<Question> QuestionsAsked { get; set; } = new List<Question>();
         public List<Answer> SelectedAnswers { get; set; } = new List<Answer>();
-        public ResultType ResultType { get; set; }
+        public QuizType ResultType { get; set; }
         public DateTime DateTime { get; set; }
 
         
@@ -23,7 +23,7 @@ namespace QRefTrain3.ViewModel
             // Order by to keep the same order displayed in the quiz and result
             this.QuestionsAsked = result.QuestionsAsked.OrderBy(d => result.QuestionsAsked.IndexOf(d)).ToList();
             this.SelectedAnswers = result.SelectedAnswers;
-            this.ResultType = result.ResultType;
+            this.ResultType = result.QuizType;
             this.DateTime = result.DateTime;
         }
 

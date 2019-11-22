@@ -7,14 +7,23 @@ using System.Web.ModelBinding;
 
 namespace QRefTrain3.Models
 {
-    public class Exam
+    public class Quiz
     {
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
-        //Who passes the test
         public User User { get; set; }
-        //What QuestionSuite should this exam be based on
-        public QuestionSuite Suite { get; set; }
+        public QuizTemplate Suite { get; set; }
         public Boolean IsClosed { get; set; } = false;
+
+        public Quiz()
+        {
+        }
+
+        public Quiz(DateTime startDate, User user, QuizTemplate suite)
+        {
+            StartDate = startDate;
+            User = user;
+            Suite = suite;
+        }
     }
 }

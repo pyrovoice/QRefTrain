@@ -1,4 +1,4 @@
-﻿@model QRefTrain3.ViewModel.QuizzViewModel
+﻿@model QRefTrain3.ViewModel.QuizViewModel
 @{
     Layout = null;
 }
@@ -14,16 +14,18 @@
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+    @Html.HiddenFor(m => Model.StartTime)
+    @Html.HiddenFor(m => Model.TimeLimit)
     @if (Model.StartTime.HasValue && Model.TimeLimit.HasValue)
     {
         <div id="timer" class="timer"></div>
     }
         <div>
             <!-- For each Question, display a new div with the Title, the question code, the question text, the video if there is one, then the possible answers depending on the type of answers-->
-            @using (Html.BeginForm("QuizzResult", "Home"))
+            @using (Html.BeginForm("QuizResult", "Quiz"))
             {
-                @Html.HiddenFor(m => Model.Suite)
                 @Html.HiddenFor(m => Model.ResultType)
+                @Html.HiddenFor(m => Model.QuestionSuiteId)
                 for (int i = 0; i < Model.DisplayedQuestions.Count; i++)
                 {
                     @Html.HiddenFor(m => m.DisplayedQuestions[i].Id)
@@ -78,55 +80,6 @@
         $('html,body').animate({ scrollTop: $(this).parent().next().offset().top }, 'fast');
 
     });
-    /*
-    function createElement(type, callback) {
-        var element = document.createElement(type);
-
-        callback(element);
-
-        return element;
-    }
-
-    function freezeGif(img) {
-        var width = img.width,
-            height = img.height,
-            canvas = createElement('canvas', function (clone) {
-                clone.width = width;
-                clone.height = height;
-            }),
-            attr,
-            i = 0;
-
-        var freeze = function () {
-            canvas.getContext('2d').drawImage(img, 0, 0, width, height);
-
-            for (i = 0; i < img.attributes.length; i++) {
-                attr = img.attributes[i];
-
-                if (attr.name !== '"') { // test for invalid attributes
-                    canvas.setAttribute(attr.name, attr.value);
-                }
-            }
-
-            canvas.style.position = 'absolute';
-
-            img.parentNode.insertBefore(canvas, img);
-            img.style.opacity = 0;
-        };
-
-        if (img.complete) {
-            freeze();
-        } else {
-            img.addEventListener('load', freeze, true);
-        }
-    }
-
-    function freezeAllGifs() {
-        return new Array().slice.apply(document.images).map(freezeGif);
-    }
-
-    freezeAllGifs();*/
-
 </script>
 
 @if (Model.StartTime.HasValue)
