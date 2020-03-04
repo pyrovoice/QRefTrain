@@ -1,58 +1,65 @@
 ﻿@model QRefTrain3.ViewModel.ResultViewModel
 
-<div>
-    <h5>Test taken the @Model.DateTime.ToString("dd/MM/yy"), scored @Model.GetNumberGoodAnswer()/@(Model.QuestionsAsked.Count).</h5>
-    @foreach (QRefTrain3.Models.Question question in Model.QuestionsAsked)
-    {
-        <div>
-            <div class="flex-container">
-                <h5>(@question.PublicId)  @QRefResources.QuestionResource.ResourceManager.GetString(question.QuestionText)</h5>
-                @if (!String.IsNullOrEmpty(question.GifName))
-                {
-                    /*
-                     * Obsolete from when I was using videos
-                    <div><img id="@question.Id" src="~/Elements/logo_movie.png" height="30" width="30" /></div>
-                    <div class="hiddenInformations QuizzQuestionVideoContainer" id=@("hidden" + question.Id)>
-                        <iframe class="QuizzQuestionVideo" id="ytplayer" type="text/html"
-                                src="@question.VideoURL"
-                                frameborder="0"></iframe>
-                    </div>
-                    */
-                    <iframe src='@question.GifName?autoplay=0' frameborder='0' scrolling='no' width='640' height='346'></iframe>
-                }
-            </div>
-            <div class="flex-container">
-                @for (int counter = 0; counter < question.Answers.Count; counter++)
-                {
-                    string backGround = "";
-                    // We only highlight answers that are relevant
-                    // Answer is true and selected
-                    if (Model.SelectedAnswers.Contains(@question.Answers[counter]) && question.Answers[counter].IsTrue)
-                    {
-                        backGround = "greenBack";
-                    }
-                    // Answer is false and not selected
-                    else if (!Model.SelectedAnswers.Contains(@question.Answers[counter]) && !question.Answers[counter].IsTrue)
-                    {
-                        backGround = "greyBack";
-                    }
-                    // Answer is true and not selected or the opposite
-                    else
-                    {
-                        backGround = "redBack";
-                    }
-
-                    <div class="answer @backGround"><img id="selection" src="~/Elements/@(Model.SelectedAnswers.Contains(question.Answers[counter]) ? "checkBoxSelected" : "checkBoxUnselected").png" height="25" width="25" />@QRefResources.QuestionResource.ResourceManager.GetString(question.Answers[counter].Answertext)</div>
-                }
-            </div>
-            <div>@QRefResources.QuestionResource.ResourceManager.GetString(question.AnswerExplanation)</div>
-        </div>
-        if (Model.QuestionsAsked.Last() != question)
+    <div>
+        <h5>Test taken the @Model.DateTime.ToString("dd/MM/yy"), scored @Model.GetNumberGoodAnswer()/@(Model.QuestionsAsked.Count).</h5>
+        @foreach (QRefTrain3.Models.Question question in Model.QuestionsAsked)
         {
-            <hr />
+
+            <div>
+                <div>
+                    @Ajax.ActionLink("Report", "ReportAQuestion", "Home",
+                    new
+                         {
+                             questionId = question.Id
+                    },
+                    new AjaxOptions
+                         {
+                        HttpMethod = "GET",
+                    }
+                );
+                </div>
+            </div>
+            <div>
+                <div class="flex-container">
+                    <h5>(@question.PublicId)  @QRefResources.QuestionResource.ResourceManager.GetString(question.QuestionText)</h5>
+                    @if (!String.IsNullOrEmpty(question.GifName))
+                    {
+                        <iframe src='@question.GifName?autoplay=0' frameborder='0' scrolling='no' width='640' height='346'></iframe>
+                    }
+                </div>
+                <div class="flex-container">
+                    @for (int counter = 0; counter < question.Answers.Count; counter++)
+                    {
+                    https://stackoverflow.com/jobs?so_medium=StackOverflow&so_source=SiteNav
+                        string backGround = "";
+                        // We only highlight answers that are relevant
+                        // Answer is true and selected
+                        if (Model.SelectedAnswers.Contains(@question.Answers[counter]) && question.Answers[counter].IsTrue)
+                        {
+                            backGround = "greenBack";
+                        }
+                        // Answer is false and not selected
+                        else if (!Model.SelectedAnswers.Contains(@question.Answers[counter]) && !question.Answers[counter].IsTrue)
+                        {
+                            backGround = "greyBack";
+                        }
+                        // Answer is true and not selected or the opposite
+                        else
+                        {
+                            backGround = "redBack";
+                        }
+
+                        <div class="answer @backGround"><img id="selection" src="~/Elements/@(Model.SelectedAnswers.Contains(question.Answers[counter]) ? "checkBoxSelected" : "checkBoxUnselected").png" height="25" width="25" />@QRefResources.QuestionResource.ResourceManager.GetString(question.Answers[counter].Answertext)</div>
+                    }
+                </div>
+                <div>@QRefResources.QuestionResource.ResourceManager.GetString(question.AnswerExplanation)</div>
+            </div>
+            if (Model.QuestionsAsked.Last() != question)
+            {
+                <hr />
+            }
         }
-    }
-</div>
+    </div>
 
 <script>
     $(document).ready(function () {

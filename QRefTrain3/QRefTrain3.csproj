@@ -283,6 +283,10 @@
     <Compile Include="Migrations\201911221608272_Cleanup.Designer.cs">
       <DependentUpon>201911221608272_Cleanup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002221057190_fzf.cs" />
+    <Compile Include="Migrations\202002221057190_fzf.Designer.cs">
+      <DependentUpon>202002221057190_fzf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
@@ -297,6 +301,7 @@
     </Compile>
     <Compile Include="Models\Requests.cs" />
     <Compile Include="ViewModel\AnswerQuizzViewModel.cs" />
+    <Compile Include="ViewModel\ImportFromSheetsResultViewModel.cs" />
     <Compile Include="ViewModel\ProfileViewModel.cs" />
     <Compile Include="ViewModel\QuestionQuizzViewModel.cs" />
     <Compile Include="ViewModel\QuestionSuiteViewModel.cs" />
@@ -452,6 +457,8 @@
     <Content Include="Views\QuizTemplate\EditQuizTemplate.cshtml" />
     <Content Include="Views\Quiz\Quiz.cshtml" />
     <Content Include="Views\Quiz\QuizResult.cshtml" />
+    <Content Include="Views\Admin\ImportFromSheetResult.cshtml" />
+    <Content Include="Views\Shared\_ReportErrorInQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -543,6 +550,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911221608272_Cleanup.resx">
       <DependentUpon>201911221608272_Cleanup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002221057190_fzf.resx">
+      <DependentUpon>202002221057190_fzf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

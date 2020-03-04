@@ -12,6 +12,7 @@ using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System.Threading;
+using QRefTrain3.ViewModel;
 
 namespace QRefTrain3.Controllers
 {
@@ -36,20 +37,9 @@ namespace QRefTrain3.Controllers
                     return RedirectToAction("Homepage", "Home");
                 }
             }
-            /*
-            User user = Dal.Instance.GetUserByName(HttpContext.User.Identity.Name);
-            if (user.UserRole != UserRole.Admin)
-            {
-                Dal.Instance.CreateLog(new Log()
-                {
-                    LogText = "User tried to access admin page without right. User : " + user.Name + ", Right : " + user.UserRole,
-                    LogTime = DateTime.Now,
-                    UserId = user.Id
-
-                });
-                return RedirectToAction("Homepage", "Home");
-            }*/
-            return View("Index", Dal.Instance.getAllLogs());
+            List<Log> a = Dal.Instance.getAllLogs();
+            a.Sort();
+            return View("Index", a);
         }
 
         [HttpPost]
@@ -208,7 +198,7 @@ namespace QRefTrain3.Controllers
                 ApplicationName = ApplicationName,
             });
 
-            String spreadsheetId = "1opDpgHI6D0-zhaR33GLi027xwDtiJClj_XaiBZ2004w";
+            String spreadsheetId = "1CGK04DNT5Ym7Pxl7w7HzkqLrsNaLeNS0SkG2nzMNH8Y";
             Spreadsheet spreadsheet = service.Spreadsheets.Get(spreadsheetId).Execute();
             List<Question> importedQuestions = new List<Question>();
             foreach (Sheet sheet in spreadsheet.Sheets)
@@ -299,6 +289,7 @@ namespace QRefTrain3.Controllers
                     }
                 }
             }
+            ImportFromSheetsResultViewModel importResult = new ImportFromSheetsResultViewModel();
             // We now have a list with all questions we try to import.
             List<Question> dbQuestions = Dal.Instance.getAllQuestionsExceptRetired();
             // For each question, try to find an equal question in the database. If you can, nothing to do here so we can remove both questions from the list.
@@ -308,6 +299,7 @@ namespace QRefTrain3.Controllers
                 {
                     if (importedQuestions[questionCounter].IsSimilar(dbQ))
                     {
+                        importResult.untouchedQuestions.Add(dbQ);
                         importedQuestions.RemoveAt(questionCounter);
                         dbQuestions.Remove(dbQ);
                         break;
@@ -317,15 +309,17 @@ namespace QRefTrain3.Controllers
             // Each question left in the question imported list is a new question that we should add to the database 
             foreach (Question q in importedQuestions)
             {
+                importResult.newlyCreatedQuestions.Add(q);
                 Dal.Instance.CreateQuestion(q);
             }
             // Each question left in the database questions list is a question that should not be used anymore, so we can flag them as Retired
             foreach (Question q in dbQuestions)
             {
+                importResult.retiredQuestions.Add(q);
                 Dal.Instance.RetireQuestion(q);
             }
 
-            return RedirectToAction("Index");
+            return View("ImportFromSheetResult", importResult);
         }
     }
 }

@@ -26,8 +26,8 @@
         <thead>
             <tr>
                 <th class="col-md-1">LogTime</th>
-                <th class="col-md-1">UserId</th>
                 <th class="col-md-1">LogText</th>
+                <th class="col-md-1">UserId</th>
             </tr>
         </thead>
         <tbody>
@@ -35,8 +35,11 @@
             {
             <tr>
                 <td>@log.LogTime</td>
-                <td>@log.UserId</td>
                 <td>@log.LogText</td>
+                @if (log.User != null)
+                {
+                    <td>@log.User.Name</td>
+                }
             </tr>
             }
         </tbody>

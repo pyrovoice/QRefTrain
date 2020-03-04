@@ -24,7 +24,7 @@ namespace QRefTrain3.Helper
             }
             catch (ValidationExamException e)
             {
-                Dal.Instance.CreateLog(new Log(LogLevel.ERROR, e.Message, Dal.Instance.GetDBTime(), ResultToValidate.User));
+                Dal.Instance.CreateLog(new Log(LogLevel.ERROR, LogType.QUIZ_FINISHED, e.Message, Dal.Instance.GetDBTime(), ResultToValidate.User));
             }
             ResolveQuizResult();
         }

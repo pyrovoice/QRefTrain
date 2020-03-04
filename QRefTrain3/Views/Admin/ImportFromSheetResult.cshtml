@@ -1,0 +1,79 @@
+﻿@model QRefTrain3.ViewModel.ImportFromSheetsResultViewModel
+
+@Html.ActionLink("Back", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+<h4>Questions added</h4>
+<table>
+    <thead>
+    <th>PublicId</th>
+    <th>Subject</th>
+    <th>GifName</th>
+    <th>QuestionText</th>
+    <th>NationalGoverningBodies</th>
+    <th>IsRetired</th>
+    </thead>
+    <tbody>
+        @foreach (QRefTrain3.Models.Question q in Model.newlyCreatedQuestions)
+        {
+            <tr>
+                <td>@q.PublicId</td>
+                <td>@q.Subject</td>
+                <td>@q.GifName</td>
+                <td>@QRefResources.QuestionResource.ResourceManager.GetString(q.QuestionText)</td>
+                <td>@q.NationalGoverningBodies</td>
+                <td>@q.IsRetired</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<h4>Questions Removed</h4>
+<table>
+    <thead>
+    <th>PublicId</th>
+    <th>Subject</th>
+    <th>GifName</th>
+    <th>QuestionText</th>
+    <th>NationalGoverningBodies</th>
+    <th>IsRetired</th>
+    </thead>
+    <tbody>
+        @foreach (QRefTrain3.Models.Question q in Model.retiredQuestions)
+        {
+            <tr>
+                <td>@q.PublicId</td>
+                <td>@q.Subject</td>
+                <td>@q.GifName</td>
+                <td>@QRefResources.QuestionResource.ResourceManager.GetString(q.QuestionText)</td>
+                <td>@q.NationalGoverningBodies</td>
+                <td>@q.IsRetired</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<h4>Questions untouched</h4>
+<table>
+    <thead>
+    <th>PublicId</th>
+    <th>Subject</th>
+    <th>GifName</th>
+    <th>QuestionText</th>
+    <th>NationalGoverningBodies</th>
+    <th>IsRetired</th>
+    </thead>
+    <tbody>
+        @foreach (QRefTrain3.Models.Question q in Model.untouchedQuestions)
+
+        {
+            <tr>
+                <td>@q.PublicId</td>
+                <td>@q.Subject</td>
+                <td>@q.GifName</td>
+                <td>@QRefResources.QuestionResource.ResourceManager.GetString(q.QuestionText)</td>
+                <td>@q.NationalGoverningBodies</td>
+                <td>@q.IsRetired</td>
+            </tr>
+        }
+    </tbody>
+</table>
